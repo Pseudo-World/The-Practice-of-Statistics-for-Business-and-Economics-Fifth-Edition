@@ -1,0 +1,736 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="caiya5ece607c0ed6c958f63acec1a7a" style="min-width: 100%; width: 1px; text-size-adjust: 100%; font-size: 100%; transform-origin: left top;">
+  <head style="display: none;"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../css/alw_9781319272463.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common/lm_ui.css" type="text/css" rel="stylesheet" />
+    <script src="../frost_widgets_data/glossary.js" type="text/javascript"></script>
+    <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascript/lm_popup.js" type="text/javascript"></script>
+    <script src="../javascript/lm_frost_listner_min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Overview of inference</title>
+  <script src="../javascript/tex-mml-chtml.min.js" id="MathJax-script"></script><style type="text/css" media="print">body > * { display: none !important; height: 0px !important; width: 0px !important; overflow: hidden; }body:before { content: "To print, please use the print page range feature within the application."; display: block !important;}</style><script async="" src="../frost_widgets_data/ovan351eed7271f60767dd8829e0279c.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-msqrt {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-root {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+mjx-surd {
+  display: inline-block;
+  vertical-align: top;
+}
+
+mjx-sqrt {
+  display: inline-block;
+  padding-top: .07em;
+}
+
+mjx-sqrt > mjx-box {
+  border-top: .07em solid;
+}
+
+mjx-sqrt.mjx-tall > mjx-box {
+  padding-left: .3em;
+  margin-left: -.3em;
+}
+
+mjx-mroot {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-semantics {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("../css/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("../css/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("../css/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("../css/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("../css/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("../css/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("../css/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("../css/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("../css/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("../css/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("../css/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("../css/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("../css/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("../css/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("../css/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("../css/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("../css/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("../css/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("../css/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("../css/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("../css/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("../css/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c2F::before {
+  padding: 0.75em 0.5em 0.25em 0;
+  content: "/";
+}
+
+mjx-c.mjx-c221A::before {
+  padding: 0.8em 0.853em 0.2em 0;
+  content: "\221A";
+}
+
+mjx-c.mjx-c1D45B.TEX-I::before {
+  padding: 0.442em 0.6em 0.011em 0;
+  content: "n";
+}
+
+mjx-c.mjx-c1D460.TEX-I::before {
+  padding: 0.442em 0.469em 0.01em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c1D461.TEX-I::before {
+  padding: 0.626em 0.361em 0.011em 0;
+  content: "t";
+}
+
+mjx-c.mjx-c1D70E.TEX-I::before {
+  padding: 0.431em 0.571em 0.011em 0;
+  content: "\3C3";
+}
+</style></head>
+  <body epub:type="bodymatter" class="bodymatter" id="fldtce30d23662164d1de3b42595ac8e" data-lo-framework-id="" style="overflow: auto;">
+    <section class="chapter" epub:type="chapter" id="ch07_sec_1" role="doc-chapter">
+      <header class="intro v1" id="mcdyae287aca17c4e60ba75742ca7d44">
+        <h1 class="title" epub:type="title" id="fxnbc6c49a313286d624b71f780c04c1">
+          <span aria-label="337" epub:type="pagebreak" id="page337" role="doc-pagebreak" title="337"></span>
+          <span class="label" epub:type="label" id="zpha36812723a015299feae80172094d">CHAPTER </span>
+          <span class="ordinal" epub:type="ordinal" id="uzdja414563097ad8582ee6f37f7be99">7 </span>
+          <span class="title" id="pgvz8208385295c473b1a5f1b320f17f">Introduction to Inference</span>
+        </h1>
+      </header>
+      <figure class="figure lm_img_lightbox intro" id="ch07_cofig_1" data-pswp-uid="1">
+        <img alt="image pop up. Press enter to access the pop up" aria-describedby="image-desc1" class="figure" id="utxz95edb10674a85afab536523afb8c" src="../images/psbe5e_co_07_230498.png" tabindex="0" />
+      </figure>
+      <aside class="hidden" id="image-desc1" title="hidden">
+        <p class="noindent" id="hdfy35670b4af12ebbe8124d28943079">-</p>
+      </aside>
+      <nav class="toc-brief" epub:type="toc-brief" id="pkxr8f16f649e01a81074533c46d09f3">
+        <header id="dhvldcd11e5beaf7e4d81f8db0a91240">
+          <h2 class="title v2" epub:type="title" id="jwgy6c26265285accd1c2cfa892f02ac">CHAPTER OUTLINE</h2>
+        </header>
+        <ul class="ul-no-mark" id="lngm914c107094c91242a5b47f037f04">
+          <li id="xvacbe6337f206337f5fe23b43b3ba36">
+            <a class="crossref" href="alw_9781319272463_ch07_02.xhtml#ch07_sec_1_1" id="ch07_refundi_1" style="overflow-wrap: break-word;"><span class="ordinal" epub:type="ordinal" id="epyced30e1f8958b78b6ec55f5d8b4c6">7.1 </span>Estimating with Confidence</a>
+          </li>
+          <li id="dfni6b382f746d16ca308ccc5f8ad1db">
+            <a class="crossref" href="alw_9781319272463_ch07_03.xhtml#ch07_sec_1_2" id="ch07_refundi_2" style="overflow-wrap: break-word;"><span class="ordinal" epub:type="ordinal" id="ssrqf954d72149dba9f239e6681f2f0a">7.2 </span>Tests of Significance</a>
+          </li>
+          <li id="wlsb9c0b845b8ebd633a69b53de68d91">
+            <a class="crossref" href="alw_9781319272463_ch07_04.xhtml#ch07_sec_1_3" id="ch07_refundi_3" style="overflow-wrap: break-word;"><span class="ordinal" epub:type="ordinal" id="tpmbbce6655a3374f83fc81225359674">7.3 </span>Use and Abuse of Tests</a>
+          </li>
+          <li id="beet9bdec259640376d7c49abb059214">
+            <a class="crossref" href="alw_9781319272463_ch07_05.xhtml#ch07_sec_1_4" id="ch07_refundi_4" style="overflow-wrap: break-word;"><span class="ordinal" epub:type="ordinal" id="nkkr3f2e1b7ffc35f7b6faf46b6e291e">7.4 </span>Prediction Intervals</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="introduction" epub:type="introduction" id="CH07-sec2" role="doc-introduction">
+        <header id="nkurbdb7cf64e3b0834e726927430110">
+          <h2 class="a-head v3" id="mtdha2ed6922e15f734b9ac7b19f0586">Introduction</h2>
+        </header>
+        <p class="noindent" id="jpeo2490d016fbf44588af908b54c456">Data-driven companies—both in manufacturing and service—gather data on various aspects of their businesses to draw conclusions about their own performance and about their markets.</p>
+        <ul class="ul-bullet-list" id="vfxae3ba23a3bd223090000e468e7027">
+          <li id="swwqe05b58018078fe4ca0147a4bebc4">When Coca-Cola or Pepsi are filling millions of two-liter bottles, how can these companies be sure that the average fill amount remains on target at 2 liters?</li>
+          <li id="xqzwa58ab079fb9343a519a3ae617f5a">In response to customer complaints, AT&amp;T attempts to improve customers’ waiting times with its call centers. How can AT&amp;T be confident that its efforts have reduced average wait time?</li>
+          <li id="yknx150eb19c39dac068adaefeb7bc47">Kaplan claims that its GMAT test prep courses will increase the average GMAT score of their students. Do before and after scores of Kaplan prep course students support this claim?</li>
+        </ul>
+        <p class="indent" id="qgna581cb9f2c6dd708e70b23f3bb4e8">These are all examples in which statistical inference—namely, drawing conclusions about a population or process from sample data—could be used. Inference takes into account the natural variability in the sample data, thereby providing a statement of how much confidence we can place in the conclusions. Although there are numerous methods for inference, there are only a few general types of statistical inference. This chapter introduces the two most common types: <i class="semantic-i" id="ehkwc222e7cdfd245bd05de4dc79a2d8">confidence intervals</i> and <i class="semantic-i" id="lcft80c1b6019b2ba5dd68983d5ab434">tests of significance</i>.</p>
+        <p class="indent" id="ihup3f8a4c4ea34a238a838fdf51d47f">Because the underlying reasoning for these two types of inference remains the same across different settings, this chapter considers just one simple setting: inference about the mean of a large population whose standard deviation is known. Although, in practice, the population standard deviation is rarely <span aria-label="338" epub:type="pagebreak" id="page338" role="doc-pagebreak" title="338"></span>known, this setting allows us to focus on the underlying rationale of these types of statistical inference with a class of distributions that we are familiar with: namely, the Normal distributions. As you will see, the material of <a class="crossref" href="alw_9781319272463_ch06_01.xhtml#ch06_sec_1" id="ch07_refundi_5" style="overflow-wrap: break-word;">Chapter 6</a> on the sampling distribution of the sample mean provides a necessary foundation for the developments of this chapter. Likewise, our coverage of confidence intervals provides a natural opportunity to introduce the idea of prediction intervals in <a class="crossref" href="alw_9781319272463_ch07_05.xhtml#ch07_sec_1_4" id="ch07_refundi_6" style="overflow-wrap: break-word;">Section 7.4</a>.</p>
+        <p class="indent" id="exzk4f6384c8b80c2fe322402a644e2c">Later chapters will present inference methods to use in more realistic settings that we encounter when learning to explore data. In fact, there are libraries—both of books and of computer software—full of more elaborate statistical techniques. Informed use of any of these methods, however, requires a firm understanding of the underlying reasoning. That is the goal of this chapter. A computer or calculator will do the arithmetic, but <i class="semantic-i" id="jawh418feafceb695a0dcfea9b84bdae">you must still exercise sound judgment based on understanding.</i></p>
+      </section>
+      <section aria-label="sect1" class="sect1" id="ch07_int_1_1">
+        <section class="sect2" id="ch07_int_1_1_1">
+          <header id="qoznc3df65619dfaf78dfb677730379c">
+            <h3 class="b-head v2" id="gnvk1127c82d9100f5f48f12c3253d93">Overview of inference</h3>
+          </header>
+          <p class="noindent" id="tmoz3ae6455958a9421ef7fb8b3f505a">The purpose of statistical inference is to draw conclusions from data. Formal inference emphasizes substantiating our conclusions via probability calculations. Probability allows us to take chance variation into account. Here is an example.</p>
+          <section class="example c3 main-flow" id="ch07_ex_1" title="EXAMPLE 7.1">
+            <header id="tvdt5ae558b02961e6d15604b01c3f5f">
+              <h4 class="title v3 cap" epub:type="title" id="vjmq64f737b7cca5c6c31cb736db75d0">
+                <span class="label" epub:type="label" id="qmab27b161788437d8676892ed2f6b53">Example </span>
+                <span class="ordinal" epub:type="ordinal" id="burg0174c1283d1c58b4f6bc9e8f95b5">7.1 </span>
+              </h4>
+            </header>
+            <section class="subsect1" id="ch07_ex_1-1">
+              <header id="xkcbba2154c3e1348147a7b6ee162218">
+                <h5 class="level1 v3" id="qtcq6c04a4a5838167dea8ddb3baf809">Pattern in Trading Volumes</h5>
+              </header>
+              <p class="noindent" id="nxxd63556ac78b1eaa41286f5c59c1cf">
+                <img alt="An icon reads V Z V O L." class="dataset" data-dataset-id="ovan351eed7271f60767dd8829e0279c" data-fallbck-img-size="" data-path="../frost_widgets_data/ovan351eed7271f60767dd8829e0279c.js" data-profile="enhanced" height="45" id="rrmx2700650ea510808879904b26f1c9" src="../images/psbe5e_07_PG338.png" width="34" />
+                <a href="http://crunchit.macmillantech.com/psbe5e?dataset=eg07-01.txt" id="lwoid376338d86be56f6890cc43aec85" style="overflow-wrap: break-word;">
+                  <img alt="image" class="crun1" height="40" id="lhcw237ee6bb0cda0cc9125c480dbbbc" src="../images/rzlw658262cc6372a0c884f018d12aab_CrunchIT.png" width="56" />
+                </a>
+              </p>
+              <p class="noindent" id="heose1c30deef022a9b221f62c55a474">Investors and analysts are continually seeking ways to understand price movements in stocks. One factor often considered is trading volume, that is, the quantity of shares that change owners. In studying the relationship between trading volumes and price movements, an understanding of the trading-volume process becomes a source of interest. Are trading volumes random from trading period to trading period? Or, is there some pattern in trading volumes over time?</p>
+              <p class="indent" id="frxc64159c6d591375b76a35d5f03f34"><a class="crossref" href="alw_9781319272463_ch07_01.xhtml#ch07_fig_1" id="ch07_refundi_7" style="overflow-wrap: break-word;">Figure 7.1</a> is a time plot of the daily trading volumes for Verizon Communications stock from January 2 to June 25, 2018, with the mean trading volume indicated by a horizontal black line.<sup class="semantic-sup" id="yrvcd0497c9bf8b0ad2e1a7ea074bea0"><a class="noteref" epub:type="noteref" href="alw_9781319272463_EM_notes.xhtml#CH07-FN1" id="CH07-RFN1" role="doc-noteref" style="overflow-wrap: break-word;">1</a></sup> Do the daily volumes appear to be randomly fluctuating around this mean? More specifically, could you simulate the trading-volume process with the process of flipping a fair coin, with heads <span aria-label="339" epub:type="pagebreak" id="page339" role="doc-pagebreak" title="339"></span>being an observation below the mean and tails being an observation above the mean? Or, does it appear that the volumes move in patterns around the mean level? In particular, are there “strings” (runs) of observations either all below or all above the mean?</p>
+              <figure class="figure lm_img_lightbox num c5 center" id="ch07_fig_1" data-pswp-uid="2">
+                <img alt="image pop up. Press enter to access the pop up" aria-describedby="image-desc2" class="figure" id="bctkfbfee4cd1f5ff7964cf2c4747bf6" src="../images/psbe5e_07_01_247874.png" tabindex="0" />
+                <figcaption id="rqmla1f01ff763f2a00b17cf27315a6c">
+                  <p class="noindent" id="xalff27ea39cabc0fe1ff17a2bf32189"><span class="label" epub:type="label" id="nmgw8e8a95794f5f14b20e5b35ad8025">Figure </span><span class="ordinal" epub:type="ordinal" id="puui0ca2f9752cff49a63c8f5075e8ac">7.1 </span>Time plot of daily trading volumes of Verizon Communications stock (January 2, 2018 to June 25, 2018), with the mean trading volume indicated.</p>
+                </figcaption>
+              </figure>
+              <aside class="hidden" id="image-desc2" title="hidden">
+                <p class="noindent" id="ncrh8f55c6a47708147d3258c66be28c">The horizontal axis labeled time ranges from 0 to 120 in increments of 12, with a marking at 1. The vertical axis labeled volume ranges from 5,000,000 to 35,000,000 in increments of 5,000,000. A horizontal line is drawn at volume 16,877,250. There are many sharp peaks. The lowest point is at approximately (70, 7,000,000). The highest point is at approximately (24, 35,000,000).</p>
+              </aside>
+              <p class="indent" id="kasr33b2bd0c5e78e2cb844869aad178">As we will learn in <a class="crossref" href="alw_9781319272463_ch14_01.xhtml#ch14_sec_1" id="ch07_refundi_8" style="overflow-wrap: break-word;">Chapter 14</a>, a runs test indicates that observing a more extreme number of runs than those shown in <a class="crossref" href="alw_9781319272463_ch07_01.xhtml#ch07_fig_1" id="ch07_refundi_9" style="overflow-wrap: break-word;">Figure 7.1</a> would occur only 3.7% of the time if, in fact, trading volumes are truly random over time. Because this chance is fairly small, we are inclined to believe that trading volumes are <i class="semantic-i" id="yicv1146cf409f646c49ed21823701d7">not</i> purely random over time. This probability calculation helps us to distinguish between patterns that are consistent or inconsistent with random behavior over time. <img alt="" aria-hidden="true" class="decorative size-small right inline" id="pswp800f9d92527c4fa6f87f06ff68ef" role="presentation" src="../images/psbe5e_07_PG339a.png" /></p>
+            </section>
+          </section>
+          <aside aria-label="tip" class="tip c1 left v1" epub:type="tip" id="ch07_asidetip_1" role="doc-tip" title="tip">
+            <p class="noindent" id="zmpe696270d72d69e2350d957e378c0a">
+              <img alt="" aria-hidden="true" class="decorative size-med inline" id="qgye804265f29802b1531a37d04b1970" role="presentation" src="../images/Reminder_02.png" />
+              <strong class="important" id="umlxe1347e527ab07f688329df73474b">sampling distribution, <a class="crossref" href="alw_9781319272463_ch06_02.xhtml#page298" id="ch07_refundi_10" style="overflow-wrap: break-word;">p. 298</a></strong>
+            </p>
+          </aside>
+          <p class="indent" id="heaeef9755001936a219f101aafb983e">In this chapter, we introduce the two most frequently used types of statistical inference. <a class="crossref" href="alw_9781319272463_ch07_02.xhtml#ch07_sec_1_1" id="ch07_refundi_11" style="overflow-wrap: break-word;">Section 7.1</a> concerns <i class="semantic-i" id="kmuo3f5b8aaa3a4446a6aa7ae57562cb">confidence intervals</i> for estimating the value of a population parameter. <a class="crossref" href="alw_9781319272463_ch07_03.xhtml#ch07_sec_1_2" id="ch07_refundi_12" style="overflow-wrap: break-word;">Section 7.2</a> presents <i class="semantic-i" id="xlwe76491f0ee7318b3b99c2eb8e9607">tests of significance</i> which assess the evidence for a claim or baseline scenario. Both types of inference are based on the sampling distributions of statistics. That is, both report probabilities that state <i class="semantic-i" id="pqhudf1bdde1a46b9e8b11e61c64425a">what would happen if we used the inference method many times</i>. That kind of probability statement is characteristic of standard statistical inference. The reporting of 3.7% in <a class="crossref" href="alw_9781319272463_ch07_01.xhtml#ch07_ex_1" id="ch07_refundi_13" style="overflow-wrap: break-word;">Example 7.1</a> provides an example of a probability statement (known as <i class="semantic-i" id="zwafd67951dccf1bb143b1123b4dd2b0">P</i>-value) used in statistical inference. Our choice of a type of analysis unfamiliar to you in <a class="crossref" href="alw_9781319272463_ch07_01.xhtml#ch07_ex_1" id="ch07_refundi_14" style="overflow-wrap: break-word;">Example 7.1</a> was quite purposeful. Specifically, our purpose is to hint to the fact that the concepts and basic reasoning of inference developed in this chapter carry through the remainder of the book.</p>
+          <aside aria-label="tip" class="tip c1 left v1" epub:type="tip" id="ch07_asidetip_2" role="doc-tip" title="tip">
+            <p class="noindent" id="oetx26f4f09d5e03911fde335f0a1acb">
+              <img alt="" aria-hidden="true" class="decorative size-med inline" id="bbzk312260a5ff611e363922d3dc5fcd" role="presentation" src="../images/Reminder_02.png" />
+              <strong class="important" id="ufcz8dea04c8a3b03a29a5dbd3918b4d">standard deviation of sample mean, <a class="crossref" href="alw_9781319272463_ch06_03.xhtml#page311" id="ch07_refundi_15" style="overflow-wrap: break-word;">p. 311</a></strong>
+            </p>
+          </aside>
+          <p class="indent" id="fryke39c167e3dd84f1f195d80d08226">There are a wide variety of statistics used to summarize data. In this chapter, we concentrate on the sample mean. Because sample means are just averages of observations, they are among the most frequently used statistics. From <a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_sec_1_2" id="ch07_refundi_16" style="overflow-wrap: break-word;">Section 6.2</a>, we learned that the sampling distribution of the sample mean based on <span aria-label="n" class="math" id="alw_9781319272463_ch07_01EQ_0001.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="0" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dynr830079bf97de121d7422d4ef1c2b" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vydn43140d84686a4547fd56a960365a"><mjx-mrow id="aoke7064fcb0400f170f17cdadffb377"><mjx-mi class="mjx-i" id="tdkx2244b2241da6987045b21c508676"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>n</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> observations has a standard deviation of <span aria-label="sigma solidus Square root of n comma" class="math" id="alw_9781319272463_ch07_01EQ_0002.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="1" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wzflfda57e3f5af34c5356630d371a82" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="aigua62b8f443db067c0bb00487d4068"><mjx-mrow id="xtfgb2783a306325c4a41840f4bfba21"><mjx-mi class="mjx-i" id="ryvx211ba8ae4b16704ead3edc3b684d"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="lbzfc951abee1a7b6ed704d22826134e"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo><mjx-msqrt id="vyxgbc865fdb0f9f4fca5c7f076e61c2"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.281em;"><mjx-mi class="mjx-i" id="ynar0f0e9f0c186368dfbf3a8f975f16"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-box></mjx-sqrt></mjx-msqrt><mjx-mo class="mjx-n" rspace="3" id="rils9051b14ca2236b71d7f5d9c3ab5c"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>σ</mi><mo>/</mo><msqrt><mi>n</mi></msqrt><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> where <span aria-label="sigma" class="math" id="alw_9781319272463_ch07_01EQ_0003.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="2" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="flrf0bdeddcc2bea090d7ef20a5c9c79" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="jvtu7bda26d9410b8286eea5a137a11e"><mjx-mrow id="tllk90ce9254e9ae1104befe83953ef6"><mjx-mi class="mjx-i" id="qarb0b56680bf2a3a6a82fa5efd4868a"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>σ</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> is the population standard deviation. In practice, we rarely know sigma and must estimate it.</p>
+          <p class="indent" id="bqzpe98977eac1d743fdbe8dee8ced31">By making the assumption of <span aria-label="sigma" class="math" id="alw_9781319272463_ch07_01EQ_0004.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="3" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jweffe4ae120dfa717bfacc20fce8cc1" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xexae35d7ebe70d8a05e9e51fb64fe08"><mjx-mrow id="cvddd6e2628fe9d5f8539e400cf7ac9a"><mjx-mi class="mjx-i" id="clio06101d05f5ab76ce20643acb0242"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>σ</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> known, the procedures set forth in this chapter will be based on the standard Normal distribution. In the next chapter, there will be no assumption made about <span aria-label="sigma" class="math" id="alw_9781319272463_ch07_01EQ_0005.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="4" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="cmzt5e355c26b6ea7b7489f521a7c874" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="acjbd3dbe28287c4353503bc6aae9a2a"><mjx-mrow id="zggdc67f8edac6987cc734fe9a751658"><mjx-mi class="mjx-i" id="xpie27457205e069a1f6b1e4a6e8266c"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>σ</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> so we estimate it with the sample standard deviation <span aria-label="s full stop" class="math" id="alw_9781319272463_ch07_01EQ_0006.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="5" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="cjndd1bb4097627a0696a1b436ac6275" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hhxb98c4e653a77360ade9668c6bc70a"><mjx-mrow id="upzrc13282527c91f2e0b7397f87d8d2"><mjx-mi class="mjx-i" id="ibwl20f9792ac528ecc9f06b66ea5fdc"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="dehza94d88f70d3b4a56e8b997ebf4c4"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>s</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> When the standard deviation is estimated, a family of distributions known as the <span aria-label="t" class="math" id="alw_9781319272463_ch07_01EQ_0007.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="6" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dsoy5dd72ae91b6ab229900551fd4458" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="pzyre4d76e26cbb59ae3df463c8ec918"><mjx-mrow id="cqjad9fbc19724471527b21e10bda26e"><mjx-mi class="mjx-i" id="aqnvb6ebd3febb19867aa72be4fa5dc5"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>t</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> <i class="semantic-i" id="jgnp322057528f77c6e3c8000bfe08c4">distributions</i> is used in place of the standard Normal distribution. However, for large sample sizes the <span aria-label="t" class="math" id="alw_9781319272463_ch07_01EQ_0008.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="7" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="mugt61799e50c6ea3578f76422f5e0ad" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qgrs1442cba8cc3e5c9a3115545c61c3"><mjx-mrow id="chue61381e0a29a6350527dd3eb59616"><mjx-mi class="mjx-i" id="vqpla75a8dd5ea80a3d2b8315c64500d"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>t</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> distribution is practically indistinguishable from the standard Normal distribution. This implies a certain practicality to the methods of this chapter. Namely, we are safe to consider the Normal-based procedures of this chapter even if we use the sample standard deviation in place of the unknown <span aria-label="sigma" class="math" id="alw_9781319272463_ch07_01EQ_0009.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="8" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zxtyc4d6aa9488a15c4e8d062300e4d4" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hygaf21676ee587fbb7528b763f475e1"><mjx-mrow id="sbafc0e4c3646a766fa80fe5b7d068d0"><mjx-mi class="mjx-i" id="ixyw7742eea4490e8652bdb5734770bb"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>σ</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> when the sample size is large.</p>
+          <p class="indent" id="rwqg3586bac74efc0a6234f9fc38b980">With this said, the goal of this chapter is not to provide methods of inference for general use. Instead, view this chapter as providing you with the common concepts, terminologies, and basic reasoning of inference methods which, in turn, will ease your transition to the remaining chapters on statistical methods.</p>
+        </section>
+      </section>
+    </section>
+  <style type="text/css" style="display: none;">.vsthighlight { cursor: pointer; } .disabledHighlight { background: #ECECEC !important; border-color: #B3B3B3 !important; cursor: default !important; } .disabledHighlight.vst-shared-highlight { background: transparent !important; }</style><style type="text/css" style="display: none;">.tts-highlight { background: yellow !important; }</style><div id="myModal" class="modal" style="display: none;"><div class="modal-content"><button tabindex="0" title="Close (Esc)" class="close"></button><div class="modal-body"></div></div></div><div tabindex="0" id="dummyDiv" style="display: none;"></div><div id="gallery" class="pswp" role="dialog" aria-labelledby="figcaption" style="display: none;"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> --><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div id="figcaption" class="pswp__caption__center"></div><div class="lm_controls_lightbox"><button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button><button class="pswp__button pswp__button--zoom lm__in" title="Zoom in"></button><button disabled="true" class="pswp__button pswp__button--zoom lm__out" title="Zoom out"></button></div></div></div></div></div></body>
+</html>

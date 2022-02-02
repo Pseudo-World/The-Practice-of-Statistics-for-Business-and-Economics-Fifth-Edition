@@ -1,0 +1,1618 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="noey7e6f4785984ee3f521bfafa1a4af" style="min-width: 100%; width: 1px; text-size-adjust: 100%; font-size: 100%; transform-origin: left top;">
+  <head style="display: none;"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../css/alw_9781319272463.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common/lm_ui.css" type="text/css" rel="stylesheet" />
+    <script src="../frost_widgets_data/glossary.js" type="text/javascript"></script>
+    <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascript/lm_popup.js" type="text/javascript"></script>
+    <script src="../javascript/lm_frost_listner_min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Chapter 18 Logistic Regression</title>
+  <script src="../javascript/tex-mml-chtml.min.js" id="MathJax-script"></script><style type="text/css" media="print">body > * { display: none !important; height: 0px !important; width: 0px !important; overflow: hidden; }body:before { content: "To print, please use the print page range feature within the application."; display: block !important;}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-ms {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mspace {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mpadded {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-rbox {
+  display: inline-block;
+  position: relative;
+}
+
+mjx-menclose {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+}
+
+mjx-menclose > mjx-dstrike {
+  display: inline-block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  border-top: 0.067em solid;
+  transform-origin: top left;
+}
+
+mjx-menclose > mjx-ustrike {
+  display: inline-block;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-top: 0.067em solid;
+  transform-origin: bottom left;
+}
+
+mjx-menclose > mjx-hstrike {
+  border-top: 0.067em solid;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(0.034em);
+}
+
+mjx-menclose > mjx-vstrike {
+  border-left: 0.067em solid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(0.034em);
+}
+
+mjx-menclose > mjx-rbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: 0.067em solid;
+  border-radius: 0.267em;
+}
+
+mjx-menclose > mjx-cbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: 0.067em solid;
+  border-radius: 50%;
+}
+
+mjx-menclose > mjx-arrow {
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  height: 0;
+  width: 0;
+}
+
+mjx-menclose > mjx-arrow > * {
+  display: block;
+  position: absolute;
+  transform-origin: bottom;
+  border-left: 0.268em solid;
+  border-right: 0;
+  box-sizing: border-box;
+}
+
+mjx-menclose > mjx-arrow > mjx-aline {
+  left: 0;
+  top: -0.034em;
+  right: 0.201em;
+  height: 0;
+  border-top: 0.067em solid;
+  border-left: 0;
+}
+
+mjx-menclose > mjx-arrow[double] > mjx-aline {
+  left: 0.201em;
+  height: 0;
+}
+
+mjx-menclose > mjx-arrow > mjx-rthead {
+  transform: skewX(0.464rad);
+  right: 0;
+  bottom: -1px;
+  border-bottom: 1px solid transparent;
+  border-top: 0.134em solid transparent;
+}
+
+mjx-menclose > mjx-arrow > mjx-rbhead {
+  transform: skewX(-0.464rad);
+  transform-origin: top;
+  right: 0;
+  top: -1px;
+  border-top: 1px solid transparent;
+  border-bottom: 0.134em solid transparent;
+}
+
+mjx-menclose > mjx-arrow > mjx-lthead {
+  transform: skewX(-0.464rad);
+  left: 0;
+  bottom: -1px;
+  border-left: 0;
+  border-right: 0.268em solid;
+  border-bottom: 1px solid transparent;
+  border-top: 0.134em solid transparent;
+}
+
+mjx-menclose > mjx-arrow > mjx-lbhead {
+  transform: skewX(0.464rad);
+  transform-origin: top;
+  left: 0;
+  top: -1px;
+  border-left: 0;
+  border-right: 0.268em solid;
+  border-top: 1px solid transparent;
+  border-bottom: 0.134em solid transparent;
+}
+
+mjx-menclose > dbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.3em;
+  width: 0.6em;
+  border: 0.067em solid;
+  border-radius: 50%;
+  clip-path: inset(0 0 0 0.3em);
+  box-sizing: border-box;
+}
+
+mjx-mfrac {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-frac {
+  display: inline-block;
+  vertical-align: 0.17em;
+  padding: 0 .22em;
+}
+
+mjx-frac[type="d"] {
+  vertical-align: .04em;
+}
+
+mjx-frac[delims] {
+  padding: 0 .1em;
+}
+
+mjx-frac[atop] {
+  padding: 0 .12em;
+}
+
+mjx-frac[atop][delims] {
+  padding: 0;
+}
+
+mjx-dtable {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-dtable > * {
+  font-size: 2000%;
+}
+
+mjx-dbox {
+  display: block;
+  font-size: 5%;
+}
+
+mjx-num {
+  display: block;
+  text-align: center;
+}
+
+mjx-den {
+  display: block;
+  text-align: center;
+}
+
+mjx-mfrac[bevelled] > mjx-num {
+  display: inline-block;
+}
+
+mjx-mfrac[bevelled] > mjx-den {
+  display: inline-block;
+}
+
+mjx-den[align="right"], mjx-num[align="right"] {
+  text-align: right;
+}
+
+mjx-den[align="left"], mjx-num[align="left"] {
+  text-align: left;
+}
+
+mjx-nstrut {
+  display: inline-block;
+  height: .054em;
+  width: 0;
+  vertical-align: -.054em;
+}
+
+mjx-nstrut[type="d"] {
+  height: .217em;
+  vertical-align: -.217em;
+}
+
+mjx-dstrut {
+  display: inline-block;
+  height: .505em;
+  width: 0;
+}
+
+mjx-dstrut[type="d"] {
+  height: .726em;
+}
+
+mjx-line {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1px;
+  height: .06em;
+  border-top: .06em solid;
+  margin: .06em -.1em;
+  overflow: hidden;
+}
+
+mjx-line[type="d"] {
+  margin: .18em -.1em;
+}
+
+mjx-msqrt {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-root {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+mjx-surd {
+  display: inline-block;
+  vertical-align: top;
+}
+
+mjx-sqrt {
+  display: inline-block;
+  padding-top: .07em;
+}
+
+mjx-sqrt > mjx-box {
+  border-top: .07em solid;
+}
+
+mjx-sqrt.mjx-tall > mjx-box {
+  padding-left: .3em;
+  margin-left: -.3em;
+}
+
+mjx-mroot {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script > * {
+  display: block;
+}
+
+mjx-munder {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-over {
+  text-align: left;
+}
+
+mjx-munder:not([limits="false"]) {
+  display: inline-table;
+}
+
+mjx-munder > mjx-row {
+  text-align: left;
+}
+
+mjx-under {
+  padding-bottom: .1em;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > * {
+  display: block;
+  text-align: left;
+}
+
+mjx-munderover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munderover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-munderover:not([limits="false"]) > * {
+  display: block;
+}
+
+mjx-mmultiscripts {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-prescripts {
+  display: inline-table;
+  padding-left: .05em;
+}
+
+mjx-scripts {
+  display: inline-table;
+  padding-right: .05em;
+}
+
+mjx-prescripts > mjx-row > mjx-cell {
+  text-align: right;
+}
+
+mjx-mfenced {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mtable {
+  display: inline-block;
+  text-align: center;
+  vertical-align: .25em;
+  position: relative;
+  box-sizing: border-box;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+mjx-mstyle[size="s"] mjx-mtable {
+  vertical-align: .354em;
+}
+
+mjx-labels {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+mjx-table {
+  display: inline-block;
+  vertical-align: -.5ex;
+}
+
+mjx-table > mjx-itable {
+  vertical-align: middle;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+mjx-labels > mjx-itable {
+  position: absolute;
+  top: 0;
+}
+
+mjx-mtable[justify="left"] {
+  text-align: left;
+}
+
+mjx-mtable[justify="right"] {
+  text-align: right;
+}
+
+mjx-mtable[justify="left"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="left"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[align] {
+  vertical-align: baseline;
+}
+
+mjx-mtable[align="top"] > mjx-table {
+  vertical-align: top;
+}
+
+mjx-mtable[align="bottom"] > mjx-table {
+  vertical-align: bottom;
+}
+
+mjx-mtable[side="right"] mjx-labels {
+  min-width: 100%;
+}
+
+mjx-mtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-mlabeledtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mlabeledtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mlabeledtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mlabeledtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mlabeledtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mlabeledtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-mtd {
+  display: table-cell;
+  text-align: center;
+  padding: .215em .4em;
+}
+
+mjx-mtd:first-child {
+  padding-left: 0;
+}
+
+mjx-mtd:last-child {
+  padding-right: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:first-child > mjx-mtd {
+  padding-top: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:last-child > mjx-mtd {
+  padding-bottom: 0;
+}
+
+mjx-tstrut {
+  display: inline-block;
+  height: 1em;
+  vertical-align: -.25em;
+}
+
+mjx-labels[align="left"] > mjx-mtr > mjx-mtd {
+  text-align: left;
+}
+
+mjx-labels[align="right"] > mjx-mtr > mjx-mtd {
+  text-align: right;
+}
+
+mjx-mtr mjx-mtd[rowalign="top"], mjx-mlabeledtr mjx-mtd[rowalign="top"] {
+  vertical-align: top;
+}
+
+mjx-mtr mjx-mtd[rowalign="center"], mjx-mlabeledtr mjx-mtd[rowalign="center"] {
+  vertical-align: middle;
+}
+
+mjx-mtr mjx-mtd[rowalign="bottom"], mjx-mlabeledtr mjx-mtd[rowalign="bottom"] {
+  vertical-align: bottom;
+}
+
+mjx-mtr mjx-mtd[rowalign="baseline"], mjx-mlabeledtr mjx-mtd[rowalign="baseline"] {
+  vertical-align: baseline;
+}
+
+mjx-mtr mjx-mtd[rowalign="axis"], mjx-mlabeledtr mjx-mtd[rowalign="axis"] {
+  vertical-align: .25em;
+}
+
+mjx-maction {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+}
+
+mjx-maction > mjx-tool {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  z-index: 500;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+mjx-maction[toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+mjx-mglyph {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mglyph > img {
+  display: inline-block;
+  border: 0;
+  padding: 0;
+}
+
+mjx-semantics {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-annotation {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-annotation-xml {
+  display: inline-block;
+  text-align: left;
+  font-family: initial;
+  line-height: normal;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("../css/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("../css/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("../css/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("../css/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("../css/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("../css/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("../css/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("../css/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("../css/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("../css/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("../css/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("../css/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("../css/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("../css/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("../css/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("../css/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("../css/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("../css/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("../css/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("../css/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("../css/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("../css/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c20::before {
+  padding: 0 0.25em 0 0;
+  content: " ";
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c2A::before {
+  padding: 0.75em 0.5em 0 0;
+  content: "*";
+}
+
+mjx-c.mjx-c2B::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "+";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2D::before {
+  padding: 0.252em 0.333em 0 0;
+  content: "-";
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c2F::before {
+  padding: 0.75em 0.5em 0.25em 0;
+  content: "/";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c34::before {
+  padding: 0.677em 0.5em 0 0;
+  content: "4";
+}
+
+mjx-c.mjx-c35::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "5";
+}
+
+mjx-c.mjx-c36::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "6";
+}
+
+mjx-c.mjx-c37::before {
+  padding: 0.676em 0.5em 0.022em 0;
+  content: "7";
+}
+
+mjx-c.mjx-c38::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "8";
+}
+
+mjx-c.mjx-c39::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "9";
+}
+
+mjx-c.mjx-c3B::before {
+  padding: 0.43em 0.278em 0.194em 0;
+  content: ";";
+}
+
+mjx-c.mjx-c3C::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: "&lt;";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c4F::before {
+  padding: 0.705em 0.778em 0.022em 0;
+  content: "O";
+}
+
+mjx-c.mjx-c5A::before {
+  padding: 0.683em 0.611em 0 0;
+  content: "Z";
+}
+
+mjx-c.mjx-c61::before {
+  padding: 0.448em 0.5em 0.011em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c62::before {
+  padding: 0.694em 0.556em 0.011em 0;
+  content: "b";
+}
+
+mjx-c.mjx-c64::before {
+  padding: 0.694em 0.556em 0.011em 0;
+  content: "d";
+}
+
+mjx-c.mjx-c65::before {
+  padding: 0.448em 0.444em 0.011em 0;
+  content: "e";
+}
+
+mjx-c.mjx-c67::before {
+  padding: 0.453em 0.5em 0.206em 0;
+  content: "g";
+}
+
+mjx-c.mjx-c69::before {
+  padding: 0.669em 0.278em 0 0;
+  content: "i";
+}
+
+mjx-c.mjx-c6C::before {
+  padding: 0.694em 0.278em 0 0;
+  content: "l";
+}
+
+mjx-c.mjx-c6D::before {
+  padding: 0.442em 0.833em 0 0;
+  content: "m";
+}
+
+mjx-c.mjx-c6E::before {
+  padding: 0.442em 0.556em 0 0;
+  content: "n";
+}
+
+mjx-c.mjx-c6F::before {
+  padding: 0.448em 0.5em 0.01em 0;
+  content: "o";
+}
+
+mjx-c.mjx-c72::before {
+  padding: 0.442em 0.392em 0 0;
+  content: "r";
+}
+
+mjx-c.mjx-c73::before {
+  padding: 0.448em 0.394em 0.011em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c74::before {
+  padding: 0.615em 0.389em 0.01em 0;
+  content: "t";
+}
+
+mjx-c.mjx-c75::before {
+  padding: 0.442em 0.556em 0.011em 0;
+  content: "u";
+}
+
+mjx-c.mjx-c76::before {
+  padding: 0.431em 0.528em 0.011em 0;
+  content: "v";
+}
+
+mjx-c.mjx-cA0::before {
+  padding: 0 0.25em 0 0;
+  content: "\A0";
+}
+
+mjx-c.mjx-cB1::before {
+  padding: 0.666em 0.778em 0 0;
+  content: "\B1";
+}
+
+mjx-c.mjx-c200A::before {
+  padding: 0 0.1em 0 0;
+  content: "";
+}
+
+mjx-c.mjx-c2212::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "\2212";
+}
+
+mjx-c.mjx-c1D438.TEX-I::before {
+  padding: 0.68em 0.764em 0 0;
+  content: "E";
+}
+
+mjx-c.mjx-c1D440.TEX-I::before {
+  padding: 0.683em 1.051em 0 0;
+  content: "M";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c1D446.TEX-I::before {
+  padding: 0.705em 0.645em 0.022em 0;
+  content: "S";
+}
+
+mjx-c.mjx-c1D44B.TEX-I::before {
+  padding: 0.683em 0.852em 0 0;
+  content: "X";
+}
+
+mjx-c.mjx-c1D44D.TEX-I::before {
+  padding: 0.683em 0.723em 0 0;
+  content: "Z";
+}
+
+mjx-c.mjx-c1D44E.TEX-I::before {
+  padding: 0.441em 0.529em 0.01em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c1D44F.TEX-I::before {
+  padding: 0.694em 0.429em 0.011em 0;
+  content: "b";
+}
+
+mjx-c.mjx-c1D452.TEX-I::before {
+  padding: 0.442em 0.466em 0.011em 0;
+  content: "e";
+}
+
+mjx-c.mjx-c1D459.TEX-I::before {
+  padding: 0.694em 0.298em 0.011em 0;
+  content: "l";
+}
+
+mjx-c.mjx-c1D460.TEX-I::before {
+  padding: 0.442em 0.469em 0.01em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c1D467.TEX-I::before {
+  padding: 0.442em 0.465em 0.011em 0;
+  content: "z";
+}
+
+mjx-c.mjx-c1D712.TEX-I::before {
+  padding: 0.442em 0.626em 0.204em 0;
+  content: "\3C7";
+}
+</style></head>
+  <body epub:type="bodymatter" class="backmatter" id="wollcc3f585851caa87c6879bb156a2c" data-lo-framework-id="" style="overflow: auto;">
+    <section aria-label="appendix" class="appendix" epub:type="appendix" id="ans_sec_18_1" role="doc-appendix" title="Answers to Odd-Numbered Exercises">
+      <section class="subsect1" id="ans_sec_18">
+        <header id="txop3a36a6d8e0a892b3962b0171c9e0">
+          <h2 class="level1 v3" epub:type="title" id="kqasfd1165a2b0a43e62d8ae948ead66"><span aria-label="S-56" epub:type="pagebreak" id="pageS-56" role="doc-pagebreak" title="S-56"></span><span class="label" epub:type="label" id="tcsg52ee55532d1bc7c625860f7d162d">Chapter </span><span class="ordinal" epub:type="ordinal" id="lfgyfc329464f603c4a1ea1ff76c8d2f">18: </span>Logistic Regression       </h2>
+        </header>
+        <ul class="ul-no-mark" id="pdjnc10b44d27c9c616088cf36447393">
+          <li id="ch18_ans1">
+            <p class="answer noindent" epub:type="answer" id="lkhfbd9168a9bc6d9759a614ec8fb82d"><strong class="important" id="hlsb4a82ac896de4d2bd6aecae073df8"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_1" id="ch18-exer-1" style="overflow-wrap: break-word;">18.1</a></strong> For men: the percent who chose Commercial A is <span aria-label="97 solidus 220 equals 0.4409 comma" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0001.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="0" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="snil04564bd4fc1ea9e6aefbbfb1e039" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="gpvn1308faa83b1c2ad2c405049eb90d"><mjx-mrow id="jiir8936102a6fc873c5895710a16924"><mjx-mn class="mjx-n" id="jfmg3ec16e3451f1a3130c09a9eefc37"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="mjyq89e474fc5b092387cbec5669d0c4"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="oehsfd0707351ebccc693f7649097cd2"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="oihufbfb4d2a41bf9cba3d5a4051d527"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fkheba8e07ad4272a1d1351d661b6563"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ueyedc07926952b68c1761c5ca91832e"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>97</mn><mtext>/</mtext><mn>220</mn><mo>=</mo><mn>0.4409</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Commercial B is 0.5591. The odds are 0.7886. For women: the percent who chose Commercial A is <span aria-label="90 solidus 150 equals 0.6 comma" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0002.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="1" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ansjb2da94a4fe1a39bf4d031e51f1f7" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="wwwwa7ac8e2fe78360e7cb432e457ed4"><mjx-mrow id="opar7305030ecb632a23c2805ac2e084"><mjx-mn class="mjx-n" id="okgqeecb7913d87e2f255377171f3eba"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="phrb49948a7a48815fbd4ac724911b9e"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="tonidd91d69afd203fb2efa8a51bb066"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="jtoed19c627fafd9ac5c0a87e0dc1055"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="tvwc22739c5ba7ce70217e410f873199"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="aihy3569c03bf3a5102fb94177185cb5"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>90</mn><mtext>/</mtext><mn>150</mn><mo>=</mo><mn>0.6</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Commercial B is 0.4. The odds are 1.5.         </p>
+          </li>
+          <li id="ch18_ans2">
+            <p class="answer noindent" epub:type="answer" id="idms2ebc42f1d7ab58bb5df6aeff5c05"><strong class="important" id="fkan45cee1a51d8e8935a8e688ef6086"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_3" id="ch18-exer-3" style="overflow-wrap: break-word;">18.3</a></strong> For men: <span aria-label="log left parenthesis 0.7886 right parenthesis equals negative 0.2375 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0003.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="2" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qcgybf20da9d2b40d7d43610f372a3f7" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="pmlxc2127668f2b44d56ec3851bf548e"><mjx-mrow id="ihkz4fdfb58374e1b57fc3f707382534"><mjx-mtext class="mjx-n" id="lmfk34b6b8a5d6c9125124a47e78db9a"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" id="imvv8ce53cd9caab7adecc116a1e47e2"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="xirr334c4df5797f836c0f9c59d309db"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="yjqr9874445e0a84951a2ab6fb02ac39"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="adkubb53bef44f3a393d447bcb8db172"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="hkhhfdf861ee894224baed594e96a9d8"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jaui6baa94a4e190b466338b03f8de94"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="kyvbfb3753761944dd75895e5e7d4e26"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log</mtext><mo stretchy="false">(</mo><mn>0.7886</mn><mo stretchy="false">)</mo><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.2375</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> For women: <span aria-label="log left parenthesis 1.5 right parenthesis equals 0.4055 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0004.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="3" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wsdk7d6b3989a25d0d01a75d491977a4" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qnuc228cadf8d4c7b8528241b4112a1e"><mjx-mrow id="ugtt95026d9b62a9b7a725880b0f012b"><mjx-mtext class="mjx-n" id="idrp372523751d7d5547437136170920"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" id="jetdfbced60b57684b958c74cf03a93d"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="xbit36e882e342a579f6fa0c9d18533b"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="pndf3b975053d014443232b7b2af5515"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="xexx6b695a9689475fff8a563893f0ec"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wkgw55c8f11b2db155b988789102ae94"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="oezr8c4acd084a19409b1ef542d249ac"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log</mtext><mo stretchy="false">(</mo><mn>1.5</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.4055</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch18_ans3">
+            <p class="answer noindent" epub:type="answer" id="ofxe957ab30f92ffc8ef81c1e3109b3f"><strong class="important" id="puybeb05014a10f2fd6001253ea29f62"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_5" id="ch18-exer-5" style="overflow-wrap: break-word;">18.5</a></strong><span aria-label="b sub zero equals negative 0.2375 semicolon equation sequence b sub one equals 0.4055 minus left parenthesis minus 0.2375 right parenthesis equals 0.643 full stop" class="math mmm1" id="alw_9781319272463_EM_ans_ch18EQ_0005.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="4" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lfzu49585b60ba26d5afe9fdf0436f2e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="igzic894f6cec4421501662951bb90b6"><mjx-mrow id="ruqk341076b4e3d5931300f005f8f26f"><mjx-msub id="fiel70d678f959499452771847c798c9"><mjx-mi class="mjx-i" id="zwigdc3ef5a6fd644b96a5bd75c23e21"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="htsqe0b723f14e1f3fcf4927a1164f3e"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="ailrcde76202a8e7ef54f31b796102de"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="bdsmc7e53e43ffb77e36f5c96d4f333a"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jcdv8bb49d9e61e3bed5b9ff24c5f52b"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="wkbrf97d55b64d029c2a0294d7591e69"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="vwcuaf2a50845881805d6efb680d8d0d"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="olfua9e5ba1d35e862984ee429d49c98"><mjx-mi class="mjx-i" id="qqbw3ea8a96284adbf0320ac2b328349"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="gvvgef249c949711fea45f343781f041"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="nump993ff55634d1edb56d496451e085"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fcib052e3371e29781662f7a75a4ae16"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="xtpqa27ff6437a15f8ab030a23366b7c"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3" id="buyx94e4146e19b992c8679fae67b2c9"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="qbuk9b484956f62bb7009b9c8de995d5"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="japk40178ffdf238202b85c8c77aceb7"><mjx-c class="mjx-c200A"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="blmkc7fed0ee7a98fe56ea65284fd5bd"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="etkhd9d897149c1d1dff43d3af20efbd"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="qcji3d5d9660ca4afb94e04bb52d1272"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wktcfa3624f944fe5cb3c2d360bd293c"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ofcw57708caea73c551eadcba020ddd6"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.2375</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><msub><mi>b</mi><mn>1</mn></msub><mo>=</mo><mn>0.4055</mn><mo>−</mo><mo stretchy="false">(</mo><mo lspace="0" rspace="0">−</mo><mtext> </mtext><mn>0.2375</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.643</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span><span aria-label="log left parenthesis odds right parenthesis equals negative 0.2375 plus 0.643 times x full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0006.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="5" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="epdz70e808a8ad7e2a94a28b01a6f0cc" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="gkvn098e7e93a806358af0503c88f713"><mjx-mrow id="kocuac32299a4728293e5bad259d3b5d"><mjx-mtext class="mjx-n" id="eteeaf86717674c0c1de70362c98ecbe"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="kcwpbb079ce743fd63345187b3916849"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="rcgm01188f04deb79c9cae50e8c79226"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jrzs0e7bca465830683ad959a8867721"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="xpya9557201e06074cdbe4f294b5c2c7"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="mukk5f7f7e37963a14c1956f9619d200"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="aubg337c0b676e4c200de82a090aefa9"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="dltrddaab54862fcbf1a9c9eec3ee1fa"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.2375</mn><mo>+</mo><mn>0.643</mn><mi>x</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The odds ratio is 1.902.         </p>
+          </li>
+          <li id="ch18_ans4">
+            <p class="answer noindent" epub:type="answer" id="pxlm288992a33330a81a90ec83967e22"><strong class="important" id="uexz2ff7333b52cfbef17fb8d0d429b3"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_7" id="ch18-exer-7" style="overflow-wrap: break-word;">18.7</a></strong> a. It is not multiplied by 2. When the explanatory variable changes by 1, the odds ratio is increased by a factor of <span aria-label="e squared" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0007.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="6" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="pfha6948609c629632c5e9e9f5c7430d" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fjddf381baded008de8bd95603166e6b"><mjx-mrow id="qhgq96082f219d764094c924af3d1549"><mjx-msup id="chog683a4d9a9af63cca9ffc969c3322"><mjx-mi class="mjx-i" id="yzdje92dded68a20991fdaf9f3c96c5f"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s" id="cswa3d360494d10cb0d08817d471aab9"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msup><mi>e</mi><mn>2</mn></msup></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> or 7.389 times.         </p>
+            <p class="answer noindent" epub:type="answer" id="oqas4cb6001cd1076ab405dacbf8df16">b. It is missing the log; the intercept is equal to the <i class="semantic-i" id="yafr112f645757049ff769c50e1dcb19">log</i> odds of an event when <span aria-label="x equals zero full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0008.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="7" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hlxq259c612dbcd15db2b15b114ee938" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="oqsz67810750209bc5902f129f04f13e"><mjx-mrow id="fbyve0bdd2fea989c9b8e9de633755c3"><mjx-mi class="mjx-i" id="jjxc3ea877d5a9ef5deeba202810cd67"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="qgoab0af62dcc27dd66da4a9a9fae2f8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="yxade32e721c990eed7b1f51c03a5a7b"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="fhpm2038d081e70eca013e84be60ea66"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mo>=</mo><mn>0</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="aaly66a84b65e5ce6fdae82473acc1e6">c. The odds of an event is the probability of the event divided by 1 minus the probability of the event.         </p>
+          </li>
+          <li id="ch18_ans5">
+            <p class="answer noindent" epub:type="answer" id="gunpf909591b10fcfda1ead07af9a4e9"><strong class="important" id="tljvafe6580c3bf8514d850495485000"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_9" id="ch18-exer-9" style="overflow-wrap: break-word;">18.9</a></strong> a. <span aria-label="96 solidus 193 equals 0.4974 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0009.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="8" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="bzou6c496bbb0ad9587edc484a38e79f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="opwu378b5302f168d639008b50bd0648"><mjx-mrow id="jzke9c94f1ecf7f49284fb318b52543e"><mjx-mn class="mjx-n" id="cxfgd62ebd21053d7555d07af1c1c161"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="lnox1a29044a430f43ac9150a83eb943"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="qhvi0d8f25f7e6ce77917b43989ba1d3"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="iplzcd2a3609537614ac83cb1f382e6a"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="lqjsa19c8026bc10ef662b2c8d23e8e0"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="efdg385c34d60aeb55fff77b9b8054c7"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>96</mn><mtext>/</mtext><mn>193</mn><mo>=</mo><mn>0.4974</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="zfmn6596684a50d129d96784ce8b5996">b. <span aria-label="Odds equals 0.9897 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0010.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="9" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="gxai9df49c3d990d43c45a94fa78f21e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hvci8d86ef2f71154cc44b78c0367b5e"><mjx-mrow id="unxae3c23f94be018f5a52fbcf24c5ad"><mjx-mtext class="mjx-n" id="dxse3bb9769f87d1bbb79d7dfcb87b2e"><mjx-c class="mjx-c4F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="qqnm2ca5899e280c7bca300ce7eea005"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dqhq0637974336b061b074b0aa11cd99"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="plmja67e8489e9ca9ca27e6881bff2f9"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>Odds</mtext><mo>=</mo><mn>0.9897</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="epnf8c6cd10343e43d9f369b898bc872">c. <span aria-label="97 solidus 193 equals 0.5026 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0011.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="10" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="usbsfc936f5c4c914ac13a54e8b20e9e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="tvspad654bc3704a4ef6fdc4dd4752ad"><mjx-mrow id="ipea56e6c58e615acf05b3a8dafa79e1"><mjx-mn class="mjx-n" id="gqoh2f78fc67182c8fd78be282d5c753"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="rhzpa8928d32f536001a0e5a6a2d1c2b"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="fsva658b967d6eb946787d29a5d2da6d"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="qtkjc69e2353a60d28a1300dcd17012c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="yuqo08f0dddcd7991d4d6e42ded82ef6"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="bovlbe8391c25683c37948beaceef864"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>97</mn><mtext>/</mtext><mn>193</mn><mo>=</mo><mn>0.5026</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="ftnk19019f3d70c52e1cda00c8f7b1a9">d. <span aria-label="Odds equals 1.0104 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0012.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="11" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="mofg6f308eda73dde0a94bc22d958666" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hprrf7bbb27ac57f42adba54005cd9e2"><mjx-mrow id="qyduad049c904f4bce67479ae2409515"><mjx-mtext class="mjx-n" id="xkat407db3e128c917fa65fb046035f7"><mjx-c class="mjx-c4F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="dfbx38b35c1aa847ba37ae28732b719d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="qpfs546d2ea8d8594f1d521b3f0e36bc"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="nvasa79a69c600cbedc1a9182bee4ed5"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>Odds</mtext><mo>=</mo><mn>1.0104</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="yduv23ce57cdfb42681fd77d1a99be9b">e. They are reciprocals, <span aria-label="left parenthesis d right parenthesis equals one solidus left parenthesis b right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0013.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="12" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zdzdcc12f124b11d4631661913e7636c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vrxfc20976fa62ee517a443f63f87b29"><mjx-mrow id="jmewda921557d932891281ea6a608096"><mjx-mtext class="mjx-n" id="dxyq2ada457e79d7645ea95e9090f964"><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="unqc9d754b10b90d2fa358eb54f3c191"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jnmq9c7ea849306dab05268ebf3b2209"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="pgvea96cf6274e548df6b5997d738549"><mjx-c class="mjx-c2F"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c62"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" rspace="3" id="duhhd71f791e8302d8f02bc64b45ad5f"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>(d)</mtext><mo>=</mo><mn>1</mn><mtext>/(b)</mtext><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch18_ans6">
+            <p class="answer noindent" epub:type="answer" id="mvlj6f0eede245f06f0007d15483d81e"><strong class="important" id="nmssc9662fbe02858e92f9a9232b9fca"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_11" id="ch18-exer-11" style="overflow-wrap: break-word;">18.11</a></strong> a. <span aria-label="2.416 divided by one plus 2.416 equals 0.7073 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0014.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="13" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qzpmce73bbd2d5e0aba73ed35bdff592" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xcdta227f6e34619ed39eabd6dd2bc77"><mjx-mrow id="jvvsda803151e27e935058e047d6b50a"><mjx-mstyle id="fafg385b3b7bb5ab6d023982f895e598"><mjx-mfrac id="etcje90ae038c8f8f955653c3c0a4f86"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="caqabe56458c020ff62f40ce47fd6d85"><mjx-mn class="mjx-n" id="agwe0f5f568c71e4e959a78aafe557e6"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="lnlye04a7148046936fecd7ef57f82ef"><mjx-mn class="mjx-n" id="ozfza29d30a5508e9eeb9b4ae2ae5900"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="rijw7be928d3997619efee01be2f153e"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="jyqqbfca02262c4d6441ce082fdc7434"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="rbmya7eb5ea207a89c87840d81526fa4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="mtqw198d2eaec2ff06e0ebb1fce2dfec"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="dkgg5e5699115fd4f847fffae723c1e8"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>2.416</mn></mrow><mrow><mn>1</mn><mo>+</mo><mn>2.416</mn></mrow></mfrac></mstyle><mo>=</mo><mn>0.7073</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="fmiwe2d98b90e3c17e802e97a98a560a">b. <span aria-label="1.3703 divided by one plus 1.3703 equals 0.7974 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0015.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="14" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hpsx92b2c9c18b7df2fb3be6712b754e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qlwrdf7bde6fe3714aaa6cea292f68dd"><mjx-mrow id="qztwabaa1617ed9125ddf7f58aa4846e"><mjx-mstyle id="wsob93e919259fbeae840984993a7e07"><mjx-mfrac id="zgxee151d2d012250cd68a607471e479"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="uxuw1baf6a2473fda6a165bd868733b2"><mjx-mn class="mjx-n" id="plhz3456ff96406ee56f4deb0def94a0"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="rarz91da387c5fef973aded82f56739c"><mjx-mn class="mjx-n" id="ctap0723cc5b18cf58231ac42c5591b9"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="uzhe79b72cfb1b5803bece2352434bc4"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="srpa7fef9179c6e906e380a36c0795b8"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="mvapf2cef074ba86b048c677b1ed21ca"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jgqx2c71fa1ba0beebff96cbd6b28e03"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="jblh4013c585bfebcfa439e9d592140e"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>1.3703</mn></mrow><mrow><mn>1</mn><mo>+</mo><mn>1.3703</mn></mrow></mfrac></mstyle><mo>=</mo><mn>0.7974</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="eyzz001582cf78ecc82dbf29ac059f12">c. <span aria-label="5.3724 divided by one plus 5.3724 equals 0.8431 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0016.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="15" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wamu6c7e7cb8e575851c14ff21ccdce9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="cvute0b1282f877c1ba39973812fb4c5"><mjx-mrow id="znes96eef0b2827c71edc5329730c7bf"><mjx-mstyle id="lktm8c1ba9e896af0ef0b31876418eee"><mjx-mfrac id="uyvp3b63131ce36b409428d3c2a34303"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="kwqfc2b2a86790075d66988e62ca202b"><mjx-mn class="mjx-n" id="cjrhee8df250a8d39e4fcbb9ad1716c7"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="chio97c1d65b0002028cd5df30d9d66c"><mjx-mn class="mjx-n" id="flnv8a904db31d22f78863b674341e13"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="bowr3d7f1a1b6e06b73725f15ce88621"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="ccsfc00d8509de3fa7965acaa2d797f1"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="htakfad82ee589ea759b735bfe21ea7b"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="abbq5232523b90b5617e27da1df90f77"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="atsncc6faee6f432cc0e3a1d87f60045"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>5.3724</mn></mrow><mrow><mn>1</mn><mo>+</mo><mn>5.3724</mn></mrow></mfrac></mstyle><mo>=</mo><mn>0.8431</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch18_ans7">
+            <p class="answer noindent" epub:type="answer" id="snuga98fa966264d06efc0200eb3cda6"><strong class="important" id="fjxk19f5071c1f5a352bbe08a130fbee"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_13" id="ch18-exer-13" style="overflow-wrap: break-word;">18.13</a></strong> a. For males: 84%; for females: 65%.         </p>
+            <p class="answer noindent" epub:type="answer" id="fwlw46a600b0e636c19428a65c815f1b">b. The difference in percents, which is 1.039, is different from the reported ownership gender gap for South Asia, which is 26%.         </p>
+            <p class="answer noindent" epub:type="answer" id="hhop84268a6785977d776c55eec4c935">c. 2.827.         </p>
+            <p class="answer noindent" epub:type="answer" id="lwmg12cbcb2a4fc759606156b8ba2eae">d. 1.039.         </p>
+          </li>
+          <li id="ch18_ans8">
+            <p class="answer noindent" epub:type="answer" id="roxy22b377027dacdb7ef33466d01e3c"><strong class="important" id="gqow26a6474020db020d552d985bebe9"><a class="crossref" href="alw_9781319272463_ch18_02.xhtml#ch18_exercise_15" id="ch18-exer-15" style="overflow-wrap: break-word;">18.15</a></strong><span aria-label="log left parenthesis odds right parenthesis equals negative 0.0282 plus 0.6393 times x full stop cap x squared equals 48.34 semicolon cap p minus value less than 0.0001 full stop" class="math mmm1" id="alw_9781319272463_EM_ans_ch18EQ_0017.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="16" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="rogz6cf7f39479aa7ea6e3da81cb58b4" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="eudx283c57072463691baaed176be1e9"><mjx-mrow id="jroc4a93d5135488d1c0709f67af3fb0"><mjx-mtext class="mjx-n" id="qbng8a27a10db8af261507395d7bfddd"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="hwqn012aabb763a78b770ba602da29d2"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="yciuea2bf966a3c35a510b3024233a39"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="egxgc9e54c7a84108b1cc4507a0ade58"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="mnnnaa3a40cf1b86b5e25b2030bb3bd1"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="aerf0412cda5fa46ad3ddb246e7d734a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="cfke61ad3a3124fb2b463bc2d8b816a4"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="vnsq6b5d11f87efadcf33cbfbc565342"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="vgzg3d61a5d1d66b9fa2f5d6ddc9ad9b"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msup id="brey28047cffbc5dcefc19230fa2452d"><mjx-mi class="mjx-i" id="pbivc4b4661e65c449c54ef396628fa4"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s" id="okak1b433403e28aa74abb5db3d231fd"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="xpim704d408ec2d97b5e61a04c625388"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ifhua945ee929468fdff27a48b3457a2"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jkbrb83b27816738615aefa69f6ce2b3"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="umcd9a49d85ffb4dcf38ad32365adc53"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="rwvnc70048d5f3b5d6d7d1d79899e2c7"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="kpts8b7589cee3fbe5f2801557a5c7e1"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="babr8ad4b54c136ed1dc9c0c6d863c60"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="spya31c020ba79800e1a7f2f61e91dd0"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="jmfcb8b8e81f2570f0dad5c2b8a9d42e"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.0282</mn><mo>+</mo><mn>0.6393</mn><mi>x</mi><mo lspace="0" rspace="0">.</mo><mtext> </mtext><msup><mi>X</mi><mn>2</mn></msup><mo>=</mo><mn>48.34</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The odds ratio estimate is 1.8952; those that have completed college are 1.8952 times more likely to use the Internet for travel arrangements than those that have not completed college.           </p>
+          </li>
+          <li id="ch18_ans9">
+            <p class="answer noindent" epub:type="answer" id="jqfca7364f601bc99acb3e6089487afe"><strong class="important" id="mlvmde9b74405da52f222181c125e641"><a class="crossref" href="alw_9781319272463_ch18_03.xhtml#ch18_exercise_17" id="ch18-exer-17" style="overflow-wrap: break-word;">18.17</a></strong><span aria-label="log left parenthesis odds right parenthesis equals negative 0.2375 plus 0.643 times x semicolon" class="math mmm1" id="alw_9781319272463_EM_ans_ch18EQ_0018.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="17" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zskg53b3b0c2a17f0c109f611bb91da2" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="upmof66b8f20d5e9b8fa8f9710c50eb5"><mjx-mrow id="pktw5bac539aa723c5cfec79296e47a1"><mjx-mtext class="mjx-n" id="pmgzc5d6f3d3647be167199a55923b31"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="fwgy9c299b4355be675dcc149c9a8d68"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="tuwmb21b8ecd6342a805b9a148d58694"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="gcwk6da022ddaea42df4210a822ab7a7"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="fxis23f4d846ed3273f8c966a5281f2e"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="nxzj955d6641fa9b168e0223f74b59b6"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="ltlm11f830d86397f8247470d001490f"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="ivby67da0ee28655370ee4c9f03d2377"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.2375</mn><mo>+</mo><mn>0.643</mn><mi>x</mi><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the odds ratio is 1.902; the 95% confidence interval is (0.222, 1.064).         </p>
+          </li>
+          <li id="ch18_ans10">
+            <p class="answer noindent" epub:type="answer" id="pika2b3b4500d6ee3974d989be0042de"><strong class="important" id="wyjw3d0fb548199876d98aae0c01e3b4"><a class="crossref" href="alw_9781319272463_ch18_03.xhtml#ch18_exercise_19" id="ch18-exer-19" style="overflow-wrap: break-word;">18.19</a></strong> (2.349, 3.869).         </p>
+          </li>
+          <li id="ch18_ans11">
+            <p class="answer noindent" epub:type="answer" id="ryyq8479775990c1d275626d76958b11"><strong class="important" id="afnp934b504e8dfec5dfcb014fbebc3c"><a class="crossref" href="alw_9781319272463_ch18_03.xhtml#ch18_exercise_21" id="ch18-exer-21" style="overflow-wrap: break-word;">18.21</a></strong> a. <span aria-label="cap z equals 3.109 solidus 0.388 equals 8.01 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0019.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="18" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="gnuqf81ebe7d37cae5b00e6fa4284832" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="btafcb19a8df0f5913dce04f70171b96"><mjx-mrow id="dgza17ea30de99be26eb5365cff47d96"><mjx-mi class="mjx-i" id="zesr9e7855325d348bb9c72fb897e7e1"><mjx-c class="mjx-c1D44D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="vcdw900a9fe17587d4b36049c7213a97"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="eongfb9670b7166b5bf709ec7ef66f16"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="uiub6ab44f93fb20055c228aecedd022"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="xlrcd14b439b84ea6034e1d9b33bcdee"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="ugjhdd2ddd3c44f19edb5cf93f278476"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="oarh1d4d86a440c1953f1cd539063653"><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="pvzxf3f5bc6255e38787c03f3fe06db0"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>Z</mi><mo>=</mo><mn>3.109</mn><mtext>/</mtext><mn>0.388</mn><mo>=</mo><mn>8.01</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="rbbf7d51a7bcab6b5325b62976327605">b. <span aria-label="8.01 squared equals 64.16 comma" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0020.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="19" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="rryq789d8e0013ec6606f9b79107880f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="giuhe864750ec186f473b29fedd59b63"><mjx-mrow id="html83e1b592c108c438f1d323efcc1d"><mjx-msup id="laxg31704c26e5ab5131af7cbe594543"><mjx-mrow id="ovma05b571f758cf128844d8d03e1689"><mjx-mn class="mjx-n" id="lmzief5a4b1b77a01d70d4128b44df80"><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-mrow><mjx-script style="vertical-align: 0.393em;"><mjx-mn class="mjx-n" size="s" id="uwdoeb09621faa6bf63145e5db87a0a7"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="ltbf1cae4ed207b1255e28a14d604112"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="asxe3e3ca5e1bca740b1e563a53117e3"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="bflo63452e9a9ab726c8a58d83438554"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msup><mrow><mn>8.01</mn></mrow><mn>2</mn></msup><mo>=</mo><mn>64.16</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> which agrees with the output up to rounding error.         </p>
+          </li>
+          <li id="ch18_ans12">
+            <p class="answer noindent" epub:type="answer" id="urxf4fc4b023ab12dfda85014bf4795f"><strong class="important" id="cesf876267dacc570efbb6e7116e1778"><a class="crossref" href="alw_9781319272463_ch18_03.xhtml#ch18_exercise_23" id="ch18-exer-23" style="overflow-wrap: break-word;">18.23</a></strong> a. In a simple logistic regression, there is 1 degree of freedom for the <span aria-label="chi squared" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0021.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="20" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tfkof1632a809aa5856c7fdcae905900" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ufjh20e273f79a434a9932ff436ecdc0"><mjx-mrow id="mjvk8417a26b20fcfdd73522f939b44b"><mjx-msup id="ykgz35aba8e02f80323f9c3b7565049a"><mjx-mi class="mjx-i" id="dfyn10f8dfb7383aa7b5c23bb3d5835e"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s" id="cidvb801adfb2b887566ac961204dd12"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> distribution.         </p>
+            <p class="answer noindent" epub:type="answer" id="oecp43af142c2cfbdcb3c258d7ed7692">b. The confidence interval for the odds ratio is <span aria-label="left parenthesis e super b sub one minus z super asterisk times cap s times cap e sub b sub one comma e super b sub one plus z super asterisk times cap s times cap e sub b sub one right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0022.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="21" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dwqf258d19763b3e6ebfafc302934bb9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="jjhrc559520a8e829482421920306a75"><mjx-mrow id="ojkyd6f1db9f30eccbca3cd99ed5887f"><mjx-mo class="mjx-n" id="ukgfc9a32ec091603ecf613283e7218f"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup id="szkx7c0b9df204828ac17cc7a81bf174"><mjx-mi class="mjx-i" id="thbn9ab92d0f42ad24ec3731708efc1b"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.373em;"><mjx-mrow size="s" id="tfnmc756170827edeedbebf01a4e2034"><mjx-msub id="jsex7e68ce305f8065764a51ef639e4e"><mjx-mi class="mjx-i" id="tlut94e9b6418de3c844972fb65e6df1"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="opou014877c0e8924463ddc7956feba5"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" id="pljf0e50089a9aafb79a0cebce6b5608"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msup id="stcf6093db2197068c9eaf054b0995b0"><mjx-mi class="mjx-i" id="rcok68bbc403a5a71944fc7dd6a96d3f"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-var" size="s" id="edgyfd9fdc06083c07a14cac03fa035d"><mjx-c class="mjx-c2A"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mi class="mjx-i" id="cumy997a4d76a8f447a0a25caec97e4f"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi><mjx-msub id="oego8801ebbb7f0cf8aa1bd793bb0799"><mjx-mi class="mjx-i" id="pkwd6303d1aace31800fe70ca77d64c5"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.026em;"><mjx-mrow size="s" id="jfvlb932932252487e4b8eb2b22cc83f"><mjx-msub id="pipp9d19e65b6103b735990d028d83ec"><mjx-mi class="mjx-i" id="lmtj3f8bd0b95ab0330b762acb7d3373"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.312em;"><mjx-mn class="mjx-n" id="oecu6e0adb14d6c9ed2204f6b722919f"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-script></mjx-msub></mjx-mrow></mjx-script></mjx-msup><mjx-mtext class="mjx-n" id="ndcq7c71d05b590afb7fd2a991c0c1d9"><mjx-c class="mjx-c2C"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="teqi1e0a30782583f975843d6b2fc54e"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msup id="pmzsd894610f88cea2605fbb797c52a7"><mjx-mi class="mjx-i" id="jjgx813085acc8fd3a9de6169442ce4c"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.373em;"><mjx-mrow size="s" id="fhlid26051b6f05efc730636b836ac0a"><mjx-msub id="fyys2c169f57e62f6b7fceeeee961485"><mjx-mi class="mjx-i" id="dags234d5194b10badb464bc34d635f2"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="vaerccf0f92f3c714591daee25ddb038"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" id="yacf7fabc652dd31fcd03153c83bf464"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup id="ewgtdfb9c1b6e9d98dc02a8b99599bc0"><mjx-mi class="mjx-i" id="foybbc67ffa005d41ccbe04656f77ff4"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-var" size="s" id="kpjn9aa908c32cd38bc780539a59e171"><mjx-c class="mjx-c2A"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mi class="mjx-i" id="otlf44a23d8899589b312b1f09086eb2"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi><mjx-msub id="mmry69f63db48ba9b4d57ca0eeac180a"><mjx-mi class="mjx-i" id="qmoyb7e31e9acc9451cd30408cd0242c"><mjx-c class="mjx-c1D438 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.026em;"><mjx-mrow size="s" id="wqidce659aa44b1efa2195bfc4dc73aa"><mjx-msub id="ahzga078dfdb817c4a1dee5b844ef928"><mjx-mi class="mjx-i" id="vmqva12e376ee295620ce7efafca095e"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.312em;"><mjx-mn class="mjx-n" id="kjrmc0fe610a229bd8a4a4ab2ce1a0b2"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-script></mjx-msub></mjx-mrow></mjx-script></mjx-msup><mjx-mo class="mjx-n" id="utnd4f1d610845b4c1dba98ffa953458"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="cfgf0e02afdd92f45462b4c9040f336c"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mo stretchy="false">(</mo><msup><mi>e</mi><mrow><msub><mi>b</mi><mn>1</mn></msub><mo>−</mo><msup><mi>z</mi><mo>*</mo></msup><mi>S</mi><msub><mi>E</mi><mrow><msub><mi>b</mi><mn>1</mn></msub></mrow></msub></mrow></msup><mtext>,</mtext><mtext> </mtext><msup><mi>e</mi><mrow><msub><mi>b</mi><mn>1</mn></msub><mo>+</mo><msup><mi>z</mi><mo>*</mo></msup><mi>S</mi><msub><mi>E</mi><mrow><msub><mi>b</mi><mn>1</mn></msub></mrow></msub></mrow></msup><mo stretchy="false">)</mo><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="rlypf510bf9be6fa5ed60b6fcff3f4cc">c. The square root of the Wald statistic is the <span aria-label="cap z" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0023.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="22" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="xyni2be962f9a8263ae9987548e96d75" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="beapc0f476db059f0d16e0307b33f170"><mjx-mrow id="jngs24000d6ae73cd050fe882a9048d8"><mjx-mtext class="mjx-n" id="tnywee646255943311e4a602cfc48c7c"><mjx-c class="mjx-c5A"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>Z</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> statistic.         </p>
+          </li>
+          <li id="ch18_ans13">
+            <p class="answer noindent" epub:type="answer" id="phjd3326d70b7b068dc163eee2876f3e">
+              <strong class="important" id="iygo3afec26d9c77da03ab5dd5b7e360">
+                <a class="crossref" href="alw_9781319272463_ch18_03.xhtml#ch18_exercise_25" id="ch18-exer-25" style="overflow-wrap: break-word;">18.25</a>
+              </strong>
+              <span aria-label="log left parenthesis odds right parenthesis equals negative 3.5018 plus 1.0371 times x full stop" class="math mmm1" id="alw_9781319272463_EM_ans_ch18EQ_0024.png" role="math" tabindex="0">
+                <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="23" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="mzcoec84c5a1b17c93bb7259cc062c15" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vmlt980188426f6d19d9017bea784c2a"><mjx-mrow id="spwkf8f7b3e40752243ff902212075c9"><mjx-mtext class="mjx-n" id="phti6751d89ea5d3bd739ef0fad79ec5"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="noeuf193be524893968f60738039e950"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="iasyff6833e59b8aae5873c234371b90"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="poqf4b81daa4c5107f8e967b536d3b0c"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="lqfl0dfeac64a82b91934d700be6b9bf"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="qvsq6a59e15286424c0642f8f43d9050"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="vrmcd13036e0a39761ec4209fef46a8a"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="getl779704b68e4c09cc97670cf794c4"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>3.5018</mn><mo>+</mo><mn>1.0371</mn><mi>x</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container>
+              </span>
+            </p>
+            <p class="answer noindent" epub:type="answer" id="ocwp3378716f7fb46e53c706bfac4e6f">b. The binomial distribution assumes that each employee’s termination is independent from another’s and the probability of being terminated is the same for each employee. Certainly the latter is not true, as an individual’s performance is likely different and largely determines whether he or she is terminated.         </p>
+            <p class="answer noindent" epub:type="answer" id="peoae1e9fc26bbe555dc89708de45892">c. <span aria-label="Odds equation sequence equals e super 1.0371 equals 2.82 comma" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0025.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="24" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dqywbf8fa1e61390e05ee297779257ca" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="onrr5e16b7e0b71e52983b961acf5f13"><mjx-mrow id="bjvs652fe1468937ec78c24539f03f3c"><mjx-mtext class="mjx-n" id="brpk67ea4eaea18e0060fdc5b5ae86b4"><mjx-c class="mjx-c4F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="uaav97cdfd5ebd3b9940a48b25b273b4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4" id="umnlbe4d41a9ac3b95f330273ed826cc"><mjx-mi class="mjx-i" id="xbradd392468a3f7fc51faecff40f027"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mrow size="s" id="xsit011408777e15008405277265d886"><mjx-mn class="mjx-n" id="zgfma48304e881ef8a61e1bbe7c49357"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-mrow></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="fpdb5fe4c32a209041e924dda789e46b"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="nhgwf59278f800b04824e76dbc7b3eca"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="nizw411772835d8b38ab50f0ff560cc4"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>Odds</mtext><mo>=</mo><msup><mi>e</mi><mrow><mn>1.0371</mn></mrow></msup><mo>=</mo><mn>2.82</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> with 95% the confidence interval is (1.644, 4.840). Since the interval does not contain 1, the results are significant at the 5% level. Employees over 40 are 2.82 times more likely to be terminated than those under 40. We could use the additional variables in the logistic regression model to account for their effects before assessing if age has an effect.         </p>
+          </li>
+          <li id="ch18_ans14">
+            <p class="answer noindent" epub:type="answer" id="kdeac2ea21efda96d6f388021bf7c77f"><strong class="important" id="htpua9912e8ce814083bbecdfbaf1c73"><a class="crossref" href="alw_9781319272463_ch18_03.xhtml#ch18_exercise_27" id="ch18-exer-27" style="overflow-wrap: break-word;">18.27</a></strong><span aria-label="log left parenthesis odds right parenthesis equals negative 1.998 plus 0.8135 times x semicolon" class="math mmm1" id="alw_9781319272463_EM_ans_ch18EQ_0026.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="25" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ivrn1eeeccfb4558215f7aa5bc1d8cb9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kivm28eef8774d1628950f8ca7171bbe"><mjx-mrow id="xgpf83a01e5b4a5b9545fba3b432455b"><mjx-mtext class="mjx-n" id="maud6b73f76825a15aff507a918f9c2c"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="drzp50442643e028242c6085e68f00a0"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="vdzlf0c1b907cb62966b22ff82dcdf09"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="ahxm160c316b2498b289d4f636e2729f"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="gmgu8f4ec75db25d071e01ad8c29511b"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="eicx0ca0e337ce37c9ebfebe5e5ccac0"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="jbla6d69becce3d533b1f5d5b243eecd"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="vrntfa6630a14c63eb45d21a4547d2d3"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>1.998</mn><mo>+</mo><mn>0.8135</mn><mi>x</mi><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the 95% confidence interval for the odds ratio is (1.14, 4.46); since the interval does not include 1, the results are significant.         </p>
+          </li>
+          <li id="ch18_ans15">
+            <p class="answer noindent" epub:type="answer" id="heah078ba3c00350e9e0dae1c2c01e81"><strong class="important" id="jetf8565d898103ca0f0efafd7a7b286"><a class="crossref" href="alw_9781319272463_ch18_04.xhtml#ch18_exercise_29" id="ch18-exer-29" style="overflow-wrap: break-word;">18.29</a></strong> Those that order alcoholic drinks are 12.5% more likely (or 1.125 times as likely) to leave a high tip than those that don’t order alcohol. Senior adults are about 25.8% less likely (or 0.742 times as likely) to leave a high tip than those that aren’t senior. Those that speak English as a second language are about 26.4% less likely (or 0.736 times as likely) to leave a high tip than their counterparts. Those that are French-speaking Canadians are about 21.6% less likely (or 0.784 times as likely) to leave a high tip than those that aren’t French-speaking Canadians.         </p>
+          </li>
+          <li id="ch18_ans16">
+            <p class="answer noindent" epub:type="answer" id="aqli81e47d117c2401e7546f4999fe04"><strong class="important" id="ltoac7e615151ec523e41267279cb5b9"><a class="crossref" href="alw_9781319272463_ch18_04.xhtml#ch18_exercise_31" id="ch18-exer-31" style="overflow-wrap: break-word;">18.31</a></strong> a. Females are 0.87 times as likely (13% less likely) to use the website as males. Daily Internet users are 4.16 times as likely to use the website as their counterparts. Older-aged people are less likely to use the website than younger-aged people. Those from larger communities are less likely to use the website than those from smaller communities. Those with different incomes and/or educational attainment are about equally likely to use the website, since they aren’t significantly different from 1.         </p>
+            <p class="answer noindent" epub:type="answer" id="vaps851cb138cae70b21d5af2039e4f4">b. Sex: −0.1393; Daily <span aria-label="S-57" epub:type="pagebreak" id="pageS-57" role="doc-pagebreak" title="S-57"></span>Internet use: 1.4255; Age: −0.2107; Income: 0.01; Size: −0.1625; Education: −0.0305; Intercept: −0.4155.         </p>
+            <p class="answer noindent" epub:type="answer" id="zvfz23a0b03894aad194f5fca709745c">c. 0.6537.         </p>
+          </li>
+          <li id="ch18_ans17">
+            <p class="answer noindent" epub:type="answer" id="rgso83e4cbf79cbb8940fc679a925e55"><strong class="important" id="jnsh60829fe5e53829836b9f83039a51"><a class="crossref" href="alw_9781319272463_ch18_04.xhtml#ch18_exercise_33" id="ch18-exer-33" style="overflow-wrap: break-word;">18.33</a></strong> Answers will vary.         </p>
+          </li>
+          <li id="ch18_ans18">
+            <p class="answer noindent" epub:type="answer" id="oram15c031469481f943bc2a21ae44e8"><strong class="important" id="xrsi9adf73788238b1a4c5f54388f20a"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_35" id="ch18-exer-35" style="overflow-wrap: break-word;">18.35</a></strong> a. <span aria-label="73 solidus 91 equals 0.8022 semicolon odds equals 4.0556 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0027.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="26" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="muzt6ccd535684310b5ce27b64149b52" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kjcb2f9cfc9d7c5638cbc424b91c9095"><mjx-mrow id="gybt9cd22702f4c4786b6787191ab0a9"><mjx-mn class="mjx-n" id="wkizc7659c416e24ccaffde4262d8563"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="rqdz0b39d22cff4a50e5bb332262a1d9"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="vvidebedabfe85da465f6cbc4a56d974"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="hilmaa091a966c4103faef322efc06d6"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="mvzy22b90d73eee152f2ef1ae7f2c249"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="dsbqb95d9b31c2c51e3b390587638c5b"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="qteu0ce47ee463913d095a3a589c86ee"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="pvzb0b9508ce406d89b2fcc148856b0f"><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="keuz958479c2b0ba62c0d0b2796964c5"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="xeobffec0d8c9261faf3f1554d06a7f9"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="pinu1422d3b376584fe8630a0bf40d28"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>73</mn><mtext>/</mtext><mn>91</mn><mo>=</mo><mn>0.8022</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mtext>odds</mtext><mo>=</mo><mn>4.0556</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="fxkc626ea3041ec898d248daa9cbf855">b. <span aria-label="75 solidus 109 equals 0.6881 semicolon odds equals 2.2059 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0028.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="27" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="mwka0bb71e9186b29591b9a9def60b23" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="txes9336b4ced592cb641e35380ae0a9"><mjx-mrow id="ahqza72ec2c50f00f8c3c4c156f74567"><mjx-mn class="mjx-n" id="nzte1f9b2b14ff9eca4b0cdebdb4823f"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="hdefb08774fe9a45f798ea1484e2dfb0"><mjx-c class="mjx-c2F"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="quoh63a123dd308a85cdc8b307e8723d"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="wwltae1aa4f50ad528bfff7dd6813611"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fpdzf5e10f0e8777154977d566036013"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="miup87bc125728a023d13bc04d76cef4"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="oclm4da582591d7945ab9ac2b00cd01d"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="epsu57a9d1796a47923003fd0d3ebfb3"><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="ytad3fbfd8fc6c4facbe8cfe945e394c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ypffc0773ed4eb90de261d4feb162cde"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="vwxn6f0cc4387fc6d542bcc9e3585c4d"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>75</mn><mtext>/</mtext><mn>109</mn><mo>=</mo><mn>0.6881</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mtext>odds</mtext><mo>=</mo><mn>2.2059</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="aiuz780db10ab9f1e9240551f6cacfb0">c. <span aria-label="Odds ratio equation sequence equals 4.0556 solidus 2.2059 equals 1.8385 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0029.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="28" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="kbpa2831d416c6c92be828223017482c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="wsty8f56b15d2395134dc719181292a9"><mjx-mrow id="nmvfd282a74fdc60e554d41be4205916"><mjx-mtext class="mjx-n" id="ypooc64a7625b317c398172f164b9d27"><mjx-c class="mjx-c4F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c20"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6F"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="rzuj16b23a3496f803aa76ceccbcff7e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="bdirf864b2d09337171f862e43373afc"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="uetja57d4b80e3de743b593fe2e95c37"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="fietb8d04d1facd50b7b6955bb027693"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="piduef98ca143ee76bf265eddb7e27ea"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="yoza380cc30d614e69fc893ed96e605e"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ijfv0adef9510d43b059afc90c767328"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>Odds ratio</mtext><mo>=</mo><mn>4.0556</mn><mo lspace="0" rspace="0">/</mo><mn>2.2059</mn><mo>=</mo><mn>1.8385</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The high-tech companies are 1.8385 times more likely to offer incentive stock options to key employees than the non–high-tech companies are.         </p>
+          </li>
+          <li id="ch18_ans19">
+            <p class="answer noindent" epub:type="answer" id="ezkw3ffd1fb9f6852eac5908835f620b"><strong class="important" id="aifk269499dfa40f9d00df9542426e8e"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_37" id="ch18-exer-37" style="overflow-wrap: break-word;">18.37</a></strong> a. <span aria-label="0.6089 plus minus 1.96 times left parenthesis 0.3347 right parenthesis equals left parenthesis negative 0.047 comma 1.265 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0030.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="29" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="bzccb16690ed70d6b04fbcc4ec4c7d09" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="dtpua02a07a0eb66273b691d46b1c4b5"><mjx-mrow id="rpkff3a37a6778e6592f3d220950ae90"><mjx-mn class="mjx-n" id="tmyy3e99f708e5804799084755ddf3a8"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="ioqt0750c39c53269a4755ca45a42c42"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="esnw09f865bf7321effecaa32fd461fe"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="eqwk5bf4adaaa2612899537ca39d9b66"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="ghgy563f73cd52828b6bdb8e691cd8a2"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="mnmu7e2b9eb96d92dd664746e36499ac"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="zlsb888b3c38924d1fe077659280bf14"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="jdht730aa425146379d557daa1208fba"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="svja8891d10d9cda8c419074abaa8038"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="xbyr015f0f8b63d0102e303ed96f38a3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="lhst95b9141bd13a3ac08b4602c96df3"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="yjsrb2b36fe04f64387784f9a8268cda"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="nsnq6526bdec2362a28f1a75148023d9"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="qjcp9e758f04dd88abe4a1fdd4414db6"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="ndvoe524dd21128f2d64feed43587ba4"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>0.6089</mn><mo>±</mo><mn>1.96</mn><mo stretchy="false">(</mo><mn>0.3347</mn><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mo lspace="0" rspace="0">−</mo><mn>0.047</mn><mo lspace="0" rspace="0">,</mo><mtext> </mtext><mn>1.265</mn><mo stretchy="false">)</mo><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="ojnge03baad55c3d6e0acb3c5ffdfc25">b. (0.954, 3.543).         </p>
+            <p class="answer noindent" epub:type="answer" id="fyix354918f785d5ca5696e193cccf85">c. Since the interval in part (b) includes 1, there is no significant difference in the proportions of high-tech and non–high-tech companies that offer stock options to key employees.         </p>
+          </li>
+          <li id="ch18_ans20">
+            <p class="answer noindent" epub:type="answer" id="uypgc7da858bb2bf971c0b78e7102c95"><strong class="important" id="haikd7d500c5d7b3fd1203d8bfcee8bb"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_39" id="ch18-exer-39" style="overflow-wrap: break-word;">18.39</a></strong> a. If the confidence interval for the odds ratio includes the value 1, the variable is not significant in a logistic regression.         </p>
+            <p class="answer noindent" epub:type="answer" id="ukdb81321edb5a63fa0fc8500dd267c9">b. Since the Reader age, Model sex, and Women’s magazine intervals all do not contain 1, they are all significant. The Men’s magazine interval contains 1 and is not significant.         </p>
+            <p class="answer noindent" epub:type="answer" id="lgvk19ff3fbb0feae0fa774e3da29015">c. Interpreting only significant effects: When the reader age is mature adults, the model clothing is 1.27 to 2.16 times more likely to be not sexual. When the model sex is male, the model clothing is 2.74 to 5.01 times more likely to be not sexual. When the intended readership is women, the model clothing is 1.11 to 2.23 times more likely to be not sexual. The odds ratios are often much easier to interpret than the fitted coefficients.         </p>
+          </li>
+          <li id="ch18_ans21">
+            <p class="answer noindent" epub:type="answer" id="tmwn7eeacc95619b83a61e74826c23a6"><strong class="important" id="ekuq53b7162d03cc0ea5db984c7dc680"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_41" id="ch18-exer-41" style="overflow-wrap: break-word;">18.41</a></strong> a. For males: 43.06%; for females: 31.95%.         </p>
+            <p class="answer noindent" epub:type="answer" id="qlbw1ffd857331f67f01554956126c3f">b. For males: −0.2796; for females: −0.7561.         </p>
+            <p class="answer noindent" epub:type="answer" id="tprr3418108124f23179581f857d3ce9">c. <span aria-label="log left parenthesis odds right parenthesis equals b sub zero plus b sub one times cap m times a times l times e times s full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0031.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="30" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="xvrq3929823e3d3b88d855550b24cf70" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="eucyf1ba6dd595489f9e1e544f773e2b"><mjx-mrow id="hyra6d30060bba8e09bab2877f9fdb81"><mjx-mtext class="mjx-n" id="tcquba4fc1e75212aaffa519fde2fa20"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="urvo69c969b80ef99d5e2e4b2e3312fd"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4" id="holo07dc65d100b31d029a48b537b993"><mjx-mi class="mjx-i" id="htgn0366e7a826af74a47bb9d194fa83"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="wbdfdf8ff18d378fe6e5b4d0a5328942"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3" id="rycm79b7306942e6d70f9a9ad32f6114"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3" id="otddb82deafaa6ac3caa3b3ac1d55399"><mjx-mi class="mjx-i" id="inptc754a9190a20d07c9c70f2c76c74"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="pjyu73fbdc4ed230a280a202661ace60"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mi class="mjx-i" id="bnqz7268e2b5704fff88e86556122cef"><mjx-c class="mjx-c1D440 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="dlmn188fe98df7c30aab81b33e489e2f"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="rjaxe97e6f4f8785a408c1c4214b347f"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="vswr574c363a959432da299036f58651"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="ifate3b8aa2c97e50fafe180b6241935"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="euar5ee6ea131db5eedeb1f5884a60f9"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><msub><mi>b</mi><mn>0</mn></msub><mo>+</mo><msub><mi>b</mi><mn>1</mn></msub><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mi>s</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="aupy8e69e26e5a9aa96bf355ac6e2457">d. <span aria-label="log left parenthesis odds right parenthesis equals negative 0.7561 plus 0.4765 times cap m times a times l times e times s full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0032.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="31" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="rbspfdab07cda12d7913eec687bae15b" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rrej783f535aed35e9acdc23fc58afbb"><mjx-mrow id="ofrlfdb161f8df493fcc195fa2f75781"><mjx-mtext class="mjx-n" id="addtfcd8c7a47963b18f0872736c21a7"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="vtge1e2bf458f7e2ed0091859a04c0fd"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="ajac250dff16d0bc6f9489ce98237421"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="drlg5982ee47e0539feff25da6562148"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="qtmp4f8ccbfe6371a3f819df8e71661c"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="mehle93a15ab5eb50cced9c1e71bf4fc"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="wzwe6a1fb18e2ff0799fd486bec98beb"><mjx-c class="mjx-c1D440 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="sjxa65996706b2503cf11833c390c350"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="gthib9fe3485051e73625e26146e2b34"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="uass9a2b18c4e88e05f1e2f80ddabf6c"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i" id="rxbh959ea71a6cb4198c5e48c64b9726"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="nces820d8ab63e9280b734ab94b06603"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.7561</mn><mo>+</mo><mn>0.4765</mn><mi>M</mi><mi>a</mi><mi>l</mi><mi>e</mi><mi>s</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch18_ans22">
+            <p class="answer noindent" epub:type="answer" id="zlfze0c8be9065e22098d4598d0a4562"><strong class="important" id="jwmo9b031f59a171c9a5f67feb7bf65a"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_43" id="ch18-exer-43" style="overflow-wrap: break-word;">18.43</a></strong> a. <span aria-label="log left parenthesis odds right parenthesis equals negative 3.5017 plus 1.0369 times x full stop cap x squared equals 14.17 semicolon cap p minus value equals 0.0002 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0033.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="32" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lwuk0a974f4b073a315ebf04afcc0263" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="uufkfe4a00cc410aad86bcacf386f10a"><mjx-mrow id="gumu8b44403a44cb612d69967d5671c3"><mjx-mtext class="mjx-n" id="xmpkaf97b29b5c248939824615e3f63c"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="uabuf785ba9810c70bb8e2dcbb0bea7d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="pmwb57ed1c29dc7cd191273803417b0f"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="mtdi7b31de22d49f2db70b0c554c4571"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="znrt77b5094a3328496d303faa72cd43"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="stvic9be183f33c7fd2961fcc0fefb3c"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="iyqw3005d22a0480542c800cfec2c06a"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="kqrp1681c83f9303d6d4a2b254342734"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="ofgafaea2c7683675c6cdf975d71ff06"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msup id="iuctcbad0741172749679d0b6cbc1318"><mjx-mi class="mjx-i" id="anuibd85f7bfde462f91e1d233e7d133"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s" id="cxng82f02021c4e460953a5b3e908173"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="upxge7db7fdd2d50be59b371ba9d418d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="iyof27b25c1f232a53d37c215e30e0c6"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jbbtc5163cbb4188698b2eb32a83dd3d"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="vtoz1954ed6b2272982bafd494a560d7"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="jurq63aada434ed2adcff06fb5c8ca12"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="nnql9ba2a228d8dfc82265dd78a679ff"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="zyry5eab2d99941b040591dd84581f21"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dvoce66e0be8b06b9cfb779acd23656a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="etzf347a3392f23cb2ec4d7123ea1b7d"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>3.5017</mn><mo>+</mo><mn>1.0369</mn><mi>x</mi><mo lspace="0" rspace="0">.</mo><mtext> </mtext><msup><mi>X</mi><mn>2</mn></msup><mo>=</mo><mn>14.17</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.0002</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The model is significant. For a person over 40, the odds of being RIFFED are <span aria-label="e super negative 3.5017 plus 1.0369 left parenthesis one right parenthesis equals 0.085 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0034.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="33" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="unzuaa4f3eb9de1fc4ca96e8c8637dff" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="jrnsea42144c6ae0a672be80c7642ff9"><mjx-mrow id="kaecefb67adffd016b1d69de72bf3e1c"><mjx-msup id="tfju38b2640fd3cc7fa46a91cac961ac"><mjx-mi class="mjx-i" id="kjoqaae13545a152532cb99b481e9b5b"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mrow size="s" id="xktt003b916034cc2c5adf9626aa523c"><mjx-mo class="mjx-n" id="pjvdffa3f1235329bb188bf7a0b3618a"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="ngnobe294de7d4c77c2177fad4a140e7"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="qoet5e4a98b610b2add07c4975a84887"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="eeou1573d7e2675633fa0b524b37e5b9"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="jvpe93ec290dfbd7e31d85dd68a34e48"><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext></mjx-mrow></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="wuuaee4436aeb811678278169d3690d8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fsnod3c03aca424e510d357d9a7151cd"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="kdxd1253c60595fe2f10619c696863c9"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>3.5017</mn><mo>+</mo><mn>1.0369</mn><mtext>(1)</mtext></mrow></msup><mo>=</mo><mn>0.085</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> For a person under 40, the odds of being RIFFED are: <span aria-label="e super negative 3.5017 plus 1.0369 times left parenthesis zero right parenthesis equals 0.030 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0035.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="34" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zgtya0498b36a87c93b514e6297e4a85" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="loqw2dc6f2e0b244d6e54b253dc5ef36"><mjx-mrow id="zkyq2489791995829fc52f4bb0294df6"><mjx-msup id="lwigd6bc79c45bf880af23ba76538aaa"><mjx-mi class="mjx-i" id="oajqfe821e56ebbd13861b24cc86f4b2"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mrow size="s" id="bujt6041ab7df3fa2dc38714952c53e4"><mjx-mo class="mjx-n" id="gntl39ef90182a5b43f084cadf67c778"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="wwjt741c47de4b3439764728bdb92784"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="tqxq98b1166343ea1547759617902752"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="scjt8f0a34a9643af4ccf608fe223008"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="apejacbbba387de919fc1ae551ae4b1e"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="qeww36343a27aea0200a715eb5709e47"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="vsot2717e5c16bb57551959a23db2f19"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="trqyfea46231579f9a5417dce0b74fd6"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="njcp352652173989095108564b7c05bd"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="wyed57d484b7524b4efc8ce14036d29a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>3.5017</mn><mo>+</mo><mn>1.0369</mn><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mn>0.030</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="zhqk0c764eb57cbbc9995863ece7fcdd">b. Answers will vary.         </p>
+            <p class="answer noindent" epub:type="answer" id="vyvpe8962ba71914efc1c7763b1854f9">c. Since the relationship is quite linear, we could use a regression analysis.         </p>
+          </li>
+          <li id="ch18_ans23">
+            <p class="answer noindent" epub:type="answer" id="nrrt989feeef28db0c1f8841d8f15e54"><strong class="important" id="zieifbc63e3edc87c48929caf4ae176b"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_45" id="ch18-exer-45" style="overflow-wrap: break-word;">18.45</a></strong> The estimated model becomes <span aria-label="log left parenthesis odds right parenthesis equals negative 0.4447 minus 1.1436 times x sub men minus 0.8791 times x sub general full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0036.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="35" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wjcre3802538374554f9c5d10d6c1d77" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kpch09ed77dac5ed10aeafd981802536"><mjx-mrow id="cpsea23b8661748463c6384b51d69c7f"><mjx-mtext class="mjx-n" id="ywzrfc2f14bfb5a19302439dc2931f60"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="qdaua075577e834cd714c8460c3b1885"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="wozd53e3eadad03a9d852e292b78a680"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="xlcq8247bd629834f03ad75f4ae3c710"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="tsgxeb0dd3ec2be74474d2a8da3183e6"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3" id="xknfc70b2c235c951cd6c9591077c952"><mjx-mrow id="cxxp254c2cfd45dea89047f7ef036ff1"><mjx-mn class="mjx-n" id="atvod093443cb70495de59447ca2d78d"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="wuoa63d66f300692ab77b89d9e3158a3"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow><mjx-script style="vertical-align: -0.15em;"><mjx-mtext class="mjx-n" size="s" id="yyyncf40f9c3265596024164bddc5693"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mtext></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3" id="qivob6279a0ae6e154b8ee92ee880e78"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3" id="wxxc3523f5de8ac5d06607313982d8a2"><mjx-mrow id="ktrn4ed825d4cf6d5dc58156a85508ab"><mjx-mn class="mjx-n" id="qais097cbb6dac201967b1989d412e9e"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="eyyrcdddc95f5d959358880f166508ab"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow><mjx-script style="vertical-align: -0.15em;"><mjx-mtext class="mjx-n" size="s" id="xbpq15dac9929bd452d2db9aa96363f8"><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c></mjx-mtext></mjx-script></mjx-msub><mjx-mo class="mjx-n" rspace="3" id="pnzjd2e6f4c8f8c053da89aadf3031e6"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>0.4447</mn><mo>−</mo><msub><mrow><mn>1.1436</mn><mi>x</mi></mrow><mtext>men</mtext></msub><mo>−</mo><msub><mrow><mn>0.8791</mn><mi>x</mi></mrow><mtext>general</mtext></msub><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Now both men <span aria-label="left parenthesis cap x squared equals 69.7000 semicolon cap p minus value less than 0.0001 right parenthesis" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0037.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="36" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="bmmd8f37bef68309e306b15e3941cf3c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="wklae458cca201a8f90279d934af2aff"><mjx-mrow id="ieetfec087cd56da2bd30a60f9e173bc"><mjx-mo class="mjx-n" id="otfg649317187f7a638a149c4378f6e8"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup id="ibmm3f40706e3be8981a72c46236025c"><mjx-mi class="mjx-i" id="crgya7b8d3846ef3d509c08163746c23"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s" id="ipknc3eb57e0579c32186508054570b1"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="cfqr98e030f0b5d32b999a919a86ed62"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="gqfv40583446cd266c60f33334e1b34b"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="bliafbd08b782baa7f56115580a35215"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="pklj65daecf8b50d9d49a6bf49da3566"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="azqqaaf375ccb3f98c1d373fe0e21490"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="jzjxf37e8b625265402e554421c33320"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="cidb0c1512f9c1f1e5db2e232ba5e877"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fspqa516857b21580ede6fadbe7e1835"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jcss438b786b490d2dfa2c794de82a51"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mo stretchy="false">(</mo><msup><mi>X</mi><mn>2</mn></msup><mo>=</mo><mn>69.7000</mn><mo>;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo stretchy="false">)</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and general <span aria-label="left parenthesis cap x squared equals 29.1872 semicolon cap p minus value less than 0.0001 right parenthesis" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0038.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="37" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="oxute0ab4858019d919072425a781124" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hktpb9b1b33803c7b17295f4aac4b0b9"><mjx-mrow id="ckwd968e6e4937b4eaeed79a556d0d3d"><mjx-mo class="mjx-n" id="uihd3733853a211e8e6ec554d9c9c60e"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup id="tkiqb4d65e96683d9e5dc816ed7f5dff"><mjx-mi class="mjx-i" id="bdxme782df8a3360704d34b871345d05"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s" id="xbmh7a26d37aeb0fb60b2ec484cf1cf0"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="dkzr4bdfec4668e351d6cab7cc025bfb"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dsrfe00828e4d28df659d3ff8287bfc9"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="piutc209f00fb01beae2f4e89cdae07d"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="qwaw5fa6dc41a8c01fd90ac69fa4f6bc"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="jfeaa1af32031f9cf6145167225e975f"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="nztp38c97f88d237fc73051b539a0fe7"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="xvki3b45ed1ba18b076bd92c17434eaa"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jjvqf3b50a65b427e4e4fb19784bb83a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="iwgp083835778f5f96329c90430b20bb"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mo stretchy="false">(</mo><msup><mi>X</mi><mn>2</mn></msup><mo>=</mo><mn>29.1872</mn><mo>;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo stretchy="false">)</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> terms are significant.           </p>
+          </li>
+          <li id="ch18_ans24">
+            <p class="answer noindent" epub:type="answer" id="lwiz702cc26d9f3adbd00550e2b14ddc"><strong class="important" id="rnec88943c66fee3ca4713cbb6a4a8b4"><a class="crossref" href="alw_9781319272463_ch18_05.xhtml#ch18_exercise_47" id="ch18-exer-47" style="overflow-wrap: break-word;">18.47</a></strong> a. For Division I: <span aria-label="log left parenthesis odds right parenthesis equation sequence equals sum with 3 summands negative 1.5720 plus 0.2472 times left parenthesis zero right parenthesis plus 0.4416 times left parenthesis zero right parenthesis equals negative 1.5720 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0039.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="38" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qpni67c87a73cc27fdb2e45bca5ab110" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="bfsw504c1b7cbcae6a8ce454594bdccc"><mjx-mrow id="vmcu6b7bec7405c5518417bbe8a2cda2"><mjx-mtext class="mjx-n" id="mzlf19a19940ce97c73d3998247ae0ba"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="qntu10a58fb3d7e53dd7bf3ef6f9834f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="afgeb33d1ddde3c93ba0131f55b6e67a"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jndmee0e7d382f89b36df271972f9175"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="xkdh1d78ba59e3ca2a7aa562cd03e5cf"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="tjetc2d3155cf6fb234e995c1c35628a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="lguc3e95156ab415773a06e647737c82"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jhgn3bf6a511056c52369664d12f7df8"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="ohht3346afdfb65cc4cb2f98586ff291"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3" id="zggt4b4b406713b36da8694a6ac6d636"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="julnb5df654eba5187c65f37ecf64522"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="aumm58a541ec0f380e6019f5be3d69f2"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="ptkx34706ffa2c3ebe2ececce62999bb"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="xvnx0cbf76aead56688dd144add2e32e"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="qzxx4572f86cc617a7004bd588e2d3be"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="yyjqd6632aa525f74a02fa8d56af2b4b"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="urdgb0629663e18ffbce4c87b5cb03a4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ound67f4d54fb559715347f91a9d9994"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>1.5720</mn><mo>+</mo><mn>0.2472</mn><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>+</mo><mn>0.4416</mn><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mo lspace="0" rspace="0">-</mo><mn>1.5720</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> For Division II: <span aria-label="log left parenthesis odds right parenthesis equation sequence equals sum with 3 summands negative 1.5720 plus 0.2472 times left parenthesis one right parenthesis plus 0.4416 times left parenthesis zero right parenthesis equals negative 1.3248 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0040.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="39" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="obxv453f5c192120440a1838dd72fadc" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rbjg0e3bb63d0a7a0a475a75bf73a55c"><mjx-mrow id="tzkz4c8184a065f2ca105ebfbaddd985"><mjx-mtext class="mjx-n" id="piie5985b0181824d3fe2175303bb1ac"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="mgnrc858deb8dc18147b9bbead1a9f8d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="uqvtafbbfa6f92c982ba63ae54ac5a25"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="tbcg8ecc45f8a222bd33b9694b077f1b"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="djrtf0c2da0aceec1f01c6cee9f4c9c3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="vonp12428b1d59c36d586742252a7350"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="uqir6fb72c526d04a94864133bb47031"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="xwkv4ef53eb9cc9a57bd0215682bb61a"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="kgcmf4489254116f63e8799b59ebfe31"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3" id="giscbb3cef71c62ed13b01e86e278f32"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="gfozf9df3dcc7703cccdb9b44fccf6a5"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="sumve71f384deb45cf9e358ab9487e30"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="vfmocee7d3ca9ac033844d41fc86e575"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="bopeebc33abd645afd5e9f469ebd5e09"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="nnrj8fcfca46947aebb7a62103b1ec30"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="psix7de8e7492f131d7f051d465f430e"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="zwvl43f866dd374161c4202da2a2a004"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="zbmsb3f836a15d6f3d17e6c061497c1a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>1.5720</mn><mo>+</mo><mn>0.2472</mn><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mn>0.4416</mn><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>1.3248</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> For Division III: <span aria-label="log left parenthesis odds right parenthesis equation sequence equals sum with 3 summands negative 1.5720 plus 0.2472 times left parenthesis zero right parenthesis plus 0.4416 times left parenthesis one right parenthesis equals negative 1.1304 full stop" class="math" id="alw_9781319272463_EM_ans_ch18EQ_0041.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="40" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="xyhj30058f026624e8794e59c2feaa56" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ikdo57b525529407484e43116dce362e"><mjx-mrow id="tvwf5f434f306ff7c5bc37477f3d7156"><mjx-mtext class="mjx-n" id="dnbic452bb55f2f0a9bfb26201ae0dd6"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c73"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="khqgafc0eb4ab733587fae1cbad6bc6b"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="qgdl50c09538a1ce154469635ea222af"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jtyiaa87808e2294e13c3d32a42f5a68"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="lplrf93758f8e19e5f1caf31692595c7"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="mlfj9d06193d50dbd2a4dd27b6cce890"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="owjk72654b6b3e18c7c6cbacd15f4c8b"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="xifhff6826d0c05362700781ee9d2dc7"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="kceqa3598ab86513399cc7fb3a419a9d"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3" id="sliee185e66ed21bc1af1f0e65678824"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="yizq057576d01dbbf1758064a11280f4"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="xgeqbc83eb242a10c455df6e5f62dc5b"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="wdyfd0df3d23c86acf32a7c8061e3fca"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="cpnx15f377627d40419f989bff7527ef"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="dcdb6764cbb303fd45449c517c1d31e1"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="senc0d4fb206f41bb35b6bac7dcd35c9"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jyji2b6936b54c45b19d313069556cf1"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="pcloece0745abacc1e900badd5cc3a0a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>log(odds)</mtext><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>1.5720</mn><mo>+</mo><mn>0.2472</mn><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>+</mo><mn>0.4416</mn><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>1.1304</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>             </p>
+            <p class="answer noindent" epub:type="answer" id="qzlke37f3bc54897041414e5ae912eaf">b. The plot shows that log(odds) of gambling increases as Division increases.             </p>
+            <p class="answer noindent" epub:type="answer" id="wuec94cfa831412a2366401e5b03e26b">c. Since the relationship is quite linear, we could use a regression analysis.             </p>
+          </li>
+        </ul>
+      </section>
+    </section>
+  <style type="text/css" style="display: none;">.vsthighlight { cursor: pointer; } .disabledHighlight { background: #ECECEC !important; border-color: #B3B3B3 !important; cursor: default !important; } .disabledHighlight.vst-shared-highlight { background: transparent !important; }</style><style type="text/css" style="display: none;">.tts-highlight { background: yellow !important; }</style><div id="myModal" class="modal" style="display: none;"><div class="modal-content"><button tabindex="0" title="Close (Esc)" class="close"></button><div class="modal-body"></div></div></div><div tabindex="0" id="dummyDiv" style="display: none;"></div><div id="gallery" class="pswp" role="dialog" aria-labelledby="figcaption" style="display: none;"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> --><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div id="figcaption" class="pswp__caption__center"></div><div class="lm_controls_lightbox"><button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button><button class="pswp__button pswp__button--zoom lm__in" title="Zoom in"></button><button disabled="true" class="pswp__button pswp__button--zoom lm__out" title="Zoom out"></button></div></div></div></div></div></body>
+</html>

@@ -1,0 +1,1465 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="jmvj0cce2d009666b01a4d790eaaa87a" style="min-width: 100%; width: 1px; text-size-adjust: 100%; font-size: 100%; transform-origin: left top;">
+  <head style="display: none;"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../css/alw_9781319272463.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common/lm_ui.css" type="text/css" rel="stylesheet" />
+    <script src="../frost_widgets_data/glossary.js" type="text/javascript"></script>
+    <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascript/lm_popup.js" type="text/javascript"></script>
+    <script src="../javascript/lm_frost_listner_min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Chapter 16 TwoWay Analysis of Variance</title>
+  <script src="../javascript/tex-mml-chtml.min.js" id="MathJax-script"></script><style type="text/css" media="print">body > * { display: none !important; height: 0px !important; width: 0px !important; overflow: hidden; }body:before { content: "To print, please use the print page range feature within the application."; display: block !important;}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munder {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-over {
+  text-align: left;
+}
+
+mjx-munder:not([limits="false"]) {
+  display: inline-table;
+}
+
+mjx-munder > mjx-row {
+  text-align: left;
+}
+
+mjx-under {
+  padding-bottom: .1em;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > * {
+  display: block;
+  text-align: left;
+}
+
+mjx-semantics {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("../css/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("../css/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("../css/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("../css/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("../css/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("../css/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("../css/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("../css/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("../css/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("../css/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("../css/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("../css/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("../css/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("../css/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("../css/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("../css/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("../css/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("../css/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("../css/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("../css/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("../css/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("../css/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2D::before {
+  padding: 0.252em 0.333em 0 0;
+  content: "-";
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c34::before {
+  padding: 0.677em 0.5em 0 0;
+  content: "4";
+}
+
+mjx-c.mjx-c35::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "5";
+}
+
+mjx-c.mjx-c36::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "6";
+}
+
+mjx-c.mjx-c37::before {
+  padding: 0.676em 0.5em 0.022em 0;
+  content: "7";
+}
+
+mjx-c.mjx-c38::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "8";
+}
+
+mjx-c.mjx-c39::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "9";
+}
+
+mjx-c.mjx-c3A::before {
+  padding: 0.43em 0.278em 0 0;
+  content: ":";
+}
+
+mjx-c.mjx-c3B::before {
+  padding: 0.43em 0.278em 0.194em 0;
+  content: ";";
+}
+
+mjx-c.mjx-c3C::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: "&lt;";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c3E::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: "&gt;";
+}
+
+mjx-c.mjx-c44::before {
+  padding: 0.683em 0.764em 0 0;
+  content: "D";
+}
+
+mjx-c.mjx-c46::before {
+  padding: 0.68em 0.653em 0 0;
+  content: "F";
+}
+
+mjx-c.mjx-c49::before {
+  padding: 0.683em 0.361em 0 0;
+  content: "I";
+}
+
+mjx-c.mjx-c61::before {
+  padding: 0.448em 0.5em 0.011em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c64::before {
+  padding: 0.694em 0.556em 0.011em 0;
+  content: "d";
+}
+
+mjx-c.mjx-c65::before {
+  padding: 0.448em 0.444em 0.011em 0;
+  content: "e";
+}
+
+mjx-c.mjx-c66::before {
+  padding: 0.705em 0.372em 0 0;
+  content: "f";
+}
+
+mjx-c.mjx-c69::before {
+  padding: 0.669em 0.278em 0 0;
+  content: "i";
+}
+
+mjx-c.mjx-c6C::before {
+  padding: 0.694em 0.278em 0 0;
+  content: "l";
+}
+
+mjx-c.mjx-c6D::before {
+  padding: 0.442em 0.833em 0 0;
+  content: "m";
+}
+
+mjx-c.mjx-c6F::before {
+  padding: 0.448em 0.5em 0.01em 0;
+  content: "o";
+}
+
+mjx-c.mjx-c74::before {
+  padding: 0.615em 0.389em 0.01em 0;
+  content: "t";
+}
+
+mjx-c.mjx-c75::before {
+  padding: 0.442em 0.556em 0.011em 0;
+  content: "u";
+}
+
+mjx-c.mjx-c76::before {
+  padding: 0.431em 0.528em 0.011em 0;
+  content: "v";
+}
+
+mjx-c.mjx-cA0::before {
+  padding: 0 0.25em 0 0;
+  content: "\A0";
+}
+
+mjx-c.mjx-cD7::before {
+  padding: 0.491em 0.778em 0 0;
+  content: "\D7";
+}
+
+mjx-c.mjx-c1D439.TEX-I::before {
+  padding: 0.68em 0.749em 0 0;
+  content: "F";
+}
+
+mjx-c.mjx-c1D43C.TEX-I::before {
+  padding: 0.683em 0.504em 0 0;
+  content: "I";
+}
+
+mjx-c.mjx-c1D43D.TEX-I::before {
+  padding: 0.683em 0.633em 0.022em 0;
+  content: "J";
+}
+
+mjx-c.mjx-c1D441.TEX-I::before {
+  padding: 0.683em 0.888em 0 0;
+  content: "N";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c1D45D.TEX-I::before {
+  padding: 0.442em 0.503em 0.194em 0;
+  content: "p";
+}
+
+mjx-c.mjx-c1D460.TEX-I::before {
+  padding: 0.442em 0.469em 0.01em 0;
+  content: "s";
+}
+</style></head>
+  <body epub:type="bodymatter" class="backmatter" id="cnnea69c6b654a8d5f771c66a6f0f371" data-lo-framework-id="" style="overflow: auto;">
+    <section aria-label="appendix" class="appendix" epub:type="appendix" id="ans_sec_16_1" role="doc-appendix" title="Answers to Odd-Numbered Exercises">
+      <section class="subsect1" id="ans_sec_16">
+        <header id="suqt782934a206a1f91766969c086415">
+          <h2 class="level1 v3" epub:type="title" id="tywjf691e630990607769e89756f32bb"><span aria-label="S-49" epub:type="pagebreak" id="pageS-49" role="doc-pagebreak" title="S-49"></span><span class="label" epub:type="label" id="hzxl888ad5a734e2c55d43f9d63ee0e6">Chapter </span><span class="ordinal" epub:type="ordinal" id="eerle7443a6c50d557c1cf53fcb65293">16: </span>Two-Way Analysis of Variance       </h2>
+        </header>
+        <ul class="ul-no-mark" id="ajan0c603248329609deb1f6c550a81f">
+          <li id="ch16_ans1">
+            <p class="answer noindent" epub:type="answer" id="ootp3c59554cc81fee27a93328de4d5e"><strong class="important" id="olyq33ee389bd57f40130c5fc97da318"><a class="crossref" href="alw_9781319272463_ch16_02.xhtml#ch16_exercise_1" id="ch16-exer-1" style="overflow-wrap: break-word;">16.1</a></strong> a. A two-way ANOVA is used when there are two factors (explanatory variables), not outcomes.         </p>
+            <p class="answer noindent" epub:type="answer" id="aebia29f3a5d66dd75091db95cb6dbea">b. Factor A has two levels.         </p>
+            <p class="answer noindent" epub:type="answer" id="abzr78c006caf40a01ced742a15907bb">c. This is true for the RESIDUAL part of the model, not the FIT.         </p>
+            <p class="answer noindent" epub:type="answer" id="iogydddb9f4d53eccbd4b7d870d641a6">d. The means of six groups are compared.         </p>
+          </li>
+          <li id="ch16_ans2">
+            <p class="answer noindent" epub:type="answer" id="vkvf1230595227679011b1baf48cbcf0"><strong class="important" id="zabydbfb60049e6a3ee13c37e966b746"><a class="crossref" href="alw_9781319272463_ch16_02.xhtml#ch16_exercise_3" id="ch16-exer-3" style="overflow-wrap: break-word;">16.3</a></strong> Factors: Training program has three levels (the three different programs); Method, or how the program is administered, has two levels (one 6-hour session, or two 3-hour sessions). <span aria-label="cap n equals 100 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0001.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="0" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dort08a4a85e0bdc9d883e2b1d9bb98c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kbps69b76ccec669ba39805692abe098"><mjx-mrow id="tecr11a6faae41649619b22e93f8ff42"><mjx-mi class="mjx-i" id="klvk5283ec0f6ca093e379157349c036"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="ldseb8adf47767e16253de32672629cf"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="pnirbd36b9b43c4f627ea11eb687332b"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="qcjyfcc55aa0b082b3bcf956d50539d5"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>N</mi><mo>=</mo><mn>100</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch16_ans3">
+            <p class="answer noindent" epub:type="answer" id="gxzq1af26f2ef5456e01e295f1cf5165"><strong class="important" id="bjdvb4125a4142008931691d17c0bdb8"><a class="crossref" href="alw_9781319272463_ch16_02.xhtml#ch16_exercise_5" id="ch16-exer-5" style="overflow-wrap: break-word;">16.5</a></strong> In the Northeast, the PCI for white is substantially higher than for Asian; in the other three regions, the PCI for Asian is higher than for white.         </p>
+          </li>
+          <li id="ch16_ans4">
+            <p class="answer noindent" epub:type="answer" id="jttt817ebf5814bd4c8ddda65b0719ea"><strong class="important" id="ghzt0a1120b35dc8df3b92080b270dbb"><a class="crossref" href="alw_9781319272463_ch16_02.xhtml#ch16_exercise_7" id="ch16-exer-7" style="overflow-wrap: break-word;">16.7</a></strong> a. Response: willingness to pay ($); Factor A: Saturation; Factor B: Carry-on suitcase size; <span aria-label="cap i equals two semicolon cap j equals two semicolon cap n equals 156 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0002.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="1" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wjjc87f7ef67e339775b10783c63acd6" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vfekc012917eba545bbe326a1651748e"><mjx-mrow id="zqqzfa968f6e5426457afd557101f295"><mjx-mi class="mjx-i" id="ltbif63b9e39d5912f12337019dee7fe"><mjx-c class="mjx-c1D43C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="cfsu72999e149e7c10d9b08c8fbf9308"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="gocqcb93198c838aaf915f8b18d4f9e1"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="qwxf62512dc72dc72771b31c4c6b4bdf"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="zdgb704b29942b5e52692b334a5871b1"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="ehjhc99f9ac1038542303ac947d2cff7"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="ziambc5e94d9e604081b26965946963e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="xxjd2628db112a866fbf3520a908d2b0"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="iqki4cd9c99c72d8b6dddcb4fa3c3981"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="lhbnef07d32d9d3677fdf81d771d415d"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="awmd47b56431fa5a612564319ece8072"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="oavv7cddb14f0ec8d215b658e84556ff"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="yzvh6835c697839233585307eb8ad207"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="esht4821415c332edb70086e85fc856d"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>I</mi><mo>=</mo><mn>2</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>J</mi><mo>=</mo><mn>2</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>N</mi><mo>=</mo><mn>156</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="cukpb2a3c4b707566a39bb4e18c714b6">b. Response: total amount spent at store ($); Factor A: Scanner; Factor B: Self-control; <span aria-label="cap i equals two semicolon cap j equals four semicolon cap n equals 139 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0003.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="2" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jikm8393ce904ac321f61ab5c043e164" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lzukd61fd7e7578c8c9bd2768acff632"><mjx-mrow id="jaox0e8316377a0247111ad6d75857f5"><mjx-mi class="mjx-i" id="ecfi7e9a23ac346af90039e804f43717"><mjx-c class="mjx-c1D43C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="druq86c6583577dd925270af73205dbe"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="lqno40a287bada314b24dc9f86d05391"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="rtiea325cddddf313ceb0ee96a68dc18"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="akne590c329ebe7658e92c53c092f458"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="yiwaafb7eca8711ef97c6987698172dd"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="tcyq49dd2a06043279c76c7496934915"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jzaf344a68c3cce3a445e503ab67d308"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="hrwde720022573d9d3ec4b35a8cb2372"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="dtmg8af4b019cf4a9b68c8490ffa2773"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="pkxib422282680f2b6bb6cfecfff837f"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="rckt83135a0e7dbec9c52b68a3b85927"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="zmnx0f66b7d5d2f73e0cad58b4d6265e"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="pspr72a43338616b3ee4ef945fff087a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>I</mi><mo>=</mo><mn>2</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>J</mi><mo>=</mo><mn>4</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>N</mi><mo>=</mo><mn>139</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="fodp0656bdd71dee60c1eb01bf16c883">c. Response: tensile strength; Factor A: Adhesive; Factor B: Surface roughness; <span aria-label="cap i equals six semicolon cap j equals four semicolon cap n equals 96 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0004.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="3" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lwif562b83fd8c24d714a96d50b8562b" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vxnx0e56d0b2dd4708c96498525e6fb4"><mjx-mrow id="cbuu1b4234c3334225db3af312057923"><mjx-mi class="mjx-i" id="hrpqe636bc6cddce2c170f4b193f90b2"><mjx-c class="mjx-c1D43C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="gvdnecec075777babd3a8e751d7cfcd2"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="avilb86df6e8808835f4b22e07885683"><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="mdzrd489c7bfd18b9b6a84a16422f8e8"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="mgso4eeb0993cc8ee125826a283dee1a"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="eudldf4813c6abaa16a0aef61a0a8fe1"><mjx-c class="mjx-c1D43D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="mzsr8db9b467d61feda3ee7fb6293d10"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="xriy120152d8db7ad5b7826ebded40b3"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="wplu7ba9eec0840170cf265e37be77a6"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="afybe5998455c040f1211a17e124499b"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="audr4f96bd646205bacd34ccc107e270"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="gnfd5594857cef888a6bdbb3999c780d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="tpwedc45feda5599eeaa9d9b637c4e1d"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="eaabe59ae78dee3965481fe80365df68"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>I</mi><mo>=</mo><mn>6</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>J</mi><mo>=</mo><mn>4</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>N</mi><mo>=</mo><mn>96</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch16_ans5">
+            <p class="answer noindent" epub:type="answer" id="uspkc2b69eb744b96cb0c9b60481f9e1"><strong class="important" id="usvj1f97c32a509fd16f88c32b2ecbfd"><a class="crossref" href="alw_9781319272463_ch16_02.xhtml#ch16_exercise_9" id="ch16-exer-9" style="overflow-wrap: break-word;">16.9</a></strong> a. There is a slight interaction. Factor B level 1 is higher than Factor B level 2, but this difference increases as the level of Factor A increases, hence the interaction.         </p>
+            <p class="answer noindent" epub:type="answer" id="yxwm0ac17fad5412b41b2d2f1acef891">b. There is no interaction. Factor B level 2 is consistently higher than level 1 regardless of Factor A. Additionally, the means increase as Factor A level increases.         </p>
+            <p class="answer noindent" epub:type="answer" id="qyosfa15f2ffcd1d9215c02842e9aec4">c. There is an interaction; for Factor A level 1, Factor B level 2 is higher than level 1; this difference increases for Factor A level 2; finally, there is a difference between levels 2 and 1 for Factor B when Factor A is level 3.         </p>
+            <p class="answer noindent" epub:type="answer" id="xebib7104c295016d07bc88451417010">d. There is an interaction; for Factor A levels 1 and 3, Factor B level 1 is higher than level 2; however, this reverses for Factor A level 2, where Factor B level 1 is now much higher than level 2.         </p>
+          </li>
+          <li id="ch16_ans6">
+            <p class="answer noindent" epub:type="answer" id="hjdb3de4c40b1367a6f90e961123a6ad"><strong class="important" id="equv2d52199e74155f7b72fa0fbd1699"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_11" id="ch16-exer-11" style="overflow-wrap: break-word;">16.11</a></strong> For the tag color main effect (there are five colors, so <span aria-label="cap i equals five" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0005.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="4" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="kshec17cb7c2a2daf39d6240486412cb" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fuhs28fd063d90c5eb0a87ec39be68f8"><mjx-mrow id="mkuv06b1b3f278eeb35e688882a04af3"><mjx-mtext class="mjx-n" id="btrze6651a89f48a4a5786a1ba0c7de9"><mjx-c class="mjx-c49"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="vriff60cc3d725695e8e6c5f618873b4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="akuv60b7848720b71d0e5773b667a5ec"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>I</mtext><mo>=</mo><mn>5</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>), <span aria-label="DF equals four comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0006.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="5" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="sguk778202b7d600311ca1767c67c900" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lykwde580c33b1fce1a0f7a9744f0cc1"><mjx-mrow id="kzkb71faf23ea629511ed56f49daeea3"><mjx-mtext class="mjx-n" id="pvtn200d5592844602c1c6145c448939"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="jpix54325f43f8542aebb487c6a8419f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="hwfc511ebf75fa3216bd2618cd8b0a90"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="cphy5c6da0fba3901d5c4d69c76b145f"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>DF</mtext><mo>=</mo><mn>4</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 157. For the impulse main effect, <span aria-label="DF equals one comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0007.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="6" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="vask0c03a0a0b7bd583777c69a11b071" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fxuo90163cd1a89cf13008d6f603e510"><mjx-mrow id="aznr18b608ccc27eb10bb769e6987c8b"><mjx-mtext class="mjx-n" id="jjsv43921c8b3ae8bfc090fa8e6ba17e"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="tmna1c046c8d49d06252bf8c52609bb8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dndba2e04abbe8c2bd790f324ae4bca3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="azeuf377c425c09678109da8c059e4cc"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>DF</mtext><mo>=</mo><mn>1</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 157. For the interaction effect, <span aria-label="DF equals four comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0008.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="7" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fqjg7808b571f0da8a8fc8d9ab14120e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mlaaabc9ee5d5f6a09ac458983b56eae"><mjx-mrow id="ijee596bcce903c853c2741d9f8aa9d2"><mjx-mtext class="mjx-n" id="jfime675035e9fca19c565fe0ae78cbd"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="tjhv26cb45150869211c1928868ed071"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="edag9a468745ba5dff0505cf8840ca16"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="newt19308b982bb23465f56e892770fe"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>DF</mtext><mo>=</mo><mn>4</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 147.         </p>
+          </li>
+          <li id="ch16_ans7">
+            <p class="answer noindent" epub:type="answer" id="fdaf1dfc13bb35b426a922762173d02d"><strong class="important" id="wqob19fe89e2e3ebe784fd100245e3b5"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_13" id="ch16-exer-13" style="overflow-wrap: break-word;">16.13</a></strong> The d30-p1 group seems more spread out than the other three groups; also, the d10-p5 group has a low outlier. These concerns likely violate the conditions for ANOVA. The mean prices do seem different for the different promotion and discount combinations.         </p>
+          </li>
+          <li id="ch16_ans8">
+            <p class="answer noindent" epub:type="answer" id="zghva1783c12f7f4bae48bcba89698c0"><strong class="important" id="sqwra4891f5c7e4f8145279a7f01fc0a"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_15" id="ch16-exer-15" style="overflow-wrap: break-word;">16.15</a></strong> We cannot pool the standard deviations since the largest <i class="semantic-i" id="wccp9c6a59e78fbb60a9aeb391592727">s</i> is more than twice the smallest <i class="semantic-i" id="tvqwa15ab190db22e911f8a36d74800a">s</i>; <span aria-label="0.45211 greater than two times left parenthesis 0.16289 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0009.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="8" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="bhkh8db625ebf4c80eac3db3b593834b" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="jbfw28d0ba697ca023e5c939c87ca8f7"><mjx-mrow id="zbel81f7796ad2caac1f5fad422cd974"><mjx-mn class="mjx-n" id="hdykb1ac84a986434f67b052eca25175"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="xryw868b9b21950fc59b2ddb1485a021"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="olytd31b42c1e6920c3118ab20c09ac3"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="yqxve527a1fd038bc2d6ef09c5837833"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="jhme6dc5ab50e8fa0bf682832ab8346a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="plgc9ca3b572e69a695a9489e0c30ab3"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="wtqs5e5dffec29ac2de695e4280b4336"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>0.45211</mn><mo>&gt;</mo><mn>2</mn><mo>(</mo><mn>0.16289</mn><mo>)</mo><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <table class="table compact c3 center" id="ch16_tab1">
+              <tbody id="zakf6679555084355b3da57f3a3be868">
+                <tr id="jurtd3263048a6eb34b94f1291aa2d18">
+                  <th class="center rule-b v2" id="buwfac1411036afc851e9bbee19d2eb2">Promotions               </th>
+                  <th class="center rule-b v2" id="ugbkadfd3a189ac8de36035e4e3a0b21">Discount               </th>
+                  <th class="center rule-b v2" id="okzu943a37f179f63f11d5c080f6a466">N               </th>
+                  <th class="center rule-b v2" id="znefa4f141eeed5e451c72dac6a3d43e">Mean               </th>
+                  <th class="center rule-b v2" id="ysde6528e3443d6d58bb5e65693c5164">Standard deviation               </th>
+                </tr>
+                <tr id="xtxb741c8bf3598bf995bffc1fa8e726">
+                  <td class="center v1" id="pitha9c76e21667fd9ea7a4d3df89e64">.               </td>
+                  <td class="center v1" id="hxskde974fba103e20e86aac3ad2b98f">.               </td>
+                  <td class="center v1" id="tunk2f7bc288817e3244764a4bfbad5d">40               </td>
+                  <td class="center v1" id="amnp0af526232c58af54a5fdac38521c">4.357               </td>
+                  <td class="center v1" id="kmhvd07802fdb0cba8a87d6877d7f0ae">0.45211               </td>
+                </tr>
+                <tr id="vlaw3dcef15d6c8090a9d208b6d7c1f6">
+                  <td class="center v1" id="xidvd249f3d79c4756915cbccd8da069">.               </td>
+                  <td class="center v1" id="edbgd834d43e9a719dd1abb1c00f6486">10               </td>
+                  <td class="center v1" id="kazq048113ce9a328238584fcb224077">20               </td>
+                  <td class="center v1" id="rgwr6737a9129322bb56723d0d042b2d">4.6565               </td>
+                  <td class="center v1" id="xmzcb5887d1173625746fe2808f89dd6">0.34379               </td>
+                </tr>
+                <tr id="amcb3ac6fec7ddbfcd1ca8e35038dbb6">
+                  <td class="center v1" id="qoyx70949eb7e3ebc1d8f48c05bdb632">.               </td>
+                  <td class="center v1" id="fdvv3158b2a99c5a817619d472986e79">30               </td>
+                  <td class="center v1" id="xddeb7059bd229206051685f5c7b1c30">20               </td>
+                  <td class="center v1" id="yrqxc603911230962cda65e78f2a8ce6">4.0575               </td>
+                  <td class="center v1" id="jxgx7f2d9d55d1b02c44f169ecb8dca9">0.33546               </td>
+                </tr>
+                <tr id="wwrdba94260f487f0474d50d6fa9da07">
+                  <td class="center v1" id="lrsk494e38c272b160f09e1d2472c785">1               </td>
+                  <td class="center v1" id="diawede7822e00ec9ea7d31d1303e515">.               </td>
+                  <td class="center v1" id="cqes77e6290432e826d0571ca1c6f3da">20               </td>
+                  <td class="center v1" id="cjboe0a0ca6f22b2e297dfc977e0a22c">4.5725               </td>
+                  <td class="center v1" id="euus5974a5065483f5f3e0fcf6029d0f">0.45661               </td>
+                </tr>
+                <tr id="rttzef9ac5f0a9d990991ee9bd8c8cea">
+                  <td class="center v1" id="bdsh2e048782ea3b75dd4a94f86888e4">5               </td>
+                  <td class="center v1" id="zwmr1c56704428f3243774fbc23ec91e">.               </td>
+                  <td class="center v1" id="lulk45a6b9f8b84b917d09bf63251962">20               </td>
+                  <td class="center v1" id="scan2058101262d5253906698a14e7ec">4.1415               </td>
+                  <td class="center v1" id="plsd8e822cab75c9b7eab913e2184879">0.33661               </td>
+                </tr>
+                <tr id="smau689eddcf0b48361c08e39cf26edf">
+                  <td class="center v1" id="azlc3143b3a040943997b306eda98639">1               </td>
+                  <td class="center v1" id="jonhe830ac56552280758725cd62820f">10               </td>
+                  <td class="center v1" id="dtxs6e5df7d0b08ec1ce223c84e74a8a">10               </td>
+                  <td class="center v1" id="trnaa579c9552e0c18fba7af1782875f">4.92                   </td>
+                  <td class="center v1" id="dgsle34c2390eae5b7c5fee184649379">0.15202               </td>
+                </tr>
+                <tr id="njgdd2b0973cb82ea583c806ca542559">
+                  <td class="center v1" id="vetwb6f9032f30c2dc0919749ffabcbc">1               </td>
+                  <td class="center v1" id="gczv2e0c5246557c8937649c6327e710">30               </td>
+                  <td class="center v1" id="dxzq2f662abd1ef27cd5bf9481cc86a5">10               </td>
+                  <td class="center v1" id="wcbc81426f600a96d17df8a4bdac800c">4.225                 </td>
+                  <td class="center v1" id="tyfv0c727849643a72f4c7a84293b0d3">0.38561               </td>
+                </tr>
+                <tr id="soje075075f06eb161bcbcd4cc168751">
+                  <td class="center v1" id="gpjnae296886ebb6d14545082a404062">5               </td>
+                  <td class="center v1" id="hkvfbd4bb466e6f9c598b67318688076">10               </td>
+                  <td class="center v1" id="evcfbeafa848a6ae7f35153aaa92ae4d">10               </td>
+                  <td class="center v1" id="mwhi39c4a6f87a6e9d538e9a9c243293">4.393                 </td>
+                  <td class="center v1" id="pqsv137042f6f8131920b9c6f8b6d9ed">0.26854               </td>
+                </tr>
+                <tr id="dhny1bc50dce5b0bb339d9a4965f742f">
+                  <td class="center rule-b v1" id="nqwf5e037aa14126ba5661a4e7a3ec0e">5               </td>
+                  <td class="center rule-b v1" id="gtuqa6ead249531d3d0969dba2a7a360">30               </td>
+                  <td class="center rule-b v1" id="hirffe6b0d160be93b06e31a725cbd78">10               </td>
+                  <td class="center rule-b v1" id="aqjib62563d5f1510f0c63fdc079a603">3.89                   </td>
+                  <td class="center rule-b v1" id="lcghf7962ff4672da81d4af2b4b11eb0">0.16289               </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="answer noindent" epub:type="answer" id="bkoa0a1e1abd0aa02b8e5152771e1168">There doesn’t appear to be an interaction. The expected price is higher for a 10% discount than for a 30% discount; the expected price is also higher with only one promotion than with five promotions.         </p>
+          </li>
+          <li id="ch16_ans9">
+            <p class="answer noindent" epub:type="answer" id="ttlicb5250379028a2ee723936b9a28b"><strong class="important" id="vnmf41d33499c3731db9adef0f8f3181"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_17" id="ch16-exer-17" style="overflow-wrap: break-word;">16.17</a></strong> Answers will vary.         </p>
+          </li>
+          <li id="ch16_ans10">
+            <p class="answer noindent" epub:type="answer" id="iwpmdcf98284894ee6c1948626cba146"><strong class="important" id="mhkt942ce413e7662b474c595b998180"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_19" id="ch16-exer-19" style="overflow-wrap: break-word;">16.19</a></strong> a.         </p>
+            <table class="table compact c3 center" id="ch16_tab2">
+              <tbody id="unmi03be2ab190f1ccc8d91f4abbb5d2">
+                <tr id="oclmcbb8a45c8657e300c9d861f297a7">
+                  <th class="left rule-b v2" id="spsdc11e5e35cce0fe896e722f0c3ef6">Source               </th>
+                  <th class="center rule-b v2" id="cjmp7b525213f1ebbb62c435816c3daa">Degrees of freedom               </th>
+                </tr>
+                <tr id="uaca3148d8bad4e0281fe19f943584eb">
+                  <td class="left v1" id="koxfb57c926b5e0a34ece998c8a3da4b">A               </td>
+                  <td class="center v1" id="mteda48488a6cabc7531009f48557325">  4               </td>
+                </tr>
+                <tr id="onuz0104f2fb44fcf5a05056a23315d0">
+                  <td class="left v1" id="zvhz57cc1d39f6d49ae18fca3bf21dcc">B               </td>
+                  <td class="center v1" id="jsfyfd6cd415c1388a41fceca32d4183">  2               </td>
+                </tr>
+                <tr id="pryxc6a51f5cc735516406960e11ad7e">
+                  <td class="left v1" id="ejxjf4240dd79c7ccbc9643e41eb7001">AB               </td>
+                  <td class="center v1" id="vura6b0786aff834c778b16637c8b264">  8               </td>
+                </tr>
+                <tr id="drmybe48593fce0d9f814603d006d184">
+                  <td class="left rule-b v1" id="ctri1c339ca902c33604e25971d7233b">Error               </td>
+                  <td class="center rule-b v1" id="tdqv494f357cae94f94dd4e0a63170d1">45               </td>
+                </tr>
+                <tr id="jbrq8f34778878fcef55b29973b378dd">
+                  <td class="left rule-b v1" id="gipu45b824297ae9ebbafc1ddf4d2394">Total               </td>
+                  <td class="center rule-b v1" id="qwwt7dd4bad2f83ebdbb9441256581ef">59               </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="answer noindent" epub:type="answer" id="vpxx126d798efbd69ddb16a2bdf2c5e5">b. (4,45).         </p>
+            <p class="answer noindent" epub:type="answer" id="nuwo2d74b7236421b0cad6a3081ead09">c. (2,45).         </p>
+            <p class="answer noindent" epub:type="answer" id="yemyc6945830688e5a9f32d90da50017">d. (8,45).         </p>
+          </li>
+          <li id="ch16_ans11">
+            <p class="answer noindent" epub:type="answer" id="yshff4cc79b68f9b7ea2d5f794c16cc3"><strong class="important" id="whwf364f7dbfe29642234f513b6cb424"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_21" id="ch16-exer-21" style="overflow-wrap: break-word;">16.21</a></strong> a. <span aria-label="df equals three comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0010.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="9" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="xbme368c9fe360a361a40928e4c48162" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="crtof744871e8d782f12e3d2bb070634"><mjx-mrow id="gaos6509c98d0f73f0f654772da23f51"><mjx-mtext class="mjx-n" id="wlurd3f6229012e1c17f4d65af24cad7"><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c66"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="vwnh6d35302bfbcc9c6981b7c574ebc1"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jgqc330d191bef7a8f25d5c36bb5ea16"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="rcxi35257ab81b217df8a2704c1423e2"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>df</mtext><mo>=</mo><mn>3</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 40.         </p>
+            <p class="answer noindent" epub:type="answer" id="bizmbf6c033ef957a28f5cd13703bf78">b. <span aria-label="cap f equals 2.84 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0011.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="10" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hxmk59c1e04e8d30558076b036f3bf77" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mkgdf38bfc33ba70363ca384c036b7b5"><mjx-mrow id="nakob3d00e9a7c17bb43b8b5ec569f2e"><mjx-mi class="mjx-i" id="yatz2508d1c57902581dfd585b11bbdb"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="kmes26188ec8ce8eb48be1293d3859a2"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="igka1f22ce1d94cb37ac1ba0f998937a"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ulybb1a7fe42af587817751210abb597"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>2.84</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="fsvp732b5c45640c3d358213bfd7ab29">c. and         </p>
+            <p class="answer noindent" epub:type="answer" id="gzzp9e3edc3597021b1333368f51d72e">d. The <i class="semantic-i" id="mbly82f507777b2c98fdc8bad4bb9e4b">P</i>-value will be larger than 0.05; the interaction effect is not significant.         </p>
+            <p class="answer noindent" epub:type="answer" id="szcmd7a3e110ecd4440833dec993932c">e. Yes, the plot of the means will be parallel when the interaction is not significant.         </p>
+          </li>
+          <li id="ch16_ans12">
+            <p class="answer noindent" epub:type="answer" id="nvtb7404666c0c95a37aee9bc57b334f"><strong class="important" id="fjqfc5c0e12211bf6244569ac0d828e0"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_23" id="ch16-exer-23" style="overflow-wrap: break-word;">16.23</a></strong> Main effect A is significant, <span aria-label="cap p minus value equals 0.082 times left parenthesis DF equals one comma 24 right parenthesis semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0012.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="11" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="taswe30bbdf52b6db70d6ad622d91ce7" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qqcr7b0013312a70aa9dc40264df7fb4"><mjx-mrow id="dpmy5f130908d3ee0eccad1eace8f80c"><mjx-mi class="mjx-i" id="ziiuc1f277984e2a72e49cbdf9b81c65"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="dxgf10f3c09530b38885763bf285cefe"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="hvldab8f22e80683094187dacd2b9fa8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="xsgde8274bc7016e7625d25b35b80898"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="acwe5704fb63d41f78a9c74d1092fac0"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="bwyb4c36d2ce06125d7e657e735b942c"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="qjfr4715b81e11857c0ebf7833560779"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="uemj5f53c4c0f551272e51c33949e2cf"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2C"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="oesc9f83436001d2de599a75c91e331e"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="cxgzaf016e79c45e1783732ec464bf0c"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.082</mn><mo>(</mo><mtext>DF</mtext><mo>=</mo><mn>1,24</mn><mo>)</mo><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> main effect B is significant, <span aria-label="cap p minus value equals 0.02 left parenthesis DF equals two comma 24 right parenthesis semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0013.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="12" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="uyxif6c970f208e016953a23f7c80f78" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hdtcd68eed95bf7b6cec41d35c2841b0"><mjx-mrow id="epqk09edf2f1bec0beeae01a4311603a"><mjx-mi class="mjx-i" id="wmgrbd954602216ba6965bddf12fceb8"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="rilv829fe32e9312984a1fe3f1d1f70b"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="ksfq6f2f9e65a591dc3f40bc694d8b20"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="gtrq4baf91d80ec9c469843519abea5b"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="ifjcc9a4f443172771c2b25841bbac15"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="dovb90ddb968e4158da4523f97fbe780"><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="lfnufd582d04654e61ae937ae1335d77"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="mrdxa1c33a6f68234af7c2846e53e355"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="gmbnafa078247f9c7c760c41b2590557"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="zuvf809556994a82f0168d9c481e0ad1"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="zxls26ac8a8f29cf6c196e965a2b00d7"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="ujdgb3bce40b5ca14908e31de8e01a48"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="pujo7edd357f9c2ed56ba5dd0dd14559"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.02</mn><mtext> </mtext><mtext>(DF</mtext><mo>=</mo><mn>2</mn><mo lspace="0" rspace="0">,</mo><mtext> </mtext><mn>24</mn><mo>)</mo><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the interaction is not significant, <span aria-label="cap p minus value equals 0.259 left parenthesis DF equals two comma 24 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0014.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="13" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dknk355ca2611a388136dc2e7c89ab91" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="elrjefa1f92a2afe8b72b052f2e94e44"><mjx-mrow id="mhgq34d879521f42cf4681194af6d2f9"><mjx-mi class="mjx-i" id="adfh9374add51a863f2bcec66975f8be"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="gkdo3bad1d697881320a4db01dd68231"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="mkxh481dc439721ba90ef6928a417da9"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fpvtc83db9b30729914fb9bc7c412abd"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="dubd980de33afce0edde2974a1da6a84"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="sofe786e5ab43c9a66eec8315ca8285a"><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="rtixf0e7f1b9ddbf0ad0746258615821"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ngud1183c587c61c0aa9a50d91d73234"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="lshefc874680b0eb911c5e536233c1a7"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="juwta4085061f92c03127f3f55ab24e6"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="xuoedfd8cd1baa07cd9d8f617469efcc"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="whwxf4308672d0422ff933498ba39662"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="enwp0293036e6225032b8cb522b529c1"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.259</mn><mtext> </mtext><mtext>(DF</mtext><mo>=</mo><mn>2</mn><mo lspace="0" rspace="0">,</mo><mtext> </mtext><mn>24</mn><mo>)</mo><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch16_ans13">
+            <p class="answer noindent" epub:type="answer" id="wqnraa3b3fb5e10ef51666674d2d61a5"><strong class="important" id="smvm676f6c8dd65fa971ad01627234e5"><a class="crossref" href="alw_9781319272463_ch16_03.xhtml#ch16_exercise_25" id="ch16-exer-25" style="overflow-wrap: break-word;">16.25</a></strong> The two lines are parallel, which further suggests that there is little interaction between promotions and discounts.         </p>
+          </li>
+          <li id="ch16_ans14">
+            <p class="answer noindent" epub:type="answer" id="culd1ab19700dae45b3a70f99e916147"><span aria-label="S-50" epub:type="pagebreak" id="pageS-50" role="doc-pagebreak" title="S-50"></span><strong class="important" id="wynm8a278cbb2e7f82be4b3f8827175b"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_27" id="ch16-exer-27" style="overflow-wrap: break-word;">16.27</a></strong> a. Response: skin temperature. Factors: haptic feedback (four levels) and type of game (two levels). <span aria-label="cap n equals left parenthesis two multiplication four multiplication four right parenthesis equals 32 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0015.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="14" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="acntd4be2e3b584eba6cbfc90e71deff" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="pkce2e536a56b9bb705c8ca9251df623"><mjx-mrow id="cjsladc61430ee36d54c049d273ff1fe"><mjx-mi class="mjx-i" id="udac6d8493c85394d2c3cfeb60fe3ed1"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="zdsxc4df1758f2d789d454e84a8d4f9c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="4" id="dgjsce0396d7b9b6bb854af131954941"><mjx-c class="mjx-c28"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="3" id="klfe0cc6a36b4f8e476498560169f3cf"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="3" id="mfkcdc887c4ca79335bc852a62851f83"><mjx-c class="mjx-c34"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="3" id="faaa6e24dddb378fd38f5eb74ab38ab0"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="3" id="dujs54d7f4c728cc8a5d5a483425094d"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c29"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="xzto9aa77667042570bc5e8c0a68b4a3"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="4" id="nvqs6974c2a7d0e28df4611f1524260b"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="azxicec759182f4c507c295e3b151f1b"><mjx-c class="mjx-c2E"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>N</mi><mo>=</mo><mtext>(2</mtext><mo>×</mo><mtext>4</mtext><mo>×</mo><mtext>4)</mtext><mo>=</mo><mtext>32</mtext><mtext>.</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="izgzb01eecb7288de63c00a46fbac4ee">b. Response: total calories. Factors: menu type (three levels) and price pattern (two levels). <span aria-label="cap n equals 300 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0016.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="15" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="xmdfef5128754e019050cda87cc6b99c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="iszn227dd68fbd5746e7c67559f809b1"><mjx-mrow id="orks3edab7ce3bf3642319347d8f12fa"><mjx-mi class="mjx-i" id="xwvd90a4b6c10fa5a45cb11a7f74b29f"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="hldza69b496d1fa4eac991839ddea943"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wdos1e8df7bc630eec756e1f85e76514"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="srql33fe29595939216574746d1cefbd"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>N</mi><mo>=</mo><mn>300</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="zgbf34a026e83c1f99fc6d89cd3b6c3a">c. Response: strength. Factors: mixture (six levels) and cycles of freezing (three levels). <span aria-label="cap n equals 90 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0017.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="16" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jsle0beb80d3b11100c15fbbf88953c9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="gywx53489f7e3c409270b1b3b553e125"><mjx-mrow id="bcihdcb1c0f9414908754bb43c3f6b9a"><mjx-mi class="mjx-i" id="kult86ca7b2fa59eaa8867abd27c0057"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="eyin7ca07ca67a0dbcb387a4c033cd36"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ctfrf3b1233e55cefaa4ddfe3251c8f1"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ppzcd722b08781b909ea37b06701c1cb"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>N</mi><mo>=</mo><mn>90</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch16_ans15">
+            <p class="answer noindent" epub:type="answer" id="stvhfada8b0368d86ddba4ea832de1a2"><strong class="important" id="bqtp238fab9b0d8d89ca29c2373dd9bf"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_31" id="ch16-exer-31" style="overflow-wrap: break-word;">16.31</a></strong> a. As the saturation changes from low to high, the purchase goal for large carry-on increases; the purchase goal for small carry-on decreases as saturation changes from low to high.         </p>
+            <p class="answer noindent" epub:type="answer" id="colr6b9bed007bce720d4c0bfdc71413">b. The graph indicates there is an interaction effect (the lines are not parallel).         </p>
+          </li>
+          <li id="ch16_ans16">
+            <p class="answer noindent" epub:type="answer" id="mggg5738c5f6da534cfa6528bf762654"><strong class="important" id="tmsq55996b46567de59d66c84e21a083"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_33" id="ch16-exer-33" style="overflow-wrap: break-word;">16.33</a></strong> For saturation, the <span aria-label="cap p minus value equals 0.29 semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0018.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="17" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="cvsn797fcab6fd819e1c201267cb2c6e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="emixaa5a090f92e7a05d2a167d9b8abe"><mjx-mrow id="pgty242047552b6c98c7aa9aa7d5c4cf"><mjx-mi class="mjx-i" id="ebxh53e7a8db4e7f3ebcb241e7a69547"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="ehwea5c72ed0ffac13bcc271f1a524dd"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="afjeaa80a6749ab8f477eede98446a62"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="abeq6303ae316587f68951dde292d709"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="dicve7c9af740b1a43b0d10ba80d1b3b"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.29</mn><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> saturation is not significant. For purchase goal, the <span aria-label="cap p minus value equals 0.04 semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0019.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="18" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tkbvf11ce225bbbf4da88b9ea01142e8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="dxpr5df243973cdfb1318b5c1291a2da"><mjx-mrow id="drku881c0e8fe870c3050f538b80d72e"><mjx-mi class="mjx-i" id="btryae289ba0af201eb54069958ad319"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="uhimf31f819fb15e444779b27caec7b9"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="xaix9fda7e7fac25cd35683f647ba5ce"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dsjjf3b932bc9a38763c4d281fa5b3c7"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="htnxb0a351f23ac63104da3dbd75b174"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.04</mn><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> purchase goal is significant at the 5% level. For the interaction effect between saturation and purchase goal, the <span aria-label="cap p minus value equals 0.09 semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0020.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="19" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="oxlh814217547236e4608e8ec217f3e1" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="cqxy40584e03e0de26e6cd394c848ac1"><mjx-mrow id="jmqd1a595530f785ee0c9a1c83b32248"><mjx-mi class="mjx-i" id="vdsu114ab475816c6114ec841b3c05f8"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="hodwc670e913e04b15b2402d815663c6"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="gkjta2bcfb824401a6433890d71aa924"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jiey739d465328e14365a816cf97c60a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="nvayc6f96d894bcf5e10d8e0c84d7fb7"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.09</mn><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the interaction effect is not significant at the 5% level.         </p>
+          </li>
+          <li id="ch16_ans17">
+            <p class="answer noindent" epub:type="answer" id="umgq0430d4341e6c4086658334ebd368"><strong class="important" id="jamw3ad4280b41cf74bdc904c2bb01c4"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_35" id="ch16-exer-35" style="overflow-wrap: break-word;">16.35</a></strong><span aria-label="s sub p times squared equals 3.1493 comma" class="math mmm1" id="alw_9781319272463_EM_ans_ch16EQ_0021.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="20" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="shkg9a74256c4aace782fc589decbd12" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xfig9659ceabb5c4d147d3adccbc195c"><mjx-mrow id="hqswbe6a8c063eb22d6d422aa0849694"><mjx-msub id="ivlm4ea508f6f8bd08b0887a9a5b33f4"><mjx-mi class="mjx-i" id="ghia9d2c8178c5fdaa588bb242851d75"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s" id="swqxbf1684544ffdc1a875e90ec91d06"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msup id="kayc350837150e0031b7f8aff137afb1"><mjx-mrow id="tzls8905cb7f997c01305e5d5b5c55ee"></mjx-mrow><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s" id="uyqldcaaac2322e9467f2f0d9ff04e14"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="oqqw0376dfa918b29ab9a30a40ef5546"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="opcqf391496e4cb46b5b7d0b24f4a829"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="lfccedb45a6cd93e3c4db3e4f52f5d4a"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>s</mi><mi>p</mi></msub><msup><mrow/><mn>2</mn></msup><mo>=</mo><mn>3.1493</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> so <span aria-label="s sub p equals 1.7746 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0022.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="21" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jqhg37910e4feaec9194197de57f0efb" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="chhie4ebaf7eb9a9b0052c585d164a5a"><mjx-mrow id="tebab8c8e04055492b055ffcff06387a"><mjx-msub id="rxulc117b79fe5aaacb6434dd6c47aab"><mjx-mi class="mjx-i" id="djbx32ace6e0a6f466463f7011a799eb"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s" id="ztee09be89a93fd6e97f86fcd70dfcea"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="ffjha68638bbd5f2a131aff82eb04419"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wohwbae74a2eedbcf3ddfe189c525b28"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="zrzkfbcc41536f5e7e8d17fbe7854127"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>s</mi><mi>p</mi></msub><mo>=</mo><mn>1.7746</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> It is reasonable to pool the standard deviations since the largest <i class="semantic-i" id="caljbcdce4f885a063f6760dcb1dcbc1">s</i> is less than twice the smallest <i class="semantic-i" id="xqrhdcd0f9fd12de79efa171acf5cf64">s</i>; <span aria-label="multirelation 2.024 less than two times left parenthesis 1.601 right parenthesis equals 3.202 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0023.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="22" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="roiw48c01dc99221f62eb008b7bc7e17" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="bjqhf0ab595800056b4fd06415f65780"><mjx-mrow id="phtr00c187bc49942d277274fc1dc435"><mjx-mn class="mjx-n" id="likw78c9abb51b0b756b6c47609ad972"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="nggb01099b9a329ec2bb9b664cf79412"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="bpbf5427667564d614d0d6d2078849b6"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="cxgp11245f02df5c36805a4e47d477d4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="gtys6d7244e72776b777a8ab214324d2"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="bkuo81c783799e81c15054e021ba8a38"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="vsta135a615424b4bfc44d03b1b8cd6e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="omphfc9c1e9f42c766c3b7b324d61acd"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="fdys78383e5b17919b1fe1cee549c341"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>2.024</mn><mo>&lt;</mo><mn>2</mn><mo>(</mo><mn>1.601</mn><mo>)</mo><mo>=</mo><mn>3.202</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>           </p>
+          </li>
+          <li id="ch16_ans18">
+            <p class="answer noindent" epub:type="answer" id="jezm8aa6d31657588a3cce596d897563"><strong class="important" id="kmltfa3aa3bd933ae5e1ae50775fb4a3"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_37" id="ch16-exer-37" style="overflow-wrap: break-word;">16.37</a></strong> For general attitude, there may be a slight interaction effect. Differences in gender are largest for Canada, then the United States, and smallest for France, with females higher than males in all cases. Additionally, Canada attitudes are generally the highest, followed by the United States, with France having the worst attitudes among the three. For product benefits, there may be a slight interaction effect. Differences in gender are largest for Canada, then the United States, and very little for France, with females higher than males in all cases. Additionally, Canada benefit scores are generally the highest, followed by the United States, with France having the lowest scores among the three. For credibility of information, there seems to be an interaction effect. Differences in gender are largest for the United States, then Canada, with females higher in both, but in France, males had a slightly higher score for credibility than females. Additionally, Canada credibility scores are generally the highest, followed by the United States, with France having the lowest scores among the three. For purchase intention, there seems to be a small interaction effect. Differences in gender are largest for the United States, with females higher; for Canada and France, there are small differences between genders. Canada and the United States seem to have much higher purchase intent scores than France.         </p>
+          </li>
+          <li id="ch16_ans19">
+            <p class="answer noindent" epub:type="answer" id="cpse5e3e243cf1ced18fff71e89fe406"><strong class="important" id="iqfb45cbd3694b666e93529694b9dc64"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_39" id="ch16-exer-39" style="overflow-wrap: break-word;">16.39</a></strong> a. For those with real-time feedback, the average total cost for those not informed was only slightly larger than the average total cost for those informed, while for those without feedback, the not informed average was much larger than for those who were informed. Additionally, we can see an interaction effect. For those not informed, the lack of real-time feedback increased their spending, while for those who were informed, the lack of real-time feedback decreased their spending.         </p>
+            <p class="answer noindent" epub:type="answer" id="flrs62ee4c0050eef89127f06f34e33a">b. <span aria-label="cap f equals 18.18 semicolon DF equals three comma 190 semicolon cap p minus value less than 0.0001 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0024.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="23" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="luvm6193d52a5a75ad0f5ef77a83540b" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ruwg189f47cb64780c767e2c5044f1b3"><mjx-mrow id="jnqgaca29a12b9ef99d08663bf923c3f"><mjx-mi class="mjx-i" id="pdie39cd7ae12c7e1f5a0fa7cb866e4b"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="bzgz996f3c0c60984259ba9db3c5dd4e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jmgkc1cc69c50c3a1aeeb6361a43b65f"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="sbvlce5888d9c80a660aa878101576f6"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="wggm3f86d41d16dd98ae6a41652105ba"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="dtkkb5be2cbbb0bc265586551708e3f9"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="ngcf67052e5830eaddea7563b613d476"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="taeca093ba1c081276e7a1d63a918ed4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="ljgz67298e559f9ed80e02b78901c205"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="lukf4d9c91772bc0bd64c17444311812"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="tpbk619ee7a8390b7301984b09144d08"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="mtnb046cf00c74e00c11a7f81c1092ef"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="pdeh2986464c736f96ef453e3fe26298"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="ciav86ca821ecc2991a28e833f694eba"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="tquyda72bbe1e9e7bf78d90e3f47fae5"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="wwzu4e07f2a556d7f2a846abc00dc602"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="iqsa0cc3e36ba0f29e74620e81e9ed72"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="mihtbc8ca83ddf3fbd91d01c43808d2a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>18.18</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mtext>DF</mtext><mo>=</mo><mn>3</mn><mo lspace="0" rspace="0">,</mo><mtext> </mtext><mn>190</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>           </p>
+            <p class="answer noindent" epub:type="answer" id="hmwd846ee26a7c42ab0e65deb78d01bf">c. The interaction term is significant <span aria-label="left parenthesis cap f equals 16.18 semicolon cap p minus value less than 0.0001 right parenthesis" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0025.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="24" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jvuk4dc7f0cab753cd63d15807d6b502" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kqwjbd48d1aa407941fe197406a0efa4"><mjx-mrow id="pcsz274f785b85ce5f5cf06af26671d4"><mjx-mo class="mjx-n" id="clah117196975c49e309b62f8fd43e2d"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i" id="lvkc0ac5810fe0358281aba9f251702b"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="dqevc5e8a7f5ae9d97bc2b37653c365a"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="kvnvf07ed30336b8e05f0bb068d54cfe"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="apaw10eeb4f591de73def3315598f8c9"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="xomnd02bb5314792b5f3f7b89073d7c6"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="bufpc10a38a2f6e69bfa7fd0b9bdd372"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="xsmee5aeddb90c250ab3fabf756fdb24"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="kkqi6b2a35fd44f4bc71ff1d5810eea9"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="efzw819954f3e3b427038c5dde2f8305"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="rcye17415888133cc3288ca083d9fb34"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mo>(</mo><mi>F</mi><mo>=</mo><mn>16.18</mn><mo>;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo>)</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>, as is the Informed term <span aria-label="left parenthesis cap f equals 37.06 semicolon cap p minus value less than 0.0001 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0026.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="25" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ewjk912ad8e52784d8163917c824e63a" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="eohid79a26cdffc29a78f4a040992977"><mjx-mrow id="uebme1a5ef7f557aa773407f09312e94"><mjx-mo class="mjx-n" id="ufxca01d4779b37e6d39b022bb2564e2"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i" id="jtgycf96ca6cbd7911dd1f1fe09fa070"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="sqpd8cc42ae198018bc44fe9c24b6c0a"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ijzhc52138bca2a11066639d0c8b88a2"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="dhdt2456553092b9b0c77660bbc067d7"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="fxqa2c677458ae615d313ee42a4cc7d9"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="tymgb5a082642379a764cbf2d1abe8b2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="jeocb44d2e89014d565a19e8f6038e49"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="xcupddca047a6e0bcf56426ed294f5be"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="felu56e2ed938037b915e425d3728a3c"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="gzrp09017884615a639431ba9fec500f"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="qjlu1fb32a72862efd8e3e6b368fa362"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mo>(</mo><mi>F</mi><mo>=</mo><mn>37.06</mn><mo>;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo>)</mo><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The Smartcart term is not significant <span aria-label="left parenthesis cap f equals 1.16 semicolon cap p minus value equals 0.2828 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0027.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="26" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ixop81b9054e76b3947d5ea649d6312d" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fubp75989aa2a2263243d62b276f55b9"><mjx-mrow id="bvjrcfeef370210e105acf651517cb54"><mjx-mo class="mjx-n" id="roqy8ac288263b0f2c84712c2e3c1390"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i" id="mkal5e1375adb4c26701327960e15fc5"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="gqac3528d440a40a96014e62a893e1ad"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="yccb40b7cc0e313cf702378cc31c4c5c"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="hbwnbc2e5825f5c72cab1e2c10f94f61"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="qjrs71fd3b05ebd01190b22ba6ce9b40"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="bndx010d028772168d672651863b009e"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="gxqra8c91a54c20a40d5f45bae286b3d"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="utyv8d772f461e4479daf3f2c6eb75ed"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="cnscf010129b744ec0e353280f46e073"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="slil3dd5c946f41b1b2eb8f5c202f367"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" rspace="3" id="wagy74d38916e35ff727a5e04ed681c0"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mo>(</mo><mi>F</mi><mo>=</mo><mn>1.16</mn><mo>;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.2828</mn><mo>)</mo><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Effects are interpreted as in part (a).           </p>
+            <p class="answer noindent" epub:type="answer" id="fvdo8ec0a48c157b1cafeb1b8be3eced">d. The two-factor ANOVA is better than two <i class="semantic-i" id="woio9917b277f5568307478c2d5444f1">t</i> tests because not only do we see the difference with and without feedback, we can also see the interaction effect where the lack of feedback increases spending for those not informed and decreases spending for those informed.           </p>
+          </li>
+          <li id="ch16_ans20">
+            <p class="answer noindent" epub:type="answer" id="stjt7d17638d6b42cc700d694fb75d79"><strong class="important" id="bttyd5dfac75adfae39d7af0ec1e1143"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_41" id="ch16-exer-41" style="overflow-wrap: break-word;">16.41</a></strong> a. There appears to be an interaction between history and statement of thanks. For consumers with a short history, the employee’s statement of thanks drastically increases the repurchase intent. For consumers with a long history, there is not much difference in repurchase intent, whether or not a thanks was given.             </p>
+            <p class="answer noindent" epub:type="answer" id="owiv86ed8d3968da32a17c5ab239bdde">b. Short: 6.245; Long: 7.45; No: 6.61; Yes: 7.085. The marginal mean for history is somewhat meaningful, as generally the long history consumers are more likely to repurchase. But the marginal mean for thank you is misleading, suggesting that generally no thanks is lower than yes thanks, but that is only true for the short history group.             </p>
+          </li>
+          <li id="ch16_ans21">
+            <p class="answer noindent" epub:type="answer" id="ywwi278c6b41de014f2abfe4416e0a8e"><strong class="important" id="empf6d31edeb57196cdab5e8365dcb6c"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_43" id="ch16-exer-43" style="overflow-wrap: break-word;">16.43</a></strong> a. There appears to be an interaction effect. For the unfavorable outcome, there is no difference in satisfaction between the favorable and unfavorable process; both scored equally low. For the favorable outcome, those with a favorable process scored substantially higher than those with an unfavorable process.             </p>
+            <p class="answer noindent" epub:type="answer" id="zyma999ba902bafb65b6b4bd13960ce2">b. There doesn’t appear to be an interaction effect. Overall, the favorable outcome means were only slightly higher than the unfavorable outcomes means. But both favorable process means were generally quite high, much higher than both unfavorable process means, regardless of whether the outcome was favorable.             </p>
+            <p class="answer noindent" epub:type="answer" id="bmwl14a991caf95fec21162bb0948a61">c. Yes, there appears to be a three-factor interaction effect. Particularly for those with an unfavorable outcome and a favorable process, the humor group scored much higher than those with no humor. Also, for those with unfavorable outcome and unfavorable process, the humor group scored worse than those with no humor.             </p>
+          </li>
+          <li id="ch16_ans22">
+            <p class="answer noindent" epub:type="answer" id="then8a1175b404df77420deb089579ac"><span aria-label="S-51" epub:type="pagebreak" id="pageS-51" role="doc-pagebreak" title="S-51"></span><strong class="important" id="qvsjfa4998eed75cfaac1e5e4f1181bc"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_45" id="ch16-exer-45" style="overflow-wrap: break-word;">16.45</a></strong> A favorable process seems to have the greatest impact on satisfaction, followed by a favorable outcome. Humor doesn’t seem to add much to satisfaction.             </p>
+            <table class="table compact c2 center" id="ch16_tab3">
+              <tbody id="umhp3fa4bad99701c72ce08a715e713a">
+                <tr id="zwlob3c8b03ed4333505f376bcc87ff1">
+                  <th class="left rule-b v2" id="derb4a272682aa92ee95630349f6e750">Humor                   </th>
+                  <th class="center rule-b v2" id="bzmqdedc3a6fc290b79c36893a478142">Mean                   </th>
+                </tr>
+                <tr id="hbzc77bab18767b8c8fc382423194d86">
+                  <td class="left v1" id="pqdb4472a15d3b541e5858f724f6c8fe">Yes                   </td>
+                  <td class="center v1" id="soqa007ba39ad0841c80a42fbbef7519">3.88                   </td>
+                </tr>
+                <tr id="nmls28d409de08619c1080ad6d87cd55">
+                  <td class="left rule-b v1" id="falg0c89041aff5a0ad1ac6cc6e459fb">No                   </td>
+                  <td class="center rule-b v1" id="ojzke72ed95334f57ae957144d5b6b0b">3.60                   </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table compact c2 center" id="ch16_tab4">
+              <tbody id="ccibdc3e3a2bf4020373d5e95f91ce8f">
+                <tr id="tzmqbff3cfa092e7ad86580596759aff">
+                  <th class="left rule-b v2" id="kkmu0e43de1ca89b5cf45d3db00baedd">Process                   </th>
+                  <th class="center rule-b v2" id="rfdm901542994658333d5bc81ad94968">Mean                   </th>
+                </tr>
+                <tr id="vmfn6cdecdaef7a56baa3f6669981ec6">
+                  <td class="left v1" id="sfnmd6f77a565bb2abdf68fa7ac93f5f">Favorable                   </td>
+                  <td class="center v1" id="xdnu3949f70097d1a0dc4db3005fb779">4.80                   </td>
+                </tr>
+                <tr id="jbzh3ac0cfcf122555456eff9e8719b4">
+                  <td class="left rule-b v1" id="tanu30e4da9abb2b23bf5e2f99e5c0de">Unfavorable                   </td>
+                  <td class="center rule-b v1" id="jxwh250118a39b3af89c908dc8b48b5c">2.74                   </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table compact c2 center" id="ch16_tab5">
+              <tbody id="nwml954b9f0c2ae5c44ea8197e881304">
+                <tr id="kwig229056d3caf09801665e9f73230a">
+                  <th class="left rule-b v2" id="cheud01839be2182d218659721fdc108">Outcome                   </th>
+                  <th class="center rule-b v2" id="nufmd35a4fea054e9009944587369a91">Mean                   </th>
+                </tr>
+                <tr id="bomw727f81b0e7a17361ca72bc2a1c34">
+                  <td class="left v1" id="vkqc5eb08ce54892ff178813f0b7deaa">Favorable                   </td>
+                  <td class="center v1" id="dzkl1848830aa838af2f11675f4889e8">4.30                   </td>
+                </tr>
+                <tr id="xncte86ba0cea060074a015718851ed6">
+                  <td class="left rule-b v1" id="csgbb34457da62771a592a3e7da35205">Unfavorable                   </td>
+                  <td class="center rule-b v1" id="kvqye3538347b5ae7597d5b96ec4728e">3.21                   </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="answer noindent" epub:type="answer" id="wnhk6fcd6cb816890a83d4459314a3f0">For humor and process, humor added to satisfaction when the process was favorable but hurt satisfaction when the process was unfavorable. For humor and outcome, humor helped regardless of whether the outcome was favorable. For process and outcome, a favorable process had a bigger impact than a favorable outcome on raising the satisfaction and of course, the combination of the two was the highest overall satisfaction.             </p>
+            <table class="table compact c3 center" id="ch16_tab6">
+              <tbody id="gmrhf70681c20d9b0345b5241880c666">
+                <tr id="zvug5c490937c91941b21e09cb250f8e">
+                  <th class="left rule-b v2" id="ldai2211d715f4c8dc747030bde41de4">Interaction                   </th>
+                  <th class="center rule-b v2" id="npoh7957d3d0581a35af59fc974fc4a2">Mean                   </th>
+                </tr>
+                <tr id="jkze763b1780d819291c6b18c7697589">
+                  <td class="left v1" id="avyqb2f43d8b1fcd8f95580fe4fcf5d9">No Humor × Favorable Process                   </td>
+                  <td class="left v1" id="aous29ca68f39eeed9261ce401237943">4.24                   </td>
+                </tr>
+                <tr id="kmwj62e5129340dd0274d581cbf86fb5">
+                  <td class="left v1" id="kqhb117c992fb35e4f82695159175dfe">No Humor × Unfavorable Process                   </td>
+                  <td class="left v1" id="xrkt803d0e997aafa26f2f2b34bf4c8d">2.97                   </td>
+                </tr>
+                <tr id="wxnt8c323e8a1a4d22170b85aeca37e3">
+                  <td class="left v1" id="qqcx592078f8aae3ff0d336813d281f6">Humor × Favorable Process                   </td>
+                  <td class="left v1" id="ndby008f52c79a39e2559524a9ec1669">5.3                   </td>
+                </tr>
+                <tr id="ifyod445ed02747b565f43cefbc68abe">
+                  <td class="left rule-b v1" id="vdba6245b39864a093995c93fcae5ec9">Humor × Unfavorable Process                   </td>
+                  <td class="left rule-b v1" id="nqowdc1545bc5a312532b478f7f8f334">2.55                   </td>
+                </tr>
+                <tr id="kbcq085c53b5cca94fdf349e3c64ef15">
+                  <td class="left v1" id="vsoi550519486889d03cd4ebe657d1d9">No Humor × Favorable Outcome                   </td>
+                  <td class="left v1" id="uqbdfafcefc41245081ea990566944bd">4.18                   </td>
+                </tr>
+                <tr id="eqhx2e6b1096a06e0a83f066f66e627f">
+                  <td class="left v1" id="ktvz0dbb58ac08d6e0f49c67e132bb2b">No Humor × Unfavorable Outcome                   </td>
+                  <td class="left v1" id="vymj6f2c69649cea7bcac1003cb0f803">2.94                   </td>
+                </tr>
+                <tr id="xajm83e5736e5dbcb3377b6c7a1fa1c5">
+                  <td class="left v1" id="cxbh3da39a024d45cedacdcab9c8dd90">Humor × Favorable Outcome                   </td>
+                  <td class="left v1" id="cknu2b54267d16bb44c491970fd880dc">4.41                   </td>
+                </tr>
+                <tr id="zcik55914067edd22463f1a81254438f">
+                  <td class="left rule-b v1" id="lajc65e7c175e7ff17060fe5acbe7bf3">Humor × Unfavorable Outcome                   </td>
+                  <td class="left rule-b v1" id="vein464ef502aec2d3d082b28ff057bb">3.41                   </td>
+                </tr>
+                <tr id="rkwn360e52cb6adb521834e7d7a7a2df">
+                  <td class="left v1" id="yuxj24d26c1bd84336d138d1ac56f7e1">Favorable Outcome × Favorable Process                   </td>
+                  <td class="left v1" id="soqp2d472c017a7ff146b2e5ccd6b60d">5.46                   </td>
+                </tr>
+                <tr id="rhqw42eb59e2a29eac7ff1c5c422650a">
+                  <td class="left v1" id="sysdd329b617963fa69e06ef5e17ee32">Favorable Outcome × Unfavorable Process                   </td>
+                  <td class="left v1" id="bmdl6b7e63bd6b19054185cd4e3aa3c2">3.17                   </td>
+                </tr>
+                <tr id="gsymc4b65da92599ecb0c75c4e308ca7">
+                  <td class="left v1" id="ttopbcbba310df1b08a68147039b1142">Unfavorable Outcome × Favorable Process                   </td>
+                  <td class="left v1" id="pexyd454a42975f3e0582b082d991221">4.14                   </td>
+                </tr>
+                <tr id="fhdr871c5d018a8fc37eb1c41915cb70">
+                  <td class="left rule-b v1" id="gegq1a8fef55bbc55d6cb941acfa2ce0">Unfavorable Outcome  × Unfavorable Process                   </td>
+                  <td class="left rule-b v1" id="ymoecc1eea65b71c2d404434de2f014f">2.32                   </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li id="ch16_ans23">
+            <p class="answer noindent" epub:type="answer" id="odsq33b1c9d5bf1f56bd5b5818e7f111"><strong class="important" id="mlyz455981e231ed0ec7d6b1ce8551bd"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_47" id="ch16-exer-47" style="overflow-wrap: break-word;">16.47</a></strong> a. <span aria-label="s sub p equals 19.51 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0028.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="27" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="djhv7c0178d6c2b87e021efa0576f641" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vgaxba778f55764c5303e0ffe14525c9"><mjx-mrow id="laov89437a86f0aacfc3c162480c37bd"><mjx-msub id="irdmc85886bf99305e0efc2eb1915310"><mjx-mi class="mjx-i" id="gpqcbcf40e1a9b4c44792d70f55a3d38"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s" id="ukaub4b2c6b97356fc6796342d836c2b"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="ulyddd577fd439b9322e7b033742b2a1"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fbbe48a64b5300c810a30bcf93e73979"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ebwicdc3b6b3aa244c758b3cb7322593"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>s</mi><mi>p</mi></msub><mo>=</mo><mn>19.51</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>             </p>
+            <p class="answer noindent" epub:type="answer" id="mpnr343366e4276b3c3e5365898223a5">b. Yes, the largest <i class="semantic-i" id="mqipe52ea409f5e3c9e139332e010b20">s</i> is less than twice the smallest <i class="semantic-i" id="egpk3cc908e968b60f9db3262d7dfbf9">s</i>; <span aria-label="multirelation 22.1 less than two times left parenthesis 17.5 right parenthesis equals 35 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0029.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="28" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zkqsb9d44e5836f901e13d1eec0e1abd" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lbik59e2d4511b3f25f1701795e545bb"><mjx-mrow id="sbeldb544845d0b62fde2cd872173cf8"><mjx-mn class="mjx-n" id="ysaie3e0792a2cb5f2359029742bd7c8"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="glxo37a6364e5ac4133b4f50dc8f7336"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="uitl4b0e22517cea1df96997fd64cf6c"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="mkba404d7f12285f0d8a89a33f2e0e5e"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="isvxe88ad187381c204bb16ed867d5ab"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="wjyjfa7a70a3226de9a77e1621a23b9d"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="geir5453100cc5fa28dd8c31356c5095"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="unyh89af43e490db76225c33e93bba01"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="uqgd9b6e5d3c5a873176b11abaeaa651"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>22.1</mn><mo>&lt;</mo><mn>2</mn><mo>(</mo><mn>17.5</mn><mo>)</mo><mo>=</mo><mn>35</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>               </p>
+            <p class="answer noindent" epub:type="answer" id="czeg8614293b005b48f5c2e4bbab0195">c. Sender Individual: 25.1; Sender Group: 19.825; Responder Individual: 24.27; Responder Group: 20.74.             </p>
+            <p class="answer noindent" epub:type="answer" id="jcocdf9ff647816f8448974778805742">d. There appears to be an interaction effect. When the sender was an individual, there was no difference in the amount returned, but when the sender was a group, they returned more money to an individual than they did to a group.             </p>
+          </li>
+          <li id="ch16_ans24">
+            <p class="answer noindent" epub:type="answer" id="rmtq97093f557568874749473d827fa5"><strong class="important" id="uepl9c3b2bce0228edc01dc6b1a27108"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_49" id="ch16-exer-49" style="overflow-wrap: break-word;">16.49</a></strong> a. For those familiar with the ad, as repetition increased, attitude also generally increased. For those unfamiliar with the ad, we see the “wearin” and “wearout” effects. At level 1 repetition, the attitude was the lowest of any combination, but once we moved to repetition level 2, the “wearin” effect drastically improved the attitude. Finally, after moving to repetition level 3, the “wearout” effect drastically decreased the attitude, although it still scored higher than the original attitude at repetition level 1.             </p>
+            <p class="answer noindent" epub:type="answer" id="rxexcf18e06eff251a45dfe47c77b527">b. Yes, there appears to be an interaction effect, as described in part (a).             </p>
+          </li>
+          <li id="ch16_ans25">
+            <p class="answer noindent" epub:type="answer" id="jfmzd75040e6b489a29ca1ddab07ed7e"><strong class="important" id="fdmuc6cd2bdbc89695c58b54a8220ceb"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_51" id="ch16-exer-51" style="overflow-wrap: break-word;">16.51</a></strong> Assuming equal cell sizes, <span aria-label="s sub p equals 1.30765 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0030.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="29" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="beca6dc2fdeb1bcca9f8a084bcd7abca" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mboc03f47d2ac2e072403f0c81e0c702"><mjx-mrow id="dgrv0d7b8f2ac1ac338cfe7036d12db2"><mjx-msub id="idmx6870de7e67ab406a40392bfaa521"><mjx-mi class="mjx-i" id="enuz3b8357440707356faf4c2bdd6560"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s" id="dazpcce9c5bc992e614799aaa3d13595"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="mtarfd08e571d5b9f7e6cd45a6d97dd1"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="hkmtfa05743d49e8c1130268a06eec3c"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="llwp3b1272a32b520e8481785dcafe48"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>s</mi><mi>p</mi></msub><mo>=</mo><mn>1.30765</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> It is reasonable to pool the standard deviations since the largest <i class="semantic-i" id="thab4d74052f54052c14274ca94f4fce">s</i> is less than twice the smallest <i class="semantic-i" id="leza5103e1c2ba4df64e8b781cc39ecf">s</i>; <span aria-label="multirelation 1.46 less than two times left parenthesis 1.16 right parenthesis equals 2.32 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0031.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="30" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tpecf13dad85e634a724c3faa49393dd" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="krwib3ec93e21ac04384e6f510e23fa7"><mjx-mrow id="sqnza57687f1d574c225b62df2cfddf3"><mjx-mn class="mjx-n" id="elrtc91e56529134570670f3293a2bed"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="djxobd93eb6af72a90dd6d8965b9d7b3"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="mzsc6a66516d522b824ad9eced5cd548"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="kfhj8718a83f99b7198fbdedcf1f3bd9"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="sxsvcdc42b5fe7d12e17ac366431ce40"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="bzpsffbb267f8c40c5449b29076d1d9a"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="abvm267fa8d50175f72f1b8396c48ae3"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="brca0c029e9ad3bfaf211d780373e545"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="hovz00c003acc622066e11a55307ce19"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>1.46</mn><mo>&lt;</mo><mn>2</mn><mo>(</mo><mn>1.16</mn><mo>)</mo><mo>=</mo><mn>2.32</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>               </p>
+          </li>
+          <li id="ch16_ans26">
+            <p class="answer noindent" epub:type="answer" id="zbrr36eb31cca746c681348f4d8b13fe"><strong class="important" id="tpuac91e002804062827dbea519129c1"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_53" id="ch16-exer-53" style="overflow-wrap: break-word;">16.53</a></strong> Because the experiment was performed at a West Coast university, it does limit somewhat how much generalizing we can do, as there could be aspects of West Coast staff that make them more or less willing to accept familiar or unfamiliar brands. Putting the ads into a news program was extremely good because it doesn’t place the focus on the ads themselves, which could eliminate some biases. Because each subject was exposed to all the ad repetition levels, this is not a standard two-factor ANOVA. More advanced statistical methods are needed for inference. The facts about the ads being judged to be “good” and edited by professionals is good and makes our results more likely to apply in other professional settings, especially since they were also pretested and thought to be real. Overall, the experiment was set up quite well, though it might be good to test the ads in other regions.             </p>
+          </li>
+          <li id="ch16_ans27">
+            <p class="answer noindent" epub:type="answer" id="oogmbd034889adcc9a1cf773b95c8c05"><strong class="important" id="wrbi5827f95a3089d1c292c5d46a9564"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_55" id="ch16-exer-55" style="overflow-wrap: break-word;">16.55</a></strong> a.             </p>
+            <table class="table compact c3 center" id="ch16_tab7">
+              <tbody id="wfrxed27443f30a12f9b916380ec97d0">
+                <tr id="udgi640c77f9219793d55ff48bf89ba2">
+                  <th class="center rule-b v2" id="ihuh61132aa982ce96562d83583b74bd" rowspan="2">Level of tool                   </th>
+                  <th class="center rule-b v2" id="kvjv7369168f6114f154401fc342ac62" rowspan="2">Level of time                   </th>
+                  <th class="center rule-b v2" id="siwyb326bb13186128b011c3c503c2e9" rowspan="2">N                   </th>
+                  <th class="center rule-b v2" colspan="2" id="bydjf96c2fa021d32c2b8a69134ec0a4">Diameter                   </th>
+                </tr>
+                <tr id="qnck0b189f7a2769b8eeadf21b6ce11c">
+                  <th class="center rule-b v2" id="sjkt2e8ee0b0a6a4de7136787018eb08">Mean                   </th>
+                  <th class="center rule-b v2" id="lcshf03aebd282de180b43f58843bf49">Std dev                   </th>
+                </tr>
+                <tr id="mjijed98ada5af28af93ea454364eac6">
+                  <td class="center v1" id="vwaf936ed05ae17df6d135d9f45c7e94">1                   </td>
+                  <td class="center v1" id="ysnef0e5a61118a84c2790c0f042e994">1                   </td>
+                  <td class="center v1" id="jotu0a78d8967d154dbdd61392acbab3">3                   </td>
+                  <td class="left v1" id="chnb68c7e08df66715898cde33da110f">25.030667                   </td>
+                  <td class="left v1" id="gciyb0774eece1ce3e419ed788973694">0.0011547                   </td>
+                </tr>
+                <tr id="ikegb8cdbfb342cb2bf3b230360bb07d">
+                  <td class="center v1" id="rpye5cc50ee12236497fd65c0ae269fe">1                   </td>
+                  <td class="center v1" id="dhqsf25abd4e05abf42e351ed915fb87">2                   </td>
+                  <td class="center v1" id="bnrd2e4bbac3979c93bb798534f759d6">3                   </td>
+                  <td class="left v1" id="ywahd973c56fe69e9ee396842ed8fd04">25.028                   </td>
+                  <td class="left v1" id="zvcj7cb8744e6c05c30f5f289bb00ecf">0                   </td>
+                </tr>
+                <tr id="pkcz8a82f02d0de64d32e7a0a61979c0">
+                  <td class="center v1" id="cdzwcb6ebd4de6dc6e9cbb07995bf14f">1                   </td>
+                  <td class="center v1" id="bhykfb27636e2452c68c820422a9a5e1">3                   </td>
+                  <td class="center v1" id="jxus14af529c2988a34e5894827d668e">3                   </td>
+                  <td class="left v1" id="bcpc4239c551d4dce297d97293328867">25.026                   </td>
+                  <td class="left v1" id="bolx65e7d0960ca6871205fa3b128cae">0                   </td>
+                </tr>
+                <tr id="mosab2d15635968192f48c8119c85ab9">
+                  <td class="center v1" id="vijbb60c94ed49b3cd5a3dc021f9d5af">2                   </td>
+                  <td class="center v1" id="ewsx76790b465498393cfb4997d54e2e">1                   </td>
+                  <td class="center v1" id="bxnv9095044281d84c320c25a3eae8dc">3                   </td>
+                  <td class="left v1" id="kzap5e90c440b917f22fe2d5e1fe2e46">25.016667                   </td>
+                  <td class="left v1" id="rexi2c01810f2ac05a13f14d6f4fea49">0.0011547                   </td>
+                </tr>
+                <tr id="rvvq0924544dfb3039c03d3f6275a7a2">
+                  <td class="center v1" id="xjqpa69edb8a5e2e47e723bb4548c556">2                   </td>
+                  <td class="center v1" id="ovykdfc58f617224400197926f9f1408">2                   </td>
+                  <td class="center v1" id="kyvz497232aaea2d63537238f2afeb70">3                   </td>
+                  <td class="left v1" id="yrpu5118bff029f0d22f3fa953744d5c">25.02                   </td>
+                  <td class="left v1" id="xfvi0a006cf80f5239d2daf118949bcb">0.002                   </td>
+                </tr>
+                <tr id="difsb06367e2ea680d13c33bc6fc5ff9">
+                  <td class="center v1" id="dusq796525758bb03f10fdfa56af8f26">2                   </td>
+                  <td class="center v1" id="xcnc1ea85bf6d1fa442590213a91091f">3                   </td>
+                  <td class="center v1" id="qtddfcd5f8d3d4d6708b86235c856d6e">3                   </td>
+                  <td class="left v1" id="zsqie16edee988b89800f53a474316fc">25.016                   </td>
+                  <td class="left v1" id="klprbb673da529736a2e970908ab8bff">0                   </td>
+                </tr>
+                <tr id="ixmxdb97381932abf51cfef4c73b81f2">
+                  <td class="center v1" id="nbypd758b3caa528dda26823f4dbb115">3                   </td>
+                  <td class="center v1" id="yuttd82244c55e4c0a9c52ed3c649256">1                   </td>
+                  <td class="center v1" id="dyfif1bfba6a31b8ebbdc062db7df59b">3                   </td>
+                  <td class="left v1" id="arknae13efcad4c42c99fe5718da4782">25.006333                   </td>
+                  <td class="left v1" id="plke3b5e6799186291f8256430f756ae">0.0015275                   </td>
+                </tr>
+                <tr id="ahub026fce55125fba1dcc3e8843d47d">
+                  <td class="center v1" id="ficyfcd50e5a3e1da30e3933af5bb4ee">3                   </td>
+                  <td class="center v1" id="spzc35af45cbf0a4b8319ebf50b4f8b0">2                   </td>
+                  <td class="center v1" id="jcxe42d2bf2629049a97966cc0004a2e">3                   </td>
+                  <td class="left v1" id="mtcp04446189331ad8bc0be36e800902">25.012667                   </td>
+                  <td class="left v1" id="wvvbb8e384df84c4e766f2c046bbb0db">0.0011547                   </td>
+                </tr>
+                <tr id="xvgk2c1c1ce7b6e8deb084dd5975131b">
+                  <td class="center v1" id="tbzz64b649c546d4892fca1fd4ecdf91">3                   </td>
+                  <td class="center v1" id="gdbzf81f39080d265d2a6d7dda1388fb">3                   </td>
+                  <td class="center v1" id="mhtzd2614eb1c0703b2de85f431c0a56">3                   </td>
+                  <td class="left v1" id="jwyk775bae0b4895825d79fb241af363">25.009333                   </td>
+                  <td class="left v1" id="fvuec8282bf1036f8398ed0fe5846031">0.0011547                   </td>
+                </tr>
+                <tr id="kkxrd994aee54e2c0f6d788184004b85">
+                  <td class="center v1" id="hgcs7c810e6b01cc71f44bb8567113d3">4                   </td>
+                  <td class="center v1" id="bikh2bdb7d826b9606ec6f99be910e63">1                   </td>
+                  <td class="center v1" id="qjfn5aeb1c94086b73b9f49b1bd655c5">3                   </td>
+                  <td class="left v1" id="ivoldfe5ed4c95c6eb673e46cd58345c">25.012                   </td>
+                  <td class="left v1" id="jrmk2e58bf2d6b9163a71bc8a3f26a1d">0                   </td>
+                </tr>
+                <tr id="rvij249491c7a84a0e467828bb60aab4">
+                  <td class="center v1" id="azll4ad476d3caa0dc1febf2cdee13f3">4                   </td>
+                  <td class="center v1" id="arnf53e46100f83d3346380ab37de81e">2                   </td>
+                  <td class="center v1" id="ocjmc669aa468e1451d9d13cfb5011a2">3                   </td>
+                  <td class="left v1" id="agxk0374e3110f6784739fdff8510ee7">25.019333                   </td>
+                  <td class="left v1" id="cwjd8638200fa70510933b47f0d80b68">0.0011547                   </td>
+                </tr>
+                <tr id="jwwpd090cf81a9be123474af6476cbba">
+                  <td class="center v1" id="dvbvcf14eb66d3f20177a4e6cf7d6d24">4                   </td>
+                  <td class="center v1" id="fqqyf9e472d6d96b2d5444fefdd7447e">3                   </td>
+                  <td class="center v1" id="vtvrc7a4e8d45bc363872993208bad9d">3                   </td>
+                  <td class="left v1" id="ptutf183604fb50c12ff062973fd0524">25.014                   </td>
+                  <td class="left v1" id="etqv6c4d2122a1988f874bf10edcf267">0.004                   </td>
+                </tr>
+                <tr id="irzk66239fa3a004950f2547c4200a15">
+                  <td class="center v1" id="znqr5aa761ce1e8276686d3fb73d58ef">5                   </td>
+                  <td class="center v1" id="sxelb8a4c462cc0db69ba3f793280b6a">1                   </td>
+                  <td class="center v1" id="uljh780d832babf74c80e0e70b2bb5db">3                   </td>
+                  <td class="left v1" id="kegbbcb5b2c83706aec8868da34719eb">24.997333                   </td>
+                  <td class="left v1" id="apyn7d3d01a8b11b03554a2c502a018c">0.0011547                   </td>
+                </tr>
+                <tr id="acrn57a0bbb4c0b106eba8a05e43f066">
+                  <td class="center v1" id="aiohd362d3886a9b766d51568576c78b">5                   </td>
+                  <td class="center v1" id="asdqd0431d1d993c2ee06d5afc9f03a3">2                   </td>
+                  <td class="center v1" id="iqdmb904f14bace41faa4fe130d0e3b3">3                   </td>
+                  <td class="left v1" id="xdewb74642f22335cf10929aeb1d5090">25.006                   </td>
+                  <td class="left v1" id="nqxcd87f58a1c472ef7df559a7fa9669">0                   </td>
+                </tr>
+                <tr id="ngeq8c247ca1f68f34fbbc3df73cc386">
+                  <td class="center rule-b v1" id="mjbuf4aba1b50be0d0dfbee489810f0c">5                   </td>
+                  <td class="center rule-b v1" id="gqac0a7a1f5a9fb89f1e6139972f5f16">3                   </td>
+                  <td class="center rule-b v1" id="gosib9686eccb029f5cba561ab9a19be">3                   </td>
+                  <td class="left rule-b v1" id="zfnec12320f055dc270d4af7e117eda8">25.000333                   </td>
+                  <td class="left rule-b v1" id="vcytc5547b0d6d1f847daa7128c7fc17">0.0015275                   </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li id="ch16_ans28">
+            <p class="answer noindent" epub:type="answer" id="pbzf59b4d013839a430abc3c2149f560">b. There are differences in diameter among the five different tools, as expected. There are also differences in diameter in the different shifts, although not as large as the tool differences. There also appears to be a small interaction effect for some <span aria-label="tool multiplication time" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0032.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="31" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="sjzm9af9f813b578f533743f08ec3f02" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ihxv1654e4a38abb065353363d2e3e4e"><mjx-mrow id="znqb1dbf7ad7335fd8fdf985e038c7cc"><mjx-mtext class="mjx-n" id="fpwcec63d31b43c90a6e2274967651c0"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c6C"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="zuald69e7b5ff76f7f1f69d556b19376"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="3" id="ycip5a388ccb11e096f624de9937dfaa"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="3" id="vmva7d1b2861cd83f3f2b661542dd333"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="vpmua92e13dd31b69194612339b7cd12"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>tool</mtext><mtext> </mtext><mo>×</mo><mtext> </mtext><mtext>time</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> combinations. <span aria-label="S-52" epub:type="pagebreak" id="pageS-52" role="doc-pagebreak" title="S-52"></span>Particularly, tools 3, 4, and 5 are fairly consistent across time differences, with time 2 having the largest diameters and time 1 the smallest diameters. For tool 2, however, time 1 diameters get larger than time 3 diameters, and for tool 1, time 1 diameters get the largest, bigger than both time 2 and time 3 diameters.             </p>
+            <p class="answer noindent" epub:type="answer" id="vrpnda2b3725ac703c03f958aed73521">c. The Tool effect is extremely significant: <span aria-label="cap f equals 412.94 semicolon DF equals four comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0033.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="32" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="getrfaf4db642d5c0b5db1d5a5f00aab" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xptt5db9486fa8abbe71f98fcdf2393f"><mjx-mrow id="cjztca0c64faf952eb46cde31eabdb15"><mjx-mi class="mjx-i" id="iesif1855b5860519ba8c23ee6cb9823"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="bsmy59665af0a9f955fe3a784e0c84dd"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="kivg046219deaeb2cd7d51b8f3b58c5f"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="iely176c062a11a198d741e60e336e6b"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="marvd69033fd54e36d174f528c161538"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="oxzzecf178ef8e9e6dcce6de8e60ad0c"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="xjtpc586fa5aae62db42bd9c4a3eeb33"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="lxer8dfad4e1602e9169a5c213a2355c"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="crsh37d9b5fe8c59252ee6e3d2db154b"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>412.94</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mtext>DF</mtext><mo>=</mo><mn>4</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 30; <span aria-label="cap p minus value less than 0.0001 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0034.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="33" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="idlp43b2e660f211ce389a837c6a6489" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="zywqfc6f931109f015d9091ab53f5b17"><mjx-mrow id="igszbbe3708fcea648219a94a8ca047d"><mjx-mi class="mjx-i" id="elhbb84b0d6852f0f1e9bc6e1fb0ebb4"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="ursf7b9dc8b29f191fdbb99981320647"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="jgofb828f8f10e45142221cb8b1ba1ce"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="acwj6d8ff36fa8df6d59971aeb243d3a"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="wssgcf108ad5fbbbc513eb592cc6aa8b"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The Time effect is also very significant: <span aria-label="cap f equals 43.60 semicolon DF equals two comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0035.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="34" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jyyv96c0d2077d0b83c20489a5915a96" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mwuod46dc49540e3d3552b7daf40f69d"><mjx-mrow id="cprg4e2982650f219c66e077b35cf461"><mjx-mi class="mjx-i" id="gwtq2dab1e14c58a96e0249d4ccee503"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="rnqyc8336bdcb2ef5f874babfed2610e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="waceb4b1cfe8d999a88a3003e5f47b99"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="mjrxb0cc1096e73f9dd5491f53dfcf5b"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="fqlhf52cbe397c6151d975cc3344def2"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="yffe24b8150f5aef203d76ac41ceb334"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="lrmpf01f164a6cbb976385a0ffe18678"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="xyin02959b323571c4d92e6205e7b0f9"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ypvme959fa058e82647bbd1748dbb2fd"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>43.60</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mtext>DF</mtext><mo>=</mo><mn>2</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 30; <span aria-label="cap p minus value less than 0.0001 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0036.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="35" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dwkceb622bbc1eb702ecf7ff4f460fb1" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="sdtk2f5f92570efc41ab7e53d5fb7036"><mjx-mrow id="gjix88ea149ea8af6b6d42e651ae7d0c"><mjx-mi class="mjx-i" id="fxeh997b11aceb85cfb69a2f71a64906"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="pjzo7951fdf6045bbe6a6b3bbf9375e8"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="edzy4191d50df7845203f9bfc8c923cc"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="yami6000dcefe6cc04b3c6a7d7392bd7"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="whud740be0016e832b6af71e90a44bf0"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The interaction effect is significant: <span aria-label="cap f equals 7.65 semicolon DF equals eight comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0037.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="36" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fgjp1307b0f15ec2462077e2fa96320f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xqqo4fd34041c12bf5e29b7fdfd9804a"><mjx-mrow id="sbjeab20fe709121c066e234249d7227"><mjx-mi class="mjx-i" id="vnevb2d8959045b361591bebb68bae77"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="duanb2e89aa0a23f1af9843878602dac"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="auordef65b6e9cfe92387c720cd7c758"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="xgcke41329a87c7e25efc8e957654ebb"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="dkhibbe8caab098c712d1840c3e8a133"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mtext class="mjx-n" id="wffb1e4369ee31b918d8eb0478298c53"><mjx-c class="mjx-c44"></mjx-c><mjx-c class="mjx-c46"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="gvxlc791c3c5be0b95d291efafc399f6"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="giqv9c5bb26c1c3d65b80df5f5692bed"><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="znutfd1921bea047ef87eeb65b1c4266"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>7.65</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mtext>DF</mtext><mo>=</mo><mn>8</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> 30; <span aria-label="cap p minus value less than 0.0001 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0038.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="37" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="cruu05c23f1a1d8a00ac653d34e87e70" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="uewa933fc848ff3552732764dffdc96b"><mjx-mrow id="xhgb88a82b827d25fd3f46ab9b32b12a"><mjx-mi class="mjx-i" id="tkay7d7adc79a150728774016cba0e8e"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="qpayba252385c9186bf1d667cac80ce5"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="kivudff212897353801367987601fa66"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="vorrc641b30f7429d6ba7f453b7568c9"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="feuac50d16d4b3e98e087928015a2f7d"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>               </p>
+            <p class="answer noindent" epub:type="answer" id="keme399258cba3cab21f38373b729382">d. Since all terms are significant, we would interpret effects as stated in part (b).               </p>
+          </li>
+          <li id="ch16_ans29">
+            <p class="answer noindent" epub:type="answer" id="qvgf217fecaceea34a84bfe0b9a660b9"><strong class="important" id="pyyz2c82639a41696b5dcd02be95baed"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_57" id="ch16-exer-57" style="overflow-wrap: break-word;">16.57</a></strong> a. As promotions increase, expected price goes down. Expected price is also different for different discounts. The expected price from highest to lowest is 10%, 20%, 40%, and 30%. For some reason, the 30% discount gives lower expected prices than the 40% discount. There doesn’t appear to be an interaction effect; only with seven promotions at the 40% level do we see something unusual happen where it is much lower than where we might expect it to be.                 </p>
+            <table class="table compact c3 center" id="ch16_tab8">
+              <tbody id="xcox66703342d169e9f363787b110be8">
+                <tr id="jsnqa72c0901252a7bcd4cbfb0231467">
+                  <th class="center rule-b v2" id="boggbd436ba9440be5f542fa66cd1e63" rowspan="2">Level of promotions                       </th>
+                  <th class="center rule-b v2" id="agdk1edc00726b6a074f02fa1ceb8e7f" rowspan="2">Level of discount                       </th>
+                  <th class="center rule-b v2" id="pwee3582da2cc623178700cae10ff94e" rowspan="2">N                       </th>
+                  <th class="center rule-b v2" colspan="2" id="gawbcb3d673403e2fb4a7c1cdc009711">Price                       </th>
+                </tr>
+                <tr id="vohl0c8f481ae513b25f69c6974f30d8">
+                  <th class="center rule-b v2" id="dkoa7bd97d73c9c5c64b93db300f80f7">Mean                       </th>
+                  <th class="center rule-b v2" id="zfnx714baa69544a16675e201b890c5d">Std dev                       </th>
+                </tr>
+                <tr id="ftmz9b0c97bd8674c1d04986012d0abd">
+                  <td class="center v1" id="mlgw781edf63e2b28c3681411409bb8b">1                       </td>
+                  <td class="center v1" id="aonk8bc7151a1d49a213b7feed960987">10                       </td>
+                  <td class="center v1" id="rxgsa09ac3bc2092d462fb7ba9b164f6">10                       </td>
+                  <td class="left v1" id="wyko0ce761f0ae6fafbedb7ee51ffb49">4.92                       </td>
+                  <td class="center v1" id="sibl895900f780f346486d400bb24043">0.1520234                       </td>
+                </tr>
+                <tr id="fktc82224815df971a79b47fd7710389">
+                  <td class="center v1" id="hpauc7cce8ccc25f7379ea57c435b867">1                       </td>
+                  <td class="center v1" id="wnvn3c765636b6123defdf5bf04f4152">20                       </td>
+                  <td class="center v1" id="nytn219a27c7e49672ab88b12ab7d450">10                       </td>
+                  <td class="left v1" id="fwfz5491014f8dc273e7140435e9f632">4.689                       </td>
+                  <td class="center v1" id="aazgf656714fbfa2906eb786ae00bc82">0.2330689                       </td>
+                </tr>
+                <tr id="qhan9778a92eedff737466a35d5f0a53">
+                  <td class="center v1" id="jyvz9d22f9b529c1dd87ca4cb4bcb038">1                       </td>
+                  <td class="center v1" id="gsfcbf9edf39d7ae63130674c1292c45">30                       </td>
+                  <td class="center v1" id="llabd7a52dedaf625d5c1a641b88e433">10                       </td>
+                  <td class="left v1" id="irqjf11790a902b6fe081bad6245046d">4.225                       </td>
+                  <td class="center v1" id="aiga7b3e185554f58819b3e0d144a33f">0.3856092                       </td>
+                </tr>
+                <tr id="rrva72611f8bd64b3bfab56bbb348487">
+                  <td class="center v1" id="nxuz1fbc145100abf5776292b1f6968a">1                       </td>
+                  <td class="center v1" id="cjsq4d897ecdb31e778418fb4774f4b0">40                       </td>
+                  <td class="center v1" id="lupk0f50f8db544e4e7937346cce7bf9">10                       </td>
+                  <td class="left v1" id="ynjyd17884a20f457e540ca077010ad1">4.423                       </td>
+                  <td class="center v1" id="sokz5963d7e55f6b468b7915a1751af6">0.1847551                       </td>
+                </tr>
+                <tr id="tgmz7ab74392ce15b4c798f02001af13">
+                  <td class="center v1" id="ygdef75d1fd50cccf27ddde244cc8b75">3                       </td>
+                  <td class="center v1" id="jzqcc07e7c796fef13676c15b3eef717">10                       </td>
+                  <td class="center v1" id="mojz8a95ec9571a48debe6e687768db1">10                       </td>
+                  <td class="left v1" id="jgmee3f433cd919346f8b656d7f4260e">4.756                       </td>
+                  <td class="center v1" id="ymtt5ea1fb70e72b07e872d161559fc7">0.2429083                       </td>
+                </tr>
+                <tr id="iyuob3b5f94f563abce6b0f023007cc1">
+                  <td class="center v1" id="ldxt2e98e8f37a1d22c6946efd40e61c">3                       </td>
+                  <td class="center v1" id="pvaud94fbf4300f0c7fa819787f85744">20                       </td>
+                  <td class="center v1" id="pvqqdc1234751a090e1dc0a471faecbf">10                       </td>
+                  <td class="left v1" id="ibnfdb6063cdb765182915eadfe92638">4.524                       </td>
+                  <td class="center v1" id="vnesa017cb26849e5914a7fb901203d3">0.2707274                       </td>
+                </tr>
+                <tr id="ijxn1fd1c647690ce57e92fbae47e314">
+                  <td class="center v1" id="vucuc4ba07ef2c5a772fe58bd78d6cd4">3                       </td>
+                  <td class="center v1" id="kuyf3748ebff408d47bfb9e81cf52838">30                       </td>
+                  <td class="center v1" id="gutp922aefc758d191c1ad262c8fd55c">10                       </td>
+                  <td class="left v1" id="jkre84e60bcf49a36270b55099125923">4.097                       </td>
+                  <td class="center v1" id="wcvwe5cc71da9151fd77088de11895a8">0.2346179                       </td>
+                </tr>
+                <tr id="qfaq78bc23eca35fb4f88ffcc7c1b939">
+                  <td class="center v1" id="bbgrc8dcc43ff0433624e67c887504e0">3                       </td>
+                  <td class="center v1" id="egsle9a4eb5f9b0f45a799c7326f1ca8">40                       </td>
+                  <td class="center v1" id="hwuo355a53c265099ef66d1a79209f15">10                       </td>
+                  <td class="left v1" id="tobk9cbabbc40558167619c2e7479b40">4.284                       </td>
+                  <td class="center v1" id="xunl7ed3e0df4fd17383c3ba696eadc8">0.2040261                       </td>
+                </tr>
+                <tr id="nzho5f4542bb518ed0d66537f2a57b50">
+                  <td class="center v1" id="sgjw8b0157cb7ef5f3a8f87950116840">5                       </td>
+                  <td class="center v1" id="jdofac11367d781328ac1172e73c9b8f">10                       </td>
+                  <td class="center v1" id="ejtl99edffc8346de6171eadcbbab432">10                       </td>
+                  <td class="left v1" id="awmbeb1865c99fbd008f90962abcfc4d">4.393                       </td>
+                  <td class="center v1" id="hdfc1dde7cdfb6c04233693c5f94bc30">0.2685372                       </td>
+                </tr>
+                <tr id="szafa48f646fbe6865291adc6afa6d01">
+                  <td class="center v1" id="gozxc274493d181439e7feb1bbaf25ce">5                       </td>
+                  <td class="center v1" id="mayu6beaa369764bb7ef7ce6a461b801">20                       </td>
+                  <td class="center v1" id="pxolca207cd5f1c946af08a5f66e9a07">10                       </td>
+                  <td class="left v1" id="kfet3602534cdd8e53ca9267a16d3a3a">4.251                       </td>
+                  <td class="center v1" id="njam954ebb30f15a087b35eb0dd5f6a9">0.2648459                       </td>
+                </tr>
+                <tr id="yehmb1be02c526e59379052b94c4c686">
+                  <td class="center v1" id="cabl8f7b7eee7ae805c209ec1d53a8d8">5                       </td>
+                  <td class="center v1" id="ejqi7fb0584d2eb16be77cf98ef9e3f6">30                       </td>
+                  <td class="center v1" id="xabx282991225ecbb71286d30f25bbbd">10                       </td>
+                  <td class="left v1" id="bdgh9ed78a8b480fb41ddb887700f882">3.89                       </td>
+                  <td class="center v1" id="ffwv4e2773cb55aae2979405e71c44f8">0.1628906                       </td>
+                </tr>
+                <tr id="apnp42ab581e2e78b5560af3e89ad7b2">
+                  <td class="center v1" id="cfxw52879e98d6cc2be96acd311571b3">5                       </td>
+                  <td class="center v1" id="wgvb7864362eafd5998e6f9f1aa941eb">40                       </td>
+                  <td class="center v1" id="wxpu046fc1f8101af21cce7ab5ae51f1">10                       </td>
+                  <td class="left v1" id="lytf261c9c1c6a70515c25133ab108d1">4.058                       </td>
+                  <td class="center v1" id="qrva30d14e2ace7b246fa3c7da5e40b6">0.1759924                       </td>
+                </tr>
+                <tr id="fsjs8794764197aa6ca30ee0bc9f6dc7">
+                  <td class="center v1" id="uyqh8c6ef9705ab15377c1e528ee89c6">7                       </td>
+                  <td class="center v1" id="vljaec1f225229ac3ec030036f722579">10                       </td>
+                  <td class="center v1" id="jnor6af3bbd403d792c66ca07a46007e">10                       </td>
+                  <td class="left v1" id="gejx05080231ebfb5ff1354da1032f89">4.269                       </td>
+                  <td class="center v1" id="ezkmf6da81e0d2be1de9f73c68c0933b">0.2699156                       </td>
+                </tr>
+                <tr id="anrx0b193d41dd67130e748c3903e33c">
+                  <td class="center v1" id="awlc3fe6f6cd7035c77e816ad28e32f5">7                       </td>
+                  <td class="center v1" id="cebve7cd477d067d0fc43c9d5f9c96cd">20                       </td>
+                  <td class="center v1" id="ioxdfa47f54e2eddb6d33e95f30eddb6">10                       </td>
+                  <td class="left v1" id="qewx8c86f46abb264b45c56f9ae94420">4.094                       </td>
+                  <td class="center v1" id="hkhsa8f779c8f3e3c5e59c27b6e28f67">0.2407488                       </td>
+                </tr>
+                <tr id="ckvz5ce4dc8ec6a6c73abc519fe5b6ea">
+                  <td class="center v1" id="tczrdd7367093b75633a53978ec82727">7                       </td>
+                  <td class="center v1" id="bhfm4cb39b6f628baee2cf5b2283fe2a">30                       </td>
+                  <td class="center v1" id="fbtk83b8e0820ec4fb9d76b98e5cc74a">10                       </td>
+                  <td class="left v1" id="rqvrfadde9e25522911f19d9a3c77115">3.76                       </td>
+                  <td class="center v1" id="rpkxa0fae257bb0d884f48854ab29611">0.2617887                       </td>
+                </tr>
+                <tr id="ocwj75fd86ec9b7fc655c5880abe4dac">
+                  <td class="center rule-b v1" id="phoea53ddb9db5423cbab18f5da6946a">7                       </td>
+                  <td class="center rule-b v1" id="lsbca7bcb8bb4220babbddf1400b91f6">40                       </td>
+                  <td class="center rule-b v1" id="ddax66aa81530ea6d8928da88e450c92">10                       </td>
+                  <td class="left rule-b v1" id="szsu0e260f703d18bb61047710710576">3.78                       </td>
+                  <td class="center rule-b v1" id="lmrt86697364f8ff30a065103e55de6d">0.2143725                       </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="answer noindent" epub:type="answer" id="ilab5301e61a5f672801c4614126b2d4">b. Promotions is very significant: <span aria-label="cap f equals 47.73 semicolon cap p minus value less than 0.0001 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0039.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="38" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="cxrf4d43908380a4dfd6952b79c108e6" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="sqyeb0c8f906a0e0703627d16401f53b"><mjx-mrow id="eqbnbe77942177d600cc9bf69e1d9e9f"><mjx-mi class="mjx-i" id="rimr0c28c9d01df41fd91e7cef60f932"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="xsjz64ff99ebc98ec66038319fa5d62d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wskt3d0ec97a9200e48a1c29566077e4"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jjba907019672730ade0be089f1570a0"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="wiam20fd38530b4a091ba5c30d277219"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="pajwa0c730cbf8e7f59f260fec5b5be8"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="wlxx99890dc45cb10405ec8ad5839bf1"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="crca8b124ad7cb2aa918d5b2210bbb0c"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wftd22668f0aa0be51f0aae03b541fcb"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="tvzn95355179278d01a26f81f33dd214"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>47.73</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Discount is also very significant: <span aria-label="cap f equals 47.42 semicolon cap p minus value less than 0.0001 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0040.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="39" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jfbnd78753d0b3fbad9e1e6b4dd48088" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lioa1df8dcf42dbcbf8b4fdb4ff8ba7b"><mjx-mrow id="cvjm5af04618794409b15bd3e7955118"><mjx-mi class="mjx-i" id="yobgb8c365df2d44830771fea6d6fa42"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="oyww0eb4bc3f6cd3bb7b6ec8704ac778"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ryyrdd07a8f0f7ca328921bb1646d981"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jutedc21cf09c447dcf0cc73065e373f"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="mgjx952cb6a9252b0d80da35a972d682"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="szhs8f199c9d27a544988951e2e8d4b4"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="pvrl87531d31da31102617ae0178a609"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="ofrlae85c69484d4f845b18e26c17fd5"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="lqgla64199474c930e4c7e87629be471"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="wnkyc5a064d96f682d3f79611c7721cb"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>47.42</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>&lt;</mo><mn>0.0001</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> The interaction effect is not significant: <span aria-label="cap f equals 0.44 semicolon cap p minus value equals 0.9121 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0041.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="40" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qqsf42ae40d8ccc8ecaf9681344523c5" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kqlg6615ff473edf1e7d7114a508e757"><mjx-mrow id="quwd9049a2beb114d1d8c4b335be4121"><mjx-mi class="mjx-i" id="sxwsd7d01a35c5fa20e3e5d9ecbf08d0"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="bawv0b5ba606689d7c6d6a00a1f0ff60"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="mrcje21df934cf1516a1ed75642b82f3"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="ddob6a2a8859cb7b8f553374c0ca437f"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="imvec40625ad7f68f1bebad13bd56233"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="hgri8c0ca5067884ff71a30980db9131"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="vghfdabf29c983d1906a987c8eab24bc"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="dvbf2e4baef0b22395ff4b419d95ccac"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="oxeo14c29c7ab5016b7023065edb04a6"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ylnr0951e1073a6d637125df3f3ed279"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>0.44</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.9121</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>                   </p>
+            <p class="answer noindent" epub:type="answer" id="vucxde630e6b1d1a9019dac74ce45b8e">c. As promotions increase, expected price goes down. Expected price is also different for different discounts. The expected price from highest to lowest is 10%, 20%, 40%, and 30%. For some reason, the 30% discount gives lower expected prices than the 40% discount.                   </p>
+          </li>
+          <li id="ch16_ans30">
+            <p class="answer noindent" epub:type="answer" id="lmte6ba92e48c2d566631322a329f5b3"><strong class="important" id="bwgtd7fb502b8c4e17438bcb1a33400e"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_59" id="ch16-exer-59" style="overflow-wrap: break-word;">16.59</a></strong> a.                     </p>
+            <table class="table compact c3 center" id="ch16_tab9">
+              <tbody id="wdsdc78634931ee0586a5fa9a3d6c516">
+                <tr id="acex7d2041b0befa5eabaca7a7b02814">
+                  <th class="left rule-b v2" id="kpdkc8ee94c9c89d65f127719608db8c">Source                           </th>
+                  <th class="center rule-b v2" id="tssv7f54be4cdb7c12221ecb599c2ad4">DF                           </th>
+                  <th class="center rule-b v2" id="tqab33a0b24712faad0620cdea57a2e7">SS                           </th>
+                  <th class="center rule-b v2" id="oqdy9d463dc95b484c9caf54a8b32ec4">MS                           </th>
+                  <th class="center rule-b v2" id="kdfs3ec6db32751b6c88ab0abcc180f7">
+                    <strong class="important" id="rzwfdae036536ff298f715a5e2b43626">
+                      <i class="semantic-i" id="dvjlc369506c05aa2db46ef0cb0f5c14">F</i>
+                    </strong>
+                  </th>
+                </tr>
+                <tr id="scqw0b73ec03ff5911b89f9a7f562c38">
+                  <td class="left v1" id="wtqu07a4fcbdb5c426610374b4bb7563">A (Ad)                           </td>
+                  <td class="center v1" id="pdrv712760b1443c7b7a98183db15625">     1                           </td>
+                  <td class="center v1" id="ulwnb44ef352634d2482a2e0328fa6ff">     3.054                           </td>
+                  <td class="center v1" id="lcai946534b2e47c9f50d50e5ea9aa95">   3.054                           </td>
+                  <td class="center v1" id="behe92eb8f67277eaf2f5fcd6e3f44af">2.52                           </td>
+                </tr>
+                <tr id="xjgu622a95470486949b5af82357af0a">
+                  <td class="left v1" id="fjsm2b64fda689e22e916fc1f6aef6cc">B (Informed)                           </td>
+                  <td class="center v1" id="grrv17ef5879b9db4eafa957369b5a64">     1                           </td>
+                  <td class="center v1" id="fyei402f51300970ca36bf0f5085b992">     7.813                           </td>
+                  <td class="center v1" id="yxgsd6498327e70ff8f9ca25218d505e">   7.813                           </td>
+                  <td class="center v1" id="zrxzfb7ad965555bef580c45389eee78">6.44                           </td>
+                </tr>
+                <tr id="bveyc94408d0c01cfc818750fa540758">
+                  <td class="left v1" id="awff3f62ca6d91de3c6802ff6f978cb7">AB                           </td>
+                  <td class="center v1" id="jmqn4d458f3382906ad216a761c30972">     1                           </td>
+                  <td class="center v1" id="iegqfd290d9ffa89ca55cbab7b4fa90d">     1.876                           </td>
+                  <td class="center v1" id="oexz611cc64c7193bc74c0c482da4c61">   1.876                           </td>
+                  <td class="center v1" id="buctf56c3070547c7824d8fb152cc225">1.55                           </td>
+                </tr>
+                <tr id="trnpdb757344fd5052eb671406c0176d">
+                  <td class="left rule-b v1" id="rybc145c32ee9423e2440e8382a18c80">Error                           </td>
+                  <td class="center rule-b v1" id="dzjpdd91ee26745747f71dd602466f11">121                           </td>
+                  <td class="center rule-b v1" id="lyda23cd6153546f03de980e7a4d0a64">146.807                           </td>
+                  <td class="center rule-b v1" id="ldlj7d10caf009c472dd8abc76dc2c1f">1.2133                           </td>
+                  <td class="left rule-b v1" id="wdtve3f85d85b96837241f5f255b080d">                            </td>
+                </tr>
+                <tr id="gwwddd081c879afb5c641d855af279f3">
+                  <td class="left rule-b v1" id="ctkf38af133256016fe957aa8a1d71d4">Total                           </td>
+                  <td class="center rule-b v1" id="igrta9283fbff868e06037892da05b97">124                           </td>
+                  <td class="center rule-b v1" id="jemeae5eefb3257d66011ec5a89fedd6">159.55                             </td>
+                  <td class="left rule-b v1" id="gdod988051bcd582bbfb8fdad86f6149">                            </td>
+                  <td class="left rule-b v1" id="cpmicb9aa9e4b619e1e728deaceec19f">                            </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="answer noindent" epub:type="answer" id="cnjf4f6856450d73471ec6d3ec1b8aea">b. <span aria-label="cap f equals 1.55 comma" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0042.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="41" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="klvjd209f0bce93d523300b2345b982c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ytcmfe36c40fd7c5bd3a0caafd9d6c1b"><mjx-mrow id="bphg76aa2cfa54b746f446fe4ddc2b4d"><mjx-mi class="mjx-i" id="ivhn190ef43b09af08cc0874ff4b735f"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="eptw22990f8024f9b7ecab23425282e2"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="auth511186866ee858c1d70c63c0b0a6"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="gumi23a2ab3c2a292e0b8a4698088c1b"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>1.55</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the distribution is <i class="semantic-i" id="fupvf92bbdf4e803aa1bf96a55b795af">F</i> (1, 121); <span aria-label="cap p minus value greater than 0.100 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0043.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="42" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="oxwb597d1f9d3c18eb528edf429edaa3" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fywg92ea1f8ed4648830efc58c540456"><mjx-mrow id="hsmsdb3048c0a4de6b472e5f4b2ad2e1"><mjx-mi class="mjx-i" id="hqbdddbf4807260ef7200b1cbdb1b1b5"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="jjpe0327c02254e58f1894206b18d008"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="hmfj5aa64051f46cd88c741a0bb1b738"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="muwf510f5185970519b1e018d0117f3e"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="wloi5989dc05fa308c205c212ad19de3"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>&gt;</mo><mn>0.100</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>                     </p>
+            <p class="answer noindent" epub:type="answer" id="vcore2e5c225e8b636d4bc7a66dcb15b">c. Ad <span aria-label="cap f equals 2.52 colon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0044.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="43" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="uqwab339d0c3c398e5e18604745a2599" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="yrra9e6d59887cb7064abd4a13513485"><mjx-mrow id="rfsqb4eeb46e4d33024311b427b309a4"><mjx-mi class="mjx-i" id="hyucb514ec3d36cf97d9f20872edc210"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="zxlf86dfd7cbe8ed1eab702277c8170f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="hqnaae77b8214605f9d6204f828b73e7"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="2" id="kcshd2f02634501e779c371ceaee281d"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>2.52</mn><mo lspace="0">:</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the distribution is <i class="semantic-i" id="xvgr5244aa1ba3e3fc20955b01b9be1b">F</i> (1, 121); <span aria-label="cap p minus value greater than 0.100 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0045.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="44" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lqiec4c3df9fe004ef5e2f14ab601a89" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xnuba36781f6cb70a62ef0f08f23d2d2"><mjx-mrow id="dqxe4513c5c4fa2420c9541642d5b6ea"><mjx-mi class="mjx-i" id="xmukc5a9219f59b5506279271a13a1c5"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="fnjx2d12b01c2c391eceff26cc23b4a1"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="fdeqcb2370761820d2654fcbbe02453d"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ovzv396a305b0b6aa64e5d4dce92f290"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="fjoy4a90b876a731dc765d0c73fbc452"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>&gt;</mo><mn>0.100</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Informed: <span aria-label="cap f equals 6.44 colon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0046.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="45" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ixssf9bc7d51b0892bff30d3e42d9ff0" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="dxso78fc8a406e3dd7396bdfda2c3378"><mjx-mrow id="lcfi5d415a0bdb795bb3215db27ceccc"><mjx-mi class="mjx-i" id="prdnb03e6ad97e4c415309bbb3d3afd3"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="ohwzec7e490e02fd3b9b59bf1e4107b0"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="uuwvb269eb85b016e83b4a395f74689f"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="2" id="fmwe1eb068f3635a4958d16a7f3b5387"><mjx-c class="mjx-c3A"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>F</mi><mo>=</mo><mn>6.44</mn><mo lspace="0">:</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the distribution is <i class="semantic-i" id="uzbs55502b9d8642131a5ee2168dc33e">F</i> (1, 121); <span aria-label="0.01 less than cap p minus value greater than 0.025 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0047.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="46" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qxcb3c12839948da660d3e35ecd07e6e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ifco36220d6985430749b229cc6154c2"><mjx-mrow id="wjfncbd759b66f59d07e31f2dd10cfd1"><mjx-mn class="mjx-n" id="dxun1002f596e56794ac2257304ed357"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="jrsjc6410157b894df4a9842fe4a91bc"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="lvpyfe0ab2afec54333719eec1fdf9cf"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="tuyrd30fe33b852d0f3b7d67c7bcbf30"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="hpsb269248b4dc766ab25802532e91a3"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dzat2da2ed67af1bfdc26e17a1403deb"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="nhol4075379b021b4a20801c3cebd1f2"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>0.01</mn><mo>&lt;</mo><mi>P</mi><mtext>-value</mtext><mo>&gt;</mo><mn>0.025</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>                       </p>
+            <p class="answer noindent" epub:type="answer" id="qlct8148771bac3c2da2f1328b469332">d. <span aria-label="s sub p times squared equals 1.2133 semicolon s sub p equals 1.10149 full stop" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0048.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="47" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="gpdw7b4efe4bcd9b7424d4674052fdee" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kcsq84229603caeb957bfc88c4eea566"><mjx-mrow id="hzkdd9a5ff0bf1ec07194116fb2e6005"><mjx-msub id="kazq189f26de3669f20d796963140cf0"><mjx-mi class="mjx-i" id="jrfn72aa31f42406cc5c52e463573947"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s" id="nylf5b21caacf0c34dfd37d0c37d6695"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msup id="xlvi073876fbe7ed5a3410106958330e"><mjx-mrow id="byfj6ec215f915f0989aa1f3eed078b9"></mjx-mrow><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s" id="ogyg61b7b27460b066d65c4a3d4da459"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="xpwy4128e8326552d05ec9c827202a61"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fzjd1809c5e7376ffb17090ce2e54665"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="rrnr18095092b33c7beceb9181d304ea"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="zpbfa6ad5b33a72bf5867f0c7e770b29"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="gcri9fb598490c9a6cfe5b6e5d6e133d"><mjx-mi class="mjx-i" id="wuik0482ac58906739f25948ac6e0a13"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s" id="iwefae47bd230f1fe2726b66f01734f2"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="qizr6269c34132c86718c2cb28ed7c24"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="bzjo9828668fa333b0aab54981d3c998"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="xlfl5fef0dcb5875b35710a0d9039035"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>s</mi><mi>p</mi></msub><msup><mrow/><mn>2</mn></msup><mo>=</mo><mn>1.2133</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><msub><mi>s</mi><mi>p</mi></msub><mo>=</mo><mn>1.10149</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>                     </p>
+            <p class="answer noindent" epub:type="answer" id="rdbkb909752174ba95eb27cb6a7d0d41">e. There is no significant interaction, as well as no significant Ad effect. Informed was significant; those who were informed that the ad was consumer-generated had a higher average opinion, 5.23, than those that weren’t informed, 4.52.                     </p>
+          </li>
+          <li id="ch16_ans31">
+            <p class="answer noindent" epub:type="answer" id="dajf81079cd31c71c77924dff52dba2f"><strong class="important" id="hnip456087dcbfe6a021439cbbc4bf27"><a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_61" id="ch16-exer-61" style="overflow-wrap: break-word;">16.61</a></strong> For saturation, <span aria-label="cap p minus value equals 0.07 semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0049.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="48" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="keuq49bab2fef94f468c30b7ef7b8877" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="toec8c92f783f132e8f7de74358086e7"><mjx-mrow id="dydee1b04c201e00169e0c419482da57"><mjx-mi class="mjx-i" id="lkkb9e062b9eba04d5ea8fd5df1f9e31"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="ftgv389b6b894c049301ce3597fc35ca"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="kvild00fa6b2bcb52e302dc02408dfb3"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ugym39ae9fe9511e4d87b01b2687b587"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="hlwb3918e2d37e2be8b344f301a301de"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.07</mn><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> saturation is not significant. For purchase goal, <span aria-label="cap p minus value equals 0.04 semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0050.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="49" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hpqi72e098ae4a4f2568302df1e478f8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vakpe5a1714f9c2274bd7903905d02e8"><mjx-mrow id="omfn95b4508aa4bd1e575cca1198cf2c"><mjx-mi class="mjx-i" id="tence0c64b582d4fdc98e7aff504741a"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="moyo1c6556bd6aeef7139b46cabc6b7c"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="nvya68bce242d064dc398908a1384f83"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="hymk39ce9603ab835946d6a1a7318856"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="iswycb3fbabc4025517edee4ddfafc99"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.04</mn><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> purchase goal is significant at the 5% level. For the interaction effect between saturation and purchase goal, <span aria-label="cap p minus value equals 0.1 semicolon" class="math" id="alw_9781319272463_EM_ans_ch16EQ_0051.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="50" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wdstf473c22a2705748d23b74ce41ab6" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xvnee468a62e47004759f201364fa482"><mjx-mrow id="xpka74dc2abc1af2830daf8936647e2a"><mjx-mi class="mjx-i" id="lascefd796b57c161f243a180e3e2f98"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="tzeod628082e70ad0e0d9849470da8e3"><mjx-c class="mjx-c2D"></mjx-c><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c75"></mjx-c><mjx-c class="mjx-c65"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="vcjccd896f20c280b48f9cec855077c8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wzxt838fe91dfc447094b3b1ddad021d"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="rekf67ebaa09a5b06e51ddc2bcc6e79c"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mtext>-value</mtext><mo>=</mo><mn>0.1</mn><mo lspace="0">;</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> the interaction effect is not significant at the 5% level. Overall, these findings are consistent with the findings in <a class="crossref" href="alw_9781319272463_ch16_04.xhtml#ch16_exercise_33" id="ch16-exe1" style="overflow-wrap: break-word;">Exercise 16.33</a>.                     </p>
+          </li>
+        </ul>
+      </section>
+    </section>
+  <style type="text/css" style="display: none;">.vsthighlight { cursor: pointer; } .disabledHighlight { background: #ECECEC !important; border-color: #B3B3B3 !important; cursor: default !important; } .disabledHighlight.vst-shared-highlight { background: transparent !important; }</style><style type="text/css" style="display: none;">.tts-highlight { background: yellow !important; }</style><div id="myModal" class="modal" style="display: none;"><div class="modal-content"><button tabindex="0" title="Close (Esc)" class="close"></button><div class="modal-body"></div></div></div><div tabindex="0" id="dummyDiv" style="display: none;"></div><div id="gallery" class="pswp" role="dialog" aria-labelledby="figcaption" style="display: none;"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> --><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div id="figcaption" class="pswp__caption__center"></div><div class="lm_controls_lightbox"><button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button><button class="pswp__button pswp__button--zoom lm__in" title="Zoom in"></button><button disabled="true" class="pswp__button pswp__button--zoom lm__out" title="Zoom out"></button></div></div></div></div></div></body>
+</html>

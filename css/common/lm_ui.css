@@ -1,0 +1,1287 @@
+@namespace epub 'http://www.idpf.org/2007/ops';
+body{
+    /*    font-family:sans-serif;*/
+}
+
+/*glossary popup*/
+#tooltip
+{
+    color: #fff;
+    position: absolute;
+    z-index: 9999;
+    padding: 10px 15px;
+    color: #ffffff;
+    background: #142A35;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family:sans-serif;
+    line-height: normal;
+    max-width: 280px;
+}
+
+#tooltip:after /* triangle decoration */
+{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #142A35;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    margin-left: -5px;
+}
+
+#tooltip.lmtop:after
+{
+    border-top-color: transparent;
+    border-bottom: 5px solid #142A35;
+    top: -10px;
+    bottom: auto;
+}
+
+#tooltip.lmleft:after
+{
+    left: 10px;
+    margin: 0;
+}
+
+/* #tooltip.lmright:after
+ {
+     right: 10px;
+     left: auto;
+     margin: 0;
+ }*/
+#tooltip.lmright:after
+{
+    left: 50px;
+    margin: 0;
+}
+.tooltipText{
+    max-height: 180px !important;
+	min-height: 20px !important;
+    max-width: 350px;
+    word-break: break-word;
+    outline: none;
+    overflow-y: auto;
+}
+/*glossary popup end*/
+/*----POPUPS-*/
+/*----POPUPS-*/
+
+
+.dataset,
+.multiplevideo {
+    display: table;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    line-height: 0px;
+}
+.dataset img,
+.multiplevideo img {
+    /*position: absolute !important;*/
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    min-width: 100%;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: none
+}
+.modal-content {
+    /*
+    height: 65%;
+    top: 16%;
+    */
+    background-color: rgb(254, 254, 254);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 260px;
+    height: 300px;
+    position: relative;
+    top: 8%;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+    line-height: 18px;
+}
+.modal-content .close {
+
+    float: right;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    font-size: 15px;
+    padding: 0 4px 2px;
+    color: rgb(255, 255, 255);
+    margin-top: -28px;
+    margin-right: -25px;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    background-image:  url("./images/datasetX.svg");
+}
+.lm_multi_vd .close {
+    float: right;
+    position: static !important;
+    background: rgb(0, 0, 0) !important;
+    border-radius: 50%;
+    font-size: 15px !important;
+    padding: 0 4px 2px;
+    color: rgb(255, 255, 255)!important;
+    margin-top: -28px;
+    margin-right: -25px;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+}
+.modal-cover {
+    font-family: sans-serif;
+    border-bottom: 1px solid #eee;
+    height: 35px;
+    line-height: 30px;
+}
+.modal-body {
+    height: calc(100% - 40px);
+    overflow: auto;
+    padding: 10px 0 0 0;
+}
+
+.modal-body:after {
+    clear: both;
+    float: none;
+}
+li.labelDatasetClass {
+    font-size: 16px;
+    padding: 5px 0;
+}
+li.labelDatasetClass a {
+    font-weight: normal;
+}
+.lm_multi_vd {
+    height:438px !important;
+    width: 80% !important;
+    padding: 20px !important;
+    max-width: 1000px !important;
+    min-width: 260px;
+}
+.embed-responsive.embed-responsive-16by9 {
+    /*padding-bottom: 56.25%;*/
+    padding-bottom: 15%;
+}
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.embed-responsive .embed-responsive-item, .embed-responsive iframe, .embed-responsive embed, .embed-responsive object {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.lm_col_left {
+    width: 28%;
+    float: left;
+    padding: 0;
+    margin: 0;
+    margin-right: 2%;
+    text-align: left;
+}
+.lm_col_right {
+    float: left;
+    width: 70%;
+}
+.vidUl {
+    height: 100%;
+    overflow: auto;
+    font-family: sans-serif;
+}
+.vidUl li {
+    font-size: 16px;
+    padding: 1px;
+    margin: 0;
+}
+.vidUl li a {
+    padding: 5px 3px;
+    display: block;
+    font-weight: normal;
+}
+.vidUl li a.active {
+    background: #eee;
+    color: #563d7c;
+    border-left: 2px solid #563d7c;
+}
+
+@media (max-width: 992px) {
+    .lm_multi_vd .modal-body {
+        overflow: hidden;
+    }
+    .lm_col_left, .lm_col_right {
+        float: none;
+        width: 100%;
+    }
+    .lm_col_left {
+        height: 100px;
+    }
+}
+.modalFigCaption {
+    height: 65px;
+    width: calc(100% - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    padding: 0 20px;
+    font-size: .8em;
+    line-height: 1;
+    color:#fff;
+}
+.modalFigCaption h1, .modalFigCaption h2, .modalFigCaption h3, .modalFigCaption h4, .modalFigCaption h5{
+    text-align: left !important;
+    font-size: .9em;
+    margin:0;
+
+}
+.modalFigCaption .source, .modalFigCaption .caption, .modalFigCaption p{
+    margin: 0;
+    padding: 0;
+    text-align: left !important
+}
+.contentResizer {
+    /* width: calc(100% - 50px);
+      height: calc(100% - 61px);*/
+    width:100%;
+    height:100%;
+    top:0;
+    border:none;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    background-color: rgba(0,0,0,0.9);
+}
+.contentResizer figure{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+.contentResizer img{
+    padding: 0 !important;
+    margin: 0 auto;
+    border: 0 !important;
+    cursor: default;
+}
+.lm_img_lightbox img{
+    cursor: pointer;
+}
+.hideOverflow {
+    overflow: hidden;
+}
+.normalView{
+    margin: 0;
+    overflow:hidden;
+    display: block;
+    vertical-align: middle;
+}
+
+.modalClass{
+    overflow: hidden;
+    height:100%;
+
+    padding: 0;
+    display: table;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+.cursorMove{
+    cursor: move !important; /* fallback if grab cursor is unsupported */
+    cursor: grab !important;
+    cursor: -moz-grab !important;
+    cursor: -webkit-grab !important;
+}
+.cursorMove:active{
+    cursor: grabbing !important;
+    cursor: -moz-grabbing !important;
+    cursor: -webkit-grabbing !important;
+}
+.cursorDefault{
+    cursor:default !important;
+}
+.overFlowHidden{
+    overflow:hidden;
+}
+
+.datasetModal .button, .datasetModal a.button {
+    display: inline-block;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size: 15px;
+    height: 34px;
+    line-height: 33px;
+    padding: 0 15px;
+    margin: 5px;
+
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -moz-border-radius: 3px;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.datasetModal .button:hover, .datasetModal a.button:hover {
+    opacity: 0.8;
+}
+
+.datasetModal .button:disabled:hover, .datasetModal a.button:disabled:hover {
+    opacity: 1;
+    cursor: default;
+}
+
+.datasetModal .button:focus, .datasetModal a.button:focus {
+    outline: none;
+    box-shadow: 	0 0 6px rgba(0,117,142,1);	/* teal glow */
+}
+
+.datasetModal .button.primary, .datasetModal a.button.primary {
+    color: #ffffff;
+    background: #00758E;
+}
+
+.datasetModal .button.primary:disabled, .datasetModal a.button.primary:disabled {
+    color: #ffffff;
+    background: #dddddd;
+}
+
+
+
+.modal-content{ padding:0; max-width:320px;width:auto;border-radius: 0px;}
+.modal-body{ padding:0 0 0 0px; height:100%; overflow:inherit;}
+.modal-content .close {background: none;
+                       color: rgb(84, 83, 83);
+                       box-shadow: none;
+                       position: absolute;
+                       top: 41px;
+                       right: 39px;
+                       background-size: 90%;
+                       font-weight: normal;
+                       font-size: 21px;
+                       background-image:  url("./images/datasetX.svg");
+}
+.pop-heading{    font-size: 16px;
+                 padding: 20px 50px 15px 20px;
+                 border-bottom: 1px solid #ccc;
+                 font-weight: bold;
+                 margin: 0;
+                 font-family: sans-serif;
+}
+
+.datasetModal ul{ list-style:none; margin:0 !important; max-height: 246px;
+                  overflow: auto;padding: 0}
+.datasetModal li{ border-bottom:1px solid #ddd; padding:0 20px; position:relative;
+                  margin: 0;
+                  font-size: .8em;
+}
+.mediablock, .mediablock-body {
+    overflow: hidden;
+    zoom: 1;
+}
+.mediablock {
+    margin-top:10px !important;
+    margin-bottom:10px !important;
+}
+.mediablock-left{
+    padding-right: 10px;
+}
+.mediablock-object {
+    display: block;
+}
+.mediablock-body, .mediablock-left, .mediablock-right {
+    display: table-cell;
+    vertical-align: top;
+}
+.mediablock-middle {
+    vertical-align: middle;
+}
+.mediablock-body {
+    width: 200px;
+    /* padding: 5px 10px 5px 5px; */
+    font-family: sans-serif;
+    overflow: hidden;
+    padding-top: 12px !important;
+}
+
+.pswp {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none;
+    z-index: 1500;
+    -webkit-text-size-adjust: 100%;
+    -webkit-backface-visibility: hidden;
+    outline: none; }
+.pswp * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+.pswp img {
+    max-width: none;
+    max-height: none; }
+
+.pswp--animate_opacity {
+    opacity: 0.001;
+    will-change: opacity;
+    -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+    transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--open {
+    display: block !important; }
+
+.pswp--zoom-allowed .pswp__img {
+    /* autoprefixer: off
+    cursor: -webkit-zoom-in;
+    cursor: -moz-zoom-in;
+    cursor: zoom-in;*/ }
+
+.pswp--zoomed-in .pswp__img {
+    /* autoprefixer: off */
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab; }
+
+.pswp--dragging .pswp__img {
+    /* autoprefixer: off */
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: grabbing; }
+
+
+.pswp__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+    opacity: 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    will-change: opacity;
+    transform: translateZ(0);
+}
+
+.pswp__scroll-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+    -ms-touch-action: none;
+    touch-action: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; }
+
+
+.pswp__container,
+.pswp__img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; }
+
+.pswp__zoom-wrap {
+    position: absolute;
+    width: 100%;
+    -webkit-transform-origin: left top;
+    -ms-transform-origin: left top;
+    transform-origin: left top;
+    /* for open/close transition */
+    -webkit-transition: -webkit-transform 333ms cubic-bezier(0.4, 0, 0.22, 1);
+    transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp__bg {
+    will-change: opacity;
+    /* for open/close transition */
+    -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+    transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+.pswp--animated-in .pswp__bg,
+.pswp--animated-in .pswp__zoom-wrap {
+    -webkit-transition: none;
+    transition: none; }
+
+.pswp__container,
+.pswp__zoom-wrap {
+    -webkit-backface-visibility: hidden; }
+
+.pswp__item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden; }
+
+.pswp__img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0; }
+
+
+.pswp__img--placeholder {
+    -webkit-backface-visibility: hidden; }
+
+.pswp__img--placeholder--blank {
+    background: #222; }
+
+.pswp--ie .pswp__img {
+    width: 100% !important;
+    height: auto !important;
+    left: 0;
+    top: 0; }
+
+
+.pswp__error-msg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: -8px;
+    color: #CCC; }
+
+.pswp__error-msg a {
+    color: #CCC;
+    text-decoration: underline; }
+
+/*----------------*/
+
+.pswp__button {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: none;
+    cursor: pointer;
+    overflow: visible;
+    -webkit-appearance: none;
+    display: block;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    float: right;
+    opacity: 1;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+.pswp__button:focus, .pswp__button:hover {
+    opacity: 1; }
+.pswp__button:active {
+    outline: none;
+    opacity: 0.9; }
+.pswp__button::-moz-focus-inner {
+    padding: 0;
+    border: 0; }
+
+/* pswp__ui--over-close class it added when mouse is over element that should close gallery */
+.pswp__ui--over-close .pswp__button--close {
+    opacity: 1; }
+
+.pswp__button,
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+    /*background: url(default-skin.png) 0 0 no-repeat;*/
+    background-size:100%;
+    width: 32px;
+    height: 32px; }
+
+@media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+    /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
+    .pswp--svg .pswp__button,
+    .pswp--svg .pswp__button--arrow--left:before,
+    .pswp--svg .pswp__button--arrow--right:before {
+        /*    background-image: url(default-skin.svg); */
+    }
+    .pswp--svg .pswp__button--arrow--left,
+    .pswp--svg .pswp__button--arrow--right {
+        background: none; } }
+
+.pswp__button--close {
+    background-position: 0 -44px;
+    background-color: rgba(0,0,0,.5);}
+
+.pswp__button--share {
+    background-position: -44px -44px; }
+
+.pswp__button--fs {
+    display: none; }
+
+.pswp--supports-fs .pswp__button--fs {
+    display: block; }
+
+.pswp--fs .pswp__button--fs {
+    background-position: -44px 0; }
+
+.pswp__button--zoom {
+    display: none;
+    background-position:0 0; }
+
+.pswp--zoom-allowed .pswp__button--zoom {
+    display: block; }
+
+.pswp--zoomed-in .pswp__button--zoom {
+    background-position:0 0; }
+
+/* no arrows on touch screens */
+.pswp--touch .pswp__button--arrow--left,
+.pswp--touch .pswp__button--arrow--right {
+    visibility: hidden; }
+
+/*
+        Arrow buttons hit area
+        (icon is added to :before pseudo-element)
+*/
+.pswp__button--arrow--left,
+.pswp__button--arrow--right {
+    background: none;
+    top: 50%;
+    margin-top: -50px;
+    width: 70px;
+    height: 100px;
+    position: absolute; }
+
+.pswp__button--arrow--left {
+    left: 0; }
+
+.pswp__button--arrow--right {
+    right: 0; }
+
+.pswp__button--arrow--left:before,
+.pswp__button--arrow--right:before {
+    content: '';
+    top: 6px;
+    /*background-color: rgba(0, 0, 0, 0.3);*/
+    height: 30px;
+    width: 32px;
+    position: absolute; }
+
+.pswp__button--arrow--left:before {
+    left: 6px;
+    background-position: -138px -44px; }
+
+.pswp__button--arrow--right:before {
+    right: 6px;
+    background-position: -94px -44px; }
+
+/*
+
+        2. Share modal/popup and links
+
+*/
+.pswp__counter,
+.pswp__share-modal {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+
+.pswp__share-modal {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    z-index: 1600;
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease-out;
+    transition: opacity 0.25s ease-out;
+    -webkit-backface-visibility: hidden;
+    will-change: opacity; }
+
+.pswp__share-modal--hidden {
+    display: none; }
+
+.pswp__share-tooltip {
+    z-index: 1620;
+    position: absolute;
+    background: #FFF;
+    top: 56px;
+    border-radius: 2px;
+    display: block;
+    width: auto;
+    right: 44px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    -webkit-transform: translateY(6px);
+    -ms-transform: translateY(6px);
+    transform: translateY(6px);
+    -webkit-transition: -webkit-transform 0.25s;
+    transition: transform 0.25s;
+    -webkit-backface-visibility: hidden;
+    will-change: transform; }
+.pswp__share-tooltip a {
+    display: block;
+    padding: 8px 12px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 18px; }
+.pswp__share-tooltip a:hover {
+    text-decoration: none;
+    color: #000; }
+.pswp__share-tooltip a:first-child {
+    /* round corners on the first/last list item */
+    border-radius: 2px 2px 0 0; }
+.pswp__share-tooltip a:last-child {
+    border-radius: 0 0 2px 2px; }
+
+.pswp__share-modal--fade-in {
+    opacity: 1; }
+.pswp__share-modal--fade-in .pswp__share-tooltip {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0); }
+
+/* increase size of share links on touch devices */
+.pswp--touch .pswp__share-tooltip a {
+    padding: 16px 12px; }
+
+a.pswp__share--facebook:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    border: 6px solid transparent;
+    border-bottom-color: #FFF;
+    -webkit-pointer-events: none;
+    -moz-pointer-events: none;
+    pointer-events: none; }
+
+a.pswp__share--facebook:hover {
+    background: #3E5C9A;
+    color: #FFF; }
+a.pswp__share--facebook:hover:before {
+    border-bottom-color: #3E5C9A; }
+
+a.pswp__share--twitter:hover {
+    background: #55ACEE;
+    color: #FFF; }
+
+a.pswp__share--pinterest:hover {
+    background: #CCC;
+    color: #CE272D; }
+
+a.pswp__share--download:hover {
+    background: #DDD; }
+
+/*
+
+        3. Index indicator ("1 of X" counter)
+
+*/
+.pswp__counter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 44px;
+    font-size: 13px;
+    line-height: 44px;
+    color: #FFF;
+    opacity: 0.75;
+    padding: 0 10px; }
+
+/*
+
+        4. Caption
+
+*/
+.pswp__caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 44px; }
+.pswp__caption small {
+    font-size: 11px;
+    color: #BBB; }
+
+.pswp__caption__center {
+    text-align: left;
+    max-width: 560px;
+    margin: 0 auto !important;
+    font-size: 13px;
+    padding: 10px;
+    line-height: 20px;
+    color: #CCC;
+}
+
+.pswp__caption--empty {
+    display: none; }
+
+/* Fake caption element, used to calculate height of next/prev image */
+.pswp__caption--fake {
+    visibility: hidden; }
+
+/*
+
+        5. Loading indicator (preloader)
+
+        You can play with it here - http://codepen.io/dimsemenov/pen/yyBWoR
+
+*/
+.pswp__preloader {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -22px;
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease-out;
+    transition: opacity 0.25s ease-out;
+    will-change: opacity;
+    /*direction: ltr;*/
+}
+
+.pswp__preloader__icn {
+    width: 20px;
+    height: 20px;
+    margin: 12px; }
+
+.pswp__preloader--active {
+    opacity: 1; }
+.pswp__preloader--active .pswp__preloader__icn {
+    /* We use .gif in browsers that don't support CSS animation */
+    /*background: url(preloader.gif) 0 0 no-repeat;*/
+}
+
+.pswp--css_animation .pswp__preloader--active {
+    opacity: 1; }
+.pswp--css_animation .pswp__preloader--active .pswp__preloader__icn {
+    -webkit-animation: clockwise 500ms linear infinite;
+    animation: clockwise 500ms linear infinite; }
+.pswp--css_animation .pswp__preloader--active .pswp__preloader__donut {
+    -webkit-animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite;
+    animation: donut-rotate 1000ms cubic-bezier(0.4, 0, 0.22, 1) infinite; }
+
+.pswp--css_animation .pswp__preloader__icn {
+    background: none;
+    opacity: 0.75;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    margin: 0; }
+
+.pswp--css_animation .pswp__preloader__cut {
+    /*
+                          The idea of animating inner circle is based on Polymer ("material") loading indicator
+                           by Keanu Lee https://blog.keanulee.com/2014/10/20/the-tale-of-three-spinners.html
+    */
+    position: relative;
+    width: 7px;
+    height: 14px;
+    overflow: hidden; }
+
+.pswp--css_animation .pswp__preloader__donut {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #FFF;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    margin: 0; }
+
+@media screen and (max-width: 1024px) {
+    .pswp__preloader {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 0;
+        float: right; } }
+
+@-webkit-keyframes clockwise {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg); } }
+
+@keyframes clockwise {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg); } }
+
+@-webkit-keyframes donut-rotate {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); }
+    50% {
+        -webkit-transform: rotate(-140deg);
+        transform: rotate(-140deg); }
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); } }
+
+@keyframes donut-rotate {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); }
+    50% {
+        -webkit-transform: rotate(-140deg);
+        transform: rotate(-140deg); }
+    100% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0); } }
+
+/*
+
+        6. Additional styles
+
+*/
+/* root element of UI */
+.pswp__ui {
+    -webkit-font-smoothing: auto;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1550; }
+
+/* top black bar with buttons and "1 of X" indicator */
+.pswp__top-bar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    /*height: 44px;
+    width: 100%;*/ }
+
+.pswp__caption,
+.pswp__top-bar,
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+    -webkit-backface-visibility: hidden;
+    will-change: opacity;
+    -webkit-transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1);
+    transition: opacity 333ms cubic-bezier(0.4, 0, 0.22, 1); }
+
+/* pswp--has_mouse class is added only when two subsequent mousemove events occur */
+.pswp--has_mouse .pswp__button--arrow--left,
+.pswp--has_mouse .pswp__button--arrow--right {
+    visibility: visible; }
+
+
+.pswp__caption {
+    background-color: rgba(0, 0, 0, 0.8); }
+
+/* pswp__ui--fit class is added when main image "fits" between top bar and bottom bar (caption) */
+.pswp__ui--fit .pswp__top-bar,
+.pswp__ui--fit .pswp__caption {
+    /*  background-color: rgba(0, 0, 0, 0.3); */}
+
+/* pswp__ui--idle class is added when mouse isn't moving for several seconds (JS option timeToIdle) */
+.pswp__ui--idle .pswp__top-bar {
+    opacity: 1; }
+
+.pswp button.pswp__button--arrow--left{
+    background-image: url("./images/left-arrow.svg");
+    color:#ffffff;
+    background-color: #fff;
+    top: 43%;
+}
+.pswp button.pswp__button--arrow--right{
+    background-image: url("./images/right-arrow.svg");
+    color:#ffffff;
+    background-color: #fff;
+    top: 43%;
+}
+
+.pswp__ui--idle .pswp__button--arrow--left,
+.pswp__ui--idle .pswp__button--arrow--right {
+    opacity: 1; }
+
+/*
+        pswp__ui--hidden class is added when controls are hidden
+        e.g. when user taps to toggle visibility of controls
+*/
+.pswp__ui--hidden .pswp__top-bar,
+.pswp__ui--hidden .pswp__caption,
+.pswp__ui--hidden .pswp__button--arrow--left,
+.pswp__ui--hidden .pswp__button--arrow--right {
+    /* Force paint & create composition layer for controls. */
+    opacity: 1; }
+
+/* pswp__ui--one-slide class is added when there is just one item in gallery */
+.pswp__ui--one-slide .pswp__button--arrow--left,
+.pswp__ui--one-slide .pswp__button--arrow--right,
+.pswp__ui--one-slide .pswp__counter {
+    display: none; }
+
+.pswp__element--disabled {
+    /*display: none !important;*/
+    background-color:rgba(0,0,0,0);
+}
+
+.pswp--minimal--dark .pswp__top-bar {
+    background: none; }
+
+.lm_controls_lightbox{
+    position: absolute;
+    bottom:80px;
+    right: 5px;
+    width: 50px;
+}
+
+.pswp__button--fs, .pswp__button--zoom, .pswp__button--fs:hover, .pswp__button--zoom:hover{
+    background-color: #00758E;
+    border-radius: 3px;
+    margin: 2px;
+}
+.pswp__button--fs:hover, .pswp__button--zoom:hover{
+    opacity:0.8;
+}
+.pswp__button--fs:focus, .pswp__button--zoom:focus{
+    box-shadow: 0 0 6px rgba(0,117,142,1);
+    border-radius: 3px;
+    margin: 2px;
+}
+.pswp__button--fs, .pswp__button--fs:hover{
+    margin-bottom:10px;
+}
+.pswp button.pswp__button--fs{
+    background-image: url("./images/expand.svg");
+}
+.pswp button.lm__in{
+    /*	background-position: -88px 0;*/
+    background-image: url("./images/zoom-in.svg")
+
+}
+.pswp__preloader{display: none}
+.pswp button.lm__out{
+    background-image: url("./images/zoom-out.svg")
+}
+
+.pswp button.pswp__button{ padding: 5px !important; background-size: 80%;
+                           background-position:center center; background-repeat: no-repeat;
+                           width: 37px;
+                           height: 37px; margin: 2px !important;}
+.pswp--fs.pswp button.pswp__button--fs {
+    background-position:center center;
+    background-image: url("./images/collapse.svg")
+}
+.pswp button.pswp__button.pswp__button--close{
+    background-position:center center;
+    background-image: url("./images/x.svg"); background-size:74%;
+    background-color: rgba(0,0,0,.5);}
+
+.pswp__ui--hidden .pswp__top-bar, .pswp__ui--hidden .pswp__caption, .pswp__ui--hidden .pswp__button--arrow--left, .pswp__ui--hidden .pswp__button--arrow--right {
+    opacity: 0.001;
+}
+
+.pswp *{
+    color: #fff !important;
+    margin: 0;
+    font-size: inherit;
+    font-family:sans-serif;
+    /*font-size: 15px;
+    line-height: 1.1;
+    */
+}
+
+/* Let's get this party started */
+.pswp ::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+.pswp ::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+    -webkit-border-radius:0px;
+    border-radius:0px;
+}
+
+/* Handle */
+.pswp ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: rgba(255,255,255,0.8);
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); */
+}
+.pswp ::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,255,255,0.4);
+}
+.pswp__caption__center{
+    overflow: auto;
+}
+button.pswp__button.pswp__button--fs{
+    margin-bottom: 10px !important;
+}
+.lm_img_lightbox img{
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+    height: 12px;
+    width: 8px;
+    background: #ebebeb;
+    overflow: visible;
+}
+::-webkit-scrollbar-corner {
+    display: none;
+    background: #f5f5f5;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    height:0;
+    width: 0;
+}
+
+::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment             {
+    display: block;
+}
+
+::-webkit-scrollbar-button:vertical:start:increment,::-webkit-scrollbar-button:vertical:end:decrement {
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    -moz-background-clip: border;
+    -webkit-background-clip: border;
+    background-clip: padding-box;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track:vertical, ::-webkit-scrollbar-track:horizontal {
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+::-webkit-scrollbar-track:vertical,::-webkit-scrollbar-track:horizontal,::-webkit-scrollbar-thumb:vertical,::-webkit-scrollbar-thumb:horizontal,::-webkit-scrollbar-track:vertical,::-webkit-scrollbar-track:horizontal,::-webkit-scrollbar-thumb:vertical,::-webkit-scrollbar-thumb:horizontal {
+    border-style: solid;
+    border-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+    background-clip: padding-box;
+    background-color: rgba(0,0,0,.2);
+    min-height: 28px;
+    padding-top: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    -webkit-box-shadow: inset 1px 1px 1px rgba(0,0,0,.25);
+    background-color: rgba(0,0,0,.4);
+}
+
+::-webkit-scrollbar-thumb:active {
+    -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,.35);
+    background-color: rgba(0,0,0,.5);
+}
+
+::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+    border-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+.embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+}
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.pswp__caption aside{
+    display:none;
+}
+.pswp__caption  span[epub|type~='ordinal']{
+    padding: 0 .2em;
+}
+/*
+.floatThead-container{
+     -webkit-transition: transform 0.1s ease-out;
+      transition: transform 0.1s ease-out;
+
+}*/
+.modal-content p, .modal-content div{ padding: initial; margin: initial;}
+
+.prevCombInteractives{ border: 5px solid blue !important; padding: 10px;}
+.prevCombFallback{ border: 5px solid green !important; padding: 10px;}
+.savi_video_cdn_section{ overflow: visible !important; height: auto !important; }
+.savi_video_cdn_iframe{ position: static !important; }
+
+.figure_combined{margin:auto !important;}
+.dateset_combined{ overflow:visible !important;}
+
+_::-webkit-full-page-media, _:future, :root .iframe_safari {
+    position: relative;
+    top: -25px;
+}
+
+ol.converted-assessment li iframe + p {
+	display:none;
+}

@@ -1,0 +1,1685 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="mqno1fde383d3b17041864f8a6a99646" style="min-width: 100%; width: 1px; text-size-adjust: 100%; font-size: 100%; transform-origin: left top;">
+  <head style="display: none;"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../css/alw_9781319272463.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common/lm_ui.css" type="text/css" rel="stylesheet" />
+    <script src="../frost_widgets_data/glossary.js" type="text/javascript"></script>
+    <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascript/lm_popup.js" type="text/javascript"></script>
+    <script src="../javascript/lm_frost_listner_min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Chapter 6 Sampling Distributions</title>
+  <script src="../javascript/tex-mml-chtml.min.js" id="MathJax-script"></script><style type="text/css" media="print">body > * { display: none !important; height: 0px !important; width: 0px !important; overflow: hidden; }body:before { content: "To print, please use the print page range feature within the application."; display: block !important;}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-ms {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mspace {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mpadded {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-rbox {
+  display: inline-block;
+  position: relative;
+}
+
+mjx-menclose {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+}
+
+mjx-menclose > mjx-dstrike {
+  display: inline-block;
+  left: 0;
+  top: 0;
+  position: absolute;
+  border-top: 0.067em solid;
+  transform-origin: top left;
+}
+
+mjx-menclose > mjx-ustrike {
+  display: inline-block;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-top: 0.067em solid;
+  transform-origin: bottom left;
+}
+
+mjx-menclose > mjx-hstrike {
+  border-top: 0.067em solid;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(0.034em);
+}
+
+mjx-menclose > mjx-vstrike {
+  border-left: 0.067em solid;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(0.034em);
+}
+
+mjx-menclose > mjx-rbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: 0.067em solid;
+  border-radius: 0.267em;
+}
+
+mjx-menclose > mjx-cbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: 0.067em solid;
+  border-radius: 50%;
+}
+
+mjx-menclose > mjx-arrow {
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  height: 0;
+  width: 0;
+}
+
+mjx-menclose > mjx-arrow > * {
+  display: block;
+  position: absolute;
+  transform-origin: bottom;
+  border-left: 0.268em solid;
+  border-right: 0;
+  box-sizing: border-box;
+}
+
+mjx-menclose > mjx-arrow > mjx-aline {
+  left: 0;
+  top: -0.034em;
+  right: 0.201em;
+  height: 0;
+  border-top: 0.067em solid;
+  border-left: 0;
+}
+
+mjx-menclose > mjx-arrow[double] > mjx-aline {
+  left: 0.201em;
+  height: 0;
+}
+
+mjx-menclose > mjx-arrow > mjx-rthead {
+  transform: skewX(0.464rad);
+  right: 0;
+  bottom: -1px;
+  border-bottom: 1px solid transparent;
+  border-top: 0.134em solid transparent;
+}
+
+mjx-menclose > mjx-arrow > mjx-rbhead {
+  transform: skewX(-0.464rad);
+  transform-origin: top;
+  right: 0;
+  top: -1px;
+  border-top: 1px solid transparent;
+  border-bottom: 0.134em solid transparent;
+}
+
+mjx-menclose > mjx-arrow > mjx-lthead {
+  transform: skewX(-0.464rad);
+  left: 0;
+  bottom: -1px;
+  border-left: 0;
+  border-right: 0.268em solid;
+  border-bottom: 1px solid transparent;
+  border-top: 0.134em solid transparent;
+}
+
+mjx-menclose > mjx-arrow > mjx-lbhead {
+  transform: skewX(0.464rad);
+  transform-origin: top;
+  left: 0;
+  top: -1px;
+  border-left: 0;
+  border-right: 0.268em solid;
+  border-top: 1px solid transparent;
+  border-bottom: 0.134em solid transparent;
+}
+
+mjx-menclose > dbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.3em;
+  width: 0.6em;
+  border: 0.067em solid;
+  border-radius: 50%;
+  clip-path: inset(0 0 0 0.3em);
+  box-sizing: border-box;
+}
+
+mjx-mfrac {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-frac {
+  display: inline-block;
+  vertical-align: 0.17em;
+  padding: 0 .22em;
+}
+
+mjx-frac[type="d"] {
+  vertical-align: .04em;
+}
+
+mjx-frac[delims] {
+  padding: 0 .1em;
+}
+
+mjx-frac[atop] {
+  padding: 0 .12em;
+}
+
+mjx-frac[atop][delims] {
+  padding: 0;
+}
+
+mjx-dtable {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-dtable > * {
+  font-size: 2000%;
+}
+
+mjx-dbox {
+  display: block;
+  font-size: 5%;
+}
+
+mjx-num {
+  display: block;
+  text-align: center;
+}
+
+mjx-den {
+  display: block;
+  text-align: center;
+}
+
+mjx-mfrac[bevelled] > mjx-num {
+  display: inline-block;
+}
+
+mjx-mfrac[bevelled] > mjx-den {
+  display: inline-block;
+}
+
+mjx-den[align="right"], mjx-num[align="right"] {
+  text-align: right;
+}
+
+mjx-den[align="left"], mjx-num[align="left"] {
+  text-align: left;
+}
+
+mjx-nstrut {
+  display: inline-block;
+  height: .054em;
+  width: 0;
+  vertical-align: -.054em;
+}
+
+mjx-nstrut[type="d"] {
+  height: .217em;
+  vertical-align: -.217em;
+}
+
+mjx-dstrut {
+  display: inline-block;
+  height: .505em;
+  width: 0;
+}
+
+mjx-dstrut[type="d"] {
+  height: .726em;
+}
+
+mjx-line {
+  display: block;
+  box-sizing: border-box;
+  min-height: 1px;
+  height: .06em;
+  border-top: .06em solid;
+  margin: .06em -.1em;
+  overflow: hidden;
+}
+
+mjx-line[type="d"] {
+  margin: .18em -.1em;
+}
+
+mjx-msqrt {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-root {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+mjx-surd {
+  display: inline-block;
+  vertical-align: top;
+}
+
+mjx-sqrt {
+  display: inline-block;
+  padding-top: .07em;
+}
+
+mjx-sqrt > mjx-box {
+  border-top: .07em solid;
+}
+
+mjx-sqrt.mjx-tall > mjx-box {
+  padding-left: .3em;
+  margin-left: -.3em;
+}
+
+mjx-mroot {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msubsup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-script {
+  display: inline-block;
+  padding-right: .05em;
+  padding-left: .033em;
+}
+
+mjx-script > * {
+  display: block;
+}
+
+mjx-munder {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-over {
+  text-align: left;
+}
+
+mjx-munder:not([limits="false"]) {
+  display: inline-table;
+}
+
+mjx-munder > mjx-row {
+  text-align: left;
+}
+
+mjx-under {
+  padding-bottom: .1em;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > * {
+  display: block;
+  text-align: left;
+}
+
+mjx-munderover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munderover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-munderover:not([limits="false"]) > * {
+  display: block;
+}
+
+mjx-mmultiscripts {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-prescripts {
+  display: inline-table;
+  padding-left: .05em;
+}
+
+mjx-scripts {
+  display: inline-table;
+  padding-right: .05em;
+}
+
+mjx-prescripts > mjx-row > mjx-cell {
+  text-align: right;
+}
+
+mjx-mfenced {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mtable {
+  display: inline-block;
+  text-align: center;
+  vertical-align: .25em;
+  position: relative;
+  box-sizing: border-box;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+mjx-mstyle[size="s"] mjx-mtable {
+  vertical-align: .354em;
+}
+
+mjx-labels {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+mjx-table {
+  display: inline-block;
+  vertical-align: -.5ex;
+}
+
+mjx-table > mjx-itable {
+  vertical-align: middle;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+mjx-labels > mjx-itable {
+  position: absolute;
+  top: 0;
+}
+
+mjx-mtable[justify="left"] {
+  text-align: left;
+}
+
+mjx-mtable[justify="right"] {
+  text-align: right;
+}
+
+mjx-mtable[justify="left"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="left"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="left"] {
+  padding-right: 0 ! important;
+}
+
+mjx-mtable[justify="right"][side="right"] {
+  padding-left: 0 ! important;
+}
+
+mjx-mtable[align] {
+  vertical-align: baseline;
+}
+
+mjx-mtable[align="top"] > mjx-table {
+  vertical-align: top;
+}
+
+mjx-mtable[align="bottom"] > mjx-table {
+  vertical-align: bottom;
+}
+
+mjx-mtable[side="right"] mjx-labels {
+  min-width: 100%;
+}
+
+mjx-mtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-mlabeledtr {
+  display: table-row;
+  text-align: left;
+}
+
+mjx-mlabeledtr[rowalign="top"] > mjx-mtd {
+  vertical-align: top;
+}
+
+mjx-mlabeledtr[rowalign="center"] > mjx-mtd {
+  vertical-align: middle;
+}
+
+mjx-mlabeledtr[rowalign="bottom"] > mjx-mtd {
+  vertical-align: bottom;
+}
+
+mjx-mlabeledtr[rowalign="baseline"] > mjx-mtd {
+  vertical-align: baseline;
+}
+
+mjx-mlabeledtr[rowalign="axis"] > mjx-mtd {
+  vertical-align: .25em;
+}
+
+mjx-mtd {
+  display: table-cell;
+  text-align: center;
+  padding: .215em .4em;
+}
+
+mjx-mtd:first-child {
+  padding-left: 0;
+}
+
+mjx-mtd:last-child {
+  padding-right: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:first-child > mjx-mtd {
+  padding-top: 0;
+}
+
+mjx-mtable > * > mjx-itable > *:last-child > mjx-mtd {
+  padding-bottom: 0;
+}
+
+mjx-tstrut {
+  display: inline-block;
+  height: 1em;
+  vertical-align: -.25em;
+}
+
+mjx-labels[align="left"] > mjx-mtr > mjx-mtd {
+  text-align: left;
+}
+
+mjx-labels[align="right"] > mjx-mtr > mjx-mtd {
+  text-align: right;
+}
+
+mjx-mtr mjx-mtd[rowalign="top"], mjx-mlabeledtr mjx-mtd[rowalign="top"] {
+  vertical-align: top;
+}
+
+mjx-mtr mjx-mtd[rowalign="center"], mjx-mlabeledtr mjx-mtd[rowalign="center"] {
+  vertical-align: middle;
+}
+
+mjx-mtr mjx-mtd[rowalign="bottom"], mjx-mlabeledtr mjx-mtd[rowalign="bottom"] {
+  vertical-align: bottom;
+}
+
+mjx-mtr mjx-mtd[rowalign="baseline"], mjx-mlabeledtr mjx-mtd[rowalign="baseline"] {
+  vertical-align: baseline;
+}
+
+mjx-mtr mjx-mtd[rowalign="axis"], mjx-mlabeledtr mjx-mtd[rowalign="axis"] {
+  vertical-align: .25em;
+}
+
+mjx-maction {
+  display: inline-block;
+  text-align: left;
+  position: relative;
+}
+
+mjx-maction > mjx-tool {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  z-index: 500;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+mjx-maction[toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+mjx-mglyph {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mglyph > img {
+  display: inline-block;
+  border: 0;
+  padding: 0;
+}
+
+mjx-semantics {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-annotation {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-annotation-xml {
+  display: inline-block;
+  text-align: left;
+  font-family: initial;
+  line-height: normal;
+}
+
+mjx-TeXAtom {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("../css/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("../css/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("../css/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("../css/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("../css/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("../css/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("../css/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("../css/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("../css/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("../css/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("../css/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("../css/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("../css/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("../css/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("../css/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("../css/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("../css/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("../css/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("../css/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("../css/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("../css/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("../css/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-stretchy-v.mjx-c28 mjx-beg mjx-c::before {
+  content: "\239B";
+  padding: 1.154em 0.875em 0.655em 0;
+}
+
+mjx-stretchy-v.mjx-c28 mjx-ext mjx-c::before {
+  content: "\239C";
+  width: 0.875em;
+}
+
+mjx-stretchy-v.mjx-c28 mjx-end mjx-c::before {
+  content: "\239D";
+  padding: 1.165em 0.875em 0.644em 0;
+}
+
+mjx-stretchy-v.mjx-c28 > mjx-end {
+  margin-top: -1.809em;
+}
+
+mjx-stretchy-v.mjx-c28 > mjx-ext {
+  border-top-width: 1.779em;
+  border-bottom-width: 1.779em;
+}
+
+mjx-stretchy-v.mjx-c29 mjx-beg mjx-c::before {
+  content: "\239E";
+  padding: 1.154em 0.875em 0.655em 0;
+}
+
+mjx-stretchy-v.mjx-c29 mjx-ext mjx-c::before {
+  content: "\239F";
+  width: 0.875em;
+}
+
+mjx-stretchy-v.mjx-c29 mjx-end mjx-c::before {
+  content: "\23A0";
+  padding: 1.165em 0.875em 0.644em 0;
+}
+
+mjx-stretchy-v.mjx-c29 > mjx-end {
+  margin-top: -1.809em;
+}
+
+mjx-stretchy-v.mjx-c29 > mjx-ext {
+  border-top-width: 1.779em;
+  border-bottom-width: 1.779em;
+}
+
+mjx-stretchy-h.mjx-cAF mjx-ext mjx-c::before {
+  content: "\AF";
+  padding: 0.59em 0 0 0;
+}
+
+.mjx-stretched mjx-c.mjx-c2C9::before {
+  content: "\AF";
+}
+
+mjx-stretchy-h.mjx-c2C9 mjx-ext mjx-c::before {
+  content: "\AF";
+  padding: 0.59em 0 0 0;
+}
+
+.mjx-stretched mjx-c.mjx-c203E::before {
+  content: "\AF";
+}
+
+mjx-stretchy-h.mjx-c203E mjx-ext mjx-c::before {
+  content: "\AF";
+  padding: 0.59em 0 0 0;
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c34::before {
+  padding: 0.677em 0.5em 0 0;
+  content: "4";
+}
+
+mjx-c.mjx-c35::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "5";
+}
+
+mjx-c.mjx-c36::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "6";
+}
+
+mjx-c.mjx-c37::before {
+  padding: 0.676em 0.5em 0.022em 0;
+  content: "7";
+}
+
+mjx-c.mjx-c38::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "8";
+}
+
+mjx-c.mjx-c39::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "9";
+}
+
+mjx-c.mjx-c3B::before {
+  padding: 0.43em 0.278em 0.194em 0;
+  content: ";";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c3E::before {
+  padding: 0.54em 0.778em 0.04em 0;
+  content: "&gt;";
+}
+
+mjx-c.mjx-c54::before {
+  padding: 0.677em 0.722em 0 0;
+  content: "T";
+}
+
+mjx-c.mjx-c61::before {
+  padding: 0.448em 0.5em 0.011em 0;
+  content: "a";
+}
+
+mjx-c.mjx-c62::before {
+  padding: 0.694em 0.556em 0.011em 0;
+  content: "b";
+}
+
+mjx-c.mjx-c69::before {
+  padding: 0.669em 0.278em 0 0;
+  content: "i";
+}
+
+mjx-c.mjx-c6C::before {
+  padding: 0.694em 0.278em 0 0;
+  content: "l";
+}
+
+mjx-c.mjx-c6F::before {
+  padding: 0.448em 0.5em 0.01em 0;
+  content: "o";
+}
+
+mjx-c.mjx-c73::before {
+  padding: 0.448em 0.394em 0.011em 0;
+  content: "s";
+}
+
+mjx-c.mjx-c74::before {
+  padding: 0.615em 0.389em 0.01em 0;
+  content: "t";
+}
+
+mjx-c.mjx-cA0::before {
+  padding: 0 0.25em 0 0;
+  content: "\A0";
+}
+
+mjx-c.mjx-cB1::before {
+  padding: 0.666em 0.778em 0 0;
+  content: "\B1";
+}
+
+mjx-c.mjx-c2009::before {
+  padding: 0 0.167em 0 0;
+  content: "";
+}
+
+mjx-c.mjx-c2212::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "\2212";
+}
+
+mjx-c.mjx-c221A::before {
+  padding: 0.8em 0.853em 0.2em 0;
+  content: "\221A";
+}
+
+mjx-c.mjx-c1D435.TEX-I::before {
+  padding: 0.683em 0.759em 0 0;
+  content: "B";
+}
+
+mjx-c.mjx-c1D443.TEX-I::before {
+  padding: 0.683em 0.751em 0 0;
+  content: "P";
+}
+
+mjx-c.mjx-c1D44B.TEX-I::before {
+  padding: 0.683em 0.852em 0 0;
+  content: "X";
+}
+
+mjx-c.mjx-c1D44D.TEX-I::before {
+  padding: 0.683em 0.723em 0 0;
+  content: "Z";
+}
+
+mjx-c.mjx-c1D45A.TEX-I::before {
+  padding: 0.442em 0.878em 0.011em 0;
+  content: "m";
+}
+
+mjx-c.mjx-c1D45B.TEX-I::before {
+  padding: 0.442em 0.6em 0.011em 0;
+  content: "n";
+}
+
+mjx-c.mjx-c1D45D.TEX-I::before {
+  padding: 0.442em 0.503em 0.194em 0;
+  content: "p";
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c1D707.TEX-I::before {
+  padding: 0.442em 0.603em 0.216em 0;
+  content: "\3BC";
+}
+
+mjx-c.mjx-c1D70E.TEX-I::before {
+  padding: 0.431em 0.571em 0.011em 0;
+  content: "\3C3";
+}
+
+mjx-c.mjx-c25.TEX-MI::before {
+  padding: 0.75em 0.847em 0.056em 0;
+  content: "%";
+}
+
+mjx-c.mjx-c2C6.TEX-S1::before {
+  padding: 0.744em 0.556em 0 0;
+  content: "\2C6";
+}
+
+mjx-c.mjx-c28.TEX-S3::before {
+  padding: 1.45em 0.736em 0.949em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29.TEX-S3::before {
+  padding: 1.45em 0.736em 0.949em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c2F.TEX-S3::before {
+  padding: 1.45em 1.044em 0.949em 0;
+  content: "/";
+}
+
+mjx-c.mjx-c221A.TEX-S3::before {
+  padding: 1.45em 1.02em 0.95em 0;
+  content: "\221A";
+}
+</style></head>
+  <body epub:type="bodymatter" class="backmatter" id="fzik6af61120fe35641e4f4891e2bedc" data-lo-framework-id="" style="overflow: auto;">
+    <section aria-label="appendix" class="appendix" epub:type="appendix" id="ans_sec_6_1" role="doc-appendix" title="Answers to Odd-Numbered Exercises">
+      <section class="subsect1" id="ans_sec_6">
+        <header id="xmyy59973cc3db0b9081c391b2b371f6">
+          <h2 class="level1 v3" epub:type="title" id="aktlc211a201828d4cb20fce5e6c59ea"><span class="label" epub:type="label" id="aqon45292180efb7a7bb3345cef43158">Chapter </span><span class="ordinal" epub:type="ordinal" id="ogsx745dcb13f248f028dcb03e6a121c">6: </span>Sampling Distributions       </h2>
+        </header>
+        <ul class="ul-no-mark" id="cvwo41aa97d0d2f29793b7d0f0eb1930">
+          <li id="ch6_ans1">
+            <p class="answer noindent" epub:type="answer" id="tsmr306bab584b950771341f0ff193a2"><strong class="important" id="viaz8a165cef3122b5eb8c942c16dc3c"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_1" id="ch06-exer-1" style="overflow-wrap: break-word;">6.1</a></strong> The statistic is the proportion of respondents in the sample of 1008 employees that directly experienced abusive conduct at work; the population is workers; the population parameter is the proportion of the entire population that directly experienced abusive conduct at work.         </p>
+          </li>
+          <li id="ch6_ans2">
+            <p class="answer noindent" epub:type="answer" id="dzyr6c2998e62e50b744d5c3415e0866"><strong class="important" id="eljh4d19309cbda00366251b44c35657"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_3" id="ch06-exer-3" style="overflow-wrap: break-word;">6.3</a></strong> a. 0.7.         </p>
+            <p class="answer noindent" epub:type="answer" id="jltpd32d021e451cc8d132e03c48e6a5">b. The histogram for sample size <span aria-label="n equals 20 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0001.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="0" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fqwg7eb3c1e079db66da65d843ecde3c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xlyxff090473b2569597839f6b14368f"><mjx-mrow id="moez518124a320403ac67a4505bd9452"><mjx-mi class="mjx-i" id="mpac6837a2bfcf694af82d90d60922d6"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="doknc9dce718b60cb77e85da234a5d5b"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dmin5fd152e1525968fc503cc8720afa"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ejmt9c90793307f697a9ae026b136c8b"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>n</mi><mo>=</mo><mn>20</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="scun7d2a82c34b2010ec50df996c65ef">c. The larger sample will have 95% of the sample proportions lie between 0.6 and 0.8; the smaller sample will have 95% of the sample proportions lie between 0.5 and 0.9.         </p>
+          </li>
+          <li id="ch6_ans3">
+            <p class="answer noindent" epub:type="answer" id="iget179d3d954171540873162439e531"><strong class="important" id="bdsx66bf15108dfec2f0efba0da4e7c7"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_5" id="ch06-exer-5" style="overflow-wrap: break-word;">6.5</a></strong> a. Graduates that found a job within 6 weeks; 100 graduates of university’s business school; 82%.         </p>
+            <p class="answer noindent" epub:type="answer" id="yhiqa0ff0c1376f70ed9de9a095ff857">b. The average number of times a student has visited the career services office; 32,585 currently enrolled college students; 1.9.         </p>
+            <p class="answer noindent" epub:type="answer" id="bsga5bbb1b0167ab62c088403ed577fd">c. Understatement of sales due to shipments made but not recorded as sales; 200 shipping documents; 2%.         </p>
+          </li>
+          <li id="ch6_ans4">
+            <p class="answer noindent" epub:type="answer" id="kwrue7cb1d12412d5159949cfd2a29b5"><strong class="important" id="ppqmf08324e479f837ff21c2f1060117"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_7" id="ch06-exer-7" style="overflow-wrap: break-word;">6.7</a></strong> a. <span aria-label="bias equation sequence equals 90 minus 100 equals negative 10 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0002.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="1" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="obyhd0fa3b3eadc8963fffe79ca66bf3" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xpaa8f404711ec2b8f7c07057b2ae24d"><mjx-mrow id="svju81cc696b935d5dae67d50bbe0a01"><mjx-mtext class="mjx-n" id="muzzc8ec0b940f784e3af3fee02cecf5"><mjx-c class="mjx-c62"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="vmuo682e7152c5d9cc4e386d4890397f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="dcjw6dabcabfe65ecda909b4a53567f1"><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="zooj72380dffd4cbca7587932d71d343"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="kheqae01cd01f1259ee8769d6bce12e0"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="4" id="bkoa98884c6b2717388ecfb4cad313e0"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="pzos4b512b9ac96279b5c8c35a725adf"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="znci68a9c8689ebd1c2b8b94bed0ec55"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="pzba0926c44ad43ad2bd4e1c8bcd1632"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mtext>bias</mtext><mo>=</mo><mn>90</mn><mo>−</mo><mn>100</mn><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>10</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="gaxx09852467dcdd2deb03a06c50e468">b. −4.08.         </p>
+            <p class="answer noindent" epub:type="answer" id="cgir2d4e41eb422fbb62a0acd9030d1b">c. It is a downward biased.         </p>
+          </li>
+          <li id="ch6_ans5">
+            <p class="answer noindent" epub:type="answer" id="nyjw78079a680f4d7feaea21afbe747c"><strong class="important" id="ecmk4364f845dcf1986ead2335653b6e"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_9" id="ch06-exer-9" style="overflow-wrap: break-word;">6.9</a></strong> The sample size is unknown.         </p>
+          </li>
+          <li id="ch6_ans6">
+            <p class="answer noindent" epub:type="answer" id="supwe37d15b8b6e751d08ec24c3850a1"><strong class="important" id="ozjs767139ae8fe5476306b536e30dd2"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_11" id="ch06-exer-11" style="overflow-wrap: break-word;">6.11</a></strong> a. Answers will vary.         </p>
+            <p class="answer noindent" epub:type="answer" id="absx681f3ae1b2c4a7fd94642e8bb5e6">b. Answers will vary.         </p>
+            <p class="answer noindent" epub:type="answer" id="rfzy336a99f0354d23a8b0ca3cc52fb1">c. Answers will vary.         </p>
+          </li>
+          <li id="ch6_ans7">
+            <p class="answer noindent" epub:type="answer" id="mbui02378b41e70577480c321c2aa3ca"><strong class="important" id="euzn23c5d34ebbd9752c22a1847bc033"><a class="crossref" href="alw_9781319272463_ch06_02.xhtml#ch06_exercise_13" id="ch06-exer-13" style="overflow-wrap: break-word;">6.13</a></strong> A sample size of 107 is large enough to give an appropriate estimate.         </p>
+          </li>
+          <li id="ch6_ans8">
+            <p class="answer noindent" epub:type="answer" id="iwze9991c79df00a8db5daf9bcda2c82"><strong class="important" id="gooice65a548ada39d82e8d5361e5e92"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_15" id="ch06-exer-15" style="overflow-wrap: break-word;">6.15</a></strong> a. The population is the number of steps per day taken by users of the <i class="semantic-i" id="egbq70ceaddb86e11ca9c8cf527bdd6a">Azumio Argus</i> app; for a sample of 400,000 users, the statistic is the average number of steps taken and the standard deviation.         </p>
+            <p class="answer noindent" epub:type="answer" id="ukeq8e8cc7818cf4491b61dbdb4caee0">b. The shape of the population distribution is right-skewed.         </p>
+          </li>
+          <li id="ch6_ans9">
+            <p class="answer noindent" epub:type="answer" id="zfdu8dca22b868b891292e1a5299244a"><strong class="important" id="misw61ff3bb7141bb852912240b3e18f"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_17" id="ch06-exer-17" style="overflow-wrap: break-word;">6.17</a></strong><span aria-label="mu sub cap x macron equals 420 comma sigma sub cap x macron equals one full stop" class="math mmm1" id="alw_9781319272463_EM_ans_ch06EQ_0003.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="2" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="nsbicc8a37edb1355772a16c65ae5225" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="pbft217b9dc3c6fbd1f28e9dcf7e9d8b"><mjx-mrow id="vkol59bda504bb893cf4ed4d60edb1d0"><mjx-msub id="umft7e5a225d3f79e063a75ce03105b0"><mjx-mi class="mjx-i" id="kgvl96146143740fdac4750892aae5f1"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.307em;"><mjx-mover size="s" id="ojrve8f10f8606978386c140697dd9e3"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.101em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="cqvpaae42c35f37fed039d3865e3afd9"><mjx-stretchy-h class="mjx-cAF" style="width: 0.852em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base style="padding-left: 0.012em;"><mjx-mi class="mjx-i" id="ekvpdc73a413d4d2e55294ac4fb1393b"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="txdy56f3c6067478c765994033d0d58b"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="lomj7e55c8c72e4c6da3498b83eeb848"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="nvma63652f01eea4a7d8caf097069e62"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="rkgd870e0a7d7546ed54a002dcceb607"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="oucy2e0de86b0b392273b336aba934d7"><mjx-mi class="mjx-i" id="zdnl08e644d8bc1639b2121c9805175c"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.307em;"><mjx-mover size="s" id="dvsy39c20cb975bbc14b6e141f9f90aa"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.101em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="ayyn018e2178a7d7ef79296694e032e2"><mjx-stretchy-h class="mjx-cAF" style="width: 0.852em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base style="padding-left: 0.012em;"><mjx-mi class="mjx-i" id="yluo9cf75074148c8d38633128cc3b22"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="ckfha7864dd5362a70e2279a5328e834"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wpfmc0e435c96a48fae2e554bdc447a1"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="xmat10d903418e6dec03756eaaa262e0"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>μ</mi><mover accent="true"><mi>X</mi><mo>¯</mo></mover></msub><mo>=</mo><mn>420</mn><mo lspace="0" rspace="0">,</mo><mtext> </mtext><msub><mi>σ</mi><mover accent="true"><mi>X</mi><mo>¯</mo></mover></msub><mo>=</mo><mn>1</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Larger sample gives the same mean but a smaller standard deviation.         </p>
+          </li>
+          <li id="ch6_ans10">
+            <p class="answer noindent" epub:type="answer" id="jrnw880ec08c1148c254ca7aee648145"><strong class="important" id="thwq8772fba5fd06c7850f64737ec814"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_19" id="ch06-exer-19" style="overflow-wrap: break-word;">6.19</a></strong> a. <span aria-label="m sub one equals prefix plus minus of two times left parenthesis 84 divided by Square root of 200 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0004.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="3" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jmojd3c47a9caddec65384a654154aa8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="pajk1cd159b65fed7e57422f42978379"><mjx-mrow id="pcyg70d9afb8f26b7706ef2288f76560"><mjx-msub id="hsew09cbdfc8d68c49ff5320fe3df85a"><mjx-mi class="mjx-i" id="btwnb954be781f522d593219b6bb877f"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="shwy5754ffd61cb3b747d02b7bb4fc4d"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="rrap9538bcfb406091ce3db55b081596"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="lrrj6683fe978c4d1e03db9c6a4b2d3d"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="gfpl507394155af6384bd807e0ef6624"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mrow space="2" id="pnkda73702963dd926338b8c7e634508"><mjx-mo class="mjx-s3" id="bgaic3e2a55ae794be899a03e3d95a8f"><mjx-c class="mjx-c28 TEX-S3"></mjx-c></mjx-mo><mjx-mrow id="pyim6a00ab378170b4000cdcba9fc1c9"><mjx-mstyle id="folc5bfa4c9532334b7149eb229a9cbf"><mjx-mfrac id="tspz346fd3bd9ecb763972efaee63e42"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="mbsz7762f7f4803f05fc3cf047525c7c"><mjx-mn class="mjx-n" id="jlgf8ba9fefe6c596597d4ca92dd8c4b"><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="cwxe28c3ec8d87f4db5c4fc161a5be50"><mjx-msqrt id="fddi688566ad6848ad78666d1459b177"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.163em;"><mjx-mrow id="vlaf13e50211d327a88ed4b29d86f5cb"><mjx-mn class="mjx-n" id="vhbv0160f304fc512b4e24cc342ac3b4"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle></mjx-mrow><mjx-mo class="mjx-s3" id="kvvq6eafd1291c84776a6345ee9366d1"><mjx-c class="mjx-c29 TEX-S3"></mjx-c></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" rspace="3" id="yjjrcfef904f16d30c7d7a08b124cc28"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>m</mi><mn>1</mn></msub><mo>=</mo><mo>±</mo><mn>2</mn><mrow><mo>(</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>84</mn></mrow><mrow><msqrt><mrow><mn>200</mn></mrow></msqrt></mrow></mfrac></mstyle></mrow><mo>)</mo></mrow><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="gcql066cbb16df6db535fecafe9ce2b9">b. <span aria-label="m sub two equals prefix plus minus of two times left parenthesis 84 divided by Square root of 50 right parenthesis full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0005.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="4" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qjyq4482b26f63cbd5e624b6a28c3f9a" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vccl16460794b7a142efe0a015abe69b"><mjx-mrow id="vryl0fd3110da30c7f14b22b28a41963"><mjx-msub id="pasca7fbbf0c7b1f777889145a97eb97"><mjx-mi class="mjx-i" id="xnxta0c2f9b8df34656e97c04e53f15b"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="cula54d028fafba15f80b38dc1fc0a45"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="enec8b10e6353fdfed52e4f8de024510"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="qoey1b6c961e7eddbad07f74f043928d"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="niqf068a4a7c23106766995bd1265c69"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mrow space="2" id="jmeyb0e2c2f3d978e20be5886b11cb07"><mjx-mo class="mjx-s3" id="vxyx0a72326cfa7f2b6bdde30c349d60"><mjx-c class="mjx-c28 TEX-S3"></mjx-c></mjx-mo><mjx-mrow id="wuph123aebe57ec4923bedf1897a3306"><mjx-mstyle id="rrau46f8c3eaf5d51eae66b794de394c"><mjx-mfrac id="fwldbe846482d14e64d7887c74af2f71"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="jvno94d9046e9e262d28e5a9a41da70c"><mjx-mn class="mjx-n" id="ooqx06070963e09e420102a0be2569a4"><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="fpugc2d20ca1560c1fcd8dc2aafc4195"><mjx-msqrt id="pnwkd4ad23c9394f187e24f2597f0f73"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.163em;"><mjx-mrow id="dsfob20d0b60636dbcdc4cc109ff5ada"><mjx-mn class="mjx-n" id="qrnecc96f3a8da5574234376667a64d7"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle></mjx-mrow><mjx-mo class="mjx-s3" id="yhjf5c0e568a685bf1fc38777fee2123"><mjx-c class="mjx-c29 TEX-S3"></mjx-c></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" rspace="3" id="tyvne6cff25e740517cf28e49bd75462"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>m</mi><mn>2</mn></msub><mo>=</mo><mo>±</mo><mn>2</mn><mrow><mo>(</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>84</mn></mrow><mrow><msqrt><mrow><mn>50</mn></mrow></msqrt></mrow></mfrac></mstyle></mrow><mo>)</mo></mrow><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="kkmj20769767241fcdc6fcd739751679">c. <span aria-label="m sub two" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0006.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="5" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="nwkm62de876a6de88ac0081e520a20e7" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qyujbbee21bc8763032f5e18f81c7c3a"><mjx-mrow id="dslz09982f539b5447eb1fb6fc0e313a"><mjx-msub id="rpuo01e75b3c998d03719a33d7d7664b"><mjx-mi class="mjx-i" id="lthj1a10ba61392cce66ba92e7f9cf1f"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="pugae1f7d27661b9242ed0e096ee303b"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>m</mi><mn>2</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> is greater than <span aria-label="m sub one" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0007.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="6" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="nfej9a54cec5135023ecc6031239b71a" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="dzyk4a92458d12c0f536d274260f086b"><mjx-mrow id="hnqd6ed8067e0e7d9558348dad37f1dc"><mjx-msub id="jski19fc767bd95d6830296fcd3bed69"><mjx-mi class="mjx-i" id="agvv14852327a52ca26c9f7d963413a9"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="oxas88c2a66f1800af3925f0d697b623"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>m</mi><mn>1</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> by a factor of 2; the margin of error increases as the sample size gets smaller.         </p>
+          </li>
+          <li id="ch6_ans11">
+            <p class="answer noindent" epub:type="answer" id="fcyf6577acdcc2526f92cf6664b56125"><strong class="important" id="onmed882acbdacd1e1a8c2f13b325aa7"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_21" id="ch06-exer-21" style="overflow-wrap: break-word;">6.21</a></strong> Applet; answers will vary.         </p>
+          </li>
+          <li id="ch6_ans12">
+            <p class="answer noindent" epub:type="answer" id="krjbe659471eee88531fe8509fcd7fa1"><strong class="important" id="xzyh75fe1e2dfdaa301f7bd06e23be6f"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_23" id="ch06-exer-23" style="overflow-wrap: break-word;">6.23</a></strong> a. The standard deviation will be <span aria-label="30 divided by Square root of 10 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0008.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="7" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="alpsc2044cd1878ff830214f1f41ad74" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="thyb6efd53b4d87427e073e47890b34f"><mjx-mrow id="pzxjf11520d17bf57402f93d764a59da"><mjx-mstyle id="fneh6cdfa323ff61f557032fa57c3450"><mjx-mfrac id="eoql7dfa55de027fe807b71611fbae5e"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="tvuya40ac5894e5e5008827b5ab7df56"><mjx-mn class="mjx-n" id="lnhd99efe3c3f82df5b7fb6427cca4b9"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="jsdt249a77342732e0ac6f03dcbeefb1"><mjx-msqrt id="dyin8888e1f0cdb3815b1232b2a5ab62"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.163em;"><mjx-mrow id="loobd1455c75b629dac7d237ddf9a77e"><mjx-mn class="mjx-n" id="rifg6b52e416669e2981bbf928c4b2b2"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" rspace="3" id="klei949936d59a9c65842c29790ac83a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>30</mn></mrow><mrow><msqrt><mrow><mn>10</mn></mrow></msqrt></mrow></mfrac></mstyle><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="lerm95b7ba33373a3c214b0bc77ac965">b. A larger sample will result in a smaller standard deviation.         </p>
+            <p class="answer noindent" epub:type="answer" id="xhcldefbd4d3f5a4fc3b050b37dc7936">c. Only the standard deviation depends on the sample size <span aria-label="n full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0009.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="8" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="rzmb8b86c91c4f4af6c58f4b370eaeb9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ykar70a3d83d6fe165bc513eacf32775"><mjx-mrow id="frpw8e502bccd0d91d0d747f95f7f799"><mjx-mi class="mjx-i" id="zyjdff50a4c92e272dd96bb8a3add53e"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="wfkvd358b3f55b13a70e7d1a0192d92a"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>n</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="wyau69da8a6e98aa2b69e0c37862d779">d. <span aria-label="x macron" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0010.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="9" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ejxh157f0bb4e39b95fa4bc3c561d455" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hlfs513314bd49f20b6d8a34abb89b96"><mjx-mrow id="plvse7c38a06eff554ab4fdfedd04e2c"><mjx-mover id="ggsv303f7fcfdc119891f974a06e7777"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.028em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="rxog260a67d85e22a77a3c6d9f4cc0a9"><mjx-stretchy-h class="mjx-cAF" style="width: 0.572em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="ftvcdcdc44a3b126ac356981ae6f5f81"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mover accent="true"><mi>x</mi><mo>¯</mo></mover></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> will fall within <span aria-label="mu plus minus two times sigma divided by Square root of n full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0011.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="10" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jiqr6e920a15541f7aaa3b378e28123e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="wccn033f522cc0cbbf449f0afe01650e"><mjx-mrow id="mfro6d697cc827caf419b7b4f1079d69"><mjx-mi class="mjx-i" id="prwj43592a3879d8bac6be6ff10ea282"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3" id="hiyk6b2e6eb8e2187222b3df8637d18d"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-mstyle space="3" id="poxo9bb08b95096c3bc0520e6548b0d1"><mjx-mfrac id="dcao11e16df7db255366c6c0b74dcff5"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="fhqp366941f30b9498a6f9c7fdb6770d"><mjx-mn class="mjx-n" id="iaipa4f31673354b00804e895f82ab6c"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="njus55390417f2ea670c084c35b28ce7"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="asxg69a52b60a2b09f0a222504636d77"><mjx-msqrt id="kuus0d9fc2bfd0ebbc8a436f2c306185"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.281em;"><mjx-mi class="mjx-i" id="fpcp1ad56f1a2328245b18253eb583c0"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" rspace="3" id="yxnmca3431e809c08f68edf38a3c6ae4"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>μ</mi><mo>±</mo><mstyle displaystyle="true"><mfrac><mrow><mn>2</mn><mi>σ</mi></mrow><mrow><msqrt><mi>n</mi></msqrt></mrow></mfrac></mstyle><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch6_ans13">
+            <p class="answer noindent" epub:type="answer" id="gtcn27c6cd9846727ac2cf75bea1a74a"><strong class="important" id="ixlp2dd4deb1f07eb57b66e627f0a31d"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_25" id="ch06-exer-25" style="overflow-wrap: break-word;">6.25</a></strong> Parameter, statistic.         </p>
+          </li>
+          <li id="ch6_ans14">
+            <p class="answer noindent" epub:type="answer" id="cjju743f722712025c977f259ee8c2f1"><strong class="important" id="dtrl97b3ada5da97117189865c509f25"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_27" id="ch06-exer-27" style="overflow-wrap: break-word;">6.27</a></strong> a. Defining <span aria-label="cap x" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0012.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="11" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="pnft2801bbea9bfbc53dca68b9bf21c8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rcpk4f7bd2e47cdfeaa0a498b6fcf9cf"><mjx-mrow id="orkpe1c8701ad98b93d4f30a314b10b0"><mjx-mi class="mjx-i" id="ickx12ed68613e4d394afb67b9771107"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>X</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> as 2<span aria-label="cap b" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0013.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="12" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="bsuc2b7e9d3c932fb037b8eac338433e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="dqzf7b7f6d237cfb1271d863184eac9f"><mjx-mrow id="usdm26905770fe33aa696eabd4cd14e7"><mjx-mi class="mjx-i" id="rxsxf954b31855f755133cfabd2e1009"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>B</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> might be incorrect if <span aria-label="cap b sub one" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0014.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="13" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tllg33fb3b876e4cda0f9244df43aea5" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hgoff0528dd83a575960a084a730372c"><mjx-mrow id="wwul8b74f75ae72126af2fc50cc7287e"><mjx-msub id="fbzd82b4e66732f732bcaf94f884f477"><mjx-mi class="mjx-i" id="htcf1ce5e220840894cba87ebc0be872"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="kvgfd60430f64930d1fab342e8b032db"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>B</mi><mn>1</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span aria-label="cap b sub two" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0015.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="14" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="inbw8fc98e0e2f18ded9b6fd6a302cd9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rcbe59e8a0318fdc2aa64893ab9307c6"><mjx-mrow id="vlnie98f191ed0e7514306da26989574"><mjx-msub id="mdsg22e5291163cdf34b540fdd0a4829"><mjx-mi class="mjx-i" id="snlg72e558a6d89a01693edc80beb450"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="jxjwb9195618e3e5f5ae9cf0aa8fe713"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>B</mi><mn>2</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> are not independent.         </p>
+            <p class="answer noindent" epub:type="answer" id="edbba2a04aa91d66de11de1be2d96592">b. The variance of <span aria-label="two times cap b equals 0.0004 comma" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0016.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="15" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="edaq792db91c4181c7cbdeced8ca4d05" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lmkt64b8170aad6e7b1e36d89eda6ad1"><mjx-mrow id="ftada3e7b3df54c68572454445034fbb"><mjx-mn class="mjx-n" id="uscv049d9eca9ad46310482385cfff5e"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="hamy9bc9b997498f5eb63573f76cf2aa"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="saota0a76c4a756de41342e718106c68"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="adzx6d3a28a58242cd9a2913bb6765e7"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="odihc943fd0b42dc0669861e445d3076"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>2</mn><mi>B</mi><mo>=</mo><mn>0.0004</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> which is half of the variance reported in <a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_ex_12" id="ch06-dummy1" style="overflow-wrap: break-word;">Example 6.12</a>.         </p>
+          </li>
+          <li id="ch6_ans15">
+            <p class="answer noindent" epub:type="answer" id="ejbgaa5a7fbf2f480f81bb0be4040ef7"><strong class="important" id="pjwq591132b00c0cf92a838b28a50659"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_29" id="ch06-exer-29" style="overflow-wrap: break-word;">6.29</a></strong> a. Larger, to decrease the standard deviation.         </p>
+            <p class="answer noindent" epub:type="answer" id="ebma03ae141c37306cff90d66ac12356">b. 0.085.         </p>
+            <p class="answer noindent" epub:type="answer" id="xijk560fea0ae5983b7b38e5417aed18">c. <span aria-label="n equals 68 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0017.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="16" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="nrhk6cc99e0f14639e43a1fd163da2b5" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="uavo910f4b480525b7157a9cbec3f9b0"><mjx-mrow id="xoxv75ac6dad26eccb6631e9547e8c33"><mjx-mi class="mjx-i" id="pibf4aaa662b3f74c7bb4b997db59bf0"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="ugiif71c9bd9624625bcfad06acacdb9"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wmxxa5e11232d01eda309ac8c00d7a61"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="lfbzecd171705b2f93123a72a9633db8"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>n</mi><mo>=</mo><mn>68</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+          </li>
+          <li id="ch6_ans16">
+            <p class="answer noindent" epub:type="answer" id="qmfw03c7bf77e7225cbc718b09ddd72c"><strong class="important" id="vfgueb8ee4f4057798f7dfb99eae2370"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_31" id="ch06-exer-31" style="overflow-wrap: break-word;">6.31</a></strong> a. <span aria-label="mu equals 69.4 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0018.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="17" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lopgde316beac205d669dcc71d9468d1" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="frmd0856a1708b04ca4fec5a4842479e"><mjx-mrow id="jvwp5033f5565ce2e3e2008eb2c98816"><mjx-mi class="mjx-i" id="bgif98095bb41267c5d775f132b2b90b"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="dvda7ae7f676fc945de0b29371e66189"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ktvye48f7a2fe94a1e11a3f4977be1fb"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="qbswbe63422524e528551b83d9d53513"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>69.4</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="pemo65a39df7dd8386745d97fe46d173">b. Software; answers will vary.         </p>
+            <p class="answer noindent" epub:type="answer" id="zpoia2f41bd0a57f9f89516c3ef64b26">c. Software; answers will vary.         </p>
+          </li>
+          <li id="ch6_ans17">
+            <p class="answer noindent" epub:type="answer" id="uhdhb0038f3fa4df959bb77d62004712">
+              <strong class="important" id="uyslf95eeac5f821a5e5cb0593f84d52">
+                <a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_33" id="ch06-exer-33" style="overflow-wrap: break-word;">6.33</a>
+              </strong>
+              <span aria-label="equation sequence cap p of Total greater than 4000 equals cap p of multirelation cap x macron greater than 4000 divided by 19 equals 210.526 equals" class="math mmm1" id="alw_9781319272463_EM_ans_ch06EQ_0019.png" role="math" tabindex="0">
+                <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="18" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dcqea607e03aa08f92b040d711b1d6ba" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mhvxd55f624366bc14f78e7071389378"><mjx-mrow id="yysvc3c788d801dec3fe3fc59f25368b"><mjx-mi class="mjx-i" id="ueaf75562a106d3be4b7baae062755a2"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="ngdh9cd84f01fe75ed30a9be7a7c3233"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="livnc09a5b7130c2851a5ad6846bd6f3"><mjx-c class="mjx-c54"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6C"></mjx-c></mjx-mtext><mjx-mo class="mjx-n" space="4" id="hvwhf8886a255c8ac100a880191400fe"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jawv17875e83e05b4f7b906b794b1752"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jwuf8f8ed2266fa267ee0f49e6519a89"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="xnwl7f8fff2fc3e5b0c18e59ee7793d1"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="foqycaa852a215e78266b0ca2cd092e1"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mrow space="2" id="opjq537a338409a8f32059c3a1013a54"><mjx-mo class="mjx-s3" id="ajwr6bf1ce2adefd50b86d5574c43fb3"><mjx-c class="mjx-c28 TEX-S3"></mjx-c></mjx-mo><mjx-mrow id="zenz0f9f7ca37f518dcd0c8fd4f1ea50"><mjx-mover id="gels9452bc678e3a40802e1a722ad9d0"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.101em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="uqjh6a63b51854967cfe0b9201b9f9cd"><mjx-stretchy-h class="mjx-cAF" style="width: 0.852em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base style="padding-left: 0.012em;"><mjx-mi class="mjx-i" id="todrcebb78ef0334c6dd7f15aae3a04c"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover><mjx-mo class="mjx-n" space="4" id="zvujd8b86a693464d6543458b29041c8"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mstyle space="4" id="irvof299457d962b6c3976326e267fed"><mjx-mfrac id="ksywcdb32390f031d1b2def8e3afcb04"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="vieq1896f1a677cf72fbc9e49802a6ae"><mjx-mn class="mjx-n" id="qmdp0be2415b9e1e2093f8d643baf975"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="tlxka9881f94b9934a65c0b207760409"><mjx-mn class="mjx-n" id="zwna5f7bd525d803ae16a9f370a1f54c"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="dicd7756d434eeacd459e070451fbd84"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="hbbecd8b99a2de35b2f8fbb5cc0902d7"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-mrow><mjx-mo class="mjx-s3" id="iqmab34b3727a6f59ec28c320ed2e646"><mjx-c class="mjx-c29 TEX-S3"></mjx-c></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" space="4" id="gram5109a3cdc12ca3b24c3540811063"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mtext>Total</mtext><mo>&gt;</mo><mn>4000</mn><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mrow><mo>(</mo><mrow><mover accent="true"><mi>X</mi><mo>¯</mo></mover><mo>&gt;</mo><mstyle displaystyle="true"><mfrac><mrow><mn>4000</mn></mrow><mrow><mn>19</mn></mrow></mfrac></mstyle><mo>=</mo><mn>210.526</mn></mrow><mo>)</mo></mrow><mo>=</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container>
+              </span>
+              <span aria-label="cap p of multirelation cap z greater than 210.526 minus 190 divided by 35 divided by Square root of 19 equals 2.56 equals 0.0052 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0020.png" role="math" tabindex="0">
+                <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="19" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lypze27c348ead707926acc6275ba9da" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="tsewbb586fbd72c94f334856b3466a22"><mjx-mrow id="ifbr0e79eeaba33da194f053c479e4f5"><mjx-mi class="mjx-i" id="hrwt417dff08310863e4a39a59d05692"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mrow space="2" id="prcw11512733c07f7bca84a449b6e143"><mjx-mo class="mjx-n" id="anyl701645905cab67c8d94fc5d0146d"><mjx-stretchy-v class="mjx-c28" style="height: 5.218em; vertical-align: -2.359em;"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo><mjx-mrow id="lrkw6830436d804b0bccf369a41ef9d6"><mjx-mi class="mjx-i" id="pngo9e7cf98df98a57672a30e3f33b5b"><mjx-c class="mjx-c1D44D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="qsjqbf36c742715e26f5455c418078c8"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mstyle space="4" id="lbzkd07a0dbf3f46855ea35418fef5f5"><mjx-mfrac id="kxvvebbeb902626de47b2846a89a4b63"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="gvdm2beb114b696de37b4460b90a930b"><mjx-mn class="mjx-n" id="knvj8fcbf48ede66fa87eec5e49d18c7"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="rsss6b4a4660cdc652d0a8f264aad826"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="erccc1ed4bdc34a77e6e5f9fc4cf2cd1"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="jbxnabc2289290a8901b87095ea5a282"><mjx-mstyle id="rkyn7b62214b90473fe8564bc2e7b042"><mjx-mfrac id="xvgi01b0ab1f2a3fa88a00e38838d383" bevelled="ture"><mjx-num style="vertical-align: 0.328em;"><mjx-mrow id="gpkl3cbe3db056da8f24ddb2da146999"><mjx-mn class="mjx-n" id="egrh24bdf0a2735dd37e796c39885570"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-mo class="mjx-s3" style="margin-left: -0.2em; margin-right: -0.2em;"><mjx-c class="mjx-c2F TEX-S3"></mjx-c></mjx-mo><mjx-den style="vertical-align: -0.57em;"><mjx-mrow id="juea78f58f16a077160a7f10622ba43b"><mjx-msqrt id="rnvz07e3b631981660a36a37a1cb8c03"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.163em;"><mjx-mrow id="uaqlf21f85b278dd99a3b822729e8899"><mjx-mn class="mjx-n" id="amkc76db9be3af99151ad37cf8969ced"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-mrow></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-mfrac></mjx-mstyle></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="khjkae83b30eb802af552797e1d63dd4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="nmcvf094b4789559614bd1c716b64593"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn></mjx-mrow><mjx-mo class="mjx-n" id="xzpz85f1e1a97cc6df46121f2c7d74f8"><mjx-stretchy-v class="mjx-c29" style="height: 5.218em; vertical-align: -2.359em;"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" space="4" id="irmhf33a49661240587b60756a7624ce"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wbtd98c568a4c79dd4d16b7d60302b0d"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mrow><mo>(</mo><mrow><mi>Z</mi><mo>&gt;</mo><mstyle displaystyle="true"><mfrac><mrow><mn>210.526</mn><mo>−</mo><mn>190</mn></mrow><mrow><mstyle displaystyle="true"><mfrac bevelled="true"><mrow><mn>35</mn></mrow><mrow><msqrt><mrow><mn>19</mn></mrow></msqrt></mrow></mfrac></mstyle></mrow></mfrac></mstyle><mo>=</mo><mn>2.56</mn></mrow><mo>)</mo></mrow><mo>=</mo><mn>0.0052.</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container>
+              </span>
+            </p>
+          </li>
+          <li id="ch6_ans18">
+            <p class="answer noindent" epub:type="answer" id="ezekf6d5d0c4fa90e6ab322cb36d8329"><strong class="important" id="sviabcd85670f75e452a8abccc1d3b1d"><a class="crossref" href="alw_9781319272463_ch06_03.xhtml#ch06_exercise_35" id="ch06-exer-35" style="overflow-wrap: break-word;">6.35</a></strong> a. <span aria-label="equation sequence cap p of cap x greater than 72 equals cap p of multirelation cap z greater than 72 minus 69 divided by 2.8 equals 1.07 equals 0.1423 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0021.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="20" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dvoi6492e2ce0cd41679e6bc9c9300fa" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="hfee0ce150c7f1e89fedd9bb1f811c0f"><mjx-mrow id="ldcv9192694a2587d9afab6d789bf59b"><mjx-mi class="mjx-i" id="eeqkc6a8d773870041940264a0e05711"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="hzkwa92f4c147163201f8a29bcc30eae"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i" id="mykha93b8d72dce163a948dfa96c28bb"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="ivco44e412fca5607b739dcd263b3cee"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="slaube239288f04460ea878caffbcbf4"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="rhodf61486291adc42d9d49a2afededb"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="jopq0257c74b4848c2ee03e91c5e6dc2"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="sglc89fb16f754a0266ba8b4803a8efc"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mrow space="2" id="wsdl9eff6e52ce40fca29ff257536469"><mjx-mo class="mjx-s3" id="nmeme671658eca66f2e82c6bc1a744fd"><mjx-c class="mjx-c28 TEX-S3"></mjx-c></mjx-mo><mjx-mrow id="drfsdc6ec14c277a691511ac87e489e5"><mjx-mi class="mjx-i" id="tgfn2de08794a48c5ac828d12cb3a292"><mjx-c class="mjx-c1D44D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="abqo7ea22ea2c7d30754772521d813a9"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mstyle space="4" id="imsu7d9570ba538bceb8cfc231ff4246"><mjx-mfrac id="pnta9e822b45352dd942bbb35d5371e5"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="rrgw320e366d3826e4d6408c9c38fc82"><mjx-mn class="mjx-n" id="pqyh288fb638641eea156ba42b489667"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="uvkn00249915599b9a57637e48c2380c"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="gnsb4bcd542f464530fe7eaa0e3c6b70"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="bwfvf4cc0dba2f7cd6412b03f1f5292e"><mjx-mn class="mjx-n" id="wgjy3c8f762b3313d22c28c328150c43"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="vldu68526dea18831d90b89e3f763545"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="scyh6eae4715f846f4ac96a61e8d3cc0"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn></mjx-mrow><mjx-mo class="mjx-s3" id="gynp8ad69371ceab0fed368197538352"><mjx-c class="mjx-c29 TEX-S3"></mjx-c></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" space="4" id="nufa64d11f594781e4865b41bb149e6f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="enkv24de0c7ef8b4380060e8187dd734"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo>&gt;</mo><mn>72</mn><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mrow><mo>(</mo><mrow><mi>Z</mi><mo>&gt;</mo><mstyle displaystyle="true"><mfrac><mrow><mn>72</mn><mo>−</mo><mn>69</mn></mrow><mrow><mn>2.8</mn></mrow></mfrac></mstyle><mo>=</mo><mn>1.07</mn></mrow><mo>)</mo></mrow><mo>=</mo><mn>0.1423.</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="wdwzea4dae548bc7ecd670cb9b6f7a11">b. <span aria-label="equation sequence cap p of cap x macron greater than 72 equals cap p of multirelation cap z greater than 72 minus 69 divided by 2.8 divided by Square root of two equals 1.52 equals 0.0643 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0022.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="21" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qdpa97314d88f15bfa4d3bd3f574ff29" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="nuuz0c5825cd99a29ec268a0e397ba78"><mjx-mrow id="epbb319735506af248b5900b0e6cfbf9"><mjx-mi class="mjx-i" id="wued7ae02b1a941f9ce325f96acda037"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="vkzl7b324992b4df8cda10d69df760c0"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mover id="iqsfe4a757848ae9019fa9db126769c7"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.101em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="euczf0b0616e66d120d94ba4fbb4f765"><mjx-stretchy-h class="mjx-cAF" style="width: 0.852em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base style="padding-left: 0.012em;"><mjx-mi class="mjx-i" id="epqr80a93baee6f880d0e7e1156c5851"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover><mjx-mo class="mjx-n" space="4" id="vumn555d227258b543019142e94d5ef9"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="geeqc33eaddebeeb90d17424a627c895"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="vbiv26ed0a13eb0e5af3602055a4a434"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="lucr8cc40c155a02190c0b152570563c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="phhxf5e3fe8060b385e87cd5155e3a1a"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mrow space="2" id="qkoj12f51aeedc08b5c73d4ea2121834"><mjx-mo class="mjx-n" id="rfwt0ab49dfd59def32b849dfef18c46"><mjx-stretchy-v class="mjx-c28" style="height: 5.218em; vertical-align: -2.359em;"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo><mjx-mrow id="hnlf8194c77c5314e973711ba9ce678b"><mjx-mi class="mjx-i" id="tngyc0a08b37684dd5bf8643f5b9826d"><mjx-c class="mjx-c1D44D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="wpuy741d8af28ef1d940c19496e686d1"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mstyle space="4" id="hdyo18fccd4c970d4889f6e8ada3257c"><mjx-mfrac id="qnmw9b51aeb3a510da5fb91ac077e0d6"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="jotvccddb06d4c3cc4c6397c23644811"><mjx-mn class="mjx-n" id="xtroe0c98498675730165d7cf1d03d0b"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="cefqc8e9a6fa3d177a1d2a7174ff957d"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="ewts5b1e9fb2ebec934d0a46fa499aaf"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="yaqb457694876427f5a0ad331c83fc99"><mjx-mstyle id="tmtm200577611fbb93a59a74b209059d"><mjx-mfrac id="bvwj978c9e0d78d98863e9432262a955" bevelled="ture"><mjx-num style="vertical-align: 0.328em;"><mjx-mrow id="qbzwa258db34da797710d6fe3343721d"><mjx-mn class="mjx-n" id="pqfx1316ebd60f1c3d4b15bcac7c806f"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-mo class="mjx-s3" style="margin-left: -0.2em; margin-right: -0.2em;"><mjx-c class="mjx-c2F TEX-S3"></mjx-c></mjx-mo><mjx-den style="vertical-align: -0.581em;"><mjx-mrow id="nckgc0c0b15c1564b606acd0f2f05829"><mjx-msqrt id="tmwxa1c32d28e128fbb88df1aaed02ec"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.174em;"><mjx-mn class="mjx-n" id="tkup73000d65d9ada1ff8b18201788b0"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-mfrac></mjx-mstyle></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="rgile130d8fd60b1e3c1e704fad25567"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="mtykdc500beb5e0db2e65ee10d566f29"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-mrow><mjx-mo class="mjx-n" id="utxz2570696c5e1aa72c39f979aff8b7"><mjx-stretchy-v class="mjx-c29" style="height: 5.218em; vertical-align: -2.359em;"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" space="4" id="ffzf7192c18b0cfb7b74795b974a041c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="fxjl20a84e4a59e6a93df6e98660281b"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mover accent="true"><mi>X</mi><mo>¯</mo></mover><mo>&gt;</mo><mn>72</mn><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mrow><mo>(</mo><mrow><mi>Z</mi><mo>&gt;</mo><mstyle displaystyle="true"><mfrac><mrow><mn>72</mn><mo>−</mo><mn>69</mn></mrow><mrow><mstyle displaystyle="true"><mfrac bevelled="true"><mrow><mn>2.8</mn></mrow><mrow><msqrt><mn>2</mn></msqrt></mrow></mfrac></mstyle></mrow></mfrac></mstyle><mo>=</mo><mn>1.52</mn></mrow><mo>)</mo></mrow><mo>=</mo><mn>0.0643.</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="bbsq47e27fed944a418e0feb9f99747e">c. <span aria-label="equation sequence cap p of cap x macron greater than 72 equals cap p of multirelation cap z greater than 72 minus 69 divided by 2.8 divided by Square root of five equals 2.40 equals 0.0082 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0023.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="22" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tmpobc730e05be4f61be08cd7f880342" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="edvu34d74f7adca9c06fdc59632af42f"><mjx-mrow id="ydqe0394d4232829716d559a751b1a7e"><mjx-mi class="mjx-i" id="gask0eb9d324918955120946e997c04f"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="etkz696f7072c7056f896a2e8ffcdaf7"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mover id="otfwab97154d8075e61c37d8cb731d7b"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.101em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="rxvf0ef26247f3f939c9f7498c1a06a4"><mjx-stretchy-h class="mjx-cAF" style="width: 0.852em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base style="padding-left: 0.012em;"><mjx-mi class="mjx-i" id="kzjlbbc97e872fe20c663b7d17063556"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover><mjx-mo class="mjx-n" space="4" id="ubbv560073d3091d3b5fd39da083cb2b"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="cpwpab75354af8cece80690a3db0fd99"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="ubxx9a885b7af8ffebfd2220e86e0747"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4" id="yokn239c755b3a02f3e8e9ee51517218"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="idfbb17989849798287eb725d9f06728"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mrow space="2" id="mhrjbefb4b4b576bfe6760ce36882d89"><mjx-mo class="mjx-n" id="yjilf45730500513f42b3c2a619e7046"><mjx-stretchy-v class="mjx-c28" style="height: 5.218em; vertical-align: -2.359em;"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo><mjx-mrow id="mbwk38bccf08093562bfff436476db3e"><mjx-mi class="mjx-i" id="tqql0ec326c7d2a6d3f6538b5d7b3dcd"><mjx-c class="mjx-c1D44D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="yjgwd9554c77ad4cfe28db49b1dc5d05"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mstyle space="4" id="nqss2b62132c3968f83d3ad66af87b28"><mjx-mfrac id="fjrb634d913c89d2742de245f7fc1807"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="cysn83a57dd5a2091c4702ddbbdc61ef"><mjx-mn class="mjx-n" id="imgq0cc0f75265ab5a0bdfacc1ef616f"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="hnyk8409c778d226be61f5de1c08659c"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="ljxp1ab066e6c87ea438560d15800213"><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="mkbg6f1ae6283c939bf4340069d06e42"><mjx-mstyle id="jist76b6a8fa7678d1f5174e330f92d0"><mjx-mfrac id="eqbmea6522a85cf10feacde2196daeeb" bevelled="ture"><mjx-num style="vertical-align: 0.328em;"><mjx-mrow id="zcdo896b3250f9cbea51f7ee2c9f271c"><mjx-mn class="mjx-n" id="mvfeababe9fbfa80c5086ee420e1ee80"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-mrow></mjx-num><mjx-mo class="mjx-s3" style="margin-left: -0.2em; margin-right: -0.2em;"><mjx-c class="mjx-c2F TEX-S3"></mjx-c></mjx-mo><mjx-den style="vertical-align: -0.57em;"><mjx-mrow id="pqpdad9db71a255c3a70561b9dd0218d"><mjx-msqrt id="wbitb451c895a43f9a6fb8cf057df577"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.163em;"><mjx-mn class="mjx-n" id="cafvfb10d06863863844c7e3910d4b37"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-box></mjx-sqrt></mjx-msqrt></mjx-mrow></mjx-den></mjx-mfrac></mjx-mstyle></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n" space="4" id="hjlh6976b5654dc6f42f256b10733b80"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="kkrr73c1d0cf6296a85c5b7d57b63ef5"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow><mjx-mo class="mjx-n" id="evzg2f05bdf7fed29410e28eaf3e4716"><mjx-stretchy-v class="mjx-c29" style="height: 5.218em; vertical-align: -2.359em;"><mjx-beg><mjx-c></mjx-c></mjx-beg><mjx-ext><mjx-c></mjx-c></mjx-ext><mjx-end><mjx-c></mjx-c></mjx-end><mjx-mark></mjx-mark></mjx-stretchy-v></mjx-mo></mjx-mrow><mjx-mo class="mjx-n" space="4" id="smnc23a2dae2be469c4102495badd26b"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="cmdfdf5dd2176a40d9d320f8e195bc57"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c2E"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mover accent="true"><mi>X</mi><mo>¯</mo></mover><mo>&gt;</mo><mn>72</mn><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mrow><mo>(</mo><mrow><mi>Z</mi><mo>&gt;</mo><mstyle displaystyle="true"><mfrac><mrow><mn>72</mn><mo>−</mo><mn>69</mn></mrow><mrow><mstyle displaystyle="true"><mfrac bevelled="true"><mrow><mn>2.8</mn></mrow><mrow><msqrt><mn>5</mn></msqrt></mrow></mfrac></mstyle></mrow></mfrac></mstyle><mo>=</mo><mn>2.40</mn></mrow><mo>)</mo></mrow><mo>=</mo><mn>0.0082.</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="sirs866be2719ebeb987f22adc8eebff">d. It becomes less likely to have a sample mean greater than 6 ft because as the sample size increases, the standard deviation of the sample mean decreases, which will pull the mean closer to the population mean which is 69 in.         </p>
+          </li>
+          <li id="ch6_ans19">
+            <p class="answer noindent" epub:type="answer" id="giwr80f51aaa26ba50a44d08d99f5182">
+              <strong class="important" id="vahw10e6d1fddbb9fab0413bc5d05250">
+                <a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_37" id="ch06-exer-37" style="overflow-wrap: break-word;">6.37</a>
+              </strong>
+              <span aria-label="n equals 300 comma cap x equals 21 comma p hat equals 7.1 percent full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0024.png" role="math" tabindex="0">
+                <mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="23" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hnuyd91ca9aa6fc645da23018393cdf8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vkae129269900c278d398e1d42bbbaf1"><mjx-mrow id="nzft74f15e0aefc5f3b43ba43fb9d79b"><mjx-mi class="mjx-i" id="qyot553ed099e769473b7a8602f235e4"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="cswf92888f45d0bef36267c5a1e3194e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="zrfw91408470c090ee99a37cd50bcb2a"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="jsfr6341570b9e25647c1b64c87802bd"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="hwvm7cf898a0cd3213df92d56f61ba77"><mjx-c class="mjx-c2009"></mjx-c></mjx-mtext><mjx-mi class="mjx-i" id="twke7ab4d8f0431d4d8180d1c68f287c"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="egmq26c126667483862fc0d63300453f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="ppbo664306a76aa7a804d7184b9b2d30"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="stghdd57729adf35306f686990f93858"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2" id="qmcj6848cbd02f67efdedde9bba86108"><mjx-c class="mjx-c2009"></mjx-c></mjx-mtext><mjx-mover id="tuxyd7337141fb27907f221f91679293"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="fogre2ae1e5bb1f46159a78929207f0b" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="smbrb56bd511d81a436789ca03a5271a"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover><mjx-mo class="mjx-n" space="4" id="yefa62d31b0dfac6b8301315dd9addeb"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="xjcec1256c3cbba65e69d9816958efaa"><mjx-c class="mjx-c37"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="exuvbca20f7986476be0872049eb5d99"><mjx-c class="mjx-c25 TEX-MI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="mpyta076706fb0dfa391655932241ade"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>n</mi><mo>=</mo><mn>300</mn><mo>,</mo><mtext> </mtext><mi>X</mi><mo>=</mo><mn>21</mn><mo>,</mo><mtext> </mtext><mover accent="true"><mi>p</mi><mo>^</mo></mover><mo>=</mo><mn>7.1</mn><mi>%</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container>
+              </span>
+            </p>
+          </li>
+          <li id="ch6_ans20">
+            <p class="answer noindent" epub:type="answer" id="iiel7d32bbe878ac8b41c3f5ef3682d9"><strong class="important" id="llqp2c66b9d4f0794d8ec02cd9fd770f"><a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_39" id="ch06-exer-39" style="overflow-wrap: break-word;">6.39</a></strong> a. 0.04.         </p>
+            <p class="answer noindent" epub:type="answer" id="dsiadc306a2f710bb60ac2c74a832143">b. Yes, the population is more than 20 times larger than the sample.         </p>
+            <p class="answer noindent" epub:type="answer" id="mhqj84ef587cc4f88b358b5de67bf787">c. 0.0113.         </p>
+            <p class="answer noindent" epub:type="answer" id="lkmmefe4c1aacd51ff554f6035d98049">d. The mean is different but the standard deviation is the same for accurate documents.         </p>
+          </li>
+          <li id="ch6_ans21">
+            <p class="answer noindent" epub:type="answer" id="rrbeaf9e97d392fd062a6eb3a81f9bb4"><span aria-label="S-20" epub:type="pagebreak" id="pageS-20" role="doc-pagebreak" title="S-20"></span><strong class="important" id="syqq39e4e39ed6d6febd62cc3cce3032"><a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_41" id="ch06-exer-41" style="overflow-wrap: break-word;">6.41</a></strong> a. 0.4794.         </p>
+            <p class="answer noindent" epub:type="answer" id="jknsba8e29b8e9b06c28d97712cc966d">b. 0.3.         </p>
+            <p class="answer noindent" epub:type="answer" id="tpgm861625b9bd4f02cf3b01f3502315">c. 0.0011.         </p>
+          </li>
+          <li id="ch6_ans22">
+            <p class="answer noindent" epub:type="answer" id="igwy7ee6b71056b2dfa66d0cee373e77"><strong class="important" id="jwpx58af6c7817756f804e3abeead612"><a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_43" id="ch06-exer-43" style="overflow-wrap: break-word;">6.43</a></strong> a. 0.075.         </p>
+            <p class="answer noindent" epub:type="answer" id="ilpjfe1e567292bd88ebca2b26f25e35">b. 0.2 and 0.5.         </p>
+            <p class="answer noindent" epub:type="answer" id="lkaq4fc0e2eda556e2855aabbb808dda">c. 0.45.         </p>
+            <p class="answer noindent" epub:type="answer" id="wmooced4fe8f3ff3aa7f92d4262911f5">d. No, it is not unusual.         </p>
+          </li>
+          <li id="ch6_ans23">
+            <p class="answer noindent" epub:type="answer" id="khvh9b4821a613a21dc4611a279e4d98"><strong class="important" id="ogczbc1006e09a92dc8b6c6f6869cbcd"><a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_45" id="ch06-exer-45" style="overflow-wrap: break-word;">6.45</a></strong> a. 0.11.         </p>
+            <p class="answer noindent" epub:type="answer" id="kmsk5cccd822409ee25a0f2f1272aee3">b. 0.0188.         </p>
+            <p class="answer noindent" epub:type="answer" id="wiaie9af5e3c2e9b7ebb9b38109bd6f1">c. 0.13 and 0.21.         </p>
+            <p class="answer noindent" epub:type="answer" id="rvlta8056bdc9f7fe8b3f785e14a41e6">d. Less than the national level.         </p>
+          </li>
+          <li id="ch6_ans24">
+            <p class="answer noindent" epub:type="answer" id="xpfn8f03b549093a55b0a3403df8abeb"><strong class="important" id="bkvdf66a7474a92c164ac62be5b146a1"><a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_47" id="ch06-exer-47" style="overflow-wrap: break-word;">6.47</a></strong> a. It is unclear whether all 80 members of the fraternity are undergraduates.         </p>
+            <p class="answer noindent" epub:type="answer" id="ibvld35e13ea2c94db1ca594fdedd597">b. The minimum sample size is 100,000.         </p>
+          </li>
+          <li id="ch6_ans25">
+            <p class="answer noindent" epub:type="answer" id="mitsa9ee0d3653d33f7ea58d91816327"><strong class="important" id="kznn65d01761a76efbf3cd4779f5b32a"><a class="crossref" href="alw_9781319272463_ch06_04.xhtml#ch06_exercise_49" id="ch06-exer-49" style="overflow-wrap: break-word;">6.49</a></strong> a. <span aria-label="equation sequence mu sub p hat equals p equals 0.69 full stop equation sequence sigma sub p hat equals Square root of p times left parenthesis one minus p right parenthesis divided by n equals Square root of 0.69 left parenthesis one minus 0.69 right parenthesis divided by 300000 equals 0.000844 full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0025.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="24" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="whbna9a22f3131fad523a49d62b3e1a7" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xrqa92656b6fba145689f03893900760"><mjx-mrow id="mygj1ce48fd6ef938ae707a8461c9b25"><mjx-msub id="dioj1c05bec8804e737cd6017aaa8d5a"><mjx-mi class="mjx-i" id="gtmq548a99e6264768194ccc705cefa5"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.24em;"><mjx-mover size="s" id="fvorb040d5c624e52fea2f79d2f4e2df"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="kciq572824f9299bc24f9fedbdd75365" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="tfomaba223dac1faef0a4cc3c65bc18d"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="lgru0476c4b7e07c5e4e03f987aa3ec8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="awep7278817c9b5d7589ba39a1389f8e"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="mczt021b3e82f1ca79a4f0c1162a5c2d"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jjzc2b8cabea2951809a0bfafc981c10"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="aeml7aa0d9dcdd0fc6eeb8c417da6293"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="njoj6b8566df51399afc1982f6604204"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="wdbjbbe02f4693f3385cbd20b7c8a548"><mjx-mi class="mjx-i" id="vwcm08da2b9b2136a6d4a04a50665bf2"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.24em;"><mjx-mover size="s" id="xnwy7b687714b0bd40971eb1051e0163"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="oekvb2ab1a0b94aee44b3edda3735070" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="jekz0f0f2005e57a1c7b14bb53367dea"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="rqqi8a8458bc75ece163e86d63e59076"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msqrt space="4" id="cvrw516c6529706932ae2c06e3fa8d4f"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-s3"><mjx-c class="mjx-c221A TEX-S3"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.129em;"><mjx-mrow id="jkzg260bdb165dd958f69667e5ef0aca"><mjx-mstyle id="hldk22eb671e606265e2e37095fe4534"><mjx-mfrac id="nvdw8c489155b0dda57839563850c196"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="wcoc6b914d585c71477a68d8d978e59e"><mjx-mi class="mjx-i" id="bvpn8a33cb72223076cfea9199dab570"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="ssri9f5a7c7c77eee190c2029f289b23"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="zyulb37cda02307c80f34d2b20c3aa20"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="pcqs843a34ef73a9db9aa1b472eeef3f"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3" id="vlhv14cc39df177b210b0a5d74b5b54d"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="xhpw8253251da903572ceafe8e54828a"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mi class="mjx-i" id="zxegdb5573e1b1da67f50767d5e9154b"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle></mjx-mrow></mjx-box></mjx-sqrt></mjx-msqrt><mjx-mo class="mjx-n" space="4" id="fguvb1a2989f2afc538947cb03addd9c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msqrt space="4" id="uhpi3d3df86d288eb2fe2475ae0f2e38"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-s3"><mjx-c class="mjx-c221A TEX-S3"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.123em;"><mjx-mrow id="qopc2ffe4aff5e04f446b22f0a3738e1"><mjx-mstyle id="wpfw77279f4af9410e140fe21945d7b7"><mjx-mfrac id="idsi5ba7cfeb6a7e75248a518c56ddcf"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow id="mqko609dc0009bdebdc316c870e6b96c"><mjx-mn class="mjx-n" id="bbkue0a2912beb031bc1b58237f6ee78"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="jwzz5cb582d0341f13e028af18fd7e9c"><mjx-c class="mjx-c28"></mjx-c></mjx-mtext><mjx-mn class="mjx-n" id="nljs910bb3aca3c53d85ffd976b1e1de"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="txdyac9e9140573f924dca8148daeedd"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="xfho5269a1ef082675d0894115263fe1"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c39"></mjx-c></mjx-mn><mjx-mtext class="mjx-n" id="vkpj38c761f54f39dc45d4f4aab908ac"><mjx-c class="mjx-c29"></mjx-c></mjx-mtext></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mrow id="padw5cf7ea92d268fbe6b3998950b071"><mjx-mn class="mjx-n" id="tehv5eee4c43f103fe313e6595fcd80a"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle></mjx-mrow></mjx-box></mjx-sqrt></mjx-msqrt><mjx-mo class="mjx-n" space="4" id="cjnme9740eebf8b24a092e78f6624027"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="agzn41fa4d1a72cb2a2024c25ea57c1f"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="wkhh88a88fc2f007b85d5652d0f0d819"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>μ</mi><mover accent="true"><mi>p</mi><mo>^</mo></mover></msub><mo>=</mo><mi>p</mi><mo>=</mo><mn>0.69</mn><mo lspace="0" rspace="0">.</mo><mtext> </mtext><msub><mi>σ</mi><mover accent="true"><mi>p</mi><mo>^</mo></mover></msub><mo>=</mo><msqrt><mrow><mstyle displaystyle="true"><mfrac><mrow><mi>p</mi><mo>(</mo><mn>1</mn><mo>−</mo><mi>p</mi><mo>)</mo></mrow><mi>n</mi></mfrac></mstyle></mrow></msqrt><mo>=</mo><msqrt><mrow><mstyle displaystyle="true"><mfrac><mrow><mn>0.69</mn><mtext>(</mtext><mn>1</mn><mo>−</mo><mn>0.69</mn><mtext>)</mtext></mrow><mrow><mn>300000</mn></mrow></mfrac></mstyle></mrow></msqrt><mo>=</mo><mn>0.000844</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="ncpy39f1e7cac5c6440c25f55d4d4d7d">b. <span aria-label="two times sigma equals 0.0017 comma" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0026.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="25" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="yuevd107c798db0b5757c596f42b0711" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ouah0da92e93a3b4f0301539d1a10542"><mjx-mrow id="cnrb9ab851eff2eecfe2df8a74ae4fa2"><mjx-mn class="mjx-n" id="amvx044f321e023b50ebe3688ff82ea8"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="uvmq9ec9181384822638f8c9c4ba78ff"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="dqlz405980a016be780a9c024729f239"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="veon7cb90836477f8990a5369f7a2998"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="uoifb74499c26b64ad54a4f54ffaf821"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mn>2</mn><mi>σ</mi><mo>=</mo><mn>0.0017</mn><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> so between 0.6883 and 0.6917.         </p>
+            <p class="answer noindent" epub:type="answer" id="cugr21471b69ca0d82a2f58e463e9555">c. No, the actual percents are much more variable than the interval, suggesting that the percent has changed from season to season.         </p>
+          </li>
+          <li id="ch6_ans26">
+            <p class="answer noindent" epub:type="answer" id="bvvxb34d431af9684b0ee23944dbc3ef"><strong class="important" id="jbwb1cb6e80b46224500bd48a270746a"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_51" id="ch06-exer-51" style="overflow-wrap: break-word;">6.51</a></strong> The variability of the sample proportion is relatively small. Therefore, the sample proportion is reliable estimator for the population proportion. The governor is justified in applying the survey results.         </p>
+          </li>
+          <li id="ch6_ans27">
+            <p class="answer noindent" epub:type="answer" id="nfog02c69b04126de951fb88d8365093"><strong class="important" id="hheb0746bff97b64444b91bf6536edba"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_53" id="ch06-exer-53" style="overflow-wrap: break-word;">6.53</a></strong> a. 3100 employees who are in favor of the proposal.         </p>
+            <p class="answer noindent" epub:type="answer" id="umpy5cfe53cd3dd5a020bde8b5569def">b. 50 employees who are in favor of the proposal.         </p>
+            <p class="answer noindent" epub:type="answer" id="gyjt6b7a4e90f1460f8a1e38b5e3b854">c. The statistic is the proportion of employees who are in favor of the proposal; it is calculated by dividing the number of employees who are in favor of the proposal by 50.         </p>
+            <p class="answer noindent" epub:type="answer" id="rvam7e0a9552c9c115dee471ecf30151">d. The population parameter is the proportion of employees who are in favor of the proposal divided by 3100.         </p>
+          </li>
+          <li id="ch6_ans28">
+            <p class="answer noindent" epub:type="answer" id="lgkm5a24d9a746b67db2c7d5f6f09405"><strong class="important" id="smoucbed83dbcb4b373b40d89e64f613"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_55" id="ch06-exer-55" style="overflow-wrap: break-word;">6.55</a></strong> a. The proportion of medium- and large-sized companies are not equal; biased high.         </p>
+            <p class="answer noindent" epub:type="answer" id="wpyx282e335360e3c06151e781ec042c">b. 450,000; 1,010,000.         </p>
+          </li>
+          <li id="ch6_ans29">
+            <p class="answer noindent" epub:type="answer" id="ktrq936f505e62c9a45673adcc6b2803"><strong class="important" id="hzoq578990895793ce1abb129cd895d3"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_57" id="ch06-exer-57" style="overflow-wrap: break-word;">6.57</a></strong> 79.57; it is smaller than the theoretical value.         </p>
+          </li>
+          <li id="ch6_ans30">
+            <p class="answer noindent" epub:type="answer" id="wagfa998d6237cdc4f17ecddb7c15384"><strong class="important" id="vspa5f7e0688d3b38ad607033a8eb2ff"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_59" id="ch06-exer-59" style="overflow-wrap: break-word;">6.59</a></strong> a. 15,317.30; 28.9.         </p>
+            <p class="answer noindent" epub:type="answer" id="kfio0ca5aecbd53a2738d32c098f1315">b. 15,286.7; 62.6.         </p>
+            <p class="answer noindent" epub:type="answer" id="ntgg4b4b23779903134deea3a0f5d62e">c. The normal quantile plot shows that the simulated means are normally distributed.         </p>
+          </li>
+          <li id="ch6_ans31">
+            <p class="answer noindent" epub:type="answer" id="yixac4d388308253c127ec666655aab9"><strong class="important" id="yorp13a74e2dbf9977aab65c832888fc"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_61" id="ch06-exer-61" style="overflow-wrap: break-word;">6.61</a></strong> a. For mean sample: 300.28; for median sample: 300.34.         </p>
+            <p class="answer noindent" epub:type="answer" id="chqwb0c58c9f2ff1d9d49c45153d1906">b. 8.49.         </p>
+            <p class="answer noindent" epub:type="answer" id="virk9569f2e264daef3382c3ab80f6fc">c. 8.46; it is marginally smaller compared to the value calculated in part (b).         </p>
+            <p class="answer noindent" epub:type="answer" id="dlzj4b68198ff99ae036f3850691dfbd">d. 10.27; small bias, small variability.         </p>
+          </li>
+          <li id="ch6_ans32">
+            <p class="answer noindent" epub:type="answer" id="myww73baef388864910ba790ac9b4ba4"><strong class="important" id="fjfdb2e2d67d0db553f9c5671a7e5e34"><a class="crossref" href="alw_9781319272463_ch06_05.xhtml#ch06_exercise_63" id="ch06-exer-63" style="overflow-wrap: break-word;">6.63</a></strong> a. <span aria-label="mu sub x macron equals mu semicolon sigma sub x macron equals sigma full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0027.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="26" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="veftb253053014f11b015e42e27c037e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="jkvv9c5f2abcea682e90315aba60fa46"><mjx-mrow id="luhf5fb0e1797b8d199780df00f50266"><mjx-msub id="ypnp7c396ac2ae8acf2549cd7154f3e2"><mjx-mi class="mjx-i" id="qcrrf44731322df29d3c4e8af14833f7"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mover size="s" id="cmppd25e9451c58143e5dfe640d351f5"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.028em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="bygvd7f75d8497f3c794e1f31175026a"><mjx-stretchy-h class="mjx-cAF" style="width: 0.572em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="bsga08b9e50ee133e523fda9198b72de"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="jamo4f57e31c6de118443f075434c598"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="uynsafef9ba0e0bd1e545ae6fa14536f"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="tnsm26a0735975edb4c5a02686a0c254"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="mhwj4a4845475589f55ae6dac42aaac5"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="hzytf3544b267e4c4696da502218b231"><mjx-mi class="mjx-i" id="fjnlfb13835379347be602af223de04d"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mover size="s" id="znfp5b9c5049945fa12a466f65935ff4"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.028em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="jjxce0d8837eaa26bb2311c8676e0dcb"><mjx-stretchy-h class="mjx-cAF" style="width: 0.572em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="zltp1a6994e4bf030a5f1944a30214c0"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="utyhb15e281c3891d17bf3fe5ba0339a"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4" id="pacc783882666e686f9bf6a6cf9f907f"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="wwaqbba08a41865ee5401761d8738ebc"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>μ</mi><mover accent="true"><mi>x</mi><mo>¯</mo></mover></msub><mo>=</mo><mi>μ</mi><mo lspace="0" rspace="0">;</mo><mtext> </mtext><msub><mi>σ</mi><mover accent="true"><mi>x</mi><mo>¯</mo></mover></msub><mo>=</mo><mi>σ</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="lffa1294a6fde36fd2692e6bc7481c97">b. For all <span aria-label="n comma mu sub x macron equals zero" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0028.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="27" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="uame2f28a506bb1234157a547c5be969" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="yoks56ee9dfecbdb55ae57b46563f2d9"><mjx-mrow id="zdepef77902e06834b7cceb44fc2590e"><mjx-mi class="mjx-i" id="ustg8fb356d7ee47c1fedae1aeac8cf9"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="dvvue9ad239ae838621732fe890c3369"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="gipued6f652599633926ad0d7c071d1b"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="jbdu73f7c98413dd2e0d67a286ff0093"><mjx-mi class="mjx-i" id="hoznb56fb37240467f4bf5f03c7ffae0"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mover size="s" id="rjmjabf215b3fd9ffa5f8ebbe3c1c31f"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.028em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="drucca7f680065ce57883769ca474397"><mjx-stretchy-h class="mjx-cAF" style="width: 0.572em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="gvwlf3249af551103a300dad0e6e35f4"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="ifjc06f602abb567553975752df590e8"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="udxi5e686fcc1d22a7ff700ba07bab87"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>n</mi><mo lspace="0" rspace="0">,</mo><mtext> </mtext><msub><mi>μ</mi><mover accent="true"><mi>x</mi><mo>¯</mo></mover></msub><mo>=</mo><mn>0</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span aria-label="sigma sub x macron equals zero full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0029.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="28" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="kihc297c3eb4d1866389565265c50456" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="oefe5eb58177c804165e5bfd832552fa"><mjx-mrow id="vgtp044c494eb228d2662c2c00a2a959"><mjx-msub id="pwym8577b919abcc2c604a84aa2c477e"><mjx-mi class="mjx-i" id="risuf39893b1d3ec73d6eff0be8986a2"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mover size="s" id="koqf04dde0b8ab981b18804d8bd73176"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.028em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="nrof9bcfa9596d32bb63eed6de86fdb8"><mjx-stretchy-h class="mjx-cAF" style="width: 0.572em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="mubp1bc7169e13620d1f81ad4bd86d27"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="sdak8515e9dde3cff9006e76aba1370f"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="wblk024457d20df751bd0226c1dc012f"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="lfbp17f0b652b6a6a2960dfce554e116"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>σ</mi><mover accent="true"><mi>x</mi><mo>¯</mo></mover></msub><mo>=</mo><mn>0</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="zkocfa99230749d2df11453c12c947fd">c. <span aria-label="mu sub p hat equals one" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0030.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="29" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fbbk13d8918d7280f28c2e9ddbb1de4f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lkpu216e897caa08b6574eaf3891bc06"><mjx-mrow id="ffds937c4f90e600394fe846923eacd4"><mjx-msub id="ppfi17a77b7ecf3dcd9486763f56ef13"><mjx-mi class="mjx-i" id="ymrhe0358124ded15622e27d3c247ac4"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.24em;"><mjx-mover size="s" id="gmnd1961524ec3bab3c6c6a6d7bf59a6"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="kiepdc850ee00c2579418e1f1a727fb8" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="tien36065b60acdbe8f1abcdf6e1e687"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="fzmte3cee8a448eadc24d425e53a655c"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="uugc19640c2f3729e79cc71620c42d7e"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>μ</mi><mover accent="true"><mi>p</mi><mo>^</mo></mover></msub><mo>=</mo><mn>1</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> or <span aria-label="mu sub p hat equals zero semicolon sigma sub p hat equals zero full stop" class="math" id="alw_9781319272463_EM_ans_ch06EQ_0031.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="30" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zevy998effae343fd585c6b5417c8007" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mncfd2a924f10a8aeb6e5225c5d4ae2f"><mjx-mrow id="iydu3fdbff218deb3050612ca710de8b"><mjx-msub id="pnbu5a444b521b5a044d39425912e332"><mjx-mi class="mjx-i" id="rrlm4b1e0a8fd1b42f1119937ac79d7c"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.24em;"><mjx-mover size="s" id="kszw0b1452b013cf87d53f16276130b0"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="zqvhd0d9274922ffc166477fe2cc97a0" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="pscr563e425acd7e00f2a884e2dbdc42"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="aiss2363e25d7a7a2c9e2273340ddd2e"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="nythbbd4a3f3e89de437e5d9104e0e59"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" id="pztka14ffd8ca8be155aba9fa19929d8"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" id="udgz17aff27f338c63d34fece76969cd"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub id="ogmgd23ff62aa2a2ba099b6a87dc6989"><mjx-mi class="mjx-i" id="wkxieac832fbe2728d5379de45d01cc3"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.24em;"><mjx-mover size="s" id="jpml49b80986ccc1fdb128a8750717d9"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="vkqta8a7a0d5ab679aed0c52b9e436a0" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="bamff9cd7e1a1ca0ddf3fdcb011f0298"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4" id="jvhid37c7fd29e01a6206dd6bace2c53"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="uxip94d6470de61b6df4e01ba4a78bb7"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="ytare7bc2596d23143fc1ebdb0797df0"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>μ</mi><mover accent="true"><mi>p</mi><mo>^</mo></mover></msub><mo>=</mo><mn>0</mn><mo lspace="0" rspace="0">;</mo><mtext> </mtext><msub><mi>σ</mi><mover accent="true"><mi>p</mi><mo>^</mo></mover></msub><mo>=</mo><mn>0</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>         </p>
+            <p class="answer noindent" epub:type="answer" id="gank5c5f1fcd034ec5edb341207fd45d">d. 0.5.         </p>
+          </li>
+        </ul>
+      </section>
+    </section>
+  <style type="text/css" style="display: none;">.vsthighlight { cursor: pointer; } .disabledHighlight { background: #ECECEC !important; border-color: #B3B3B3 !important; cursor: default !important; } .disabledHighlight.vst-shared-highlight { background: transparent !important; }</style><style type="text/css" style="display: none;">.tts-highlight { background: yellow !important; }</style><div id="myModal" class="modal" style="display: none;"><div class="modal-content"><button tabindex="0" title="Close (Esc)" class="close"></button><div class="modal-body"></div></div></div><div tabindex="0" id="dummyDiv" style="display: none;"></div><div id="gallery" class="pswp" role="dialog" aria-labelledby="figcaption" style="display: none;"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> --><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div id="figcaption" class="pswp__caption__center"></div><div class="lm_controls_lightbox"><button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button><button class="pswp__button pswp__button--zoom lm__in" title="Zoom in"></button><button disabled="true" class="pswp__button pswp__button--zoom lm__out" title="Zoom out"></button></div></div></div></div></div></body>
+</html>

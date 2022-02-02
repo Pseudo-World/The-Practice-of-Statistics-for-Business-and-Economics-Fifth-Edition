@@ -1,0 +1,956 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="tzhe8bbcb3feb67f4570af2337e7d17a" style="min-width: 100%; width: 1px; text-size-adjust: 100%; font-size: 100%; transform-origin: left top;">
+  <head style="display: none;"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../css/alw_9781319272463.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common/lm_ui.css" type="text/css" rel="stylesheet" />
+    <script src="../frost_widgets_data/glossary.js" type="text/javascript"></script>
+    <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascript/lm_popup.js" type="text/javascript"></script>
+    <script src="../javascript/lm_frost_listner_min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>24 Cautions about Correlation and Regression</title>
+  <script src="../javascript/tex-mml-chtml.min.js" id="MathJax-script"></script><style type="text/css" media="print">body > * { display: none !important; height: 0px !important; width: 0px !important; overflow: hidden; }body:before { content: "To print, please use the print page range feature within the application."; display: block !important;}</style><script async="" src="../frost_widgets_data/jups1829dafd134c825dfc0322156156.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msup {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > * {
+  display: block;
+  text-align: left;
+}
+
+mjx-semantics {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("../css/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("../css/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("../css/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("../css/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("../css/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("../css/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("../css/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("../css/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("../css/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("../css/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("../css/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("../css/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("../css/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("../css/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("../css/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("../css/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("../css/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("../css/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("../css/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("../css/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("../css/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("../css/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-c.mjx-c28::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: "(";
+}
+
+mjx-c.mjx-c29::before {
+  padding: 0.75em 0.389em 0.25em 0;
+  content: ")";
+}
+
+mjx-c.mjx-c2B::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "+";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c32::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "2";
+}
+
+mjx-c.mjx-c33::before {
+  padding: 0.665em 0.5em 0.022em 0;
+  content: "3";
+}
+
+mjx-c.mjx-c34::before {
+  padding: 0.677em 0.5em 0 0;
+  content: "4";
+}
+
+mjx-c.mjx-c35::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "5";
+}
+
+mjx-c.mjx-c36::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "6";
+}
+
+mjx-c.mjx-c38::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "8";
+}
+
+mjx-c.mjx-c39::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "9";
+}
+
+mjx-c.mjx-c3D::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "=";
+}
+
+mjx-c.mjx-c2212::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "\2212";
+}
+
+mjx-c.mjx-c1D45F.TEX-I::before {
+  padding: 0.442em 0.451em 0.011em 0;
+  content: "r";
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c1D466.TEX-I::before {
+  padding: 0.442em 0.49em 0.205em 0;
+  content: "y";
+}
+
+mjx-c.mjx-c1D493.TEX-BI::before {
+  padding: 0.452em 0.529em 0.008em 0;
+  content: "r";
+}
+</style></head>
+  <body epub:type="bodymatter" class="bodymatter" id="qggb9339585954d641376d742ba869ba" data-lo-framework-id="" style="overflow: auto;">
+    <section class="sect1" id="ch02_sec_1_4">
+      <header id="gxjy6de8250356b838f8c52f737f23fa">
+        <h2 class="a-head v3" id="mnfk1599a74e6b72e5104ef9e12bdc78"><span class="ordinal" epub:type="ordinal" id="zlws5fa6b80304283b12db9ef22917fc">2.4 </span>Cautions about Correlation and Regression</h2>
+      </header>
+      <aside aria-label="learning-objectives" class="learning-objectives c4 main-flow v1" epub:type="learning-objectives" id="ch02_aside_17" title="learning-objectives">
+        <header id="yvus576b17b64b370315a5f2de07ec92">
+          <h3 class="title" epub:type="title" id="sewd226b6a34722c899404e7eb86457a">When you complete this section, you will be able to:</h3>
+        </header>
+        <ul class="ul-bullet-list" id="nvej2ea191167199659c79ee18963c7f">
+          <li class="learning-objective" epub:type="learning-objective" id="awsh4f130255a17455987b98fb170eda">Identify and describe situations where <a class="keyword" href="glossary.xhtml#duus643e1a3803e8f4e51bb32cf57f10" id="dbumafe4bea76434737b129e8c297bd0" style="overflow-wrap: break-word;">extrapolation</a> should be avoided.</li>
+          <li class="learning-objective" epub:type="learning-objective" id="wqjxec4907e4a3125edea7ced1822523">Identify lurking variables that can influence the interpretation of relationships between two variables.</li>
+          <li class="learning-objective" epub:type="learning-objective" id="fifi0f2dd325e29247f90ba0cb3ec407">Explain the difference between association or correlation and causality when interpreting the relationship between two variables.</li>
+        </ul>
+      </aside>
+      <p class="noindent" id="xkab32be92292fa42d49fec489664496">Correlation and regression are powerful tools for describing the relationship between two variables. When you use these tools, you must be aware of their limitations, beginning with the fact that <strong class="important" id="lgdf89e07dc69be3cade2ea8c511fe5c">correlation and regression describe only linear relationships.</strong> Also remember that <strong class="important" id="xtyb9eee92a1b72d70ac25dab5f7848f">the correlation <span aria-label="bold-italic r" class="math" id="alw_9781319272463_ch02_05EQ_0001.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="0" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="yodx7439af8365038bdd331cd7c6c176" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ukmv34e6ca508626e71c05bef59a73d9"><mjx-mrow id="wqdf3dbf1639f05d8f2977115e30e509"><mjx-mi class="mjx-b mjx-i" id="bxqvc7bb4e6d7ff5f66d2bee74862158"><mjx-c class="mjx-c1D493 TEX-BI"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi mathvariant="bold-italic">r</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and the least-squares regression line are not resistant.</strong> One influential observation or incorrectly entered data point can greatly change these measures. For this reason, you should always plot your data before interpreting regression or correlation. Here are some other cautions to keep in mind when you apply correlation and regression or read accounts of their use.</p>
+      <section class="sect2" id="ch02_sec_1_4_1">
+        <header id="ioiy909d66ab0cfda2b60de27dfb664c">
+          <h3 class="b-head v2" id="uekr54210eb2108e21f25ef53766fde7">Extrapolation</h3>
+        </header>
+        <p class="noindent" id="astf5ca2fde63aab32d061f9c49aba07">Associations for variables can be trusted only for the range of values for which data have been collected. Even a very strong relationship may not hold outside the data’s range.</p>
+        <section class="example c3 main-flow" id="ch02_ex_22" title="EXAMPLE 2.22">
+          <header id="vrba08cabf465c3c618426facfcbb826">
+            <h4 class="title v3 cap" epub:type="title" id="juqo9e307a4d4a15972c9b302a52322f">
+              <span class="label" epub:type="label" id="kdcg8abac355a7209dc88a42133950a8">Example </span>
+              <span class="ordinal" epub:type="ordinal" id="ckpn41097f111d7af1837d0d5c3cdef7">2.22 </span>
+            </h4>
+          </header>
+          <section class="subsect1" id="ch02_ex_1-5">
+            <header id="nwja59c8da4c990df902d8fcaed2c74e">
+              <h5 class="level1 v3" id="zbnb888faea070e090219017ef0574de">Predicting the Number of Target Stores</h5>
+            </header>
+            <p class="noindent" id="wjdz4c7739ef205ed5985ce4f66216ea">
+              <img alt="An icon reads TARGET." class="dataset" data-dataset-id="jups1829dafd134c825dfc0322156156" data-fallbck-img-size="" data-path="../frost_widgets_data/jups1829dafd134c825dfc0322156156.js" data-profile="enhanced" height="50" id="pshe6db7cf2f32a9350173aa30a1fcca" src="../images/psbe5e_02_PG99b.png" width="39" />
+              <a href="http://crunchit.macmillantech.com/psbe5e?dataset=eg02-22.txt" id="wkotfb6fa706e67d46cff56bc006f7ee" style="overflow-wrap: break-word;">
+                <img alt="image" class="crun1" height="40" id="njjx47434173b3a16ca8671bfb95e59c" src="../images/rzlw658262cc6372a0c884f018d12aab_CrunchIT.png" width="56" />
+              </a>
+            </p>
+            <p class="noindent" id="bdjf2c23d1c578bab82195e4da260d2c">Here are data on the number of Target stores in operation at the end of each year in the early 1990s, in 2008, in 2014, and in 2018:<sup class="semantic-sup" id="tiude12d4a92f2da3d5003f739d0ecd6"><a class="noteref" epub:type="noteref" href="alw_9781319272463_EM_notes.xhtml#CH02-FN13" id="CH02-RFN13" role="doc-noteref" style="overflow-wrap: break-word;">13</a></sup></p>
+            <table class="table border compact" id="ch02_untab_8">
+              <tbody id="sgbw736d287b53b6acbe6f26ca7e622c">
+                <tr id="tkfh1064d084003f8e519a5835aa455b">
+                  <td class="v2 rule-r rule-b left" id="baizccb21be9cabc43935a20e3083d0f">
+                    <strong class="important" id="pjvwdaab487e2d4a04f9487627ac8c87">Year <span aria-label="left parenthesis x right parenthesis" class="math" id="alw_9781319272463_ch02_05EQ_0002.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="1" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jxns55a6f4469414bb394d4fc7c90efe" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="cglgaf9144020fa5e4ab6101ebbd1082"><mjx-mrow id="quqyf7fac19692a599341ad841eb741b"><mjx-mrow id="exeo603fc18fbbe58e99de1e844bcccd"><mjx-mo class="mjx-n" id="tzni3ef9897909f4e0b860811f45c9a3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i" id="qjqbfa9f130629c9a6fae657bc3f29e2"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="rwjv666080e967b0d9174d34ca2ae941"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mrow><mo>(</mo><mi>x</mi><mo>)</mo></mrow></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></strong>
+                  </td>
+                  <td class="v1 center rule-b" id="cufm5d37f65aeb143aab3969405426aa">1990</td>
+                  <td class="v1 center rule-b" id="kscj1970ff65a0a701cb90c23b047ddf">1991</td>
+                  <td class="v1 center rule-b" id="wxov9167d50a45dba459e30a43c1fb35">1992</td>
+                  <td class="v1 center rule-b" id="hrbh8ef6964bd6b9551c01582223513a">1993</td>
+                  <td class="v1 center rule-b" id="gbyk1e1a9b2383a1a52d9b0d5ca77f6a">2008</td>
+                  <td class="v1 center rule-b" id="xnsid253e389abc673925ae3656c72a0">2014</td>
+                  <td class="v1 center rule-b" id="xhoo3e8221397e2377f98720775e7464">2018</td>
+                </tr>
+                <tr id="upfa768f87a342fcdca48774a18fef4d">
+                  <td class="v2 rule-r rule-b left" id="uykw54ee5e1caea2f686d1ad620eaeb2">
+                    <strong class="important" id="smrg8065f772e8f1f7a37cd4921e2544">Stores <span aria-label="left parenthesis y right parenthesis" class="math" id="alw_9781319272463_ch02_05EQ_0003.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="2" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jzlwc0e5352a0a78afacb7dca1f043c1" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="wxpm50c2357d3c113770c350d08e764c"><mjx-mrow id="vnkq9d336b6fcf9bf16e43d37089156b"><mjx-mrow id="aogdfb25ee3920fac35948332d142e33"><mjx-mo class="mjx-n" id="gcwv4909c05bb5087e8c863879fc878b"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i" id="hgqvb1de9f7e2cfda5625251a585f6c7"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" id="hgyia6835eec342d743f1316f81b1b15"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mrow><mo>(</mo><mi>y</mi><mo>)</mo></mrow></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></strong>
+                  </td>
+                  <td class="v1 center rule-b" id="fiwl0356b299a59fd5e467d3c553e102">   420</td>
+                  <td class="v1 center rule-b" id="xgxw55d044a7d07c2b9ae460eb7bbb03">   463</td>
+                  <td class="v1 center rule-b" id="krof5c5439a28b54ce1c27f207ea4be0">   506</td>
+                  <td class="v1 center rule-b" id="oppmb5ebbe76661ce488c34c391b9c32">   554</td>
+                  <td class="v1 center rule-b" id="dgowe5bf2cc723f3d34a349adea553e8">1682</td>
+                  <td class="v1 center rule-b" id="zpnb2cf5cb99b1fa9a59926dbf483ab3">1916</td>
+                  <td class="v1 center rule-b" id="wfpucdc766b543d177da43d328d752d8">1829</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="noindent" id="tgwrd8bcddf6b5e22b20d1615c659ac4">A plot of these data is given in <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_fig_19" id="ch02_refundi_217" style="overflow-wrap: break-word;">Figure 2.19</a>. The data for 1990 through 1993 lie almost exactly on a straight line, which we calculated using only the data from 1990 to 1993. The equation of this line is <span aria-label="y equals negative 88,136 plus 44.5 times x" class="math" id="alw_9781319272463_ch02_05EQ_0004.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="3" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="gpwjab952ae520283ac0aa9501fd25a3" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="bjec332f38c09d601a2b65df1c36125d"><mjx-mrow id="fjls8b4735f49bd643c0d432b665ff0a"><mjx-mi class="mjx-i" id="eohm43cf7f022166287a94124d2c50f7"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="ihyd40e6ba00067b3ff57369a23f12ea"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" id="dyqn3eeaa4700139babdc2a0029b41f7"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" id="purcedef1ae512cf7f2fa18c1b662324"><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c2C"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3" id="yhfc69a60b2f6432a2f5fc8f390c12e5"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3" id="pzxj170010a6cea9b12f84df6de3926c"><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-i" id="pecva57dbe1c90801d98d69149a08abc"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi><mo>=</mo><mo lspace="0" rspace="0">−</mo><mn>88,136</mn><mo>+</mo><mn>44.5</mn><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span aria-label="r squared equals 0.9992 full stop" class="math" id="alw_9781319272463_ch02_05EQ_0005.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="4" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="gszp18909e5991e8e98803586d5649a9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qewc72d9a16eac2296e1b493b66af89f"><mjx-mrow id="ostvc535b0500f7daced524baecca7ef"><mjx-msup id="itta2bdd38732be49ad9c465e7983aa8"><mjx-mi class="mjx-i" id="emboc7a56eab6b467f7b88deede1f06b"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s" id="rwxc92e702cb7aab8377a6eed8b24887"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4" id="yhire57ed9daf3bde2fc843be105c910"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="vpus6ff3b0a0ee1a8f75fd02f67b448d"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n" rspace="3" id="srdz5ee744d4951f153c903b15643908"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msup><mi>r</mi><mn>2</mn></msup><mo>=</mo><mn>0.9992</mn><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> We know that 99.92% of the variation in the number of stores is explained by year for these years. The equation predicts 1220 stores for 2008, but the actual number of stores is much higher, 1682. It predicts 1487 for 2014 and 1665 for 2018. These predictions are very poor because the very strong linear trend evident in the 1990 to 1993 data did not continue to the years 2008, 2014, and 2018.<span aria-label="100" epub:type="pagebreak" id="page100" role="doc-pagebreak" title="100"></span></p>
+            <figure class="figure lm_img_lightbox num c5 center" id="ch02_fig_19" data-pswp-uid="1">
+              <img alt="image pop up. Press enter to access the pop up" aria-describedby="image-desc21" class="figure" id="ljgf87f81e87a06306b945c52dc2e470" src="../images/psbe5e_02_19_239340.png" tabindex="0" />
+              <figcaption id="kuyv6b1322d6b5f4855947d5ebf141fc">
+                <p class="noindent" id="mfmvb6d503aa1ffff871f7888fb1101c"><span class="label" epub:type="label" id="qugx19b88908f08214122515eef82fde">Figure </span><span class="ordinal" epub:type="ordinal" id="etfd7c24d952eaf4fbd3ce02fe261ac3">2.19 </span>Plot of the number of Target stores versus year with the least-squares regression line calculated using data from 1990, 1991, 1992, and 1993, <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_ex_22" id="ch02_refundi_218" style="overflow-wrap: break-word;">Example 2.22</a>. The poor fits to the number of stores in 2008, 2014, and 2018 illustrate the dangers of extrapolation.</p>
+              </figcaption>
+            </figure>
+            <aside class="hidden" id="image-desc21" title="hidden">
+              <p class="noindent" id="ajml4cbd2425437de002e9d79f249728">The horizontal axis represents year, ranging from 19 90 to 20 20 in increments of 10. The vertical axis represents stores, ranging from 400 to 2000 in increments of 100. The least-squares regression line begins and ends at approximately (19 90, 410) and approximately (20 20, 750), respectively. The number of stores lies on the least-squares regression line for years 19 90, 19 91, 19 92, and 19 93. The remaining dots are all above the least-squares regression line, as follows: (2008, approximately 1680), (20 14, approximately 1900), and (20 18, approximately 1850).</p>
+            </aside>
+            <p class="noindent" id="apotc01f0bf6bc51789e11c47ce13350">
+              <img alt="" aria-hidden="true" class="decorative size-small right inline" id="hmtg1ddc45d409fb97ca6a831c4049b3" role="presentation" src="../images/psbe5e_12_pg09.png" />
+            </p>
+          </section>
+        </section>
+        <p class="indent" id="khde479c351341e38254d806fc0343e9">Predictions made far beyond the range for which data have been collected can’t be trusted. Few relationships are linear for <i class="semantic-i" id="zpmb1375ca40d4126c6ab506c456bfa7">all</i> values of <span aria-label="x full stop" class="math" id="alw_9781319272463_ch02_05EQ_0006.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="5" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tewf6e700c6f5cde48746f4fceab130e" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rcab9bdcd55f38203bdef772b42db746"><mjx-mrow id="khti0166b066e50250f2f6ad61c92a54"><mjx-mi class="mjx-i" id="gcjtbf57dea6db13eabddb9e790dbf03"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="qigp1d4950c25497df8c2b9576eb9b1f"><mjx-c class="mjx-c2E"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mtext>.</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> It is risky to stray far from the range of <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0007.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="6" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="dojg4027fa860edc242b935d96fc6823" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ofdd6998cab79cda5085156c372e7c77"><mjx-mrow id="biwzd483e10cc7a47b769530b5d4ba68"><mjx-mi class="mjx-i" id="zsapefdea78afe1b3c51fa13f0bc2fbd"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>-values that actually appear in your data.</p>
+        <aside class="tip c3 main-flow v1" epub:type="tip" id="ch02_aside_18" role="doc-tip" title="Extrapolation">
+          <header id="qxbjccf573e1a8c4644828a8e4405835">
+            <h4 class="title v3 cap" epub:type="title" id="vydl9e114c35863ff872b24051ccfc3f">Extrapolation</h4>
+          </header>
+          <p class="noindent" id="csge915f00530b28a9696db091a82f85"><strong class="important" id="qoquedffb0f7754911bd02f5852d4575">Extrapolation</strong> is the use of a regression line for prediction far outside the range of values of the explanatory variable <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0008.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="7" style="font-size: 122%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="afax6d1bd3a3379fb18aa904492c22d9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lxwbc6b9d3ebf8243f8df94afa3e9927"><mjx-mrow id="zvtwa245a1355b14cdb4fa9e519d3f1b"><mjx-mi class="mjx-i" id="gndpd08375f347fcb2e39df3705a20c8"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> that you used to obtain the line. Such predictions are often not accurate.</p>
+        </aside>
+        <p class="indent" id="iucw7aa9c2b162877de1e46562a7398e">In general, extrapolation involves using a mathematical relationship beyond the range of the data that were used to estimate the relationship. The scenario described in the previous example is typical: we try to use a least-squares relationship to make predictions for values of the explanatory variable that are much larger than the values in the data that we have. We can encounter the same difficulty when we attempt to make predictions for values of the explanatory variable that are much smaller than the values in the data that we have.</p>
+        <p class="indent" id="hwaq29e8276b79f94ed6297efcb34b19">Careful judgment is needed when making predictions. If the prediction is for values that are within the range of the data that you have, or for values that are not too far above or below the data, then your prediction may be reasonably accurate. Beyond that, you are in danger of making an inaccurate prediction.</p>
+      </section>
+      <section class="sect2" id="ch02_sec_1_4_2">
+        <header id="ezak019edf411cc7a4216139b13c268b">
+          <h3 class="b-head v2" id="msmxdd8e7a9ce88f6fa6174b8fa8c75a">Lurking variables</h3>
+        </header>
+        <p class="noindent" id="gutu2bc2a1825bfa8427b4d692ff4500">Correlation and regression describe the relationship between two variables. Often, the relationship between two variables is strongly influenced by other variables. We try to measure such potentially influential variables. We can then use more advanced statistical methods to examine all the relationships revealed by our data. Sometimes, however, the relationship between two variables is influenced by other variables that we did not measure or even think about. Variables lurking in the background—measured or not—often help explain statistical associations.</p>
+        <aside class="tip c3 main-flow v1" epub:type="tip" id="ch02_aside_19" role="doc-tip" title="Lurking Variable">
+          <header id="sflmce826d43e97ed1161cbff209fe8c">
+            <h4 class="title v3 cap" epub:type="title" id="aybte563b56ea3948933a1ce01708a0b"><span aria-label="101" epub:type="pagebreak" id="page101" role="doc-pagebreak" title="101"></span>Lurking Variable</h4>
+          </header>
+          <p class="noindent" id="iamc2af957042fd8906c6507e5d3ab9d">A <strong class="important" id="kvqd7a4c58973e33b7d1db3ef1dc3254">lurking variable</strong> is a variable that is not among the explanatory or response variables in a study, yet may influence the interpretation of relationships among those variables.</p>
+        </aside>
+        <p class="indent" id="etyp85b62be9f3e1853945a9e4445449">A <a class="keyword" href="glossary.xhtml#birha07a7e88d929cdc9a0eedf108dfd" id="cnsx1c1ad795e99cf0963cf5a0556c50" style="overflow-wrap: break-word;">lurking variable</a> can falsely suggest a strong relationship between <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0009.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="8" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="orsx4976e277152e9c2da7922866efd3" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ykzf6117c292ad5e3175015159e0a848"><mjx-mrow id="kwuf358deee6a6205d5844710fb22f8b"><mjx-mi class="mjx-i" id="tpuif45a1a66302a0dd090a4994ec4a3"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span aria-label="y comma" class="math" id="alw_9781319272463_ch02_05EQ_0010.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="9" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wgymdd8491e2c53e9ee61f6947ae7588" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="yfwsae8149d8c43db3c461b34669a973"><mjx-mrow id="xyyid0fd725719353d9d4a2a346f67c8"><mjx-mi class="mjx-i" id="rjkt4c9c41d73faea1faa55609b61c86"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="eiqa1f165f9b978795e288a1030b1d73"><mjx-c class="mjx-c2C"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi><mtext>,</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> or it can hide a relationship that is really there. Here is an example of a negative correlation that is due to a lurking variable.</p>
+        <section class="example c3 main-flow" id="ch02_ex_23" title="EXAMPLE 2.23">
+          <header id="ntcd7ab90f7e5f8ad505ecef5980fb28">
+            <h4 class="title v3 cap" epub:type="title" id="vyxfbc2ab69d38834d169f45df741bdf">
+              <span class="label" epub:type="label" id="tjhva65d4abf2a29e7ab11ef9bdf50c8">Example </span>
+              <span class="ordinal" epub:type="ordinal" id="tzrheb6c5ba1e1ec7b19d8fa477f75f3">2.23 </span>
+            </h4>
+          </header>
+          <section class="subsect1" id="ch02_ex_1-5a">
+            <header id="rhvw537a8f5e857485875155dc0105b8">
+              <h5 class="level1 v3" id="kgsk6052f6bacb17cbbe26d21d611c63">Gas and Electricity Bills</h5>
+            </header>
+            <p class="noindent" id="xuko3891a20c337a6830d61b72546e8e">A single-family household receives bills for gas and electricity each month. The 12 observations for a recent year are plotted with the least-squares regression line in <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_fig_20" id="ch02_refundi_219" style="overflow-wrap: break-word;">Figure 2.20</a>. We have arbitrarily chosen to put the electricity bill on the <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0011.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="10" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fwsqdc09a5beccca333834f1b0dc9bdd" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="awdr87bc41c1e567ffcd94793f212a36"><mjx-mrow id="xcgt0575765663ef4a1089ae793ec267"><mjx-mi class="mjx-i" id="rxhvd5cf62ed9dd3d9577fa792484170"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> axis and the gas bill on the <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0012.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="11" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="wlyx975151611264c86018786769a53f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="asfp881eab8b44ee8dd39667141df72c"><mjx-mrow id="phhe16d49c6621a2fbd2e13bb13aba4b"><mjx-mi class="mjx-i" id="riwg3e23a6d03542df3ca99a7a9b5173"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> axis. There is a clear negative association. Does this mean that a high electricity bill causes the gas bill to be low, and vice versa?</p>
+            <figure class="figure lm_img_lightbox num c5 center" id="ch02_fig_20" data-pswp-uid="2">
+              <img alt="image pop up. Press enter to access the pop up" aria-describedby="image-desc22" class="figure" id="tdjqd46a0ba84553c50882df729f9809" src="../images/psbe5e_02_20_239341.png" tabindex="0" />
+              <figcaption id="vxls536a43abc6e544ea5a9f01bf1fba">
+                <p class="noindent" id="sjra3a8f5576a416e09f04e6b547cee5"><span class="label" epub:type="label" id="cwiy77ebf398df08e064670e350e3be2">Figure </span><span class="ordinal" epub:type="ordinal" id="tuki7f891934f8fe63dc8dfb6e1cdaac">2.20 </span>Scatterplot with the least-squares regression line for predicting monthly charges for gas using monthly charges for electricity for a household, <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_ex_23" id="ch02_refundi_220" style="overflow-wrap: break-word;">Example 2.23</a>.</p>
+              </figcaption>
+            </figure>
+            <aside class="hidden" id="image-desc22" title="hidden">
+              <p class="noindent" id="trtu90f0300a07ab0ca843ac9d84768b">The horizontal axis represents cost of electricity in dollars, ranging from 150 to 250 in increments of 50. The vertical axis represents cost of gas in dollars, ranging from 0 to 400 in increments of 100. The solid least-squares regression line begins and ends at approximately (150, 175) and approximately (250, 50), respectively. The values for gas tend to vary within plus or minus 100 of the least-squares regression line for values of electricity from 150 to 175; for larger values of electricity, the values for gas tend to vary within plus or minus 50 or less of the least-squares regression line. There are three dots with x values greater than 200. The rest of the dots have x values less than about 180.</p>
+            </aside>
+            <p class="indent" id="usln8be75e7395738c06812f390bc64f">To understand the association in this example, we need to know a little more about the two variables. In this household, heating is done by gas and cooling by electricity. Therefore, in the winter months, the gas bill will be relatively high and the electricity bill will be relatively low. The pattern is reversed in the summer months. The association that we see in this example is due to a lurking variable: time of year. <img alt="" aria-hidden="true" class="decorative size-small right inline" id="vbjm6dea2a2758a84f02faf156f91a43" role="presentation" src="../images/psbe5e_12_pg09.png" /></p>
+          </section>
+        </section>
+        <section class="practice" epub:type="practice" id="ch02_ayk_15">
+          <header id="xqci592eed96f654c45cd26c18c8116f">
+            <h4 class="title v2 cap" epub:type="title" id="cdlx69f2d3bc3db97dc4c4038073031e">Apply your knowledge</h4>
+          </header>
+          <ol class="ul-no-mark" id="gfnid3e06685e10934ab2c7c01b971f8">
+            <li id="ch02_exe_77">
+              <p class="noindent" id="ogvz39d080820c77255f29babc5c8c6e"><strong class="important" id="zcuy33978d4fae8899e2fd72559b7921">2.77 Education and income.</strong> There is a strong positive correlation between years of education and income for economists employed by business firms. In particular, economists with a doctorate earn more than economists with only a bachelor’s degree. There is also a strong positive correlation between years of education and income for economists employed by colleges and universities. But when all economists are considered, there is a <i class="semantic-i" id="vhvba893a8ac5e9d4383c3b2db0bc369">negative</i> correlation between education and income. The explanation for this relationship is that business pays high salaries and employs mostly economists with bachelor’s degrees, while colleges pay lower salaries and employ mostly economists with doctorates. Sketch a scatterplot with two groups of cases (business and academic) illustrating how a strong positive correlation within each group and a negative overall correlation can occur together.<span aria-label="102" epub:type="pagebreak" id="page102" role="doc-pagebreak" title="102"></span></p>
+            </li>
+          </ol>
+        </section>
+      </section>
+      <section class="sect2" id="ch02_sec_1_4_3">
+        <header id="ttdk69632ae74bbe3df3748c1e85bf01">
+          <h3 class="b-head v2" id="ensib6c8d8965f20ff2664505e8cbba4">Correlation does not imply causation</h3>
+        </header>
+        <p class="noindent" id="uedw95015846aca833a694a9c6c16ec1">When we study the relationship between two variables, we often hope to show that changes in the explanatory variable <i class="semantic-i" id="zgqk9747f6ef50090f678fedbe72ad10">cause</i> changes in the response variable. But a strong association or correlation between two variables is not enough to draw conclusions about cause and effect. Sometimes, an observed association really does reflect cause and effect. Natural gas consumption in a household that uses natural gas for heating will be higher in colder months because cold weather requires burning more gas to stay warm. In other cases, an association is explained by lurking variables, and the conclusion that <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0013.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="12" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="pqjeeb65cee74c9b6ac2f21411f440e8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="wupg258fdd8300dd4f3e03742c2e678b"><mjx-mrow id="apbt507b379cbc3dcbe7fadf7c616c2d"><mjx-mi class="mjx-i" id="zjtc7dbad7ef4d3ec74759ee6ad8f0e6"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> causes <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0014.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="13" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="agexd13ff05239737de2cd69195eacb8" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="nxyt7de0c831fe87d395e6736432ae4b"><mjx-mrow id="zvbfce091ddeb3d60fa2fc9a30aae7dd"><mjx-mi class="mjx-i" id="jvsw3d41553e96a2b132dc27290f60f0"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> is either wrong or not proved. Here is an example.</p>
+        <section class="example c3 main-flow" id="ch02_ex_24" title="EXAMPLE 2.24">
+          <header id="titxc9114d9046b02d04bb779a492482">
+            <h4 class="title v3 cap" epub:type="title" id="ljqk454e8e94c3bf3372ac1fd7258daa">
+              <span class="label" epub:type="label" id="lurc4fb3f045ffbae65a7b6427f758a2">Example </span>
+              <span class="ordinal" epub:type="ordinal" id="wpvx892d3259cd214603c3b85cd6619e">2.24 </span>
+            </h4>
+          </header>
+          <section class="subsect1" id="ch02_ex_1-5b">
+            <header id="baticb2fe49936d4788b023769eaab84">
+              <h5 class="level1 v3" id="qqycd5f8fdd0e21f1f3f9983d0a96d44">Does Television Extend Life?</h5>
+            </header>
+            <p class="noindent" id="xtqu467095e51b76d79438a98e8f09ef">Measure the number of television sets per person <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0015.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="14" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="kuinfd8ec5e54a1969bf42a25051e9a7" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mrhicc0a5cf5b5e7bbe5aad2ddc1f240"><mjx-mrow id="evclf05d39954c7c08bb96f05910d39a"><mjx-mi class="mjx-i" id="osll477fefed7a7545edb8eadb984399"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and the average life expectancy <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0016.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="15" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="pzifd56d7c648ea88a7632db0e4f6681" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="jwlnc12ed775a9ec2781d481bdf4deb4"><mjx-mrow id="vuoqd29b5f8dc321a85f51ca97b4315c"><mjx-mi class="mjx-i" id="guenc2f5788777221274dfa7554eadea"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> for the world’s nations. There is a high positive correlation: nations with many TV sets have higher life expectancies.</p>
+            <p class="indent" id="qrlfa96423aa06e4f4078ccf038fa24e">The basic meaning of causation is that by changing <span aria-label="x comma" class="math" id="alw_9781319272463_ch02_05EQ_0017.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="16" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="cxio7770ec67d810190873fb2067ba51" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qoen040b084b81d586a7cf6fc554d95c"><mjx-mrow id="uzfjea6502200946b83cc6fd347aabe1"><mjx-mi class="mjx-i" id="phupd0a3ad379e4fd7ea81a7a5ac1b94"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="gvql43b506afd57c2c382aee3e9bc4f0"><mjx-c class="mjx-c2C"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mtext>,</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> we can bring about a change in <span aria-label="y full stop" class="math" id="alw_9781319272463_ch02_05EQ_0018.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="17" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="tcqmacb73b46f633218c0fb18fa7790b" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="schd9368c662b980ffef1616ce9d91cc"><mjx-mrow id="xyrq9bdb8607f8765702f860e58ac759"><mjx-mi class="mjx-i" id="utcz48beeaa873deb358adfcabe4f216"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="zzen30f06561fddffe389ce35486b83c"><mjx-c class="mjx-c2E"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi><mtext>.</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> Could we lengthen the lives of people in Rwanda by shipping them TV sets? No. Rich nations have more TV sets than poor nations. Rich nations also have longer life expectancies because they offer better nutrition, clean water, and better health care. There is no cause-and-effect tie between TV sets and length of life. <img alt="" aria-hidden="true" class="decorative size-small right inline" id="abckdf20f8c62798c3d355e2086d7e2d" role="presentation" src="../images/psbe5e_12_pg09.png" /></p>
+          </section>
+        </section>
+        <p class="indent" id="aszqe75f3f719dbdf263873fac9c7c69">Correlations such as that in <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_ex_24" id="ch02_refundi_221" style="overflow-wrap: break-word;">Example 2.24</a> are sometimes called “nonsense correlations.” The correlation is real. What is nonsense is the conclusion that changing one of the variables causes changes in the other. A lurking variable—such as national wealth—that influences both <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0019.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="18" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="eclre06599b1d5c26bd1a642d1041841" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rlfsf0ee01212ac88365df74398e2e8d"><mjx-mrow id="chlo3603edcef0ec3b5be056c72fb245"><mjx-mi class="mjx-i" id="zrqxdd7db9596f9fd1115595a4b7cb5b"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0020.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="19" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="arje182ebfe718005b01608bae821ec9" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="lsyzb7f74976646f3c18aacba7135768"><mjx-mrow id="rozi37372c780b17933f822eb442ce48"><mjx-mi class="mjx-i" id="bnbd8133d28f78db99dedb4c9d7ba844"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> can create a high correlation, even though there is no direct connection between <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0021.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="20" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jytd83d155d6d0423727476a15e68f88" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="npepb5ca07eca78c8fe9f188d2f569f9"><mjx-mrow id="debga7db9e40f31bf82c7704b57795ab"><mjx-mi class="mjx-i" id="ltix975df997940b5c75ea096a89358a"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span aria-label="y full stop" class="math" id="alw_9781319272463_ch02_05EQ_0022.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="21" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="lccr63138e2ff8e326ecba2de62af313" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="anta6588a2587a39b0cec2b4f7070757"><mjx-mrow id="nsgb3920f226fde6481bad08d99c53f1"><mjx-mi class="mjx-i" id="citw856a3aa86ba6caa0f7c19943e2a8"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="tloz8ce0ed5d49ba96b18757a9028aba"><mjx-c class="mjx-c2E"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi><mtext>.</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></p>
+        <section class="practice" epub:type="practice" id="ch02_ayk_16">
+          <header id="dmdg06d6357a7b45f9cf88ccbdf3ab74">
+            <h4 class="title v2 cap" epub:type="title" id="jpfz48fbbc14339d8fb34caee1df0958">Apply your knowledge</h4>
+          </header>
+          <ol class="converted-assessment" id="qnpu8876766ed06f03e0bbf97f511b0a">
+            <li id="ch02_exe_78">
+              <p class="noindent" id="vyxia7f98481af836f68797d757944e3"><strong class="important" id="ujrhe4d910d308ccc05f7f4b8eea923d">2.78 How’s your self-esteem?</strong> People who do well tend to feel good about themselves. Perhaps helping people feel good about themselves will help them do better in their jobs and in life. For a time, raising self-esteem became a goal in many schools and companies. Can you think of explanations for the association between high self-esteem and good performance other than “Self-esteem causes better work”?</p>
+            </li>
+            <li data-answer="alw_9781319272463_EM_ans_ch02.xhtml#ch2_ans38" data-converted="1" id="xvhjcbce4060129c25686d97337dd070">
+              <p class="noindent" id="jacv235303072c169cded448e891e4ec"><strong class="important" id="rneo8a82d43c006078fa17ae684bc2b9"><span class="ordinal" epub:type="ordinal" id="aaquf8024f61f6500df02b6483e1130e"><a class="crossref" href="alw_9781319272463_EM_ans_ch02.xhtml#ch02-exer-79" id="ch02_exe_79" style="overflow-wrap: break-word;">2.79</a></span>Are big hospitals bad for you?</strong> A study shows that there is a positive correlation between the size of a hospital (measured by its number of beds <i class="semantic-i" id="gnjfc0f767225dbdbef8435385119d9e">x</i>) and the median number of days <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0023.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="22" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="pedz7cf10a2c8178045b9ac5bc4cba17" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mnelbd164e6a63ff371dd929e6fcb21a"><mjx-mrow id="fqwz55f90311bf789be9707d973f0b8e"><mjx-mi class="mjx-i" id="nuxr04719e895607bd4f51c5b73a8e93"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> that patients remain in the hospital. Does this mean that you can shorten a hospital stay by choosing a small hospital? Why?</p>
+              <iframe id="lbfcc78d0e08cc1cea215ae6aeaa6dc3" name="framelbfcc78d0e08cc1cea215ae6aeaa6dc3" class="assessment favre iframe_safari" data-profile="enhanced" data-fallbck-img-size="" data-profiling-img="" data-widget-id="mceib16c03c1dab452c85aaf8d2d89fe" src="../frost_widgets/assessment/version/1567007578/index.html" style="border: none; overflow: hidden; height: 49px; display: block;" data-question-title="2.79 Are big hospitals bad for you? A study shows that there is a positive correlation between the size of a hospital..." data-assessment-id="ECL3I" data-assessment-question-id="ECL3I82821" data-assessment-question-number="" data-assessment-question-prefix="" data-assessment-question-seperator="" data-path="../../../../frost_widgets_data/ECL3I82821.js" data-iframeentitytype="3" height="480" width="700" data-assessment-question-stem-status="1" data-assessment-question-generic-stem="" data-version-id="1567007578" title="Assessment Widget 99" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" scrolling="no"></iframe>
+              <p id="hhicdefa76fdcbf5ad6781aa1bdaa897"> </p>
+            </li>
+            <li id="ch02_exe_80">
+              <p class="noindent" id="qxvy4b8ef01fd257226f1023fda0d1ad"><strong class="important" id="ohyt714d81850d6783931720ebef3e87">2.80 Do firefighters make fires worse?</strong> Someone says, “There is a strong positive correlation between the number of firefighters at a fire and the amount of damage the fire does. So sending lots of firefighters just causes more damage.” Explain why this reasoning is wrong.</p>
+            </li>
+          </ol>
+        </section>
+        <p class="indent" id="qkxnbdc4b3018aa86ac09c926db5befe">These and other examples lead us to the most important caution about correlation, regression, and statistical association between variables in general.</p>
+        <aside class="tip c3 main-flow v1" epub:type="tip" id="ch02_aside_20" role="doc-tip" title="Association Does Not Imply Causation">
+          <header id="wqgf6a56fc8e636a69b01ae45b37b9a1">
+            <h4 class="title v3 cap" epub:type="title" id="kmku7aa8704272b71faa9f1796eff0be">Association does not imply causation</h4>
+          </header>
+          <p class="noindent" id="yxbf10170558be19be7f66348a6bd20e">An association between an explanatory variable <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0024.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="23" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="rsjx471c9c70eea4e32a3a3750da3d16" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="byxpceea45ebcf8548ad0a8e0dda243f"><mjx-mrow id="nfay0b775c351c02db8766c530f25840"><mjx-mi class="mjx-i" id="rgbg950bd05d54f71990539f3f82121b"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and a response variable <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0025.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="24" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="eyqtef71075113bf4a04b560e49012d1" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="slbza3ce93ca44fdf0089549b307efea"><mjx-mrow id="gqcb1cbbd15f215a1e2b50d8c20e0098"><mjx-mi class="mjx-i" id="mlnm107ef83a8cd42d918880b7c73626"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span>—even if it is very strong—is not, by itself, good evidence that changes in <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0026.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="25" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="axnla3d4120aed42a9306c32d3034a0c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="onxo5b4134aa6e199ae22be99b7092ab"><mjx-mrow id="qkzl98a912b88e682cec5af826e956fa"><mjx-mi class="mjx-i" id="nxwa2f5f9822f307781e6343a87601cf"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> actually cause changes in <span aria-label="y full stop" class="math" id="alw_9781319272463_ch02_05EQ_0027.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="26" style="font-size: 122%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="zahqe83f0be9fddbca5a6f9de0d1dd99" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xuhda9bf3f8fea4a58bc9b2805523af5"><mjx-mrow id="mpqm7d04fe65332aafebc34e5dd30436"><mjx-mi class="mjx-i" id="myocfd85caa6dba1f6960867a28a4c31"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mtext class="mjx-n" id="mxpr5570b798ad5912f103c3b4a5b85f"><mjx-c class="mjx-c2E"></mjx-c></mjx-mtext></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi><mtext>.</mtext></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></p>
+        </aside>
+        <p class="indent" id="cgcpf8fa33f2b16d12974c6c78a5759e"><span aria-label="103" epub:type="pagebreak" id="page103" role="doc-pagebreak" title="103"></span>The best way to get good evidence that <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0028.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="27" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="nliq6185dfbb8b5255f418c0d8e534ab" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mode58e74f9e4474adf2a7c25a32642b"><mjx-mrow id="oqzpe002e42cf373db7bdd4f648f918a"><mjx-mi class="mjx-i" id="vrtna62427885a3aefdff858b15782ea"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> causes <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0029.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="28" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="pluh59b90609082431be6a3246faccd2" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xwnp6a9adefcae965dc31362ced2fe93"><mjx-mrow id="lxnz2134ce02afca2fea80933c88cf18"><mjx-mi class="mjx-i" id="tdng6a1a7e2ec8eb1940f136dfffcdcc"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> is to do an <dfn class="keyword" epub:type="keyword" id="ch02_gdfn_15"><!--<a epub:type="glossref" class="glossref" role="doc-glossref" href="a#ch02_gdt_15" id="gloss02-015">-->experiment<!--</a>--></dfn> in which we change <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0030.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="29" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="yimv0a373860464c4c405e1e0f375386" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qmueb85f285d434b776caf895f576964"><mjx-mrow id="qlre1cfa4d2e3e95c94b5c8e3c2ff920"><mjx-mi class="mjx-i" id="xbil23659dec4a0b806c1ea1016bfe00"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and keep lurking variables under control. We will discuss experiments in <a class="crossref" href="alw_9781319272463_ch03_01.xhtml#ch03_sec_1" id="ch02_refundi_222" style="overflow-wrap: break-word;">Chapter 3</a>. When experiments cannot be done, finding the explanation for an observed association is often difficult and controversial. Many of the sharpest disputes in which statistics plays a role involve questions of causation that cannot be settled by experiment. Does gun control reduce violent crime? Does cell phone usage cause brain tumors? Has increased free trade widened the gap between the incomes of more-educated and less-educated American workers? All of these questions have become public issues. All concern associations among variables. And all have this in common: they try to pinpoint cause and effect in a setting involving complex relations among many interacting variables.</p>
+        <aside class="case-study c3 main-flow v1" epub:type="case-study" id="ch02_sec_1_4_4" title="Beyond the basics">
+          <header id="uledc6350e1977f6632c056358e93044">
+            <h4 class="title v1 cap" epub:type="title" id="ckbg5d76910ed590ebcb51a475a95503">Beyond the Basics</h4>
+            <p class="subtitle" epub:type="subtitle" id="mwuw3ccaafb2f3466da2b0ae25ea6e03" role="doc-subtitle">Big data</p>
+          </header>
+          <p class="noindent" id="wmbb73a90a90edf32291372079446b59"><a class="crossref" href="alw_9781319272463_ch01_01.xhtml#ch01_sec_1" id="ch02_refundi_223" style="overflow-wrap: break-word;">Chapters 1</a> and <a class="crossref" href="alw_9781319272463_ch02_01.xhtml#ch02_sec_1" id="ch02_refundi_224" style="overflow-wrap: break-word;">2</a> of this book are devoted to the important aspect of statistics called <i class="semantic-i" id="phka4d0630257f0cfa1971a10b93212c">exploratory data analysis</i> (EDA). We use graphs and numerical summaries to examine data, searching for patterns and paying attention to striking deviations from the patterns we find. In discussing regression, we advanced to using the pattern we find (in this case, a linear pattern) for prediction.</p>
+          <p class="indent" id="kjna52a54a142a6710459f847970daa5">Today we have the capability of collecting very large amounts of data. We use the term <i class="semantic-i" id="vfiu16bbf3ab5a4491ea4cb51d5139f9">big data</i> to describe such data sets.<sup class="semantic-sup" id="maia2ffcb7d6adfce88795ed85d33b8a"><a class="noteref" epub:type="noteref" href="alw_9781319272463_EM_notes.xhtml#CH02-FN14" id="CH02-RFN14" role="doc-noteref" style="overflow-wrap: break-word;">14</a></sup> For example, we might have all stock market transactions in a day, a week, or a year; or all purchases recorded by the scanners of our retail food chain during the past week. Although many of the basic ideas of data analysis remain the same, the size of big data poses many new challenges.</p>
+          <ul class="ul-bullet-list" id="xkym9c1d4d8da328324fca3fb88aef25">
+            <li id="ejeg3b23b695af2bbb8e111d5b8512c8">When you have 100 terabytes of data, even straightforward calculations and graphics can become very time-consuming. So, efficient algorithms are very important.</li>
+            <li id="ybim1f9e96f5cbe0579fcfc6e649d822">The structure of the database and the process of storing the data, perhaps by unifying data scattered across many departments of a large corporation, require careful thought.</li>
+          </ul>
+          <p class="indent" id="oxir2e9dde84b93d883c204d1919432e">All of these features point to the need for sophisticated computer science. Many statistical ideas and tools, such as those for dealing with many variables in a data set, are very helpful.</p>
+        </aside>
+      </section>
+      <section aria-label="end-of-section" class="end-of-section" id="ch02_sec_1_4_4_1a" title="end-of-section">
+        <section class="summary" id="ch02_sec_1_4_4_1" title="SECTION 12.4 SUMMARY">
+          <header id="hsmm0b5176a731d6800b7f3011fc687c">
+            <h3 class="title v1 cap" epub:type="title" id="wfah4543c919817384c00d32ae2790c5"><span class="label" epub:type="label" id="umxnf4a5388ee7fafe54359a4bec8089">Section </span><span class="ordinal" epub:type="ordinal" id="xteh9601b2a0cab37a55325a086935bd">2.4 </span>Summary</h3>
+          </header>
+          <ul class="ul-bullet-list" id="pmfk15b9978e1f20060b566ad9349e8f">
+            <li id="wqon82c3eb4b5aa41c061cedac237b97">Correlation and regression must be <strong class="important" id="ypcp0461e7910a7e574c868669e9e7f7">interpreted with caution. Plot the data</strong> to be sure the relationship is roughly linear and to detect outliers and influential observations.</li>
+            <li id="vihb3a9afd91f1edb1eb66d518a2d8e7">Avoid <strong class="important" id="ojjjf2c109424adf9aadf60d15e57ee2">extrapolation,</strong> the use of a regression line for making predictions at values of the explanatory variable far outside the range of the data from which the line was calculated.</li>
+            <li id="orpa73daca97c4e5e57dd737f458ef45"><strong class="important" id="ycih2a3ed9fecc0992407675133d61e9">Lurking variables</strong> that you did not measure may explain the relations between the variables you did measure. Correlation and regression can be misleading if you ignore important lurking variables.</li>
+            <li id="cashc206fe5ec3fd190381af976932ea"><span aria-label="104" epub:type="pagebreak" id="page104" role="doc-pagebreak" title="104"></span>Be careful not to conclude that there is a cause-and-effect relationship between two variables just because they are strongly associated. <strong class="important" id="fgyl965bdb4fc38bb3befbc14cfbccbc">High correlation does not imply causation.</strong> The best evidence that an association is due to causation comes from an <strong class="important" id="spdb75ce51bcfd908b7252a83d111dec">experiment</strong> in which the explanatory variable is directly changed and other influences on the response are controlled.</li>
+          </ul>
+        </section>
+        <section class="practice" epub:type="practice" id="ch02_sec_exe_4" title="SECTION 2.4 EXERCISES">
+          <header id="uhli4340f1e54813b873dbe2c5b97d12">
+            <h4 class="title v1 cap" epub:type="title" id="jtcg7d974e923ddf41a3f8101c163dc5"><span class="label" epub:type="label" id="gbvzc40a6c3fdb29063350e96e5fc24f">Section </span><span class="ordinal" epub:type="ordinal" id="wtcp26a10f6776e79de4df3fb596d62a">2.4 </span>Exercises</h4>
+          </header>
+          <p class="noindent" id="mhwf9fa45710271fd7d0722de27fe766">
+            <i class="semantic-i" id="penrc4fcfddd20a2e0b715e5aeb38273">For <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_exe_77" id="ch02_refundi_225" style="overflow-wrap: break-word;">Exercise 2.77</a>, see <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#page101" id="ch02_refundi_226" style="overflow-wrap: break-word;">page 101</a>; and for <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_exe_78" id="ch02_refundi_227" style="overflow-wrap: break-word;">2.78</a> and <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#ch02_exe_79" id="ch02_refundi_228" style="overflow-wrap: break-word;">2.79</a>, see <a class="crossref" href="alw_9781319272463_ch02_05.xhtml#page102" id="ch02_refundi_229" style="overflow-wrap: break-word;">page 102</a>.</i>
+          </p>
+          <ol class="converted-assessment" id="qnjt9ad909e70b4bd230bb871584dc50">
+            <li data-answer="alw_9781319272463_EM_ans_ch02.xhtml#ch2_ans39" data-converted="1" id="rpgye3b5f111714b7ce5cd68a7669bdb">
+              <p class="noindent" id="nymh2c35a645c6d7779a1ae547e77cea"><strong class="important" id="dtqrcb8c3eed87bb4e58095d725a2b41"><a class="crossref" href="alw_9781319272463_EM_ans_ch02.xhtml#ch02-exer-81" id="ch02_exe_81" style="overflow-wrap: break-word;">2.81</a> What’s wrong?</strong> Each of the following statements contains an error. Describe each error and explain why the statement is wrong.</p>
+              <ol class="ol-alpha-lc" id="fbgu06f9b2a047e37629412019fb8668">
+                <li id="ytll5a6b6f91d88f78a460c5cfd77c44">A lurking variable is always a qualitative variable.</li>
+                <li id="ahph088eead66a84deaa7556c635c75a">If the residuals are all positive, then there will be a positive relationship between the response variable and the explanatory variable.</li>
+                <li id="ifzf1ad61dfde03e42fa7633a43ee20b">A negative relationship is never due to causation.</li>
+              </ol>
+              <iframe id="risd9ffe2797f968dd041298adaa4664" name="framerisd9ffe2797f968dd041298adaa4664" class="assessment favre iframe_safari" data-profile="enhanced" data-fallbck-img-size="" data-profiling-img="" data-widget-id="mceib16c03c1dab452c85aaf8d2d89fe" src="../frost_widgets/assessment/version/1567007578/index.html" style="border: none; overflow: hidden; height: 49px; display: block;" data-question-title="2.81 What’s wrong? Each of the following statements contains an error. Describe each error and explain why the..." data-assessment-id="ECL3I" data-assessment-question-id="ECL3I82120" data-assessment-question-number="" data-assessment-question-prefix="" data-assessment-question-seperator="" data-path="../../../../frost_widgets_data/ECL3I82120.js" data-iframeentitytype="3" height="480" width="700" data-assessment-question-stem-status="1" data-assessment-question-generic-stem="" data-version-id="1567007578" title="Assessment Widget 100" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" scrolling="no"></iframe>
+              <p id="boktbf86d026f10e018d0a4aafa76e83"> </p>
+            </li>
+            <li id="ch02_exe_82">
+              <p class="noindent" id="rslubc3b6dea9c73e28525128517a1cb"><strong class="important" id="oxgh57b3338894e1b3267b3ef77a4420">2.82 What’s wrong?</strong> Each of the following statements contains an error. Describe each error and explain why the statement is wrong.</p>
+              <ol class="ol-alpha-lc" id="vwpb38033a00f9cbf3283770f8195cfe">
+                <li id="gcfl6ed03a9116a0db0aeda59aa3411a">If we have data at values of <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0031.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="30" style="font-size: 122.4%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="beih28c9ee13e7b2be76be6342913c00" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="gvwyc1081f143a7ae66c1a1e3c0c1179"><mjx-mrow id="vhyv224d75cf198e55918cf8c9402ec7"><mjx-mi class="mjx-i" id="qeix70750fa3ea1a46186142b145aa73"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> equal to 10, 20, 30, 40, and 50, and we try to predict the value of <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0032.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="31" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ojaba17ba66e98e0d1b05556074e5f40" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="amcieaf1165b4963c0734924a76c9afd"><mjx-mrow id="wkin562d78dfde29c124563a95b634cd"><mjx-mi class="mjx-i" id="oobo77ebcd12c3f3caa422d78e6cf9f8"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> at <span aria-label="x equals 25" class="math" id="alw_9781319272463_ch02_05EQ_0033.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="32" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hlto7c53455859cfaf55ba78b81dab99" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="anhe617ebe72677d2dd6cfd95449eaaf"><mjx-mrow id="gyll6ff03ebbb30f08727c43d72eda1e"><mjx-mi class="mjx-i" id="cnqp4cc4d191a07f985ce342186fd2ab"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4" id="neku0136b2ef88faa895cb33a9ccb0ba"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4" id="jqkjc9679506cd760b0822cc7274c548"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mo>=</mo><mn>25</mn></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> using a least-squares regression line, we are extrapolating.</li>
+                <li id="zzwm33a7fc567a80919e3a0ad17b0ef6">In an experiment, the response variable is directly changed.</li>
+                <li id="oqqc32667ce2b8a8823c459a48eac064">An outlier will never have a large residual.</li>
+              </ol>
+            </li>
+            <li data-answer="alw_9781319272463_EM_ans_ch02.xhtml#ch2_ans40" data-converted="1" id="gnrz79a2db0cd44c1ded8f572d049eaf">
+              <p class="noindent" id="alqs0e0fe1967dac7caa050ad4ddcd72"><strong class="important" id="vbrw8920382c7432e18b21dca5dc55df"><a class="crossref" href="alw_9781319272463_EM_ans_ch02.xhtml#ch02-exer-83" id="ch02_exe_83" style="overflow-wrap: break-word;">2.83</a> Predict the sales.</strong> You analyzed the past 10 years of sales data for your company, and the data fit a straight line very well. Do you think the equation you found would be useful for predicting next year’s sales? Would your answer change if the prediction was for sales five years from now? Give reasons for your answers.</p>
+              <iframe id="ueere17d94c69964f43590e0925b5bfd" name="frameueere17d94c69964f43590e0925b5bfd" class="assessment favre iframe_safari" data-profile="enhanced" data-fallbck-img-size="" data-profiling-img="" data-widget-id="mceib16c03c1dab452c85aaf8d2d89fe" src="../frost_widgets/assessment/version/1567007578/index.html" style="border: none; overflow: hidden; height: 49px; display: block;" data-question-title="2.83 Predict the sales. You analyzed the past 10 years of sales data for your company, and the data fit a straight line..." data-assessment-id="ECL3I" data-assessment-question-id="ECL3I82705" data-assessment-question-number="" data-assessment-question-prefix="" data-assessment-question-seperator="" data-path="../../../../frost_widgets_data/ECL3I82705.js" data-iframeentitytype="3" height="480" width="700" data-assessment-question-stem-status="1" data-assessment-question-generic-stem="" data-version-id="1567007578" title="Assessment Widget 101" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" scrolling="no"></iframe>
+              <p id="lzvg33454efd753380cae3ac7de5bbff"> </p>
+            </li>
+            <li id="ch02_exe_84">
+              <p class="noindent" id="ndkn69f8db3c04fe5c4d2cfd4bb280ac"><strong class="important" id="qdev3d19eb16f342e05a780201d62d20">2.84 Older workers and income.</strong> The effect of a lurking variable can be surprising when cases are divided into groups. Explain how, as a nation’s population grows older, mean income can go down for workers in each age group but still go up for all workers.</p>
+            </li>
+            <li data-answer="alw_9781319272463_EM_ans_ch02.xhtml#ch2_ans41" data-converted="1" id="qagi45bc810b42d7a038ddc8e6ae16bb">
+              <p class="noindent" id="hmqsd4131e32783a1e1a5e04f8bbf8f4"><strong class="important" id="boxteab567a1a7146dbdc9e82f4d4293"><a class="crossref" href="alw_9781319272463_EM_ans_ch02.xhtml#ch02-exer-85" id="ch02_exe_85" style="overflow-wrap: break-word;">2.85</a> Marital status and income.</strong> Data show that married, divorced, and widowed men earn quite a bit more than men the same age who have never been married. This does not mean that a man can raise his income by getting married, because men who have never been married are different from married men in many ways other than marital status. Suggest several lurking variables that might help explain the association between marital status and income.</p>
+              <iframe id="ehlsa7282fe5c91726009aaff9121b0b" name="frameehlsa7282fe5c91726009aaff9121b0b" class="assessment favre iframe_safari" data-profile="enhanced" data-fallbck-img-size="" data-profiling-img="" data-widget-id="mceib16c03c1dab452c85aaf8d2d89fe" src="../frost_widgets/assessment/version/1567007578/index.html" style="border: none; overflow: hidden; height: 49px; display: block;" data-question-title="2.85 Marital status and income. Data show that married, divorced, and widowed men earn quite a bit more than men the..." data-assessment-id="ECL3I" data-assessment-question-id="ECL3I82554" data-assessment-question-number="" data-assessment-question-prefix="" data-assessment-question-seperator="" data-path="../../../../frost_widgets_data/ECL3I82554.js" data-iframeentitytype="3" height="480" width="700" data-assessment-question-stem-status="1" data-assessment-question-generic-stem="" data-version-id="1567007578" title="Assessment Widget 102" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" scrolling="no"></iframe>
+              <p id="ylbsc8108364b0ef51c648a8ca19b3ae"> </p>
+            </li>
+            <li id="ch02_exe_86">
+              <p class="noindent" id="znkic57a1bb82b764c64112b4366b11f"><strong class="important" id="hcjd528024447fc9cf82b31aee202df4">2.86 Sales at a farmers’ market.</strong> You sell fruits and vegetables at your local farmers’ market, and you keep track of your weekly sales. A plot of the data from May through August suggests a increase over time that is approximately linear, so you calculate the least-squares regression line. Your partner likes the plot and the line and suggests that you use it to estimate sales for the rest of the year. Explain why this is probably a very bad idea.</p>
+            </li>
+            <li data-answer="alw_9781319272463_EM_ans_ch02.xhtml#ch2_ans42" data-converted="1" id="dzmpe0ffcca516ea8b5767d7d30aacb1">
+              <p class="noindent" id="jojs717e0341badb7ae66143c3f8a09a"><strong class="important" id="skok2152604cf12cb974b9b20a97fea7"><a class="crossref" href="alw_9781319272463_EM_ans_ch02.xhtml#ch02-exer-87" id="ch02_exe_87" style="overflow-wrap: break-word;">2.87</a> Does your product have an undesirable side effect?</strong> People who use artificial sweeteners in place of sugar tend to be heavier than people who use sugar. Does this mean that artificial sweeteners cause weight gain? Give a more plausible explanation for this association.</p>
+              <iframe id="mmzx18677906c886c324555663a6746b" name="framemmzx18677906c886c324555663a6746b" class="assessment favre iframe_safari" data-profile="enhanced" data-fallbck-img-size="" data-profiling-img="" data-widget-id="mceib16c03c1dab452c85aaf8d2d89fe" src="../frost_widgets/assessment/version/1567007578/index.html" style="border: none; overflow: hidden; height: 49px; display: block;" data-question-title="2.87 Does your product have an undesirable side effect? People who use artificial sweeteners in place of sugar tend to..." data-assessment-id="ECL3I" data-assessment-question-id="ECL3I82586" data-assessment-question-number="" data-assessment-question-prefix="" data-assessment-question-seperator="" data-path="../../../../frost_widgets_data/ECL3I82586.js" data-iframeentitytype="3" height="480" width="700" data-assessment-question-stem-status="1" data-assessment-question-generic-stem="" data-version-id="1567007578" title="Assessment Widget 103" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" scrolling="no"></iframe>
+              <p id="dnke453f6e0a8cfeaed906af8b5a83b5"> </p>
+            </li>
+            <li id="ch02_exe_88">
+              <p class="noindent" id="gnjtf826eb06e4e7655d8fd73f6c79e6"><strong class="important" id="mipi777554b13e00cebf023af7442a68">2.88 Does your product help nursing-home residents?</strong> A group of college students believes that herbal tea has remarkable powers. To test this belief, they make weekly visits to a local nursing home, where they visit with the residents and serve them herbal tea. The nursing-home staff reports that, after several months, many of the residents are healthier and more cheerful. We should commend the students for their good deeds, but doubt that herbal tea helped the residents. Identify the explanatory and response variables in this informal study. Then explain which lurking variables account for the observed association.</p>
+            </li>
+            <li data-answer="alw_9781319272463_EM_ans_ch02.xhtml#ch2_ans43" data-converted="1" id="oeyx2c3db1707d5f87fdead016e7049a">
+              <p class="noindent" id="vpfr122202a0463d2b97733609ae7bfa"><strong class="important" id="fhgb03c0621616e6481897c04fd16a68"><a class="crossref" href="alw_9781319272463_EM_ans_ch02.xhtml#ch02-exer-89" id="ch02_exe_89" style="overflow-wrap: break-word;">2.89</a> Education and income.</strong> There is a strong positive correlation between years of schooling completed <span aria-label="x" class="math" id="alw_9781319272463_ch02_05EQ_0034.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="33" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qrjhe1969dfe05a1eee3949d53ec9ee5" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="kosa760f4185788b3f9b44ddf4297146"><mjx-mrow id="atby93ac91088775d6481783fb26c2ff"><mjx-mi class="mjx-i" id="wuaxe7310a641fedee608a746d52c168"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and lifetime earnings <span aria-label="y" class="math" id="alw_9781319272463_ch02_05EQ_0035.png" role="math" tabindex="0"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="34" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jttn8bf39447fbfef6a6cec53b6a87c3" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="xpux668a30f1a612256dcc6c7e0e670e"><mjx-mrow id="ksou8bdf0b6b1da00f161d5176ff9390"><mjx-mi class="mjx-i" id="hsztbc58ad50c4eff7a20fae860a0913"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> for American men. One possible reason for this association is causation: more education leads to higher-paying jobs. But lurking variables may explain some of the correlation. Suggest some lurking variables that would explain why men with more education earn more.</p>
+              <iframe id="isrwca853aa8bd3ce2d3a1012b51180d" name="frameisrwca853aa8bd3ce2d3a1012b51180d" class="assessment favre iframe_safari" data-profile="enhanced" data-fallbck-img-size="" data-profiling-img="" data-widget-id="mceib16c03c1dab452c85aaf8d2d89fe" src="../frost_widgets/assessment/version/1567007578/index.html" style="border: none; overflow: hidden; height: 49px; display: block;" data-question-title="2.89 Education and income. There is a strong positive correlation between years of schooling completed x and lifetime..." data-assessment-id="ECL3I" data-assessment-question-id="ECL3I82511" data-assessment-question-number="" data-assessment-question-prefix="" data-assessment-question-seperator="" data-path="../../../../frost_widgets_data/ECL3I82511.js" data-iframeentitytype="3" height="480" width="700" data-assessment-question-stem-status="1" data-assessment-question-generic-stem="" data-version-id="1567007578" title="Assessment Widget 104" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" scrolling="no"></iframe>
+              <p id="wxagb9caa34c18f2ce720f942c5d4bbc"> </p>
+            </li>
+            <li id="ch02_exe_90">
+              <p class="noindent" id="wakcf4f1d5962c5418a15661b3f172a9"><strong class="important" id="iscnbdad66c06181005279b839be3d47">2.90 Do power lines cause cancer?</strong> It has been suggested that electromagnetic fields of the kind present near power lines can cause leukemia in children. Experiments with children and power lines are not ethical. Careful studies have found no association between exposure to electromagnetic fields and childhood leukemia.<sup class="semantic-sup" id="usth39cb580f33be2dd8337cc95e6545"><a class="noteref" epub:type="noteref" href="alw_9781319272463_EM_notes.xhtml#CH02-FN15" id="CH02-RFN15" role="doc-noteref" style="overflow-wrap: break-word;">15</a></sup> Suggest several lurking variables for which you would want information to investigate the claim that living near power lines is associated with cancer.</p>
+            </li>
+          </ol>
+        </section>
+      </section>
+    </section>
+  <style type="text/css" style="display: none;">.vsthighlight { cursor: pointer; } .disabledHighlight { background: #ECECEC !important; border-color: #B3B3B3 !important; cursor: default !important; } .disabledHighlight.vst-shared-highlight { background: transparent !important; }</style><style type="text/css" style="display: none;">.tts-highlight { background: yellow !important; }</style><div id="myModal" class="modal" style="display: none;"><div class="modal-content"><button tabindex="0" title="Close (Esc)" class="close"></button><div class="modal-body"></div></div></div><div tabindex="0" id="dummyDiv" style="display: none;"></div><div id="gallery" class="pswp" role="dialog" aria-labelledby="figcaption" style="display: none;"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> --><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div id="figcaption" class="pswp__caption__center"></div><div class="lm_controls_lightbox"><button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button><button class="pswp__button pswp__button--zoom lm__in" title="Zoom in"></button><button disabled="true" class="pswp__button pswp__button--zoom lm__out" title="Zoom out"></button></div></div></div></div></div></body>
+</html>

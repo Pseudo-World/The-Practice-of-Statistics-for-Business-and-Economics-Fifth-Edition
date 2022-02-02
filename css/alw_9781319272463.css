@@ -1,0 +1,1970 @@
+@charset "UTF-8";
+/* Macmillan Learning Universal CSS 3.0 */
+/* This was created using Macmillan accessible flat epub specification 4.1 */
+/* Standard fonts.
+========================================================================== */
+/* SERIF
+========================================================================== */
+@font-face {
+  font-family: SourceSerifPro;
+  src: url("fonts/SourceSerifPro-Regular.ttf");
+  font-style: normal;
+  font-weight: 400; }
+@font-face {
+  font-family: SourceSerifPro;
+  src: url("fonts/SourceSerifPro-Semibold.ttf");
+  font-style: normal;
+  font-weight: 600; }
+@font-face {
+  font-family: SourceSerifPro;
+  src: url("fonts/SourceSerifPro-Bold.ttf");
+  font-style: normal;
+  font-weight: 700; }
+@font-face {
+  font-family: SourceSerifPro;
+  src: url("fonts/SourceSerifPro-It.ttf");
+  font-style: italic;
+  font-weight: 400; }
+@font-face {
+  font-family: SourceSerifPro;
+  src: url("fonts/SourceSerifPro-SemiboldIt.ttf");
+  font-style: italic;
+  font-weight: 600; }
+@font-face {
+  font-family: SourceSerifPro;
+  src: url("fonts/SourceSerifPro-BoldIt.ttf");
+  font-style: italic;
+  font-weight: 700; }
+/* SANS-SERIF
+========================================================================== */
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-ExtraLight.ttf");
+  font-style: normal;
+  font-weight: 200; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-ExtraLightItalic.ttf");
+  font-style: italic;
+  font-weight: 200; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Light.ttf");
+  font-style: normal;
+  font-weight: 300; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-LightItalic.ttf");
+  font-style: italic;
+  font-weight: 300; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Regular.ttf");
+  font-style: normal;
+  font-weight: 400; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Italic.ttf");
+  font-style: italic;
+  font-weight: 400; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Semibold.ttf");
+  font-style: normal;
+  font-weight: 600; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-SemiboldItalic.ttf");
+  font-style: italic;
+  font-weight: 600; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Bold.ttf");
+  font-style: normal;
+  font-weight: 700; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-BoldItalic.ttf");
+  font-style: italic;
+  font-weight: 700; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-Black.ttf");
+  font-style: normal;
+  font-weight: 900; }
+@font-face {
+  font-family: SourceSansPro;
+  src: url("fonts/SourceSansPro-BlackItalic.ttf");
+  font-style: italic;
+  font-weight: 900; }
+/* MONOSPACE
+========================================================================== */
+@font-face {
+  font-family: CourierNew;
+  src: url("fonts/CourierNew.ttf");
+  font-style: normal;
+  font-weight: 400; }
+@font-face {
+  font-family: Courier;
+  src: url("fonts/Courier.ttf");
+  font-style: normal;
+  font-weight: 400; }
+/* HANDWRITING
+========================================================================== */
+@font-face {
+  font-family: Kalam;
+  src: url("fonts/Kalam-Regular.ttf");
+  font-style: normal;
+  font-weight: 400; }
+/* Global styles that can be applied to all elements
+========================================================================== */
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: SourceSerifPro, serif;
+  font-size: 1.06rem;
+  line-height: 1.5;
+  max-width: 1124px;
+  margin: auto;
+  padding: 10px; }
+
+aside.hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+/* Spacing around elements ===== */
+/* add standard spacing above these elements */
+section.copyright-page div.copyright,
+section.copyright-page div.productnumber,
+section.copyright-page div.publisher, * + section, p.verse-stanza-start, figure, table, aside > header > .level1,
+aside > header > .level2,
+aside > header > .level3,
+aside > header > .level4, * + p, figure + p, table + p, ul + p, ol + p, blockquote + p, nav + p, section + p, aside + p, header + p, p + p, * + aside, aside.bibliography * + ul, table + ol, table + ul {
+  margin-top: 1.5625em;
+  margin-bottom: 0; }
+
+/* add less spacing above these elements */
+section.bibliography ul li.biblioentry, section.section-bibliography ul li.biblioentry, section.glossary dt, aside p + p, li.question, aside * + p, aside figure + p, aside table + p, aside ul + p, aside ol + p, aside div + p, aside blockquote + p, aside nav + p, aside section + p, aside aside + p, aside header + p, li > p {
+  margin-top: 1em;
+  margin-bottom: 0; }
+
+/* remove spacing around these elements */
+p.eq-number, section.copyright-page p, nav li, section.toc-brief ul, section.toc-brief ol,
+section.toc ul, section.toc ol, section.toc-brief ul li,
+section.toc-brief ol li,
+section.toc ul li,
+section.toc ol li, aside dl.glossary, dl.glossary dt,
+dl.glossary dd, aside.bibliography ul, p.verse,
+p.verse-stanza-start, img, figure, header, h1, h2, h3, h4, h5, h6, p.subtitle, figure > aside.ftnote, figure > aside.footnotes, aside.glossary dt, section > ul > li, section > ol > li, aside > ol > li, aside > ul > li {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0; }
+
+/* borders ===== */
+/* remove the border on these elements */
+aside.bibliography, aside.footnotes, aside.ftnote, aside.glossary {
+  border-width: 0; }
+
+/* heading elements ===== */
+/* heading 1 elements */
+/* heading 2 elements */
+body.frontmatter > section > header > .title,
+body.backmatter > section > header > .title,
+section.end-of-section > header > .title, body.frontmatter > section > header > .title.v1,
+body.backmatter > section > header > .title.v1,
+section.end-of-section > header > .title.v1, body.frontmatter > section > header > .title.v2,
+body.backmatter > section > header > .title.v2,
+section.end-of-section > header > .title.v2, body.frontmatter > section > header > .title.v3,
+body.backmatter > section > header > .title.v3,
+section.end-of-section > header > .title.v3, body.frontmatter > section > header > .title.v4,
+body.backmatter > section > header > .title.v4,
+section.end-of-section > header > .title.v4, body.frontmatter > section > header > .title.v5,
+body.backmatter > section > header > .title.v5,
+section.end-of-section > header > .title.v5, .a-head {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.1; }
+
+/* heading 3 elements */
+.a-head + p.subtitle,
+.b-head,
+nav > .title,
+body.bodymatter section.landmarks > header > .title,
+body.bodymatter section.introduction > header > .title,
+body.bodymatter section.contributors > header > .title,
+body.bodymatter section.afterword > header > .title,
+body.bodymatter section.conclusion > header > .title,
+body.bodymatter section.prologue > header > .title,
+body.bodymatter section.epilogue > header > .title,
+body.bodymatter section.learning-objective > header > .title,
+body.bodymatter section.learning-objectives > header > .title,
+body.bodymatter section.learning-outcomes > header > .title,
+body.bodymatter section.learning-resources > header > .title,
+body.bodymatter section.learning-standards > header > .title,
+body.bodymatter section.practice > header > .title,
+body.bodymatter section.assessments > header > .title,
+body.bodymatter section.example > header > .title,
+body.bodymatter section.summary > header > .title,
+body.bodymatter section.reading > header > .title,
+body.bodymatter section.student-writing > header > .title,
+body.bodymatter section.section-appendix > header > .title,
+body.bodymatter section.section-index > header > .title,
+body.bodymatter section.section-bibliography > header > .title,
+body.bodymatter section.section-glossary > header > .title,
+body.bodymatter section.act > header > .title,
+body.frontmatter section.subsect1 > header > .level1,
+body.backmatter section.subsect1 > header > .level1,
+aside.case-study > header > .title {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.2; }
+
+/* heading 4 elements */
+p.subtitle, .b-head + p.subtitle,
+.c-head,
+body.bodymatter section.landmarks > header > .title + p.subtitle,
+body.bodymatter section.introduction > header > .title + p.subtitle,
+body.bodymatter section.contributors > header > .title + p.subtitle,
+body.bodymatter section.afterword > header > .title + p.subtitle,
+body.bodymatter section.conclusion > header > .title + p.subtitle,
+body.bodymatter section.prologue > header > .title + p.subtitle,
+body.bodymatter section.epilogue > header > .title + p.subtitle,
+body.bodymatter section.learning-objective > header > .title + p.subtitle,
+body.bodymatter section.learning-objectives > header > .title + p.subtitle,
+body.bodymatter section.learning-outcomes > header > .title + p.subtitle,
+body.bodymatter section.learning-resources > header > .title + p.subtitle,
+body.bodymatter section.learning-standards > header > .title + p.subtitle,
+body.bodymatter section.practice > header > .title + p.subtitle,
+body.bodymatter section.assessments > header > .title + p.subtitle,
+body.bodymatter section.example > header > .title + p.subtitle,
+body.bodymatter section.summary > header > .title + p.subtitle,
+body.bodymatter section.reading > header > .title + p.subtitle,
+body.bodymatter section.student-writing > header > .title + p.subtitle,
+body.bodymatter section.section-appendix > header > .title + p.subtitle,
+body.bodymatter section.section-index > header > .title + p.subtitle,
+body.bodymatter section.section-bibliography > header > .title + p.subtitle,
+body.bodymatter section.section-glossary > header > .title + p.subtitle,
+body.bodymatter section.act > header > .title + p.subtitle,
+body.bodymatter section.subsect1 header > .level1,
+body.frontmatter section.subsect2 > header > .level2,
+body.backmatter section.subsect2 > header > .level2,
+body.bodymatter section.scene > header > .title,
+section.appendix-group > .title,
+section.index-group > .title,
+aside > header > .title,
+aside.case-study > header > .level1 {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2; }
+
+/* heading 5 elements */
+aside.learning-objectives > header > .title,
+aside.learning-outcomes > header > .title,
+aside.learning-resources > header > .title,
+aside.learning-standards > header > .title, .c-head + p.subtitle,
+.d-head,
+body.frontmatter section.subsect3 > header > .level3,
+body.frontmatter section.subsect2 > header > .level2 + p.subtitle,
+body.backmatter section.subsect3 > header > .level3,
+body.backmatter section.subsect2 > header > .level2 + p.subtitle,
+body.bodymatter section.subsect2 > header > .level2,
+body.bodymatter section.subsect1 > header > .level1 + p.subtitle,
+aside > header > .title + p.subtitle,
+aside.subdiv1 > header > .level1, div > header > .title,
+aside.case-study aside.subdiv2 > header > .level2 {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3; }
+
+/* heading 6 elements */
+aside.learning-objectives > div > header > .level1,
+aside.learning-outcomes > div > header > .level1,
+aside.learning-resources > div > header > .level1
+aside.learning-standards > div > header > .title, .d-head + p.subtitle,
+.e-head,
+body.frontmatter section.subsect4 > header > .level4,
+body.frontmatter section.subsect3 > header > .level3 + p.subtitle,
+body.backmatter section.subsect4 > header > .level4,
+body.backmatter section.subsect3 > header > .level3 + p.subtitle,
+body.bodymatter section.subsect3 > header > .level3,
+body.bodymatter section.subsect2 > header > .level2 + p.subtitle,
+aside.subdiv1 > header > .level1 + p.subtitle,
+aside.subdiv2 > header > .level2, div > header > .level1,
+aside.case-study aside.subdiv3 > header > .level3 {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.06rem;
+  font-weight: 600; }
+
+/* assessment and learning-outcome styles shared btwn sections and asides ============ */
+section.assessments,
+section.practice, aside.assessments,
+aside.practice {
+  font-size: 0.93rem;
+  box-sizing: border-box;
+  padding: 1em 1em 1.3125em 1em;
+  border-color: #142A35;
+  background-color: #f3f3f3; }
+
+section.learning-outcomes,
+section.learning-resources,
+section.learning-objectives,
+section.learning-standards, aside.learning-outcomes,
+aside.learning-resources,
+aside.learning-standards,
+aside.learning-objectives {
+  border-top: 0.125em solid #dddddd;
+  border-bottom: 0.125em solid #dddddd;
+  border-left: 0;
+  border-right: 0;
+  box-sizing: border-box;
+  padding-top: 1em;
+  padding-bottom: 1em; }
+
+section.learning-outcomes.v1,
+section.learning-resources.v1,
+section.learning-objectives.v1,
+section.learning-standards.v1, aside.learning-outcomes.v1,
+aside.learning-resources.v1,
+aside.learning-standards.v1,
+aside.learning-objectives.v1 {
+  border-top-color: #45a5b5;
+  border-bottom-color: #45a5b5; }
+
+section.learning-outcomes.v2,
+section.learning-resources.v2,
+section.learning-objectives.v2,
+section.learning-standards.v2, aside.learning-outcomes.v2,
+aside.learning-resources.v2,
+aside.learning-standards.v2,
+aside.learning-objectives.v2 {
+  border-top-color: #3192d3;
+  border-bottom-color: #3192d3; }
+
+section.learning-outcomes.v3,
+section.learning-resources.v3,
+section.learning-objectives.v3,
+section.learning-standards.v3, aside.learning-outcomes.v3,
+aside.learning-resources.v3,
+aside.learning-standards.v3,
+aside.learning-objectives.v3 {
+  border-top-color: #b26487;
+  border-bottom-color: #b26487; }
+
+section.learning-outcomes.v4,
+section.learning-resources.v4,
+section.learning-objectives.v4,
+section.learning-standards.v4, aside.learning-outcomes.v4,
+aside.learning-resources.v4,
+aside.learning-standards.v4,
+aside.learning-objectives.v4 {
+  border-top-color: #5fb79c;
+  border-bottom-color: #5fb79c; }
+
+section.learning-outcomes.v5,
+section.learning-resources.v5,
+section.learning-objectives.v5,
+section.learning-standards.v5, aside.learning-outcomes.v5,
+aside.learning-resources.v5,
+aside.learning-standards.v5,
+aside.learning-objectives.v5 {
+  border-top-color: #ff8a57;
+  border-bottom-color: #ff8a57; }
+
+/* footnote-text elements ===== */
+aside.bibliography ul {
+  list-style: none;
+  font-size: 0.8rem;
+  color: #686868;
+  font-family: SourceSansPro, sans-serif; }
+
+/* underlined elements ===== */
+dfn.keytermglo {
+  text-decoration: underline; }
+
+/* hanging indent ===== */
+p.hanging-indent, .biblioentry {
+  text-indent: -1.5625em;
+  margin-left: 1.5625em; }
+
+/* clear ===== */
+section:after, aside:after, div:after, .left + .left, .right + .right {
+  clear: both; }
+
+/* clearfix hack: prevents overflow of block elements within block elements ===== */
+section:after, aside:after, div:after {
+  content: "";
+  display: table; }
+
+/* hyphens ===== */
+p.center, section.titlepage,
+section.halftitlepage, h1, h2, h3, h4, h5, h6 {
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -epub-hyphens: none;
+  -ms-hyphens: none;
+  adobe-hyphenate: none; }
+
+/* column widths
+========================================================================== */
+figure.c1,
+img.c1 {
+  max-width: 281px; }
+
+figure.c2,
+img.c2 {
+  max-width: 562px; }
+
+figure.c3,
+img.c3 {
+  max-width: 843px; }
+
+figure.c4,
+img.c4 {
+  max-width: 1011.6px; }
+
+figure.c5,
+img.c5 {
+  width: 100%; }
+
+/* alignments
+========================================================================== */
+.left {
+  text-align: left;
+  margin-right: 1.5625em;
+  margin-left: 0;
+  margin-bottom: 1.5625em;
+  margin-top: 1.5625em; }
+
+.right {
+  text-align: left;
+  margin-left: 1.5625em;
+  margin-right: 0;
+  margin-bottom: 1.5625em;
+  margin-top: 1.5625em; }
+
+p.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+
+figure.main-flow, figure.center, img.main-flow, img.center {
+  margin-bottom: 0;
+  margin-top: 1.5625em; }
+
+/* alignment and size on figure and img  elements
+========================================================================== */
+/* image sizes */
+figure.intro {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0; }
+
+/* Styling for characters styles and other typography.
+========================================================================== */
+p {
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+p.center {
+  text-align: center; }
+
+p.text-right, p.right {
+  text-align: right; }
+
+div.page > p.indent {
+  text-indent: 1.5625em; }
+
+p.eq-number {
+  text-align: right;
+  line-height: 0; }
+
+a, a:link, a:active, a:visited {
+  color: #00758e;
+  word-wrap: break-word; }
+
+strong {
+  font-weight: 700; }
+
+strong.bold-semi {
+  font-weight: 600; }
+
+em {
+  font-style: italic; }
+
+sup {
+  font-size: 0.75rem;
+  position: relative;
+  line-height: 0; }
+
+sub {
+  font-size: 0.75rem;
+  position: relative;
+  line-height: 0;
+  margin-top: -0.0625em; }
+
+dfn {
+  font-style: normal;
+  font-weight: bold; }
+
+.cap {
+  text-transform: uppercase;
+  font-variant: all-small-caps;
+  letter-spacing: 1px;
+}
+
+.smallcap {
+  font-variant: small-caps;
+  letter-spacing: 1px;
+}
+
+.strikethrough {
+  text-decoration: line-through; }
+
+.student-tt {
+  font-family: CourierNew, Courier, monospace; }
+
+.student-entry {
+  font-family: Kalam; }
+
+small {
+  font-size: 90%; }
+
+/* Styling for frontmatter-specific typography.
+========================================================================== */
+/* title and halftitle pages */
+section.titlepage,
+section.halftitlepage {
+  text-align: center; }
+
+section.titlepage header > p, section.titlepage div.group > p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem; }
+section.titlepage div.group p > strong {
+  font-size: 1.25rem; }
+section.titlepage header > h1.title {
+  margin-bottom: 0; }
+
+/* paragraphs in copyright page */
+/* Links in toc sections */
+section.toc-brief a,
+section.toc-brief a:link,
+section.toc-brief a:active,
+section.toc-brief a:visited,
+section.toc a,
+section.toc a:link,
+section.toc a:active,
+section.toc a:visited {
+  color: #00758e;
+  text-decoration: underline; }
+
+section.toc-brief a:hover,
+section.toc a:hover {
+  text-decoration: underline; }
+
+/* Styling for subsections
+========================================================================== */
+section {
+  float: none; }
+
+.sect1, .sect2, .sect3, .sect4, .sect5 {
+  clear: both; }
+
+section.bibliography, section.section-bibliography {
+  font-size: 0.93rem;
+  font-family: SourceSansPro, sans-serif;
+  line-height: 1.5; }
+
+/* examples */
+section.example {
+  font-family: SourceSerifPro, serif; }
+
+section.example {
+  border-bottom: 0.0625em solid #c8c8c8;
+  margin-bottom: 1.5625em;
+  padding-bottom: 0.625em;
+  /*overflow-y: auto;*/ }
+
+section.example > header {
+  border-bottom: 0.0625em solid #c8c8c8;
+  padding-bottom: 0.625em;
+  margin-bottom: 1.5625em;
+  width: 100%; }
+
+/* General styling for nav elements.
+========================================================================== */
+* + nav {
+  margin-top: 1.5625em; }
+
+nav.toc-brief > header > .title,
+nav.toc > header > .title {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2; }
+
+/* Styling for all variations of lists
+========================================================================== */
+ol, ul {
+  list-style-position: outside;
+  margin-bottom: 0; }
+
+/* ordered lists */
+.ol-alpha-uc {
+  list-style-type: upper-alpha; }
+
+.ol-alpha-lc {
+  list-style-type: lower-alpha; }
+
+.ol-roman-lc {
+  list-style-type: lower-roman; }
+
+.ol-roman-uc {
+  list-style-type: upper-roman; }
+
+/* unordered lists */
+.ul-square {
+  list-style-type: square; }
+
+.ul-checklist {
+  list-style: none; }
+
+.ul-checklist > li:before {
+  content: '✓';
+  margin: 0 0.3125em 0 -0.9375em; }
+
+.ul-arrow {
+  list-style: none; }
+
+.ul-arrow > li:before {
+  content: '►';
+  font-size: 0.75rem;
+  margin: 0 0.3125em 0 -0.9375em; }
+
+/* unmarked lists */
+.ul-no-mark {
+  list-style-type: none;
+  padding-left: 0; }
+
+.ul-no-mark ul, .ul-no-mark ol {
+  margin-left: 1.875em; }
+
+/* TOC Lists */
+section.toc-brief ol,
+section.toc-brief ul,
+section.toc ol,
+section.toc ul {
+  list-style-type: none; }
+
+section.toc-brief ul, section.toc-brief ol,
+section.toc ul, section.toc ol {
+  margin-left: 1.875em; }
+
+section.toc-brief > ul, section.toc-brief > ol,
+section.toc > ul, section.toc > ol {
+  margin-bottom: 1.5625em; }
+
+section.toc-brief ul li,
+section.toc-brief ol li,
+section.toc ul li,
+section.toc ol li {
+  padding: 3px 0; }
+
+section.toc-brief ul ul,
+section.toc-brief ol ul,
+section.toc-brief ul ol,
+section.toc-brief ol ol,
+section.toc ul ul,
+section.toc ol ul,
+section.toc ul ol,
+section.toc ol ol {
+  margin-top: 0.1875em;
+  margin-bottom: 0; }
+
+/* Definitions */
+dd {
+  -webkit-margin-start: 0;
+  margin-left: 0; }
+
+/* Glossary Lists */
+aside dl.glossary {
+  list-style: none;
+  font-size: 0.875rem;
+  color: #686868;
+  font-family: SourceSansPro, sans-serif; }
+
+dl.glossary dt,
+dl.glossary dd {
+  display: block; }
+
+section.glossary {
+  font-size: 0.93rem; }
+  section.glossary dt {
+    font-family: SourceSerifPro, serif; }
+  section.glossary dd {
+    font-family: SourceSansPro, sans-serif; }
+
+dt.hidden, dt.hidden > dfn, dfn.hidden {
+  display: none; }
+
+/* Bibliographies */
+/* Additional cases */
+li img {
+  vertical-align: text-top; }
+
+/* lists in tables */
+table ul, table ol, table ul li, table ol li, aside ul li, aside ol li {
+  margin-top: 0; }
+
+table ul, table ol {
+  padding-left: 1em; }
+
+/* nested list */
+li > ul, li > ol {
+  padding-left: 1em; }
+
+li > ol > li, li > ul > li {
+  margin-top: 0; }
+
+/* Styling for blockquotes
+========================================================================== */
+blockquote {
+  font-family: inherit;
+  margin-left: 1.563em;
+  font-size: 90%; }
+
+p.attribution {
+  margin-top: 0.625em;
+  font-size: 90%; }
+
+/* Styling for all variations of aside elements
+========================================================================== */
+aside {
+  border-width: 0.0625em;
+  border-style: solid;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  color: #383838;
+  box-sizing: border-box;
+  padding: 1em;
+  float: none;
+  font-family: SourceSansPro, sans-serif; }
+
+aside.subdiv1,
+aside.subdiv2,
+aside.subdiv3,
+aside.subdiv4 {
+  padding: 0;
+  font-size: 0.875rem;
+  border-width: 0;
+  border-style: none; }
+
+/* assessments */
+/* bibliography */
+aside.bibliography {
+  background-color: transparent; }
+
+/* case study */
+aside.case-study {
+  font-family: SourceSansPro, sans-serif;
+  padding: 1em;
+  background-color: transparent;
+  margin-bottom: 1.5625em;
+  border-width: 2px;
+  border-style: solid; }
+
+aside.case-study p {
+  color: #383838; }
+
+aside.case-study.v1 {
+  border-color: #205460; }
+
+aside.case-study.v2 {
+  border-color: #004c72; }
+
+aside.case-study.v3 {
+  border-color: #562135; }
+
+aside.case-study.v4 {
+  border-color: #16664b; }
+
+aside.case-study.v5 {
+  border-color: #dd5714; }
+
+/* footnotes */
+aside.footnotes, aside.ftnote {
+  color: #686868;
+  padding: 0;
+  font-family: SourceSansPro, sans-serif;
+  background-color: transparent; }
+
+/* glossary */
+aside.glossary {
+  padding: 0;
+  background-color: transparent; }
+
+/* help or tip */
+aside.help, aside.tip {
+  font-family: SourceSansPro, sans-serif;
+  padding: 1em; }
+
+aside.help.v1, aside.tip.v1 {
+  border-color: #c8c8c8;
+  background-color: #cff3f9; }
+
+aside.help.v2, aside.tip.v2 {
+  border-color: #c8c8c8;
+  background-color: #e0f1ff; }
+
+aside.help.v3, aside.tip.v3 {
+  border-color: #c8c8c8;
+  background-color: #ffe6f3; }
+
+aside.help.v4, aside.tip.v4 {
+  border-color: #c8c8c8;
+  background-color: #dbfff3; }
+
+aside.help.v5, aside.tip.v5 {
+  border-color: #c8c8c8;
+  background-color: #ffe5d3; }
+
+/* learning outcomes */
+/* notices */
+aside.notice {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 0.875rem;
+  padding: 1em; }
+
+aside.notice.v1 {
+  border-color: #45A5B5;
+  background-color: #cff3f9; }
+
+aside.notice.v2 {
+  border-color: #B79E25;
+  background-color: #fffbd7; }
+
+aside.notice.v3 {
+  border-color: #EF5656;
+  background-color: #ffe7e5; }
+
+aside.notice.v4 {
+  border-color: #68B75F;
+  background-color: #daf4d4; }
+
+/* pullquotes */
+aside.pullquote {
+  background-color: transparent;
+  border-style: solid;
+  box-sizing: border-box;
+  font-size: 1.25rem;
+  padding: 1em;
+  padding-left: 1.5625em;
+  border-width: 0em 0em 0em 0.125em;
+  margin-top: 1em;
+  margin-bottom: 1em; }
+
+aside.pullquote.v1 {
+  border-left-color: #45a5b5; }
+
+aside.pullquote.v2 {
+  border-left-color: #3192d3; }
+
+aside.pullquote.v3 {
+  border-left-color: #b26487; }
+
+aside.pullquote.v4 {
+  border-left-color: #5fb79c; }
+
+aside.pullquote.v5 {
+  border-left-color: #ff8a57; }
+
+/* Frost iframes */
+iframe {
+  border: none !important; }
+
+iframe.savi_app {
+min-width: 100%;
+max-width: 100%; }
+
+/* Styling for all variations of div elements
+========================================================================== */
+/* poetry */
+p.verse,
+p.verse-stanza-start {
+  white-space: pre; }
+
+div.poem {
+  padding-top: 1em;
+  padding-bottom: 1em; }
+
+/* Styling for div in example sections
+========================================================================== */
+div.page {
+  font-size: 80%;
+  margin: 0.625em;
+  background: #ffffff;
+  box-shadow: 0 0.0625em 0.375em rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  padding: 3.125em;
+  margin-bottom: 3.125em; }
+
+div {
+  box-sizing: border-box;
+  float: none; }
+
+div.notes {
+  padding: 0;
+  font-family: SourceSansPro, sans-serif; }
+
+div.notes.v1 {
+  border: 0.125em solid #cff3f9;
+  padding: 1em; }
+
+div.notes.v2 {
+  border: 0.125em solid #e0f1ff;
+  padding: 1em; }
+
+div.notes.v3 {
+  border: 0.125em solid #ffe6f3;
+  padding: 1em; }
+
+div.notes.v4 {
+  border: 0.125em solid #dbfff3;
+  padding: 1em; }
+
+div.notes.v5 {
+  border: 0.125em solid #ffe5d3;
+  padding: 1em; }
+
+div.group.v1 {
+  background-color: #cff3f9;
+  padding: 1em; }
+
+div.group.v2 {
+  background-color: #e0f1ff;
+  padding: 1em; }
+
+div.group.v3 {
+  background-color: #ffe6f3;
+  padding: 1em; }
+
+div.group.v4 {
+  background-color: #dbfff3;
+  padding: 1em; }
+
+div.group.v5 {
+  background-color: #ffe5d3;
+  padding: 1em; }
+
+/* line numbering
+========================================================================== */
+.reading {
+  counter-reset: paragraph lineNo; }
+  .reading .line-number, .reading .p-number {
+    padding-bottom: 0em; }
+    .reading .line-number:nth-of-type(1n+0):before, .reading .p-number:nth-of-type(1n+0):before {
+      float: left;
+      text-align: right;
+      padding-left: 0em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      color: #686868;
+      line-height: 1.5;
+      font-family: SourceSansPro, sans-serif;
+      font-size: 0.8rem;
+      margin-left: -2em; }
+  .reading li.p-number:nth-of-type(1n+0):before, .reading li.line-number:nth-of-type(1n+0):before {
+    margin-left: -5em; }
+  .reading .p-number {
+    counter-increment: paragraph 1; }
+    .reading .p-number:nth-of-type(1n+0):before {
+      content: counter(paragraph); }
+  .reading .line-number {
+    counter-increment: lineNo 5; }
+    .reading .line-number:nth-of-type(1n+0):before {
+      content: counter(lineNo); }
+  .reading div.page .line-number.indent:nth-of-type(1n+0):before, .reading div.page .p-number.indent:nth-of-type(1n+0):before {
+    margin-left: -4em; }
+  .reading div.page li.line-number:nth-of-type(1n+0):before, .reading div.page li.p-number:nth-of-type(1n+0):before {
+    margin-left: -5.65em; }
+
+/* hr
+========================================================================== */
+hr.bar, hr.dots {
+  border-top: 0.0625em solid #c8c8c8;
+  margin-top: 1.5625em;
+  margin-bottom: 2.5em;
+  max-width: 37%; }
+
+/* General styling for images.
+========================================================================== */
+img {
+  max-width: 100%;
+  max-height: 100%; }
+
+figure {
+  background-color: #ffffff;
+  max-width: 1124px;
+  padding-bottom: 0; }
+
+figure.num {
+  border: 0.0625em solid #dddddd; }
+
+figure.intro, figure.unnum, figure.table {
+  border: 0; }
+
+figure img.figure {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+figcaption {
+  background-color: #eeeeee;
+  font-size: 0.8rem;
+  color: #686868;
+  font-family: SourceSansPro, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.0625em 0.9375em 0.9375em 0.9375em; }
+
+figcaption p {
+  margin-top: 0.625em;
+  margin-bottom: 0;
+  text-align: left; }
+
+figcaption span.label,
+figcaption span.ordinal,
+figcaption > p > span.label,
+figcaption > p > span.ordinal {
+  font-weight: 600;
+  color: #080808; }
+
+figcaption span.title,
+figcaption > p > span.title {
+  font-weight: 600;
+  color: #080808; }
+
+/* chapter opener images */
+section.chapter > header + figure {
+  margin-top: 0;
+  border-top-width: 0; }
+
+/* figures in lists */
+li figure {
+  margin-bottom: 1.5625em; }
+
+li img {
+  margin-bottom: 1em; }
+
+/* inline images */
+img.decorative {
+  max-height: 1.5625em;
+  vertical-align: bottom;
+  margin-bottom: 0;
+  margin-top: 0; }
+
+img.size-small {
+  max-height: 1rem;
+  padding: 0;
+  vertical-align: middle; }
+
+img.size-med {
+  max-height: 1.5rem;
+  padding: 0;
+  vertical-align: middle; }
+
+img.size-large {
+  max-height: 1.85rem;
+  padding: 0;
+  vertical-align: middle; }
+
+/* header icons */
+img.decorative.logo {
+  float: left;
+  margin-top: 0.3rem; }
+
+/* span.highlight-
+========================================================================== */
+span.highlight {
+  background: #686868; }
+
+span.highlight-red {
+  background: #ffafaf;
+  margin: 0em 0.0625em 0em 0.0625em;
+  padding: 0em 0.125em 0em 0.125em;
+  border-left: 0.125em dotted #da1b2c;
+  border-right: 0.125em dotted #da1b2c; }
+
+span.highlight-yellow {
+  background: #faf2a9;
+  margin: 0em 0.125em 0em 0.125em;
+  padding: 0em 0.125em 0em 0.125em;
+  border-left: 0.125em solid #b79e25;
+  border-right: 0.125em solid #b79e25; }
+
+span.highlight-green {
+  background: #acdba2;
+  padding: 0em 0.125em 0em 0.125em;
+  border-left: 0.125em dashed #3b822e;
+  border-right: 0.125em dashed #3b822e; }
+
+span.highlight-teal {
+  background: #a2d6dd;
+  padding: 0em 0.125em 0em 0.125em;
+  border-left: 0.1875em double #218466;
+  border-right: 0.1875em double #218466; }
+
+span.highlight-blue {
+  background: #b0daff;
+  padding: 0em 0.125em 0em 0.125em;
+  border-left: 0.1875em dashed #006eb8;
+  border-right: 0.1875em dashed #006eb8; }
+
+span.highlight-purple {
+  background: #e5c6e3;
+  padding: 0em 0.125em 0em 0.125em;
+  border-left: 0.1875em dotted #865f7f;
+  border-right: 0.1875em dotted #865f7f; }
+
+/* span.underline-
+========================================================================== */
+span.underline {
+  border-bottom: 0.0625em solid; }
+
+span.dbl-underline {
+  border-bottom: 0.1875em double; }
+
+span.underline-red {
+  border-bottom: 0.125em dotted #ef5656; }
+
+span.underline-yellow {
+  border-bottom: 0.125em solid #e5d676; }
+
+span.underline-green {
+  border-bottom: 0.125em dashed #68b75f; }
+
+span.underline-teal {
+  border-bottom: 0.1875em double #45a5b5; }
+
+span.underline-blue {
+  border-bottom: 0.1875em dashed #3192d3; }
+
+span.underline-purple {
+  border-bottom: 0.1875em dotted #b286af; }
+
+/* span to change color text
+========================================================================== */
+/* makes text red */
+span.incorrect {
+  color: #da1b2c; }
+
+/* makes text green */
+span.correct {
+  color: #3b822e; }
+
+/* span.fill-in.
+========================================================================== */
+span.fill-in {
+  display: inline-block;
+  min-width: 3.125em;
+  border-bottom: 0.0625em solid #383838; }
+
+span.fill-in.word {
+  width: 6.25em; }
+
+span.fill-in.line {
+  display: block;
+  width: 95%;
+  margin-top: 1.25em; }
+
+span.fill-in.multiline {
+  display: block;
+  width: 100%;
+  margin-top: 1.25em;
+  height: 3.75em; }
+
+span.fill-in.multiline:before, .fill-in.multiline:after {
+  content: '';
+  display: block;
+  width: 100%;
+  border-top: 0.0625em solid #383838;
+  height: 1.875em; }
+
+li > span.fill-in.line {
+  display: inline-block;
+  margin-top: 0;
+  margin-right: 0.15%; }
+
+/* spans for font changes */
+span.serif {
+  font-family: SourceSerifPro, serif; }
+
+span.sans-serif {
+  font-family: SourceSansPro, sans-serif; }
+
+/* Styling for all variations of table elements
+========================================================================== */
+table {
+  background-color: #ffffff;
+  font-family: SourceSansPro, sans-serif;
+  border-collapse: collapse;
+  width: 100%; }
+
+th, td {
+  padding-left: 1.5625em;
+  padding-right: 1.5625em;
+  vertical-align: top; }
+
+th {
+  padding-top: 0.625em;
+  padding-bottom: 0.375em;
+  margin-bottom: 0;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 0.0625em solid #dddddd; }
+
+td {
+  padding-top: 0.625em;
+  padding-bottom: 0.6875em;
+  text-align: left;
+  border-bottom: 0.0625em solid #dddddd; }
+
+td.right, th.right {
+  text-align: right; }
+
+td.center, th.center {
+  text-align: center; }
+
+td.v1, th.v1 {
+  background-color: #cff3f9; }
+
+td.v2, th.v2 {
+  background-color: #e0f1ff; }
+
+td.v3, th.v3 {
+  background-color: #ffe6f3; }
+
+td.v4, th.v4 {
+  background-color: #dbfff3; }
+
+td.v5, th.v5 {
+  background-color: #ffe5d3; }
+
+.rule-r {
+  border-right: 0.125em solid #142A35; }
+
+.rule-b {
+  border-bottom: 0.125em solid #142A35; }
+
+table.zebra tr:nth-child(odd) {
+  background: #f8f8f8; }
+
+table.zebra thead tr {
+  background-color: #ffffff; }
+
+table.sectioned thead {
+  background: #eeeeee; }
+
+table.border, caption.border {
+  border: 0.0625em solid #dddddd; }
+
+table.border > caption, table.border > caption.border {
+  border-bottom: 0; }
+
+table.border td, table.border th {
+  border-left: 0.0625em solid #dddddd; }
+
+table.compact td, table.compact th {
+  padding: 0.3125em 0.625em 0.3125em 0.625em;
+  font-size: 0.8rem; }
+
+li table {
+  margin-bottom: 1em; }
+
+table > caption {
+  text-align: left;
+  padding-left: 0.625em; }
+
+table > caption > p {
+  font-size: 0.93rem;
+  font-family: SourceSansPro, sans-serif;
+  margin-top: 0;
+  text-align: left;
+  padding: 0.3125em 0.625em 0.3125em 0em; }
+
+figure > table > caption > p {
+  padding: 0.3125em 0.625em 0.3125em 0.625em; }
+
+table > caption > p > span.ordinal,
+table > caption > p > span.label,
+table > caption > span.ordinal,
+table > caption > span.label {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2; }
+
+table > caption > p > span.title,
+table > caption > span.title {
+  font-family: SourceSansPro, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2; }
+
+table.fixed {
+  table-layout: fixed; }
+
+/* Styling for equations and other math objects
+========================================================================== */
+div.informalequation {
+  font-family: STIX; }
+
+div.informalequation {
+font-family: STIX;
+overflow-y: auto;
+white-space: nowrap;
+word-break: keep-all;
+padding: 5px; }
+
+li > span.math:first-child {
+vertical-align: top;
+}
+
+span.math {
+  font-family: STIX; }
+
+span.chemistry {
+  white-space: nowrap;
+ }
+
+td p.eq-number, th p.eq-number {
+  padding: 0.5em; }
+
+  /* General styling for headings.
+Styles specific to a type of section or box will be grouped with those styles.
+========================================================================== */
+header {
+  page-break-after: avoid; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  font-family: SourceSansPro, sans-serif; }
+
+/* frontmatter and backmatter main titles */
+body.frontmatter > section > header > .title,
+body.backmatter > section > header > .title,
+section.end-of-section > header > .title {
+  background-color: #dddddd;
+  width: 100%;
+  padding: 0.625em 0.9375em; }
+
+body.frontmatter > section > header > .title.v1,
+body.backmatter > section > header > .title.v1,
+section.end-of-section > header > .title.v1 {
+  background-color: #45a5b5;
+  color: #080808;
+  width: 100%;
+  padding: 0.625em 0.9375em; }
+
+body.frontmatter > section > header > .title.v2,
+body.backmatter > section > header > .title.v2,
+section.end-of-section > header > .title.v2 {
+  background-color: #3192d3;
+  color: #080808;
+  width: 100%;
+  padding: 0.625em 0.9375em; }
+
+body.frontmatter > section > header > .title.v3,
+body.backmatter > section > header > .title.v3,
+section.end-of-section > header > .title.v3 {
+  background-color: #b26487;
+  color: #080808;
+  width: 100%;
+  padding: 0.625em 0.9375em; }
+
+body.frontmatter > section > header > .title.v4,
+body.backmatter > section > header > .title.v4,
+section.end-of-section > header > .title.v4 {
+  background-color: #5fb79c;
+  color: #080808;
+  width: 100%;
+  padding: 0.625em 0.9375em; }
+
+body.frontmatter > section > header > .title.v5,
+body.backmatter > section > header > .title.v5,
+section.end-of-section > header > .title.v5 {
+  background-color: #ff8a57;
+  color: #080808;
+  width: 100%;
+  padding: 0.625em 0.9375em; }
+
+/* chapter and part main titles */
+section.part > header {
+  background-color: #dddddd;
+  color: initial; }
+
+section.part > header.v1 {
+  background-color: #cff3f9; }
+
+section.part > header.v2 {
+  background-color: #e0f1ff; }
+
+section.part > header.v3 {
+  background-color: #ffe6f3; }
+
+section.part > header.v4 {
+  background-color: #dbfff3; }
+
+section.part > header.v5 {
+  background-color: #ffe5d3; }
+
+section.chapter > header {
+  background-color: #000000;
+  color: #f3f3f3; }
+
+section.chapter > header.v1 {
+  background-color: #205460; }
+
+section.chapter > header.v2 {
+  background-color: #004c72; }
+
+section.chapter > header.v3 {
+  background-color: #562135; }
+
+section.chapter > header.v4 {
+  background-color: #16664b; }
+
+section.chapter > header.v5 {
+  background-color: #dd5714; }
+
+section.part > header,
+section.chapter > header {
+  padding: 1.5625em;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box; }
+
+section.part > header > .title,
+section.chapter > header > .title {
+  font-family: SourceSerifPro, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.1; }
+
+/* main subtitles */
+p.subtitle {
+  padding-top: 0; }
+
+nav.toc > header > .title + p.subtitle,
+nav.toc-brief > header > .title + p.subtitle,
+section > header > .title + p.subtitle {
+  margin-top: 0.3125em; }
+
+section.part > header > .title + p.subtitle {
+  font-family: SourceSerifPro, serif;
+  font-size: 1.25rem;
+  margin-top: 1.875em;
+  margin-bottom: 0; }
+
+section.chapter > header > .title + p.subtitle {
+  font-family: SourceSerifPro, serif;
+  font-size: 1.25rem;
+  color: #f3f3f3;
+  margin-top: 1.875em;
+  margin-bottom: 0; }
+
+/* chapter and part main labels and ordinals */
+section.part > header > .title span.label,
+section.part > header > .title span.ordinal,
+section.chapter > header > .title span.label,
+section.chapter > header > .title span.ordinal {
+  font-family: SourceSansPro, sans-serif;
+  text-transform: uppercase;
+  font-size: 24px;
+  letter-spacing: 0.25em; }
+
+/* break the chapter title text into its own block, separate from the label/ordinal text */
+section.part > header > .title span.title,
+section.chapter > header > .title span.title, header span.title {
+  display: block; }
+
+/* subheadings */
+h1.v1, h2.v1, h3.v1, h4.v1, h5.v1, h6.v1 {
+  color: #205460; }
+
+h1.v2, h2.v2, h3.v2, h4.v2, h5.v2, h6.v2 {
+  color: #004c72; }
+
+h1.v3, h2.v3, h3.v3, h4.v3, h5.v3, h6.v3 {
+  color: #562135; }
+
+h1.v4, h2.v4, h3.v4, h4.v4, h5.v4, h6.v4 {
+  color: #16664b; }
+
+h1.v5, h2.v5, h3.v5, h4.v5, h5.v5, h6.v5 {
+  color: #dd5714; }
+
+/* Spacing around elements
+========================================================================== */
+/* Headings ------------------------------------*/
+section.sect2 > header > .b-head,
+section.sect3 > header > .c-head,
+section.sect4 > header > .d-head,
+section.sect5 > header > .e-head
+section > header > .level1,
+section > header > .level2,
+section > header > .level3,
+section > header > .level4 {
+  margin-top: 1.5em;
+  margin-bottom: 0; }
+
+/* Media queries for responsive sizing ===== */
+/* max width ------five columns (two marginal, 3 main body) -------------*/
+@media (min-width: 711px) {
+  body {
+    padding: 2em; }
+
+  section > p,
+  section > header,
+  section > ol, section > dl,
+  section > ul, div.copyright, div.publisher,
+  section.chapter > nav, section.part > nav, section.reading > nav, section.toc > nav, section.toc-brief > nav,
+  section > aside.ftnote, section > aside.bibliography, section > aside.footnotes,
+  section > aside.keyword, section > aside.glossary {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  section > blockquote {
+    margin-left: 23%;
+    max-width: 57%; }
+
+
+  section.c1   blockquote, section.c2   blockquote, section.c3   blockquote, section.c4   blockquote, section.c5  blockquote {
+  font-family: inherit;
+  margin-left: 1.563em;
+  font-size: 90%;
+  max-width: 100%; }
+
+  p, blockquote, ol, ul {
+    max-width: 710px; }
+
+  figure.c1, aside.c1, img.c1 {
+    max-width: 17%;
+    display: inline-block;
+    min-width: 191px; }
+
+  div.c1 {
+    width: 17%;
+    display: inline-block; }
+
+  figure.c2, img.c2, div.c2, aside.c2, table.c2 {
+    width: 37%;
+    display: inline-block; }
+
+  .c3, figure.c3, img.c3, div.c3, aside.c3, section.example.c3, table.c3 {
+    width: 57%; }
+
+  .c4, figure.c4, img.c4, div.c4, section.example.c4, table.c4 {
+    width: 77%;
+    display: inline-block; }
+
+  .c5, figure.c5, img.c5, div.c5, section.c5 > header, section.end-of-section > header, table.c5 {
+    width: 100%;
+    display: block;
+    clear: both; }
+
+  div > section > p, div > section > header, section.c4 > header, section.c5 > header, aside.c3 > aside.c3,
+  section.c3 > header, section.c4 > header, section.c5 > header, section.c3 > section.reading header,
+  section.c3 > section.reading p,
+  section.example p, section.example header, section.example ol,
+  section.example ul, section.example aside.glossary, section.example dl,
+  section.example section.subsect1 > header, section.example section.subsect1 > p,
+  section.example section.subsect2 > header, section.example section.subsect2 > p,
+  section.example section.subsect3 > header, section.example section.subsect3 > p,
+  section.example section.subsect4 > header, section.example section.subsect4 > p,
+  section.example section.subsect5 > header, section.example section.subsect5 > p,
+  body.frontmatter > section > header, body.backmatter > section > header, section.end-of-section > header {
+    max-width: 100%; }
+
+  section.chapter > header, section.part > header {
+    max-width: 1124px;
+    height: 440px;
+    padding-top: 8.75em;
+    margin-bottom: 1.5625em; }
+
+  section.chapter > header.intro, section.part > header.intro {
+    max-width: 824px;
+    height: 540px;
+    padding-top: 8.75em;
+    margin-bottom: 1.5625em;
+    position: absolute;
+    z-index: 1; }
+
+  section.chapter > figure.intro, section.part > figure.intro {
+    max-width: 1124px;
+    margin-bottom: 1.5625em;
+    position: relative;
+    z-index: 2;
+    background: transparent; }
+
+  section.chapter > header.intro > h1,
+  section.chapter > header.intro > h2,
+  section.chapter > header.intro > p,
+  section.part > header.intro > h1,
+  section.part > header.intro > p {
+    max-width: 48%; }
+
+  section.chapter > figure.intro > img,
+  section.part > figure.intro > img {
+    text-align: right;
+    margin-right: 0;
+    margin-left: auto;
+    height: 540px;
+    max-width: 50%; }
+
+  section.chapter > figure.intro > figcaption > p {
+    margin-left: 50%; }
+
+  figure.intro > figcaption, section.chapter > nav, section.part > nav, figure.intro + *, section.chapter > nav, section.part > nav, section.learning-objectives {
+    clear: both; }
+
+  figure.left, img.left, aside.left, div.left {
+    float: left;
+    text-align: left;
+    margin-right: 1em;
+    margin-left: 0;
+    margin-bottom: 1em;
+    margin-top: 1em; }
+
+  figure.right, img.right, aside.right, div.right {
+    float: right;
+    text-align: left;
+    margin-left: 1em;
+    margin-right: 0;
+    margin-bottom: 1em;
+    margin-top: 1em; }
+
+  section > aside.main-flow, section > img.main-flow, section > figure.main-flow, section > div.main-flow, section.main-flow, section > table.main-flow, section > div.poem {
+    margin-left: 20%; } }
+/* medium width -----3 columns, 2 marginal-------------------*/
+@media (min-width: 500px) and (max-width: 710px) {
+  body {
+    padding: 2em; }
+
+  section > p,
+  section > header,
+  section > blockquote,
+  section > ol,
+  section > ul, aside.main-flow, img.main-flow, figure.main-flow, div.main-flow, section.main-flow {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto; }
+
+  .c1 {
+    width: 25%; }
+
+  .c2 {
+    width: 50%; }
+
+  .c3, .c4, .c5 {
+    width: 100%;
+    display: block; }
+
+  figure.c3 {
+    width: 75%;
+    display: block; }
+
+  figure.left, img.left, aside.left, div.left {
+    float: left;
+    text-align: left;
+    margin-right: 25px;
+    margin-left: 0px;
+    margin-bottom: 25px;
+    margin-top: 25px; }
+
+  figure.right, img.right, aside.right, div.right {
+    float: right;
+    text-align: left;
+    margin-left: 1.5625em;
+    margin-right: 0;
+    margin-bottom: 1.5625em;
+    margin-top: 1.5625em; }
+
+  aside.main-flow, img.main-flow, figure.main-flow, div.main-flow, section.main-flow, table.main-flow {
+    margin-left: auto;
+    margin-right: auto; }
+
+  section.chapter > header + figure {
+    margin-bottom: 1.25em; } }
+/* mobile width ------------single column----------------*/
+@media (max-width: 499px) {
+  body {
+    padding: 2em; }
+
+  .c2, .c3, .c4, .c5 {
+    width: 100% !important;
+    max-width: 100% !important; }
+
+  .c1 {
+    width: 50%;
+    min-width: 191px; }
+
+  aside.left, aside.right,
+  figure.left, figure.right,
+  div.right, div.left,
+  section.right, section.left,
+  aside.main-flow, img.main-flow,
+  figure.main-flow, div.main-flow,
+  section.main-flow, table.main-flow {
+    float: none;
+    margin-left: 0; }
+
+  h1, h2, h3, h4, h5, h6 {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -epub-hyphens: auto;
+    -ms-hyphens: auto;
+    adobe-hyphenate: auto; } }
+/* amzn media queries ----------*/
+@media amzn-kf8 {
+  body {
+    margin-left: 0;
+    margin-right: 0;
+    text-indent: 0; }
+
+  aside.hidden {
+    position: initial !important;
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+    clip: initial;
+    background-color: #f3f3f3;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    padding: 1em;
+    margin: 1em; }
+    aside.hidden::before {
+      content: "Description";
+      font-weight: bold; } }
+@media amzn-mobi {
+  body {
+    margin-left: 0;
+    margin-right: 0;
+    text-indent: 0; }
+
+  img {
+    width: 99%;
+    max-height: 100%; }
+    img.logo, img.inline {
+      width: auto; }
+
+  aside.hidden {
+    position: initial !important;
+    height: 100%;
+    width: 100%;
+    overflow: initial;
+    clip: initial;
+    background-color: #f3f3f3;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    padding: 1em;
+    margin: 1em; }
+    aside.hidden::before {
+      content: "Description";
+      font-weight: bold; } }
+/* center alignment ----------*/
+figure.center, table.center, div.center, aside.center {
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+
+/*# sourceMappingURL=template.css.map */
+
+table.c3, table.c4, table.c5, table.c2, table.center {display: table;}
+
+.keep {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+li.hanging-indent {
+  text-indent: -1.5625em;
+  margin-left: 1.5625em; }
+
+ol.converted-assessment
+{
+	list-style-type: none;
+	}
+
+li img.dataset {width: initial; height: initial;}
+
+
+.crun1
+{
+margin-top: -2.5em !important;
+vertical-align: top;
+margin-left: 2.5em !important;
+}
+
+.crun1a
+{
+margin-top: -3.5em !important;
+vertical-align: top;
+margin-left: 3.5em !important;
+}
+
+.crun2
+{
+margin-top: -3.5em!important;
+margin-left: 8em!important;
+}
+.crun3
+{
+margin-top: -3.5em!important;
+margin-left: 7em!important;
+}
+
+.crun4
+{
+    margin-top: -2.5em !important;
+    vertical-align: top;
+    margin-left: 3.5em !important;
+}
+
+.crun5
+{
+    margin-top: -3.5em!important;
+vertical-align: top;
+    margin-left: 5.5em!important;
+}
+
+.crun6
+{
+    margin-top: -0.5em!important;
+    vertical-align: top;
+}
+
+.crun7
+{
+    margin-top: -3.5em!important;
+    margin-left: 6.5em!important;
+}
+
+.crun9
+{
+    margin-top: -3.5em!important;
+    margin-left: 6em!important;
+}
+
+.crun10
+{
+margin-top: -0.5em !important;
+    vertical-align: top;
+    margin-left: 0.5em !important;
+}
+
+.ssdi
+{
+margin-left: -2.5em!important;
+}
+.vtm
+{
+margin-left: 10em!important;
+}
+.vtm1
+{
+font-size: 0.9em;
+}
+
+iframe.assessment {max-width: 100%;}
+
+.crun3a
+{
+    margin-top: -3.5em !important;
+    margin-left: 5em !important;
+    vertical-align: middle;
+}
+
+.crun11
+{
+    margin-top: -2.5em!important;
+    vertical-align: top;
+    margin-left: 5.5em!important;
+}
+
+.mrg1a
+{margin-right: 0.3em;}
+
+.mrgb1
+{    margin-bottom: 0em;
+margin-right: 0.3em;}
+
+.mrl1
+{
+margin-top: -3.6em !important;
+margin-left: 8em !important;
+}
+
+.mt1
+{
+padding-top: 1.2em!important;
+}
+
+.fs1
+{
+font-size: 113%!important;
+position: relative!important;
+}
+
+.dib
+{
+display:inline-block;
+}
+
+.pl
+{
+padding-left: 1.3em!important;
+}
+
+.ml5{    margin-top: -3.5em!important;
+    margin-left: 7em!important;}
+
+.bl1
+{
+display:inline-block;
+}
+
+.mmm1
+{
+margin-left: 0.3em!important;
+}
+
+.male1{margin-left: -0.1em;}
+
+.link1{display:inline-block;}
+.ml1{margin-left: -2.5em;}
+
+.mrt2{margin-top: -0.7em;}
+.mrb2{margin-bottom: -1.1em;}
+.mrb12{margin-bottom: -0.1em;}
+.mrb3{margin-bottom: -0.03em;}
+.mrla1{margin-left: 0.3em!important;}
+.table13{table-layout: fixed!important;}
+.cap1{font-variant: normal!important;}
+.mathcap{font-variant: normal!important;}
+.mrg01{margin-left: 0.3em!important;}

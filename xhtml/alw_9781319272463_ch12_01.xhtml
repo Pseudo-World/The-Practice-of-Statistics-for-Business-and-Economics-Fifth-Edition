@@ -1,0 +1,751 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:svg="http://www.w3.org/2000/svg" xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" id="smwo0e6d7d9d1dc92216cb3f4ea44ac7" style="min-width: 100%; width: 1px; text-size-adjust: 100%; font-size: 100%; transform-origin: left top;">
+  <head style="display: none;"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../css/alw_9781319272463.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common/lm_ui.css" type="text/css" rel="stylesheet" />
+    <script src="../frost_widgets_data/glossary.js" type="text/javascript"></script>
+    <script src="../javascript/jquery.min.js" type="text/javascript"></script>
+    <script src="../javascript/lm_popup.js" type="text/javascript"></script>
+    <script src="../javascript/lm_frost_listner_min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>Chapter 12 Inference for Regression</title>
+  <script src="../javascript/tex-mml-chtml.min.js" id="MathJax-script"></script><style type="text/css" media="print">body > * { display: none !important; height: 0px !important; width: 0px !important; overflow: hidden; }body:before { content: "To print, please use the print page range feature within the application."; display: block !important;}</style><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 &amp; Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-math {
+  display: inline-block;
+  text-align: left;
+  line-height: 0;
+  text-indent: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  font-size-adjust: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  word-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+  padding: 1px 0;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="CHTML"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+  padding: 0;
+}
+
+mjx-container[jax="CHTML"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="CHTML"][justify="right"] {
+  text-align: right;
+}
+
+mjx-mrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-inferredMrow {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mi {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mo {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-stretchy-h {
+  display: inline-table;
+  width: 100%;
+}
+
+mjx-stretchy-h > * {
+  display: table-cell;
+  width: 0;
+}
+
+mjx-stretchy-h > * > mjx-c {
+  display: inline-block;
+  transform: scalex(1.0000001);
+}
+
+mjx-stretchy-h > * > mjx-c::before {
+  display: inline-block;
+  width: initial;
+}
+
+mjx-stretchy-h > mjx-ext {
+  overflow: hidden;
+  width: 100%;
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c::before {
+  transform: scalex(500);
+}
+
+mjx-stretchy-h > mjx-ext > mjx-c {
+  width: 0;
+}
+
+mjx-stretchy-h > mjx-beg > mjx-c {
+  margin-right: -.1em;
+}
+
+mjx-stretchy-h > mjx-end > mjx-c {
+  margin-left: -.1em;
+}
+
+mjx-stretchy-v {
+  display: inline-block;
+}
+
+mjx-stretchy-v > * {
+  display: block;
+}
+
+mjx-stretchy-v > mjx-beg {
+  height: 0;
+}
+
+mjx-stretchy-v > mjx-end > mjx-c {
+  display: block;
+}
+
+mjx-stretchy-v > * > mjx-c {
+  transform: scaley(1.0000001);
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border: 0px solid transparent;
+  overflow: hidden;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c::before {
+  width: initial;
+  box-sizing: border-box;
+}
+
+mjx-stretchy-v > mjx-ext > mjx-c {
+  transform: scaleY(500) translateY(.075em);
+  overflow: visible;
+}
+
+mjx-mark {
+  display: inline-block;
+  height: 0px;
+}
+
+mjx-mn {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-msub {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-munder {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-over {
+  text-align: left;
+}
+
+mjx-munder:not([limits="false"]) {
+  display: inline-table;
+}
+
+mjx-munder > mjx-row {
+  text-align: left;
+}
+
+mjx-under {
+  padding-bottom: .1em;
+}
+
+mjx-mover {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-mover:not([limits="false"]) {
+  padding-top: .1em;
+}
+
+mjx-mover:not([limits="false"]) > * {
+  display: block;
+  text-align: left;
+}
+
+mjx-semantics {
+  display: inline-block;
+  text-align: left;
+}
+
+mjx-c {
+  display: inline-block;
+}
+
+mjx-utext {
+  display: inline-block;
+  padding: .75em 0 .2em 0;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("../css/fonts/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("../css/fonts/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("../css/fonts/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("../css/fonts/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("../css/fonts/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("../css/fonts/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("../css/fonts/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("../css/fonts/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("../css/fonts/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("../css/fonts/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("../css/fonts/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("../css/fonts/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("../css/fonts/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("../css/fonts/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("../css/fonts/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("../css/fonts/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("../css/fonts/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("../css/fonts/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("../css/fonts/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("../css/fonts/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("../css/fonts/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("../css/fonts/MathJax_Vector-Bold.woff") format("woff");
+}
+
+mjx-stretchy-h.mjx-cAF mjx-ext mjx-c::before {
+  content: "\AF";
+  padding: 0.59em 0 0 0;
+}
+
+.mjx-stretched mjx-c.mjx-c2C9::before {
+  content: "\AF";
+}
+
+mjx-stretchy-h.mjx-c2C9 mjx-ext mjx-c::before {
+  content: "\AF";
+  padding: 0.59em 0 0 0;
+}
+
+.mjx-stretched mjx-c.mjx-c203E::before {
+  content: "\AF";
+}
+
+mjx-stretchy-h.mjx-c203E mjx-ext mjx-c::before {
+  content: "\AF";
+  padding: 0.59em 0 0 0;
+}
+
+mjx-c.mjx-c2B::before {
+  padding: 0.583em 0.778em 0.082em 0;
+  content: "+";
+}
+
+mjx-c.mjx-c2C::before {
+  padding: 0.121em 0.278em 0.194em 0;
+  content: ",";
+}
+
+mjx-c.mjx-c2E::before {
+  padding: 0.12em 0.278em 0 0;
+  content: ".";
+}
+
+mjx-c.mjx-c30::before {
+  padding: 0.666em 0.5em 0.022em 0;
+  content: "0";
+}
+
+mjx-c.mjx-c31::before {
+  padding: 0.666em 0.5em 0 0;
+  content: "1";
+}
+
+mjx-c.mjx-c1D44F.TEX-I::before {
+  padding: 0.694em 0.429em 0.011em 0;
+  content: "b";
+}
+
+mjx-c.mjx-c1D45D.TEX-I::before {
+  padding: 0.442em 0.503em 0.194em 0;
+  content: "p";
+}
+
+mjx-c.mjx-c1D465.TEX-I::before {
+  padding: 0.442em 0.572em 0.011em 0;
+  content: "x";
+}
+
+mjx-c.mjx-c1D466.TEX-I::before {
+  padding: 0.442em 0.49em 0.205em 0;
+  content: "y";
+}
+
+mjx-c.mjx-c1D6FD.TEX-I::before {
+  padding: 0.705em 0.566em 0.194em 0;
+  content: "\3B2";
+}
+
+mjx-c.mjx-c1D707.TEX-I::before {
+  padding: 0.442em 0.603em 0.216em 0;
+  content: "\3BC";
+}
+
+mjx-c.mjx-c2C6.TEX-S1::before {
+  padding: 0.744em 0.556em 0 0;
+  content: "\2C6";
+}
+</style></head>
+  <body epub:type="bodymatter" class="bodymatter" id="noth46d31a03aa4d46cc090a8f5325bd" data-lo-framework-id="" style="overflow: auto;">
+    <section class="chapter" role="doc-chapter" epub:type="chapter" id="ch12_sec_1">
+      <header class="intro v1" id="wyijc0a53bd1ca95c1dd750ca0f98955">
+        <h1 class="title" epub:type="title" id="imukd945b27a01be0f21f2eb8135c9fd">
+          <span epub:type="pagebreak" role="doc-pagebreak" id="page569" aria-label="569" title="569"></span>
+          <span epub:type="label" class="label" id="vekf9efaea99bacc452668ebd1bd25d8">CHAPTER </span>
+          <span epub:type="ordinal" class="ordinal" id="oezj779d91a61717d351f1d9fe181bf9">12 </span>
+          <span class="title" id="ucmcca8887dec4cf72cba242559009aa">Inference for Regression</span>
+        </h1>
+      </header>
+      <figure class="figure lm_img_lightbox intro" id="ch12_fig_1" data-pswp-uid="1">
+        <img class="figure" src="../images/psbe5e_co_12_230831.png" alt="image pop up. Press enter to access the pop up" aria-describedby="image-desc1a" id="iopk90510513040230235700cb22d9d5" tabindex="0" />
+      </figure>
+      <aside class="hidden" id="image-desc1a" title="hidden">
+        <p class="noindent" id="huon3e14adeac1bf6c09bbddf9573199">This is a sample content for Long ALT text</p>
+      </aside>
+      <nav epub:type="toc-brief" class="toc-brief" id="aswie5f48cb7e48e70e6263ddc353e92">
+        <header id="enlu5ad40d46091dae6e0e6688af7e5a">
+          <h2 epub:type="title" class="title v2" id="beap0bd0582fdf9669bda4b862a030d3">CHAPTER OUTLINE</h2>
+        </header>
+        <ul class="ul-no-mark" id="yafxec7eb28fcfdc8c205cd3dde96901">
+          <li id="uskp440a8252cae4b761ecbf4a1310c9">
+            <a class="crossref" href="alw_9781319272463_ch12_02.xhtml#ch12_sec_1_2" id="unidch12_1" style="overflow-wrap: break-word;"><span epub:type="ordinal" class="ordinal" id="twzya12232c096d96eff8ea6b3fb999a">12.1 </span>Inference about the Regression Model</a>
+          </li>
+          <li id="imzxe4a9dcc950a47d571423b967064a">
+            <a class="crossref" href="alw_9781319272463_ch12_03.xhtml#ch12_sec_1_4_7_1_1_1" id="unidch12_2" style="overflow-wrap: break-word;"><span epub:type="ordinal" class="ordinal" id="knth64602e578d62c490a541b46c4902">12.2 </span>Using the Regression Line</a>
+          </li>
+          <li id="bwlne4fec4e393cda265b744701e40b1">
+            <a class="crossref" href="alw_9781319272463_ch12_04.xhtml#ch12_sec_1_4_8_1_1_1_1" id="unidch12_3" style="overflow-wrap: break-word;"><span epub:type="ordinal" class="ordinal" id="ajrh1b455cade6acbe2468942fa8a0bb">12.3 </span>Some Details of Regression Inference</a>
+          </li>
+        </ul>
+      </nav>
+      <section epub:type="introduction" role="doc-introduction" class="introduction" id="CH01-sec2">
+        <header id="mftn6a94d1156bf394b89fff5616527e">
+          <h2 class="a-head v3" id="diwwb49e4a13f84b8de086bb04d7f3ac">Introduction</h2>
+        </header>
+        <p class="noindent" id="wfqw30b8f56710368666fbc9d0830d37">One of the most common uses of statistical methods in business and economics is to predict, or forecast, a response based on one or several explanatory (predictor) variables. In predictive analytics, these forecasts are then used by companies to make decisions. Here are some examples:</p>
+        <ul class="ul-bullet-list" id="cyyua4807701f0a62186f8d91bfd0383">
+          <li id="incb14c51f73d059a2dd52ecb6a44834">Lime uses the day of the week, hour of the day, and current weather forecast to predict scooter-and bike-sharing demand around a city. This information is incorporated into the company’s nightly redistribution strategy.</li>
+          <li id="xlrw51cfb255d2961350b276a6a755b0">Amazon wants to describe the relationship between dollars spent in its Digital Music department and dollars spent in its Online Grocery department by 18- to 25-year-olds this past year. This information will be used to determine a new advertising strategy.</li>
+          <li id="bhcc4afd65244d4ee62066d6ff198104">Panera Bread, when looking for a new store location, develops a model to predict profitability using the amount of traffic near the store, the proximity to competitive restaurants, and the average income level of the neighborhood.</li>
+        </ul>
+        <p class="indent" id="lbho5476f1d9e5bc7f45b949563345b1">Prediction is most straightforward when there is a straight-line relationship between a quantitative response variable <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0001.png" aria-label="y"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="0" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="yagm65812c0114469bdb8d8c4aec5787" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ambxe1c667c97d4830530a0f4bca33d0"><mjx-mrow id="nymg4516b01f0b70784f8579a8d5b6b9"><mjx-mi class="mjx-i" id="cvckdf19d062f9ab5cb0ba86c1f7da44"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and a single quantitative explanatory variable <span class="chemistry" id="pdgk46fc1b7f2589bffa9a72219f7b89"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0002.png" aria-label="x full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="1" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="nwmze3cc52d3c3facd88bc6b70307c1f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="vvvo113739a91d14539ccefbd6c059d6"><mjx-mrow id="mpck48dfed9545beffdf99c1275d5873"><mjx-mi class="mjx-i" id="fjmeccb25139b18bda806b7f4ed1ce2e"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="qpsn12f03ad9fb46586d34af65de5c25"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> This is <strong class="important" id="teig45647c3a83df3aab501568f87543">simple linear regression,</strong> the topic of this chapter. In <a class="external" href="alw_9781319272463_ch13_01.xhtml#ch13_sec_1" id="ch13-ext1" style="overflow-wrap: break-word;">Chapter 13</a>, we will consider the more common setting involving more than one explanatory (predictor) variable. Because both settings share many of the same ideas, we introduce inference for regression under the simple setting.</p>
+        <aside epub:type="tip" role="doc-tip" class="tip c1 left v1" id="ch12_asidetip_1" title="tip" aria-label="tip">
+          <p class="noindent" id="pwcm3ad67a509e0ba46a46a9429a191e">
+            <img class="decorative size-med inline" role="presentation" aria-hidden="true" src="../images/Reminder_02.png" alt="" id="nqwf3f86c5ae7970c7b73b0b1a7aadf9" />
+            <strong class="important" id="wkez10ceb8fbe1ff761663dce059c89a">least-squares line, <a class="crossref" href="alw_9781319272463_ch02_04.xhtml#page83" id="unidch12_4" style="overflow-wrap: break-word;">p. 83</a></strong>
+          </p>
+        </aside>
+        <p class="indent" id="jwwsbdfba8956d815da55716800ff4aa"><span epub:type="pagebreak" role="doc-pagebreak" id="page570" aria-label="570" title="570"></span>In <a class="external" href="alw_9781319272463_ch02_01.xhtml#ch02_sec_1" id="ch2-ext2" style="overflow-wrap: break-word;">Chapter 2</a>, we saw that the least-squares line can be used to predict <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0003.png" aria-label="y"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="2" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="rycle12c8161e4b4c1c8cd6f72450d71" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="haobeba7b45b9c1c60e1ad0e46719bdc"><mjx-mrow id="fxridf92e589787c89b254a1e3cdfca9"><mjx-mi class="mjx-i" id="xcjodb3e62a99ffec6dee63a1644c931"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> for a given value of <span class="chemistry" id="ucewf8ab8e710ac94b0c8fbb93eab42a"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0004.png" aria-label="x full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="3" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hqce826111f99eb29f9467a77860d2bc" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="bxgy97dcff548cc03e8405baf981d983"><mjx-mrow id="vzsbf7282ed1c9e89d63877b868fa5dd"><mjx-mi class="mjx-i" id="faic67ebcfb9650de6cf830146e7642d"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="jozcf984b7d3058fe25b89bbaab80385"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> Now we consider the use of significance tests and confidence intervals in this setting. To do this, we will think of the least-squares line, <span class="chemistry" id="xjjsb81aa13553a42031705f726117f7"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0005.png" aria-label="b sub zero plus b sub one times x comma"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="4" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="oqrc77c7b6455afbe52ea3bb0a0306fe" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ulnna080a612db6630357b95e641b584"><mjx-mrow id="dtfz781bd80f8ab1d4fcf2db6feb2a8c"><mjx-msub id="eilc4387f16e750d3954198eee416bb0"><mjx-mi class="mjx-i" id="wauf399d7608a3e615e6b588a87956c4"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="lago494eaf7f4978560c96889370c4de"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3" id="ifcj054656ae73f130eb4768194a74b0"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3" id="lowu0e51164bdc35dc46fec37a284c49"><mjx-mi class="mjx-i" id="spce716bbfab41a16967085fa5fb4ca1"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="qsmpe943dd60486a1fc5a9fe3f87cac5"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mi class="mjx-i" id="mdrsf722ddf731108563c1428f65edf0"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="oygi07c20ef0a6ec6eff9cf0d20e5615"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>b</mi><mn>0</mn></msub><mo>+</mo><msub><mi>b</mi><mn>1</mn></msub><mi>x</mi><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> as an estimate of a regression line for the population—just as in <a class="external" href="alw_9781319272463_ch08_01.xhtml#ch08_sec_1" id="ch8-ext8" style="overflow-wrap: break-word;">Chapter 8</a>, where we viewed the sample mean <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0006.png" aria-label="x macron"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="5" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fkvx10ac4bbdc357b7dd485faf3f9c7f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fviuf99e36673281c9187e146caaaf84"><mjx-mrow id="twar5504517e4a7697f94def54ce622d"><mjx-mover id="wcdd2a82cf1a24575b1952bde159a895"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.028em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" id="gpruabf00f20ab6c6567869101fee107"><mjx-stretchy-h class="mjx-cAF" style="width: 0.572em;"><mjx-ext><mjx-c></mjx-c></mjx-ext></mjx-stretchy-h></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="ktrob1e20ae530177e0cc542d811a3da"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mover accent="true"><mi>x</mi><mo stretchy="true">¯</mo></mover></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> as the estimate of the population mean <span class="chemistry" id="kbcvfc9aeaee976a8b4c2ec9eb8db34c"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0007.png" aria-label="mu comma"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="6" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jnlqe71e0a1003135a999e9ef9761161" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="dpul6173df9abcb5842d05ee8519e4b0"><mjx-mrow id="wytt21265f28b9f3d8fc5ce6fdc283dd"><mjx-mi class="mjx-i" id="uedof54448486a7f7a72c8b3a9f47579"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="mhxnb341b08263b11117052f3d94eba6"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>μ</mi><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> and in <a class="external" href="alw_9781319272463_ch10_01.xhtml#ch10_sec_1" id="ch10-ext10" style="overflow-wrap: break-word;">Chapter 10</a>, where we viewed the sample proportion <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0008.png" aria-label="p hat"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="7" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="leoq2b543bffa57e6ebb06b3c91ebabe" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="tsbh5906affc3b62f90c47af56f6aa21"><mjx-mrow id="wkgk70c6ddf54d69f9082f746829a3ff"><mjx-mover id="opud33d5b2e31038457a28a4bb184075"><mjx-over style="padding-bottom: 0.105em; padding-left: 0.335em; margin-bottom: -0.551em;"><mjx-mo class="mjx-sop" id="slid27fea82dba36db14aee5aced295e" style="width: 0px; margin-left: -0.278em;"><mjx-c class="mjx-c2C6 TEX-S1"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i" id="cjudea96abb8ccdce618ed0b6d4556bb"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mover accent="true"><mi>p</mi><mo>^</mo></mover></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> as the estimate for the population proportion <span class="chemistry" id="zelpccea4156b620853a40a4792d1e5e"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0009.png" aria-label="p full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="8" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="utuhecdc503d59a81045443311213e12" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mzbw26e2ae730c239dbe2ef6e026e690"><mjx-mrow id="eozrd5912d514e3d39e8fe3e6e369a18"><mjx-mi class="mjx-i" id="grcdf380f0dfad9ccd3b20228e2b3048"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="zfeu2a1142257cb0f5de127fdba6413d"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>p</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span></p>
+        <aside epub:type="tip" role="doc-tip" class="tip c1 left v1" id="ch12_asidetip_2" title="tip" aria-label="tip">
+          <p class="noindent" id="mcne63c15aae6a76957be1e212e13874">
+            <img class="decorative size-med inline" role="presentation" aria-hidden="true" src="../images/Reminder_02.png" alt="" id="ywaj52399ca00cfaa48f1b8b2aeca49f" />
+            <strong class="important" id="cjvi9617ef2c5685201dd71f340c8ccc">parameters and statistics, <a class="crossref" href="alw_9781319272463_ch06_02.xhtml#page295" id="unidch12_5" style="overflow-wrap: break-word;">p. 295</a></strong>
+          </p>
+        </aside>
+        <p class="indent" id="smmb975c26e11773675f9588844b1e44">We write the population regression line as <span class="chemistry" id="ysxbf25af3e55825a2c4cb0779d0d8c5"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0010.png" aria-label="beta sub zero plus beta sub one times x full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="9" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="soswa9940a0fb7a8d3f9ecdb30fd6392" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="mjdk49401c0a923e507fda21690e6ecb"><mjx-mrow id="ziat1ff2c40ffd8610e877202c7c3d41"><mjx-msub id="qavofcbce1e7eba19619fd8fbdf8fe18"><mjx-mi class="mjx-i" id="nqow60c615f309a1e78cacf84560d933"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="fwsp878e40b41acf6bb0ba549983b988"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3" id="oqupfca56966ca979cd6117579dfd893"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3" id="ftmh57f85f285ecda536485ce26ce968"><mjx-mi class="mjx-i" id="hqlc5f6ec0db9e2599cfe8cd2abf0d20"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="mqzi01b3c339459008a26aead6975f26"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mi class="mjx-i" id="wdyi3b67b1e7b8a9982e33bc1ba197e6"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="mhzra04579025c3951e24affedccae89"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo>+</mo><msub><mi>β</mi><mn>1</mn></msub><mi>x</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> The numbers <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0011.png" aria-label="beta sub zero"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="10" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fppe0bdf5000f97b75ead68647e24920" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="sdmt49e6a9fb8574b88bae3719f568d6"><mjx-mrow id="odun9b0aa84f9972e17157fb902d3a2c"><mjx-msub id="kykw651ebe87192e620585437e9b80f7"><mjx-mi class="mjx-i" id="nput10e3057647c329c1561c7d30c4cb"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="yyhi769d568674ae1cf890fbb49c3556"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0012.png" aria-label="beta sub one"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="11" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="yduh18cf1d12fd0a907f164ce28f5465" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="shqx219c65d3af076282885992a03b59"><mjx-mrow id="johnfc85f60a1434089dce14ed9b4cd5"><mjx-msub id="tmys288fe5ade08274701136e11e4b27"><mjx-mi class="mjx-i" id="tycfbc30491ddb52994beb49c9ef3665"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="xmza7a45eaacbb7cc1271d9b2649489f"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> are <i class="semantic-i" id="wrliad59709ca2dd64a7b7df200f7a10">parameters</i> that describe this population line. The numbers <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0013.png" aria-label="b sub zero"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="12" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="qkxv9e54b3708f38a73d11d11b5a9880" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="tehm947a005a7f0c8405cc426debb4b9"><mjx-mrow id="udxx9d62dca8cbe30a6aebad07d55b09"><mjx-msub id="bjulbcf4c56dfa7f7f28d70667707825"><mjx-mi class="mjx-i" id="qfzsb8b14ec72e8a4de5960d29c4a7a3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="aime6a470205e29ad40af28686c7fbd0"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>b</mi><mn>0</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0014.png" aria-label="b sub one"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="13" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hhiv45910c2f12382da383c2a0f3cc02" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="auuv939234586f45f3e7c0dd39ff9962"><mjx-mrow id="sktw51461e6351a7e2e02d890a3264aa"><mjx-msub id="yvef50581c248ecd6a646ea6cc718c13"><mjx-mi class="mjx-i" id="gpvr011de5a07ad75cf588deda994f73"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="zsbx1c67055d41251dadf5fb4857f7f9"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> are <i class="semantic-i" id="zyhn295e7f6fd0831f7e2cd6247d7633">statistics</i> calculated by fitting a line to a sample. The fitted intercept <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0015.png" aria-label="b sub zero"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="14" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="fprbf957b6cf4ae57cc036e18543b23f" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="eencd8c1990bdcb85cdcceccb1361ba1"><mjx-mrow id="fqkt09c19f3b0d940b10c1eeec52e508"><mjx-msub id="tejv72ef2a8058dd077cca099cc68ce8"><mjx-mi class="mjx-i" id="odjp4891a4e882e04176e8860ebf253a"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="bswm9060be5cb301b0135437fbb578b2"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>b</mi><mn>0</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> estimates the intercept of the population line <span class="chemistry" id="xknx1c4e2eb31627f023ce35eb639c49"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0016.png" aria-label="beta sub zero comma"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="15" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ilnfb10e93d73c52d426fc78014def6c" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="rrlqb36a12e89089b42f6824c27d9478"><mjx-mrow id="yceydad8b66e950f5d8013636eabf2d9"><mjx-msub id="cvyt0292f92c05d173abcde746b5245d"><mjx-mi class="mjx-i" id="oply990d98e63b1fdc2fac50f680f729"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="dcabd4cfbb609f9303a75c51d275b3ec"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" rspace="3" id="fyqvb4153d73bf4856c686d4570d1e29"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo lspace="0">,</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> and the fitted slope <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0017.png" aria-label="b sub one"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="16" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="vmpu6ce49d48ee63e93864ccf6b08673" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ihdt39b0018ad05ba17ad74514aa0bb1"><mjx-mrow id="zaiec8ca7b7f235950e862bd12088750"><mjx-msub id="ttsdcf1d655fb84288a38f7d2295eaab"><mjx-mi class="mjx-i" id="knvt3adb416ea22f8e0292dd460a9c88"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="tooh716de79a1a39b40c0d585676008b"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> estimates the slope of the population line <span class="chemistry" id="hrmsb1f652d20289c4d8992d61e7edb8"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0018.png" aria-label="beta sub one full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="17" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="uytffa8f80db2173c9a4f059522a1a20" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qjwf5ee121092dd41aef2ad914c7cba3"><mjx-mrow id="jwnfd53979aa5baf6c5c478acfa3bf15"><mjx-msub id="shzqdd83cfe34d3b459912ac9f98c0e4"><mjx-mi class="mjx-i" id="qgxwf3d3f6978a26679f9f5aec2777b4"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="wggnd54a1b32cf96edbefbae95155de3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" rspace="3" id="ytmg34ec60e4c642dba6fa395cf71580"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span></p>
+        <aside epub:type="tip" role="doc-tip" class="tip c1 left v1" id="ch12_asidetip_3" title="tip" aria-label="tip">
+          <p class="noindent" id="gxjee70494917fb1887aa64575176d7b">
+            <img class="decorative size-med inline" role="presentation" aria-hidden="true" src="../images/Reminder_02.png" alt="" id="jvzc2ed254ad1dbcfa565bc4c487c2a0" />
+            <strong class="important" id="ecpvf9c0b681aaf2bab5d256f24d7a35">ANOVA, <a class="crossref" href="alw_9781319272463_ch09_02.xhtml#page458" id="unidch12_6" style="overflow-wrap: break-word;">p. 458</a></strong>
+          </p>
+        </aside>
+        <p class="indent" id="bqjgf3d9bb52f6459af742ab2e4ec401">Our discussion begins with an overview of the simple linear regression model and inference about the slope <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0019.png" aria-label="beta sub one"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="18" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="hculf7273f4727f2afa6439307673226" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="zgwc5581036734236f3752b778a6318c"><mjx-mrow id="kpsqd3191381e4e029728260272b0aad"><mjx-msub id="oethf2b05f6240b361b37d3ed61805fe"><mjx-mi class="mjx-i" id="lqkgafddd54b1a5ae69848f9d40e1178"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="hjyb853bf5adc1580e4477abf8856f19"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>1</mn></msub></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> and the intercept <span class="chemistry" id="xbyt55c530fb70d8671d7c326bc0f71f"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0020.png" aria-label="beta sub zero full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="19" style="font-size: 122.3%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="knci9710d998be55246e75986efa4e2d" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="qayvcc74bb35b0afe28822e4eb719f43"><mjx-mrow id="ntwac95f54cd2343688c2172ef4b34d1"><mjx-msub id="ncuyb1add0b16ac6d2a90b4e50ebab74"><mjx-mi class="mjx-i" id="jkesd2d5d2e5e846dee2901d6c58c6f9"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s" id="zejzd340b7737eff5066c7a5147bce32"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" rspace="3" id="kvfad0cdfe319ef69e2c3eae73b485e9"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><msub><mi>β</mi><mn>0</mn></msub><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> Because regression lines are most often used for prediction, we then consider inference about either the mean response or an individual future observation on <span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0021.png" aria-label="y"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="20" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="jdft9a58227b1489f8efc972eecb04d0" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="fitr113adca384dff8d52762eb0d9de2"><mjx-mrow id="vpdba7645945e4c8263eec35d713fa09"><mjx-mi class="mjx-i" id="jldsfd32963d59b3eea369ad9da42490"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>y</mi></mrow></semantics></math></mjx-assistive-mml></mjx-container></span> for a given value of the explanatory variable <span class="chemistry" id="xrzf82cbdc6ec3116c1d97278678ac48"><span class="math" role="math" tabindex="0" id="alw_9781319272463_ch12_01EQ_0022.png" aria-label="x full stop"><mjx-container class="MathJax CtxtMenu_Attached_0" jax="CHTML" tabindex="0" CtxtMenu_Counter="21" style="font-size: 122.1%; position: relative;"><mjx-math xmlns:m="http://www.w3.org/1998/Math/MathML" id="ddyodf3ac8bc007e6275748a0ff233f3" class="MJX-TEX" aria-hidden="true"><mjx-semantics id="ksbe715cdd18e13a6191f890de69a246"><mjx-mrow id="andoc6cd47b583421cd7feef8c3eb07c"><mjx-mi class="mjx-i" id="yitcf0067aaa3be8cd15ae3405ff3f24"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" rspace="3" id="tfcafbfa6bb43968be0cfc6471fbcfc8"><mjx-c class="mjx-c2E"></mjx-c></mjx-mo></mjx-mrow></mjx-semantics></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" display="inline"><semantics><mrow><mi>x</mi><mo lspace="0">.</mo></mrow></semantics></math></mjx-assistive-mml></mjx-container></span></span> We conclude the chapter with more of the computational details, including the use of analysis of variance (ANOVA). If you plan to read <a class="external" href="alw_9781319272463_ch13_01.xhtml#ch13_sec_1" id="ch13-ext13" style="overflow-wrap: break-word;">Chapter 13</a> on regression involving more than one explanatory variable, these details will be very useful.</p>
+      </section>
+    </section>
+  <style type="text/css" style="display: none;">.vsthighlight { cursor: pointer; } .disabledHighlight { background: #ECECEC !important; border-color: #B3B3B3 !important; cursor: default !important; } .disabledHighlight.vst-shared-highlight { background: transparent !important; }</style><style type="text/css" style="display: none;">.tts-highlight { background: yellow !important; }</style><div id="myModal" class="modal" style="display: none;"><div class="modal-content"><button tabindex="0" title="Close (Esc)" class="close"></button><div class="modal-body"></div></div></div><div tabindex="0" id="dummyDiv" style="display: none;"></div><div id="gallery" class="pswp" role="dialog" aria-labelledby="figcaption" style="display: none;"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><!-- <div class="pswp__loading-indicator"><div class="pswp__loading-indicator__line"></div></div> --><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button><button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class="pswp__caption"><div id="figcaption" class="pswp__caption__center"></div><div class="lm_controls_lightbox"><button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button><button class="pswp__button pswp__button--zoom lm__in" title="Zoom in"></button><button disabled="true" class="pswp__button pswp__button--zoom lm__out" title="Zoom out"></button></div></div></div></div></div></body>
+</html>
